@@ -2,10 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { BsArrowRight } from 'react-icons/bs'
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 export default function Home() {
    return (
       <>
+       <Header />
          <section className="flex justify-center mt-10 ">
             <div className="w-full bg-[#F3FAFF] shadow-xl xl:w-[80vw] rounded-3xl sm:px-10 px-5 grid md:grid-cols-2  items-center">
                <div className="py-10">
@@ -247,6 +250,8 @@ export default function Home() {
                </div>
             </div>
          </section>
+
+         <Footer />
       </>
 
    );
