@@ -31,21 +31,21 @@ export const ProviderCard = ({ item,zone }: any) => {
                     <div className="px-5 text-[12px] border-r  ">
                         <div className="flex gap-3 pl-2">
                             <svg className="lg:w-12 w-6 h-8  text-[#5050b9] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" ></path>
+                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" ></path>
                             </svg>
                             <p>15-day free trial to see how well T-Mobile 5G operates in your home.</p>
                         </div>
                         <br />
                         <div className="flex gap-3">
                             <svg className="w-6 h-4  text-[#5050b9] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
+                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
                             </svg>
                             <p>No contract required!</p>
                         </div>
                         <hr className="md:invisible visible mt-5" />
                         <div className="flex gap-3">
                             <svg className="w-6 h-4  text-[#5050b9] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
+                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
                             </svg>
                             <p className="">Your price is locked in.</p>
                         </div>

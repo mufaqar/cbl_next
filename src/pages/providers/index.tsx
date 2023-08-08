@@ -1,6 +1,6 @@
 'use client'
 import { useParams } from 'next/navigation'
-import { client } from '@/config/client'
+import apolloClient from '@/config/client'
 
 import { GET_PROVIDERS , GET_ZONE } from '@/config/query'
 import { GetStaticProps } from 'next'
@@ -54,16 +54,21 @@ export default function Providers({ allProviders , allZone }: any) {
 
 
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ params } ) => {
+   
+
+   
+
+  
     const [providers , zone] = await Promise.all([
-        client.query({ query: GET_PROVIDERS }),
-        client.query({ query: GET_ZONE })
+        apolloClient.query({ query: GET_PROVIDERS, variables:{zipcode:"15401"} }),
+        apolloClient.query({ query: GET_ZONE })
     ]);
     const allProviders = providers.data.providers.nodes
     const allZone = zone.data.allZone.nodes
     return {
         props: {
-            allProviders,allZone
+            allProviders , allZone
         },
     };
 }

@@ -1,14 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const GET_PROVIDERS = gql`
-query GET_PROVIDERS {
-  posts(
-    where: {
-      metaQuery: {
-       metaArray: { key: "internet_serices", compare: LIKE, value: "15401"}
-      }
-    }
-  ) {
+query GET_PROVIDERS ($zipcode:String!) {
+  providers(where: {metaQuery: {metaArray: {key: "internet_serices", value: $zipcode, compare: LIKE}}}) {
     nodes {
       title
   
