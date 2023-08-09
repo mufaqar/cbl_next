@@ -13,7 +13,7 @@ const ServiceBox = ({ img, title, content, link }: any) => {
                     <p className="px-5 mt-5 text-base text-center">
                         {content}
                     </p>
-                    <Link href={link} className='px-5 py-2 mt-5 text-base text-center block bg-blue-500 text-white w-fit mx-auto'>
+                    <Link href={link} className='px-5 py-2 mt-5 text-base text-center block bg-[#ef9831] hover:bg-[#215690] text-white w-fit mx-auto'>
                         Check Availability
                     </Link>
                 </div>
