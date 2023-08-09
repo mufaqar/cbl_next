@@ -5,8 +5,12 @@ import SearchForm from '@/components/searchform';
 import ServiceBox from '@/components/service-box';
 import Why_ChooseUs from '@/components/why-choose-us';
 import Link from 'next/link';
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
+  
+  
    return (
       <>
          <Main />
@@ -54,7 +58,7 @@ export default function Home() {
                   </h2>
                </div>
                <div>
-                  <SearchForm />
+                  <SearchForm  />
                </div>
             </div>
          </section>

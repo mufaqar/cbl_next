@@ -11,14 +11,7 @@ const Main = () => {
                     </h1>
                     <div className="w-full py-5 mt-6 bg-white border md:h-52 rounded-3xl">
                         <SearchForm />
-                        <div className="flex px-4 mt-6 md:gap-3 md:mt-5 md:px-10 font-[Roboto]">
-                            <input type="radio" name="" id="" className="w-10 h-7" />
-                            <h5>Internet</h5>
-                            <input type="radio" name="" id="" className="w-10 h-7" />
-                            <h5>TV</h5>
-                            <input type="radio" name="" id="" className="w-10 h-7" />
-                            <h5>Bundle</h5>
-                        </div>
+                        
                     </div>
                 </div>
                 <div className="sm:block hidden">
