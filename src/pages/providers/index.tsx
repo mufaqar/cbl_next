@@ -27,7 +27,7 @@ export default function Providers({ allProviders , allZone }: any) {
             <section className="whole container mx-auto   max-w-full mt-16">
                 <div className=" bg-[#e6e6e6] w-full max-wfull">
                     <div>
-                        <h1 className=" font-extrabold lg:text-[30px] text- text-center mx-auto text-[#151515] lg:leading-[2.5rem]">Internet providers in {city} : {county} : { state}, Massachusetts</h1>
+                        <h1 className=" font-extrabold lg:text-[30px] text- text-center mx-auto text-[#151515] lg:leading-[2.5rem]">Internet providers in City:{city} : State: { state} County:{county}</h1>
                     </div>
 
                     {
