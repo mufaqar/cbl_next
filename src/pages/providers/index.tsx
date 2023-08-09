@@ -7,6 +7,8 @@ import { GetStaticProps } from 'next'
 
 import Image from 'next/image'
 import { ProviderCard } from '@/components/provider/provider-card'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 export default function Providers({ allProviders , allZone }: any) {
     const params = useParams()
@@ -14,6 +16,7 @@ export default function Providers({ allProviders , allZone }: any) {
     return (
         <>
 
+        <Header />
             <section className="whole container mx-auto   max-w-full">
                 <div className=" bg-[#e6e6e6] w-full max-wfull">
                     <div>
@@ -46,6 +49,8 @@ export default function Providers({ allProviders , allZone }: any) {
 
 
             </section >
+
+            <Footer />
 
         </>
 
