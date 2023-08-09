@@ -32,27 +32,6 @@ export default function Home() {
             </div>
          </section>
 
-         <section className="mt-20 flex md:flex-row flex-col">
-            <div className='flex md:flex-row flex-col container mx-auto px-4 gap-7 items-center'>
-               <div className="md:w-5/12 w-full">
-                  <h2 className="text-2xl font-medium">
-                     Review Top Providers
-                  </h2>
-                  <p className="font-[Roboto] my-3">
-                     Let us help you sift through the noise by comparing the top providers near you. Find high-speed options for internet, TV, or bundles that meet your needs.
-                  </p>
-                  <Link href="https://www.highspeedoptions.com/disclosure" className="text-blue-600 font-[Roboto] ">
-                     View All Providers
-                  </Link>
-               </div>
-               <div className="md:w-7/12 w-full">
-                  <div className='rounded-[20px] pb-4 bg-[#F3FAFF]'>
-                     <Brands />
-                  </div>
-               </div>
-            </div>
-         </section>
-
          <section>
             <div className='container mx-auto px-4 mt-10'>
                <div className="mt-20 mb-7">
@@ -79,53 +58,22 @@ export default function Home() {
             </div>
          </section>
 
-         <section className="">
-            <div className='grid md:grid-cols-4 grid-cols-1 mt-20 gap-10 container mx-auto px-4 '>
-               <div className="mx-auto ">
-                  <img src="/images/girl.jpg" alt="" className="h-full mt-4 shadow-md rounded-3xl shadow-gray-500" />
-               </div>
-               <div className="mt-5 md:col-span-3">
-                  <h2 className='md:text-3xl text-2xl font-bold'>
-                     WHY CHOOSE CABLEMOVERS.NET?
+         <section className="flex md:flex-row flex-col bg-gradient-to-r from-white via-white to-[#F3FAFF]">
+            <div className='flex md:flex-row flex-col container mx-auto px-4 gap-7 items-center'>
+               <div className="md:w-5/12 w-full">
+                  <h2 className="text-2xl font-medium">
+                     Review Top Providers
                   </h2>
-                  <p className="font-[Roboto] my-3">
-                     Finding Internet & TV providers is tough, but we've made it easy.
+                  <p className="text-base font-[Roboto] my-3">
+                     Let us help you sift through the noise by comparing the top providers near you. Find high-speed options for internet, TV, or bundles that meet your needs.
                   </p>
-                  <div className="grid gap-5 mt-5 md:grid-cols-3 grid-cols-1">
-                     <div className="">
-                        <h2 className="text-lg font-medium mb-3">
-                           NATIONWIDE COVERAGE
-                        </h2>
-                        <p className="font-[Roboto]">
-                           Find all Internet and TV providers available to you in your Area.
-                        </p>
-                     </div>
-                     <div className="">
-                        <h2 className="text-lg font-medium mb-3">
-                           ONE STOP SHOP
-                        </h2>
-                        <p className="font-[Roboto]">
-                           Compare all Internet and TV plans, order service for no extra charge.
-                        </p>
-                     </div>
-                     <div className="">
-                        <h2 className="text-lg font-medium mb-3">
-                           TOP BRANDS
-                        </h2>
-                        <p className="font-[Roboto]">
-                           We partnered with Top Brands to help you shop smartly.
-                        </p>
-                     </div>
-                  </div>
-                  <div className="bg-[#F3FAFF] py-5 md:px-10 px-5 mt-10 rounded-2xl">
-                     <div className='flex md:flex-row flex-col justify-between items-center gap-5'>
-                        <h2 className="font-[Roboto] text-2xl ">
-                           CALL TO SETUP
-                        </h2>
-                        <Link href="tel:1-833-592-0098" className="px-8 py-2 bg-blue-700 rounded-xl text-white font-[Roboto]">
-                           1-833-592-0098
-                        </Link>
-                     </div>
+                  <Link href="https://www.highspeedoptions.com/disclosure" className="text-blue-600 font-[Roboto] ">
+                     View All Providers
+                  </Link>
+               </div>
+               <div className="md:w-7/12 w-full">
+                  <div className='rounded-l-[90px] bg-[#F3FAFF] py-20 px-5'>
+                     <Brands />
                   </div>
                </div>
             </div>
