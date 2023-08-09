@@ -22,10 +22,12 @@ const Header = () => {
                     </button>
                 </div>
                 <div className="sm:pl-0 pl-7 sm:w-1/3 w-full">
-                    <Image src="/images/logo.png" alt="logo.svg" height={32} width={300} className='max-h-[67px] object-cover' />
+                    <Link href="/">
+                        <Image src="/images/logo.png" alt="logo.svg" height={32} width={300} className='max-h-[67px] object-cover' />
+                    </Link>
                 </div>
-                <div className={`sm:w-2/3 w-full sm:justify-end md:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white' : 'top-[-100%] '}`}>
-                    <ul className="flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-5">
+                <div className={`sm:w-2/3 w-full sm:justify-end sm:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white' : 'top-[-100%] '}`}>
+                    <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
                         <li>
                             <Link href="#" className='text-base font-normal text-black hover:text-blue-500'>Inter & TV</Link>
                         </li>
