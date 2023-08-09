@@ -29,18 +29,18 @@ const Header = () => {
                 <div className={`sm:w-2/3 w-full sm:justify-end sm:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white' : 'top-[-100%] '}`}>
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
                         <li>
-                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831]'>TV</Link>
+                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831]'>Internet</Link>
+                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Internet</Link>
                         </li>
                         <li>
-                            <Link href="/providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831]'>Providers</Link>
+                            <Link href="/providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Providers</Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831]'>Resources</Link>
+                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Resources</Link>
                         </li>
-                        <Link href="tel:855-512-0491" className="items-center gap-2 text-[#ef9831] flex justify-end">
+                        <Link href="tel:855-512-0491" className="items-center gap-2 text-[#ef9831] font-[Roboto] flex justify-end">
                             <BsTelephoneFill size={18} />
                             <span className="text-base font-normal">855-512-0491</span>
                         </Link>
