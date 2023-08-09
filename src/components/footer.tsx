@@ -6,7 +6,7 @@ import { BiLogoFacebookCircle, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoYoutub
 
 const Footer = () => {
   return (
-    <footer className='bg-[#111827] pt-32 pb-8 mt-8'>
+    <footer className='bg-[#111827] pt-32 pb-8 '>
       <div className='container mx-auto px-4 grid md:grid-cols-4 grid-cols-1 gap-5'>
         <div>
           <Link href="/">
@@ -42,7 +42,7 @@ const Footer = () => {
           <h6 className='text-lg font-normal text-white mb-5'>
             SERVICES
           </h6>
-          <ul>
+          <ul className='grid gap-3'>
             {Services_data?.map((item: any, idx: number) => {
               return <li key={idx}>
                 <Link href={item?.link} className='text-sm font-medium capitalize text-white/75 hover:text-white'>
@@ -56,7 +56,7 @@ const Footer = () => {
           <h6 className='text-lg font-normal text-white mb-5'>
             PROVIDERS
           </h6>
-          <ul className='grid md:grid-cols-2 grid-cols-1'>
+          <ul className='grid md:grid-cols-2 grid-cols-1 gap-3'>
             {Providers_Data?.map((item: any, idx: number) => {
               return <li key={idx}>
                 <Link href={item?.link} className='text-sm font-medium capitalize text-white/75 hover:text-white'>
@@ -70,7 +70,7 @@ const Footer = () => {
           <h6 className='text-lg font-normal text-white mb-5'>
             COMPANY
           </h6>
-          <ul>
+          <ul className='grid gap-3'>
             {Services_data?.map((item: any, idx: number) => {
               return <li key={idx}>
                 <Link href={item?.link} className='text-sm font-medium capitalize text-white/75 hover:text-white'>
