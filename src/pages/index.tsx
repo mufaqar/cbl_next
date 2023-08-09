@@ -3,6 +3,7 @@ import CityBox from '@/components/city-box';
 import Main from '@/components/main';
 import SearchForm from '@/components/searchform';
 import ServiceBox from '@/components/service-box';
+import Why_ChooseUs from '@/components/why-choose-us';
 import Link from 'next/link';
 
 export default function Home() {
@@ -35,7 +36,7 @@ export default function Home() {
          <section>
             <div className='container mx-auto px-4 mt-10'>
                <div className="mt-20 mb-7">
-                  <h2 className='text-center text-2xl font-medium'>
+                  <h2 className='text-center text-2xl font-bold'>
                      Compare Internet Providers in Major Cities
                   </h2>
                </div>
@@ -61,7 +62,7 @@ export default function Home() {
          <section className="flex md:flex-row flex-col bg-gradient-to-r from-white via-white to-[#F3FAFF]">
             <div className='flex md:flex-row flex-col container mx-auto px-4 gap-7 items-center'>
                <div className="md:w-5/12 w-full">
-                  <h2 className="text-2xl font-medium">
+                  <h2 className="text-2xl font-bold">
                      Review Top Providers
                   </h2>
                   <p className="text-base font-[Roboto] my-3">
@@ -78,8 +79,7 @@ export default function Home() {
                </div>
             </div>
          </section>
-
-    
+         <Why_ChooseUs />
       </>
 
    );
