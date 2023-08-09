@@ -12,10 +12,26 @@ query GET_PROVIDERS ($zipcode:String!) {
 `;
 
 export const GET_ZONE = gql`
-  query GetZone {
-    allZone {
+  query GetZone  ($ztitle:String!) {
+    allZone(where: {title: $ztitle}) {
       nodes {
         title
+        zoneId
+        cities {
+          nodes {
+            name
+          }
+        }
+        countys {
+          nodes {
+            name
+          }
+        }
+        states {
+          nodes {
+            name
+          }
+        }
       }
     }
   }
