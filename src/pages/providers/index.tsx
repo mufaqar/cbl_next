@@ -16,8 +16,7 @@ export default function Providers({ allProviders , allZone }: any) {
     return (
         <>
 
-        <Header />
-            <section className="whole container mx-auto   max-w-full">
+            <section className="whole container mx-auto   max-w-full mt-16">
                 <div className=" bg-[#e6e6e6] w-full max-wfull">
                     <div>
                         <h1 className=" font-extrabold lg:text-[30px] text- text-center mx-auto text-[#151515] lg:leading-[2.5rem]">Internet providers in Agawam Town, Massachusetts</h1>

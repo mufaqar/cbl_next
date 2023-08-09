@@ -6,7 +6,7 @@ import { BiLogoFacebookCircle, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoYoutub
 
 const Footer = () => {
   return (
-    <footer className='bg-[#111827] pt-32 pb-8 mt-16'>
+    <footer className='bg-[#111827] pt-32 pb-8 mt-8'>
       <div className='container mx-auto px-4 grid md:grid-cols-4 grid-cols-1 gap-5'>
         <div>
           <Link href="/">

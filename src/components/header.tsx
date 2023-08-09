@@ -29,10 +29,10 @@ const Header = () => {
                 <div className={`sm:w-2/3 w-full sm:justify-end sm:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white' : 'top-[-100%] '}`}>
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
                         <li>
-                            <Link href="#" className='text-base font-normal text-black hover:text-blue-500'>Inter & TV</Link>
+                            <Link href="/" className='text-base font-normal text-black hover:text-blue-500'>Inter & TV</Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-base font-normal text-black hover:text-blue-500'>Providers</Link>
+                            <Link href="/providers" className='text-base font-normal text-black hover:text-blue-500'>Providers</Link>
                         </li>
                         <li>
                             <Link href="#" className='text-base font-normal text-black hover:text-blue-500'>Resources & Tools</Link>
