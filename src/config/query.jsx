@@ -5,6 +5,11 @@ query GET_PROVIDERS ($zipcode:String!) {
   providers(where: {metaQuery: {metaArray: {key: "internet_serices", value: $zipcode, compare: LIKE}}}) {
     nodes {
       title
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
   
     }
   }
