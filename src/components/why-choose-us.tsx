@@ -13,7 +13,7 @@ const Why_ChooseUs = () => {
                         Finding Internet & TV providers is tough, but we've made it easy.
                     </p>
                 </div>
-                <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
                     <div className="block rounded-xl border border-gray-100 p-8 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
                         <FaBroadcastTower className="h-10 w-10 text-[#215690]" />
                         <h2 className="mt-4 text-xl font-bold">

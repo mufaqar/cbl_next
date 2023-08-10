@@ -72,7 +72,7 @@ export default function Home() {
                   <p className="text-base font-[Roboto] my-3">
                      Let us help you sift through the noise by comparing the top providers near you. Find high-speed options for internet, TV, or bundles that meet your needs.
                   </p>
-                  <Link href="https://www.highspeedoptions.com/disclosure" className="text-blue-600 font-[Roboto] ">
+                  <Link href="https://www.highspeedoptions.com/disclosure" className="text-[#215690] font-[Roboto] ">
                      View All Providers
                   </Link>
                </div>
