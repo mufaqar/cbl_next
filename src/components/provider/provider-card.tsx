@@ -1,62 +1,65 @@
-export const ProviderCard = ({ item,zone }: any) => {
+import Link from "next/link";
+
+export const ProviderCard = ({ item, zone }: any) => {
     console.log(zone);
 
     return (
 
         <>
-           <div className=" w-full lg:max-w-[1200px]  mx-auto py-4 h-auto ">
-                <div className="bg-black text-white flex justify-between px-5 py-1 rounded-t-md">
-                    <h2 className="font-[abc] text-[18px]">{item.title}</h2>
-                    <h5 className="font-[abc] font-semibold">99% available in Zipcode</h5>
+            <div className=" w-full lg:max-w-[1200px]  mx-auto py-4 h-auto rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
+                <div className="flex justify-between px-4 py-1 md:border-b-0 border-b ">
+                    <h2 className="font-[Roboto] text-lg font-normal">{item.title}</h2>
                 </div>
-                <div className="bg-white shadow-md rounded-b-md w-full h-auto grid lg:grid-cols-6 md:grid-cols-3  border py-8 ">
-                    <div className="border-r ">
-                        <img src="./images/images.png" alt="" className=" mt-7 px-5" />
-                        <hr className="lg:invisible visible mt-5" />
+                <div className="bg-white w-full h-auto grid md:grid-cols-5 pt-4 pb-12">
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                        <img src="./images/partner1.png" alt="" className="" />
                     </div>
 
-                    <div className="border-r px-2 mt-8 pl-4">
-                        <figure>
-                            <img src="./images/images.jpg" alt="" className="w-[120px] h-[20px]" />
-                        </figure>
-                        <span className="text-[#5050b9]  hover:border-[#5050b9] text-sm  hover:text-red-600 border-b-[#5050b9] ">Customer Rating</span>
-                        <hr className="lg:invisible visible mt-5" />
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                        <h4 className="font-bold text-center">Speeds from: 25-5000 Mbps </h4>
                     </div>
 
-
-                    <div className="text-center border-r">
-                        <h4 className="mt-12 font-[abc] font-bold">Speeds up to 245 Mbps</h4>
-                        <hr className="lg:invisible visible mt-5" />
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                        <ul className="grid items-center justify-center ">
+                            <li className="flex gap-2 items-center">
+                                <svg className="min-w-[1rem] h-4  text-[#ef9831] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" ></path>
+                                </svg>
+                                <span>
+                                    No annual contract
+                                </span>
+                            </li>
+                            <li className="flex gap-2 items-center">
+                                <svg className="min-w-[1rem] h-4  text-[#ef9831] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" ></path>
+                                </svg>
+                                <span>
+                                    Equipment fee included
+                                </span>
+                            </li>
+                            <li className="flex gap-2 items-center">
+                                <svg className="min-w-[1rem] h-4  text-[#ef9831] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" ></path>
+                                </svg>
+                                <span>
+                                    No price increases after 12 months
+                                </span>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="px-5 text-[12px] border-r  ">
-                        <div className="flex gap-3 pl-2">
-                            <svg className="lg:w-12 w-6 h-8  text-[#5050b9] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" ></path>
-                            </svg>
-                            <p>15-day free trial to see how well T-Mobile 5G operates in your home.</p>
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                        <div>
+                            <h5 className="font-bold text-center">Pricing starts from</h5>
+                            <p className="text-center">
+                                <span className="font-extrabold text-[#215690] font-[Roboto] text-xl">$55.00</span> /mo.
+                            </p>
                         </div>
-                        <br />
-                        <div className="flex gap-3">
-                            <svg className="w-6 h-4  text-[#5050b9] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <p>No contract required!</p>
-                        </div>
-                        <hr className="md:invisible visible mt-5" />
-                        <div className="flex gap-3">
-                            <svg className="w-6 h-4  text-[#5050b9] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <p className="">Your price is locked in.</p>
-                        </div>
-                        <hr className="md:invisible visible mt-5" />
                     </div>
-                    <div className="text-center px-5 border-r">
-                        <h5 className="mt-10 ">Price starting from <br /> <span className="font-extrabold text-blue-950 font-[abc] text-xl">$50.00</span> /mo.</h5>
-                        <hr className="lg:invisible visible mt-5" />
-                    </div>
-                    <div className="justify-center items-center flex lg:border-l-2">
-                        <button className="text-white whitespace-nowrap font-[abc] flex justify-between uppercase items-center px-[20px] py-[10px] bg-[#ff2128] hover:bg-[#cf2e2e]">View Plans</button>
+                    <div className="grid items-center justify-center p-5">
+                        <Link href="tel:000-000-000" className="text-base text-[#ef9831] hover:text-[#215690] font-[Roboto] font-medium uppercase px-5 py-2.5">
+                            000-000-000
+                        </Link>
+                        <Link href="#" className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>
                 </div>
             </div>

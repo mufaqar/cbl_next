@@ -1,4 +1,3 @@
-
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
@@ -7,23 +6,15 @@ const SearchForm = () => {
     const [zipcode, setzipcode] = useState<string>();
     const [pro_type, setpro_type] = useState<string>();
     const router = useRouter();
- 
+
     return (
         <>
-        <div className="relative flex items-center w-full sm:px-12 px-6 mt-6 md:mt-10">
-            <FaMagnifyingGlass className="absolute ml-3" />
-            <input type="text" placeholder="Enter Zip Code"  name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-3 pl-10 pr-8 border outline-none md:w-80 border-zinc-400 rounded-l-md" />
-            <button className="px-4 py-[13px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-r-md" onClick={() => router.push(`/providers?zipcode=${zipcode}&type=${pro_type}`)}>Search</button>
-        </div>
-        <div className="flex px-4 mt-6 md:gap-3 md:mt-5 md:px-10 font-[Roboto]">
-        <input type="radio" name="" id="" className="w-10 h-7" />
-        <h5>Internet</h5>
-        <input type="radio" name="" id="" className="w-10 h-7" />
-        <h5>TV</h5>
-        <input type="radio" name="" id="" className="w-10 h-7" />
-        <h5>Bundle</h5>
-    </div>
-    </>
+            <div className="relative flex items-center w-full sm:px-12 px-6 mt-6 md:mt-10">
+                <FaMagnifyingGlass className="absolute ml-3" />
+                <input type="text" placeholder="Enter Zip Code" name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-3 pl-10 pr-8 border outline-none md:w-80 border-zinc-400 rounded-l-md" />
+                <button className="px-4 py-[13px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-r-md" onClick={() => router.push(`/providers?zipcode=${zipcode}&type=${pro_type}`)}>Search</button>
+            </div>
+        </>
     )
 }
 
