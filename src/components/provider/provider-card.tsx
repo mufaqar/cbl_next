@@ -7,7 +7,7 @@ export const ProviderCard = ({ item,zone }: any) => {
            <div className=" w-full lg:max-w-[1200px]  mx-auto py-4 h-auto ">
                 <div className="bg-black text-white flex justify-between px-5 py-1 rounded-t-md">
                     <h2 className="font-[abc] text-[18px]">{item.title}</h2>
-                    <h5 className="font-[abc] font-semibold">99% available in 01001</h5>
+                    <h5 className="font-[abc] font-semibold">99% available in Zipcode</h5>
                 </div>
                 <div className="bg-white shadow-md rounded-b-md w-full h-auto grid lg:grid-cols-6 md:grid-cols-3  border py-8 ">
                     <div className="border-r ">
