@@ -15,6 +15,7 @@ import Inter_Service from '@/components/provider/inter-service'
 import Technology_Box from '@/components/provider/technology-box'
 import Nearby_City from '@/components/provider/nearby-city'
 import Faqs_Sec from '@/components/faqs'
+import { Faqs_Data } from '@/const/exports'
 
 export default function Providers({ allProviders, allZone }: any) {
     const params = useParams()
@@ -67,7 +68,7 @@ export default function Providers({ allProviders, allZone }: any) {
                         }
                     </div>
                     <div>
-                        <p className="text-xl font-[Roboto] mt-10">
+                        <p className="text-sm font-[Roboto] mt-10">
                             Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time
                         </p>
                     </div>
@@ -106,7 +107,7 @@ export default function Providers({ allProviders, allZone }: any) {
                         <h2 className="text-2xl font-bold">
                             Types of internet Technologies available in {city}, {state}, {county}
                         </h2>
-                        <p>
+                        <p className='text-base'>
                             As of the time this page was written, (insert city name) likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
                         </p>
                     </div>
@@ -131,14 +132,16 @@ export default function Providers({ allProviders, allZone }: any) {
                     </div>
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-5 ">
                         <Nearby_City />
-                        
+
                     </div>
                 </div>
             </section>
 
             <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
-                    <Faqs_Sec />
+                    {Faqs_Data?.map((item: any, idx: number) => {
+                        return <Faqs_Sec key={idx} data={item} />
+                    })}
                 </div>
             </section>
         </>

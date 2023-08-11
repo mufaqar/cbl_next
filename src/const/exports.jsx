@@ -136,3 +136,21 @@ export const Galler_Data = [
         img: "/images/partner13.png",
     },
 ];
+
+export const Faqs_Data = [
+    {
+        id: 1,
+        question: 'Who is the Best Internet Service Provider in (insert city name, State Name)?',
+        answer: '(Insert provider’s number) internet service providers are available in (insert city name). Based on the availability (insert provider’s name) is the best internet service provider in (insert city name, zip code).'
+    },
+    {
+        id: 2,
+        question: 'Who is the fastest Internet service provider in (insert city name, state name)?',
+        answer: '(Insert provider’s name) is the faster internet service provider in (insert city name, zip code) and offers max download speeds up to (insert provider speed) in select areas.'
+    },
+    {
+        id: 3,
+        question: 'Who is the fastest Internet service provider in (insert city name, state name)?',
+        answer: '(Insert provider’s name) is the faster internet service provider in (insert city name, zip code) and offers max download speeds up to (insert provider speed) in select areas.'
+    },
+]
