@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const ProviderCard = ({ item, zone }: any) => {
-    console.log(zone);
+    console.log(item);
 
     return (
 
@@ -57,9 +57,9 @@ export const ProviderCard = ({ item, zone }: any) => {
                     </div>
                     <div className="grid items-center justify-center p-5">
                         <Link href="tel:000-000-000" className="text-base text-[#ef9831] hover:text-[#215690] font-[Roboto] font-medium uppercase px-5 py-2.5">
-                            000-000-000
+                           {item.providersInfo.proPhone}
                         </Link>
-                        <Link href="#" className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
+                        <Link href="/providers/" className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>
                 </div>
             </div>

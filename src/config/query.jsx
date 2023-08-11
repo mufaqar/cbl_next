@@ -10,6 +10,9 @@ query GET_PROVIDERS ($zipcode:String!) {
           mediaItemUrl
         }
       }
+      providersInfo {
+        proPhone
+      }
   
     }
   }
