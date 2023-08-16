@@ -90,7 +90,7 @@ export default function Single_Provider({provider}:any) {
         <div className="container mx-auto px-4 grid grid-cols-2 items-center">
           <div>
             <h3 className="md:text-2xl text-lg font-bold">
-              Call NOW to order HughesNet
+              Call NOW to order {item.title}
             </h3>
           </div>
           <div className='text-end'>
@@ -372,7 +372,7 @@ export default function Single_Provider({provider}:any) {
         <div className="container mx-auto px-4">
           <div className=''>
             <h2 className="text-2xl font-bold">
-              About HughesNet
+              About {item.title}
             </h2>
             <p className='text-xl font-[Roboto] mt-5'>
               {item.title} is a satellite internet service provider invented by Hughes® more than 25 years ago and offering high speed internet service to the rural and remote areas where other internet options are limited or not available such as DSL, Cable and Fiber. It uses its satellite technology to provide internet service and it is currently available in the entire US.
@@ -388,7 +388,7 @@ export default function Single_Provider({provider}:any) {
               {item.title} Internet Pros and Cons
             </h2>
             <p className='text-xl font-[Roboto] mt-5'>
-              {item.title} is a valuable choice for individuals and businesses seeking high speed internet connectivity especially in the rural and remote area. Here are some of the pros and cons of HughesNet.
+              {item.title} is a valuable choice for individuals and businesses seeking high speed internet connectivity especially in the rural and remote area. Here are some of the pros and cons of {item.title}.
             </p>
           </div>
           <div className='grid md:grid-cols-2 grid-cols-1 gap-7'>
