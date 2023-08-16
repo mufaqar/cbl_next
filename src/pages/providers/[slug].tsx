@@ -4,9 +4,29 @@ import SearchForm from '@/components/searchform'
 import { Faqs_Data } from '@/const/exports';
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import apolloClient from '@/config/client'
+import { SINGLE_Provider } from '@/config/query';
 
-export default function Single_Provider() {
+export default function Single_Provider({provider}:any) {
+  console.log(provider);
+  const item = provider;
   const [nav, setNav] = useState(false);
+ 
+
+      // Get the current date
+  const currentDate = new Date();
+
+  // Get the current month (0-indexed, so January is 0, February is 1, etc.)
+  const currentMonth = currentDate.getMonth();
+
+  // Get the current year
+  const currentYear = currentDate.getFullYear();
+
+  // Adjust the month to be human-readable (add 1 since months are 0-indexed)
+  const humanReadableMonth = currentMonth + 1;
+
+
 
   const changeBackground = () => {
     if (window.scrollY >= 350) {
@@ -27,7 +47,9 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
           <div className='col-span-2'>
             <h1 className="sm:text-3xl text-2xl font-bold">
-              HughesNet Internet plans and pricing for (insert current month, year)
+              {item.title} Internet plans and pricing for {currentMonth} ,{currentYear}
+
+              
             </h1>
             <h2 className="text-xl font-bold my-3">
               Prices starting at $49.99/mo.
@@ -54,7 +76,7 @@ export default function Single_Provider() {
         <div className='container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-5 items-center'>
           <div className="">
             <h2 className='text-3xl font-bold'>
-              Enter your zip code below to find out if HughesNet is available in your area.
+              Enter your zip code below to find out if {item.title}  is available in your area.
             </h2>
           </div>
           <div>
@@ -84,7 +106,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet Internet Plans,
+              {item.title} Internet Plans,
             </h2>
           </div>
           <div>
@@ -102,7 +124,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet Fusion Internet Plans
+              {item.title} Fusion Internet Plans
             </h2>
           </div>
           <div>
@@ -120,7 +142,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet Fusion plans combines satellite and wireless technologies to give you low latency internet connection and deliver a faster, more responsive Internet experience which makes it easy to perform activities that are nearly impossible over a normal satellite internet connection e.g Online meetings, streaming and video gaming.
+              {item.title} Fusion plans combines satellite and wireless technologies to give you low latency internet connection and deliver a faster, more responsive Internet experience which makes it easy to perform activities that are nearly impossible over a normal satellite internet connection e.g Online meetings, streaming and video gaming.
             </h2>
           </div>
           <div className=" w-full lg:max-w-[1200px] mx-auto py-4 h-auto rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
@@ -128,7 +150,7 @@ export default function Single_Provider() {
               <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center p-5">
                 <div>
                   <p className="text-center text-base mt-2">
-                    Best HughesNet deals
+                    Best {item.title} deals
                   </p>
                 </div>
               </div>
@@ -155,7 +177,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet Business Internet Plans
+              {item.title} Business Internet Plans
             </h2>
           </div>
           <div>
@@ -173,7 +195,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet Business fusion Internet Plans
+              {item.title} Business fusion Internet Plans
             </h2>
           </div>
           <div>
@@ -191,7 +213,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className=''>
             <h2 className="text-2xl font-bold">
-              HughesNet for Business provides a reliable and secure connection that gives you instant access to the critical business information and applications you need, email, point of sale system, file sharing, online videos and more. It is available wherever your business is located even if you are located beyond the reach of DSL, Cable and Fiber.
+              {item.title} for Business provides a reliable and secure connection that gives you instant access to the critical business information and applications you need, email, point of sale system, file sharing, online videos and more. It is available wherever your business is located even if you are located beyond the reach of DSL, Cable and Fiber.
             </h2>
           </div>
         </div>
@@ -201,7 +223,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet Voice Plans
+              {item.title} Voice Plans
             </h2>
           </div>
           <div>
@@ -219,7 +241,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className=''>
             <h2 className="text-2xl font-bold">
-              HughesNet Voice uses advanced Voice-over-IP (VoIP) technology to deliver home phone service over satellite internet connection. All voice plans offers unlimited local and long distance calling to US and Canada. HughesNet Voice provides a range of features like caller ID, Voicemail, Call waiting, Call forwarding and Enhanced 911 service.
+              {item.title} Voice uses advanced Voice-over-IP (VoIP) technology to deliver home phone service over satellite internet connection. All voice plans offers unlimited local and long distance calling to US and Canada. {item.title} Voice provides a range of features like caller ID, Voicemail, Call waiting, Call forwarding and Enhanced 911 service.
             </h2>
           </div>
         </div>
@@ -229,7 +251,7 @@ export default function Single_Provider() {
         <div className='container mx-auto px-4 grid gap-5 items-center'>
           <div className="">
             <h2 className='text-3xl font-bold text-center'>
-              Find out if HughesNet is available in your area
+              Find out if {item.title} is available in your area
             </h2>
           </div>
           <div className="w-fit mx-auto py-5 mt-6 bg-white shadow-xl border md:h-52 rounded-3xl">
@@ -243,7 +265,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet Fees
+              {item.title} Fees
             </h2>
           </div>
           <div className="rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
@@ -340,7 +362,7 @@ export default function Single_Provider() {
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
-              (NOTE: HughesNet Fees and HughesNet Data tokens columns should be side by side)
+              (NOTE: {item.title} Fees and {item.title} Data tokens columns should be side by side)
             </p>
           </div>
         </div>
@@ -353,7 +375,7 @@ export default function Single_Provider() {
               About HughesNet
             </h2>
             <p className='text-xl font-[Roboto] mt-5'>
-              HughesNet is a satellite internet service provider invented by Hughes® more than 25 years ago and offering high speed internet service to the rural and remote areas where other internet options are limited or not available such as DSL, Cable and Fiber. It uses its satellite technology to provide internet service and it is currently available in the entire US.
+              {item.title} is a satellite internet service provider invented by Hughes® more than 25 years ago and offering high speed internet service to the rural and remote areas where other internet options are limited or not available such as DSL, Cable and Fiber. It uses its satellite technology to provide internet service and it is currently available in the entire US.
             </p>
           </div>
         </div>
@@ -363,10 +385,10 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet Internet Pros and Cons
+              {item.title} Internet Pros and Cons
             </h2>
             <p className='text-xl font-[Roboto] mt-5'>
-              HughesNet is a valuable choice for individuals and businesses seeking high speed internet connectivity especially in the rural and remote area. Here are some of the pros and cons of HughesNet.
+              {item.title} is a valuable choice for individuals and businesses seeking high speed internet connectivity especially in the rural and remote area. Here are some of the pros and cons of HughesNet.
             </p>
           </div>
           <div className='grid md:grid-cols-2 grid-cols-1 gap-7'>
@@ -416,10 +438,10 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className=''>
             <h2 className="text-2xl font-bold">
-              HughesNet Internet Discounts
+              {item.title} Internet Discounts
             </h2>
             <p className='text-xl font-[Roboto] mt-5'>
-              HughesNet participates in the Affordable Connectivity Program (ACP) to provide $30 discount per month ($75 on tribal lands) to all eligible participants on HughesNet Internet service through the Federal Communications Commission's (FCC) ACP program. It requires participants to submit an application that demonstrates their eligibility.
+              {item.title} participates in the Affordable Connectivity Program (ACP) to provide $30 discount per month ($75 on tribal lands) to all eligible participants on {item.title} Internet service through the Federal Communications Commission's (FCC) ACP program. It requires participants to submit an application that demonstrates their eligibility.
             </p>
           </div>
         </div>
@@ -429,7 +451,7 @@ export default function Single_Provider() {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              HughesNet FAQ’s
+              {item.title} FAQ’s
             </h2>
           </div>
           <div className='grid gap-10'>
@@ -441,4 +463,30 @@ export default function Single_Provider() {
       </section>
     </>
   )
+}
+
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const slug = context.params?.slug
+  const response = await apolloClient.query({
+    query: SINGLE_Provider,
+    variables: {
+      slug
+    },
+  });
+  const provider = response.data.provider;
+
+  return {
+    props: {
+      provider,
+    },
+  };
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths: any = [];
+  return {
+    paths,
+    fallback: 'blocking',
+  };
 }

@@ -5,6 +5,7 @@ query GET_PROVIDERS ($zipcode:String!) {
   providers(where: {metaQuery: {metaArray: {key: "internet_serices", value: $zipcode, compare: LIKE}}}) {
     nodes {
       title
+      slug
       featuredImage {
         node {
           mediaItemUrl
@@ -44,3 +45,11 @@ export const GET_ZONE = gql`
     }
   }
 `;
+
+
+export const SINGLE_Provider = gql`
+query SINGLE_Provider($slug: ID!) {
+  provider(id: $slug, idType: URI) {
+    title
+  }
+}`;

@@ -60,7 +60,7 @@ export default function Providers({ allProviders, allZone }: any) {
                             allProviders.map((item: any, idx: number) => {
                                 return (
                                     <>
-                                        <ProviderCard key={idx} item={item} zone={allZone} />
+                                        <ProviderCard key={idx} item={item} zone={allZone}  />
 
                                     </>
                                 )
@@ -108,7 +108,7 @@ export default function Providers({ allProviders, allZone }: any) {
                             Types of internet Technologies available in {city}, {state}, {county}
                         </h2>
                         <p className='text-base'>
-                            As of the time this page was written, (insert city name) likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
+                            As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
                         </p>
                     </div>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
@@ -127,7 +127,7 @@ export default function Providers({ allProviders, allZone }: any) {
                             Internet service providers in nearby cities
                         </h2>
                         <p>
-                            As of the time this page was written, (insert city name) likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
+                            As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
                         </p>
                     </div>
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-5 ">
@@ -140,7 +140,7 @@ export default function Providers({ allProviders, allZone }: any) {
             <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
                     {Faqs_Data?.map((item: any, idx: number) => {
-                        return <Faqs_Sec key={idx} data={item} />
+                        return <Faqs_Sec key={idx} data={item} city={city} state={state}  />
                     })}
                 </div>
             </section>
@@ -171,3 +171,5 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         },
     };
 }
+
+
