@@ -17,9 +17,10 @@ import Nearby_City from '@/components/provider/nearby-city'
 import Faqs_Sec from '@/components/faqs'
 import { Faqs_Data } from '@/const/exports'
 
-export default function Providers({ allProviders, allZone }: any) {
-    const params = useParams()
+export default function Providers({ allProviders, allZone,zipcode}: any) {
+    //const params = useParams()
 
+   // console.log(params);
     const { cities, countys, states } = allZone[0];
     console.log();
 
@@ -35,8 +36,8 @@ export default function Providers({ allProviders, allZone }: any) {
                 <Image src='/images/hero-right.png' alt="hero-left" width={500} height={222} className='absolute top-0 right-[-175px]' />
                 <div className="container mx-auto px-4">
                     <div >
-                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[770px] mx-auto">
-                            Internet Providers in <span className="text-[#ef9831]">{city}, {state}, {county} </span>
+                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto">
+                            Internet Service Providers in {zipcode} <br/><span className="text-[#ef9831]">{city}, {state}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] mt-3">
                             Enter your zip so we can find the best providers in your area:
@@ -52,7 +53,7 @@ export default function Providers({ allProviders, allZone }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold">
-                            Home Internet in 32714
+                            Home Internet in {zipcode}
                         </h2>
                     </div>
                     <div>
@@ -167,7 +168,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const allZone = zone.data.allZone.nodes
     return {
         props: {
-            allProviders, allZone
+            allProviders, allZone , zipcode
         },
     };
 }

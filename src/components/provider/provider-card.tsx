@@ -16,7 +16,8 @@ export const ProviderCard = ({ item, zone }: any) => {
                     </div>
 
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                        <h4 className="font-bold text-center">Speeds from: 25-5000 Mbps </h4>
+                        <h4 className="font-bold text-center">Speeds from </h4>
+                        <h4 className="font-bold text-center">25-5000 Mbps </h4>
                     </div>
 
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
