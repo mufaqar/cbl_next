@@ -1,23 +1,25 @@
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
-import { useQuery } from '@apollo/client';
-import { GET_ZIPCODE } from '@/config/query';
+//import { useQuery } from '@apollo/client';
+//import { ProviderByCITES } from '@/config/query';
+
 
 
 
 const SearchForm = () => {
     const [zipcode, setzipcode] = useState<string>();
-   // const [pro_type, setpro_type] = useState<string>();
-   // const router = useRouter();
-  //  const { loading, error, data } = useQuery(GET_ZIPCODE);
-    
-  //  console.log(data);
+    const [pro_type, setpro_type] = useState<string>();
+    const router = useRouter();
+    // const { data, loading, error } = useQuery(ProviderByCITES);
 
-    function handleState () {
 
-      
-      //  () => router.push(`/providers/city/state?zipcode=${zipcode}&type=${pro_type}`)
+    //console.log(data);
+
+    function handleState() {
+
+
+        () => router.push(`/providers/city/state?zipcode=${zipcode}&type=${pro_type}`)
     }
 
     return (

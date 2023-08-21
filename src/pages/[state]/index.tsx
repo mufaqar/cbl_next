@@ -28,29 +28,29 @@ export default function OurState({allZone,allZone2}:any) {
 
 
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const slug = context.params?.slug
-    const response = await apolloClient.query({
-      query: CITES_by_STATE,
-      variables: {
-        slug
-      },
-    });
-    const allZone = response.data.allZone.nodes;
-    const allZone2 = response.data.allZone;
+// export const getStaticProps: GetStaticProps = async (context) => {
+//     const slug = context.params?.slug
+//     const response = await apolloClient.query({
+//       query: CITES_by_STATE,
+//       variables: {
+//         slug
+//       },
+//     });
+//     const allZone = response.data.allZone.nodes;
+//     const allZone2 = response.data.allZone;
   
-    return {
-      props: {
-        allZone,allZone2
-      },
-    };
-  }
+//     return {
+//       props: {
+//         allZone,allZone2
+//       },
+//     };
+//   }
   
-  export const getStaticPaths: GetStaticPaths = async () => {
-    const paths: any = [];
-    return {
-      paths,
-      fallback: 'blocking',
-    };
-  }
+//   export const getStaticPaths: GetStaticPaths = async () => {
+//     const paths: any = [];
+//     return {
+//       paths,
+//       fallback: 'blocking',
+//     };
+//   }
   

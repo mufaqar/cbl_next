@@ -29,71 +29,71 @@ export default function OurCities({allZone}:any) {
 
 
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const slug = context.params?.slug
-    const response = await apolloClient.query({
-      query: CITES,
-      variables: {
-        slug
-      },
-    });
-    const allZone = response.data.allZone.edges;
-    console.log(allZone);
+// export const getStaticProps: GetStaticProps = async (context) => {
+//     const slug = context.params?.slug
+//     const response = await apolloClient.query({
+//       query: CITES,
+//       variables: {
+//         slug
+//       },
+//     });
+//     const allZone = response.data.allZone.edges;
+//     console.log(allZone);
 
-    //var like = LIKE;
+//     //var like = LIKE;
 
     
 
-  //   const mappedTitles = allZone?.map((item:any) => {
-  //       return {  key: "internet_serices",value: item.node.title, compare: `${like}` }; 
-  //     });
+//   //   const mappedTitles = allZone?.map((item:any) => {
+//   //       return {  key: "internet_serices",value: item.node.title, compare: `${like}` }; 
+//   //     });
       
-  //  //console.log(mappedTitles); // Display the array of extracted titles
+//   //  //console.log(mappedTitles); // Display the array of extracted titles
 
 
 
       
-    //         const ProviderByCITES = `
-    //         query ProveryByZipcode {
-    //         providers(
-    //             where: {metaQuery: {
-    //             relation: OR,
-    //             metaArray: ${JSON.stringify(mappedTitles)}
+//     //         const ProviderByCITES = `
+//     //         query ProveryByZipcode {
+//     //         providers(
+//     //             where: {metaQuery: {
+//     //             relation: OR,
+//     //             metaArray: ${JSON.stringify(mappedTitles)}
                 
-    //             }}
-    //         ) {
-    //             edges {
-    //             node {
-    //                 title
-    //             }
-    //             }
-    //         }
-    //         }`;
+//     //             }}
+//     //         ) {
+//     //             edges {
+//     //             node {
+//     //                 title
+//     //             }
+//     //             }
+//     //         }
+//     //         }`;
 
-    // const ProviderByCITES_Query = gql`query ProveryByZipcode {
-    //     providers(
-    //       where: {metaQuery: {
-    //         relation: OR,
-    //         metaArray: ${JSON.stringify(mappedTitles)}
+//     // const ProviderByCITES_Query = gql`query ProveryByZipcode {
+//     //     providers(
+//     //       where: {metaQuery: {
+//     //         relation: OR,
+//     //         metaArray: ${JSON.stringify(mappedTitles)}
             
-    //       }}
-    //     ) {
-    //       edges {
-    //         node {
-    //           title
-    //         }
-    //       }
-    //     }
-    //   }`;
+//     //       }}
+//     //     ) {
+//     //       edges {
+//     //         node {
+//     //           title
+//     //         }
+//     //       }
+//     //     }
+//     //   }`;
 
 
-//     const response_city = await apolloClient.query({
-//         query: ProviderByCITES_Query
-//       });
-//       const All_Providers_City = response_city.data;
+// //     const response_city = await apolloClient.query({
+// //         query: ProviderByCITES_Query
+// //       });
+// //       const All_Providers_City = response_city.data;
 
 
-//  console.log("-------------",All_Providers_City);
+// //  console.log("-------------",All_Providers_City);
 
 
 
@@ -102,19 +102,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
       
  
   
-    return {
-      props: {
-        allZone
-      },
-    };
-  }
+//     return {
+//       props: {
+//         allZone
+//       },
+//     };
+//   }
   
-  export const getStaticPaths: GetStaticPaths = async () => {
-    const paths: any = [];
-    return {
-      paths,
-      fallback: 'blocking',
-    };
-  }
+//   // export const getStaticPaths: GetStaticPaths = async () => {
+//   //   const paths: any = [];
+//   //   return {
+//   //     paths,
+//   //     fallback: 'blocking',
+//   //   };
+//   // }
 
   
