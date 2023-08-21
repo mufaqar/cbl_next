@@ -5,22 +5,75 @@ import React, { useState } from 'react'
 //import { ProviderByCITES } from '@/config/query';
 
 
+const query = `
+query allZone($zipcode: String = "") {
+   allZone(where: {title: $zipcode}) {
+     nodes {
+       title
+       cities {
+         nodes {
+           name
+           slug
+         }
+       }
+       states {
+         nodes {
+           name
+           slug
+         }
+       }
+     }
+   }
+ }
+`;
+
+
 
 
 const SearchForm = () => {
     const [zipcode, setzipcode] = useState<string>();
     const [pro_type, setpro_type] = useState<string>();
     const router = useRouter();
-    // const { data, loading, error } = useQuery(ProviderByCITES);
 
-
-    //console.log(data);
-
+    const [get_city, set_city] = useState<string>();
+    const [get_state,set_state] = useState<string>();
+   
+    
+ 
+ 
     function handleState() {
 
 
-        () => router.push(`/providers/city/state?zipcode=${zipcode}&type=${pro_type}`)
-    }
+     
+ 
+       console.log(zipcode);
+       const variables = {
+        zipcode: zipcode // Replace with the actual user ID
+      };
+ 
+       async function fetchData() {
+          const response = await fetch('http://localhost/clients/cbl/graphql', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ query , variables: variables }),
+          });
+          const respons = await response.json();
+          console.log("🚀  file: test.jsx:43  fetchData ~ data:", respons);
+
+          set_city(respons.data.allZone.nodes[0].cities.nodes[0].slug);
+          set_state(respons.data.allZone.nodes[0].states.nodes[0].slug);
+        }
+        fetchData();
+
+        console.log("🚀  file: test.jsx:43  fetchData ~ data:", get_city);
+          console.log("🚀  file: test.jsx:43  fetchData ~ data:", get_state);
+     
+ 
+       router.push(`/providers/${get_city}/${get_state}?zipcode=${zipcode}&type=${pro_type}`);
+
+       }
 
     return (
         <>

@@ -11,13 +11,25 @@ import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { gql, useQuery } from '@apollo/client';
 
 const query = `
-query allZone {
-  allZone {
-    nodes {
-      title
-    }
-  }
-}
+query allZone($zipcode: String = "") {
+   allZone(where: {title: $zipcode}) {
+     nodes {
+       title
+       cities {
+         nodes {
+           name
+           slug
+         }
+       }
+       states {
+         nodes {
+           name
+           slug
+         }
+       }
+     }
+   }
+ }
 `;
 
 
@@ -27,25 +39,30 @@ export default function Home() {
    const [zipcode, setzipcode] = useState<string>();
    const [pro_type, setpro_type] = useState<string>();
    const router = useRouter();
-   useEffect(() => {
-      async function fetchData() {
-       const response = await fetch('http://cblproject.aspactglobal.com/graphql', {
-         method: 'POST',
-         headers: {
-           'Content-Type': 'application/json',
-         },
-         body: JSON.stringify({ query }),
-       });
-       const response2 = await response.json();
-       console.log("🚀  file: test.jsx:43 :", response2)
-     fetchData()
-    }, []);
+  
 
 
    function handleState() {
+      alert("asdf");
 
-      () => router.push(`/providers/city/state?zipcode=${zipcode}&type=${pro_type}`)
-   }
+      console.log(zipcode);
+
+      async function fetchData() {
+         const response = await fetch('http://localhost/clients/cbl/graphql', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify({ query , varables:{zipcode} }),
+         });
+         const respons = await response.json();
+         console.log("🚀  file: test.jsx:43  fetchData ~ data:", respons);
+       }
+       fetchData();
+    
+
+      () => router.push(`/providers/city/state?zipcode=${zipcode}&type=${pro_type}`);
+
    //const { data, loading, error } = useQuery(ProviderByCITES);
      }
 
