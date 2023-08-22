@@ -17,7 +17,7 @@ import Nearby_City from '@/components/provider/nearby-city'
 import Faqs_Sec from '@/components/faqs'
 import { Faqs_Data } from '@/const/exports'
 
-export default function Providers({ allProviders, allZone,zipcode}: any) {
+export default function SProviders({ allProviders, allZone,zipcode}: any) {
     //const params = useParams()
 
    // console.log(params);

@@ -12,7 +12,7 @@ export const ProviderCard = ({ item, zone }: any) => {
                 </div>
                 <div className="bg-white w-full h-auto grid md:grid-cols-5 pt-4 pb-12">
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                        <img src={item.featuredImage.node.mediaItemUrl} alt="" className="" />
+                        <img src={item.featuredImage?.node.mediaItemUrl} alt="" className="" />
                     </div>
 
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">

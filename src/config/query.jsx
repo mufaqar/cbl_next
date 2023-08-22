@@ -38,7 +38,7 @@ query GET_PROVIDERS ($zipcode:String!) {
         }
       }
       providersInfo {
-        proPhone
+        prophone
       }
   
     }

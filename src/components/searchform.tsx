@@ -34,24 +34,20 @@ const SearchForm = () => {
     const [zipcode, setzipcode] = useState<string>();
     const [pro_type, setpro_type] = useState<string>();
     const router = useRouter();
-
-    const [get_city, set_city] = useState<string>();
-    const [get_state,set_state] = useState<string>();
-   
-    
+    // const [get_city, set_city] = useState<string>();
+    // const [get_state,set_state] = useState<string>();  
+    // const [get_res , set_res] = useState<any>();
  
+    function handleState() {     
  
-    function handleState() {
-
-
-     
- 
-       console.log(zipcode);
+      console.log(zipcode);
        const variables = {
         zipcode: zipcode // Replace with the actual user ID
       };
+     
  
        async function fetchData() {
+
           const response = await fetch('http://localhost/clients/cbl/graphql', {
             method: 'POST',
             headers: {
@@ -60,18 +56,27 @@ const SearchForm = () => {
             body: JSON.stringify({ query , variables: variables }),
           });
           const respons = await response.json();
-          console.log("🚀  file: test.jsx:43  fetchData ~ data:", respons);
+         
 
-          set_city(respons.data.allZone.nodes[0].cities.nodes[0].slug);
-          set_state(respons.data.allZone.nodes[0].states.nodes[0].slug);
+          //set_city(respons.data.allZone.nodes[0].cities.nodes[0].slug);
+          //set_state(respons.data.allZone.nodes[0].states.nodes[0].slug);
+
+        //  r_city = respons.data.allZone.nodes[0];
+       //   console.log("Res", respons.data.allZone.nodes[0]);
+          // var r_city ; respons.data.allZone.nodes[0].cities.nodes[0].slug;
+        //   var r_state ; respons.data.allZone.nodes[0].states.nodes[0].slug;
+
+         //  console.log("r_city:", r_city);
+          router.push(`/${respons.data.allZone.nodes[0].states.nodes[0].slug}/${respons.data.allZone.nodes[0].cities.nodes[0].slug}?zipcode=${zipcode}&type=tv`);
+
         }
         fetchData();
 
-        console.log("🚀  file: test.jsx:43  fetchData ~ data:", get_city);
-          console.log("🚀  file: test.jsx:43  fetchData ~ data:", get_state);
+      
+       // console.log("🚀  file: test.jsx:43  fetchData ~ data:", get_state);
      
  
-       router.push(`/providers/${get_city}/${get_state}?zipcode=${zipcode}&type=${pro_type}`);
+    
 
        }
 
