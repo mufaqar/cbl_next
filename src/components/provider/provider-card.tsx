@@ -58,7 +58,7 @@ export const ProviderCard = ({ item, zone }: any) => {
                     </div>
                     <div className="grid items-center justify-center p-5">
                         <Link href="tel:000-000-000" className="text-base text-[#ef9831] hover:text-[#215690] font-[Roboto] font-medium uppercase px-5 py-2.5">
-                           {item.providersInfo.proPhone}
+                           {/* {item?.providersInfo?.pro_phone} */}
                         </Link>
                         <Link href={`/providers/${item.slug}`} className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>

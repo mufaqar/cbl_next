@@ -34,9 +34,6 @@ const SearchForm = () => {
     const [zipcode, setzipcode] = useState<string>();
     const [pro_type, setpro_type] = useState<string>();
     const router = useRouter();
-    // const [get_city, set_city] = useState<string>();
-    // const [get_state,set_state] = useState<string>();  
-    // const [get_res , set_res] = useState<any>();
  
     function handleState() {     
  
@@ -47,26 +44,14 @@ const SearchForm = () => {
      
  
        async function fetchData() {
-
-          const response = await fetch('http://localhost/clients/cbl/graphql', {
+          const response = await fetch('http://cblproject.aspactglobal.com/graphql', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({ query , variables: variables }),
           });
-          const respons = await response.json();
-         
-
-          //set_city(respons.data.allZone.nodes[0].cities.nodes[0].slug);
-          //set_state(respons.data.allZone.nodes[0].states.nodes[0].slug);
-
-        //  r_city = respons.data.allZone.nodes[0];
-       //   console.log("Res", respons.data.allZone.nodes[0]);
-          // var r_city ; respons.data.allZone.nodes[0].cities.nodes[0].slug;
-        //   var r_state ; respons.data.allZone.nodes[0].states.nodes[0].slug;
-
-         //  console.log("r_city:", r_city);
+          const respons = await response.json();  
           router.push(`/${respons.data.allZone.nodes[0].states.nodes[0].slug}/${respons.data.allZone.nodes[0].cities.nodes[0].slug}?zipcode=${zipcode}&type=tv`);
 
         }

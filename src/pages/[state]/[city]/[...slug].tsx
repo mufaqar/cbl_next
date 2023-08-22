@@ -466,27 +466,27 @@ export default function Single_Provider({provider}:any) {
 }
 
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//   const slug = context.params?.slug
-//   const response = await apolloClient.query({
-//     query: SINGLE_Provider,
-//     variables: {
-//       slug
-//     },
-//   });
-//   const provider = response.data.provider;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const slug = context.params?.slug
+  const response = await apolloClient.query({
+    query: SINGLE_Provider,
+    variables: {
+      slug
+    },
+  });
+  const provider = response.data.provider;
 
-//   return {
-//     props: {
-//       provider,
-//     },
-//   };
-// }
+  return {
+    props: {
+      provider,
+    },
+  };
+}
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const paths: any = [];
-//   return {
-//     paths,
-//     fallback: 'blocking',
-//   };
-// }
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths: any = [];
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+}

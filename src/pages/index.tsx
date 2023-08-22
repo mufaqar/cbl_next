@@ -48,7 +48,7 @@ export default function Home() {
       console.log(zipcode);
 
       async function fetchData() {
-         const response = await fetch('http://localhost/clients/cbl/graphql', {
+         const response = await fetch('http://cblproject.aspactglobal.com/graphql', {
            method: 'POST',
            headers: {
              'Content-Type': 'application/json',
