@@ -1,16 +1,12 @@
 import React from 'react'
 
-import { GetStaticPaths, GetStaticProps } from 'next'
-import apolloClient from '@/config/client'
-import { CITES_by_STATE } from '@/config/query';
-import Link from 'next/link';
 
 export default function OurState({allZone,allZone2}:any) {
     console.log(allZone2);
   return (
     <>
-    <h2>List of Cites </h2>
-    <ul>
+    <h2>State Page  List of Cites </h2>
+    {/* <ul>
 
         {allZone?.map( (item:any , id:number) => {
             return (
@@ -21,7 +17,7 @@ export default function OurState({allZone,allZone2}:any) {
 
         } )}
 
-    </ul>
+    </ul> */}
     </>
   )
 }

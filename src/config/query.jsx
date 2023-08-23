@@ -49,7 +49,7 @@ export const GET_ZONE = gql`
     allZone(where: {title: $ztitle}) {
       nodes {
         title
-        zoneId
+      
         cities {
           nodes {
             name
@@ -118,6 +118,15 @@ query ProveryByZipcode {
       node {
         title
       }
+    }
+  }
+}`;
+
+export const ZoneByCity = gql`
+query ZoneByCity {
+  allZone {
+    nodes {
+      title
     }
   }
 }`;
