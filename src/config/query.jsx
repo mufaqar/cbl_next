@@ -130,3 +130,18 @@ query ZoneByCity {
     }
   }
 }`;
+
+export const CITES_by_STATE = gql`
+query CITES_by_STATE{
+  allZone(
+    where: {taxQuery: {taxArray: {taxonomy: STATE, terms:"nc", operator: EXISTS}}}
+  ) {
+    nodes {
+      cities {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+}`;
