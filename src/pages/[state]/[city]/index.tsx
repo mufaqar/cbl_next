@@ -12,7 +12,7 @@ import Zip_Code_Com from '@/components/zipcode'
 
 const query = `
 query ProveryByZipcode($city: [String] ) {
-    allZone(
+    zones(
       where: {taxQuery: {taxArray: {taxonomy: CITY, field: SLUG, terms: $city}}}
       first: 1000
     ) {
@@ -23,13 +23,13 @@ query ProveryByZipcode($city: [String] ) {
   }
 `;
 
-export default function Providers({ allProviders, allZone,zipcode,my_city  }: any) {
+export default function Providers({ allProviders, zones,zipcode,my_city  }: any) {
 
 
     console.log("params:", zipcode);
-    var city = zipcode?allZone[0].cities?.nodes[0].name:[];
-    var county = zipcode?allZone[0].countys.nodes[0].name:[];
-    var state = zipcode?allZone[0].states.nodes[0].name:[];
+    var city = zipcode?zones[0].cities?.nodes[0].name:[];
+    var county = zipcode?zones[0].countys.nodes[0].name:[];
+    var state = zipcode?zones[0].states.nodes[0].name:[];
 
     const [city_data , set_city_data] = useState();
  
@@ -51,7 +51,7 @@ export default function Providers({ allProviders, allZone,zipcode,my_city  }: an
               });
               const respons = await response.json();  
 
-              set_city_data(respons.data.allZone.nodes);
+              set_city_data(respons.data.zones.nodes);
 
               console.log("🚀 ~ file: index.tsx:77 ~ fetchData ~ respons:", respons);
   
@@ -62,7 +62,7 @@ export default function Providers({ allProviders, allZone,zipcode,my_city  }: an
 
     return (
 
-        zipcode? <Zip_Code_Com zipcode={zipcode} city={city}  state={state} county={county} allProviders={allProviders} allZone={allZone} Faqs_Data={Faqs_Data} />  : <Cities_com my_city={my_city} city_data={city_data} /> 
+        zipcode? <Zip_Code_Com zipcode={zipcode} city={city}  state={state} county={county} allProviders={allProviders} zones={zones} Faqs_Data={Faqs_Data} />  : <Cities_com my_city={my_city} city_data={city_data} /> 
 
     );
 }
@@ -79,7 +79,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         return {
             props: {
                 allProviders: [],
-                allZone: [],
+                zones: [],
                 zipcode: null,
                 my_city : query.city,
                 
@@ -94,11 +94,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
     ]) ;
     const allProviders = providers.data.providers.nodes ;
-    const allZone = zone.data.allZone.nodes ;
+    const zones = zone.data.zones.nodes ;
    
     return {
         props: {
-            allProviders, allZone , zipcode 
+            allProviders, zones , zipcode 
         },
     };
 }

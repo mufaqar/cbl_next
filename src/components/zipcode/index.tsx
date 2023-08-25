@@ -8,7 +8,7 @@ import Nearby_City from '../provider/nearby-city'
 import Faqs_Sec from '../faqs'
 import Image from 'next/image'
 
-function Zip_Code_Com({zipcode,city, state ,county, allProviders,allZone,Faqs_Data}:any) {
+function Zip_Code_Com({zipcode,city, state ,county, allProviders,zones,Faqs_Data}:any) {
   return (
     <>
     <section className="pt-16 pb-16 relative overflow-hidden">
@@ -41,7 +41,7 @@ function Zip_Code_Com({zipcode,city, state ,county, allProviders,allZone,Faqs_Da
                     allProviders.map((item: any, idx: number) => {
                         return (
                             <>
-                                <ProviderCard key={idx} item={item} zone={allZone}  />
+                                <ProviderCard key={idx} item={item} zone={zones}  />
 
                             </>
                         )

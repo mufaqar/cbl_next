@@ -7,21 +7,21 @@ import React from 'react'
 
 
 
-export default function OurState({allzones}:any) {
+export default function OurStateTest() {
 
   return (
     <>
     <h2>State Page  List of Cites </h2>
     <ul>
 
-        {allzones?.map( (item:any , id:number) => {
+        {/* {zones?.map( (item:any , id:number) => {
             return (
                 <>
                 <li key={id}><Link href={`ae/${item.cities.nodes[0].slug}`}>  { item.cities.nodes[0].name} </Link></li>
                 </>
             )
 
-        } )}
+        } )} */}
 
     </ul>
     </>
@@ -34,14 +34,14 @@ export default function OurState({allzones}:any) {
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const [zone] = await Promise.all([
-      apolloClient.query({ query: CITES_by_STATE}),
+      apolloClient.query({ query: CITES}),
   
   ]);
 
-  const allzones = zone.data.zones.nodes
+  const Data = zone.data
   return {
       props: {
-        allzones 
+        Data 
       },
   };
 }

@@ -17,11 +17,11 @@ import Nearby_City from '@/components/provider/nearby-city'
 import Faqs_Sec from '@/components/faqs'
 import { Faqs_Data } from '@/const/exports'
 
-export default function SProviders({ allProviders, allZone,zipcode}: any) {
+export default function SProviders({ allProviders, zones,zipcode}: any) {
     //const params = useParams()
 
    // console.log(params);
-    const { cities, countys, states } = allZone[0];
+    const { cities, countys, states } = zones[0];
     console.log();
 
     var city = cities.nodes[0].name;
@@ -61,7 +61,7 @@ export default function SProviders({ allProviders, allZone,zipcode}: any) {
                             allProviders.map((item: any, idx: number) => {
                                 return (
                                     <>
-                                        <ProviderCard key={idx} item={item} zone={allZone}  />
+                                        <ProviderCard key={idx} item={item} zone={zones}  />
 
                                     </>
                                 )
@@ -165,10 +165,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
     ]);
     const allProviders = providers.data.providers.nodes
-    const allZone = zone.data.allZone.nodes
+    const zones = zone.data.zones.nodes
     return {
         props: {
-            allProviders, allZone , zipcode
+            allProviders, zones , zipcode
         },
     };
 }

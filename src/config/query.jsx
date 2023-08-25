@@ -6,7 +6,7 @@ import { gql } from '@apollo/client';
 
 export const GET_ZIPCODE= gql`
 query GET_ZIPCODE {
-  allZone(where: {title: "99929"}) {
+  zones(where: {title: "99929"}) {
     nodes {
       title
       cities {
@@ -46,7 +46,7 @@ query GET_PROVIDERS ($zipcode:String!) {
 
 export const GET_ZONE = gql`
   query GetZone  ($ztitle:String!) {
-    allZone(where: {title: $ztitle}) {
+    zones(where: {title: $ztitle}) {
       nodes {
         title
       
@@ -80,7 +80,7 @@ query SINGLE_Provider($slug: ID!) {
 
 export const CITES = gql`
 query CITES {
-  allZone(
+  zones(
     where: {taxQuery: {taxArray: {taxonomy: CITY, terms: "ketchikan", operator: EXISTS}}}
   ) {
     edges {
@@ -124,7 +124,7 @@ query ProveryByZipcode {
 
 export const ZoneByCity = gql`
 query ZoneByCity {
-  allZone {
+  zones {
     nodes {
       title
     }
@@ -133,7 +133,7 @@ query ZoneByCity {
 
 export const CITES_by_STATE = gql`
 query CITES_by_STATE{
-  allZone(
+  zones(
     where: {taxQuery: {taxArray: {taxonomy: STATE, terms:"nc", operator: EXISTS}}}
   ) {
     nodes {

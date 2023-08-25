@@ -11,8 +11,8 @@ import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { gql, useQuery } from '@apollo/client';
 
 const query = `
-query allZone($zipcode: String = "") {
-   allZone(where: {title: $zipcode}) {
+query zones($zipcode: String = "") {
+   zones(where: {title: $zipcode}) {
      nodes {
        title
        cities {

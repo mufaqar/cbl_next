@@ -6,8 +6,8 @@ import React, { useState } from 'react'
 
 
 const query = `
-query allZone($zipcode: String = "") {
-   allZone(where: {title: $zipcode}) {
+query zones($zipcode: String = "") {
+   zones(where: {title: $zipcode}) {
      nodes {
        title
        cities {
@@ -52,7 +52,7 @@ const SearchForm = () => {
             body: JSON.stringify({ query , variables: variables }),
           });
           const respons = await response.json();  
-          router.push(`/${respons.data.allZone.nodes[0].states.nodes[0].slug}/${respons.data.allZone.nodes[0].cities.nodes[0].slug}?zipcode=${zipcode}&type=tv`);
+          router.push(`/${respons.data.zones.nodes[0].states.nodes[0].slug}/${respons.data.zones.nodes[0].cities.nodes[0].slug}?zipcode=${zipcode}&type=tv`);
 
         }
         fetchData();
