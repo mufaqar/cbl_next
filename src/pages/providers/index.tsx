@@ -18,6 +18,7 @@ import Faqs_Sec from '@/components/faqs'
 import { Faqs_Data } from '@/const/exports'
 
 export default function SProviders({ allProviders, zones,zipcode}: any) {
+    console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", allProviders)
     //const params = useParams()
     const { cities, states } = zones[0];
     var city = cities.nodes[0].name;
@@ -148,13 +149,7 @@ export default function SProviders({ allProviders, zones,zipcode}: any) {
 
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-
     const { zipcode, type } = query;
-
-
-
-
-
     const [providers, zone] = await Promise.all([
         apolloClient.query({ query: GET_PROVIDERS, variables: { zipcode, type } }),
         apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })

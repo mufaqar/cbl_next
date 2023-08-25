@@ -27,8 +27,10 @@ query GET_ZIPCODE {
 `;
 
 export const GET_PROVIDERS = gql`
-query GET_PROVIDERS ($zipcode:String!) {
-  providers(where: {metaQuery: {metaArray: {key: "internet_serices", value: $zipcode, compare: LIKE}}}) {
+query GET_PROVIDERS($value: String = "") {
+  allProviders(
+    where: {metaQuery: {metaArray: {key: "internet_services", value: $value, compare: LIKE}}}
+  ) {
     nodes {
       title
       slug
@@ -37,8 +39,6 @@ query GET_PROVIDERS ($zipcode:String!) {
           mediaItemUrl
         }
       }
-     
-  
     }
   }
 }
@@ -90,7 +90,7 @@ query CITES {
 
 export const ProviderByCITES = gql`
 query ProveryByZipcode {
-  providers(
+  allProviders(
     where: {metaQuery: {
       relation: OR,
       metaArray: [

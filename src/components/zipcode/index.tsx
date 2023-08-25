@@ -9,6 +9,8 @@ import Faqs_Sec from '../faqs'
 import Image from 'next/image'
 
 function Zip_Code_Com({zipcode,city, state , allProviders,zones,Faqs_Data}:any) {
+    console.log("🚀 ~ file: index.tsx:12 ~ Zip_Code_Com ~ allProviders:", allProviders)
+    
   return (
     <>
     <section className="pt-16 pb-16 relative overflow-hidden">

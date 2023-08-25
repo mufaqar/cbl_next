@@ -6,10 +6,6 @@ import { Faqs_Data } from '@/const/exports'
 import { useEffect, useState } from 'react'
 import Cities_com from '@/components/cities'
 import Zip_Code_Com from '@/components/zipcode'
-
-
-
-
 const query = `
 query ProveryByZipcode($city: [String] ) {
     zones(
@@ -24,8 +20,6 @@ query ProveryByZipcode($city: [String] ) {
 `;
 
 export default function Providers({ allProviders, zones,zipcode,my_city  }: any) {
-
-
     console.log("params:", zipcode);
     var city = zipcode?zones[0].cities?.nodes[0].name:[];
     var state = zipcode?zones[0].states.nodes[0].name:[];
@@ -52,7 +46,7 @@ export default function Providers({ allProviders, zones,zipcode,my_city  }: any)
 
               set_city_data(respons.data.zones.nodes);
 
-              console.log("🚀 ~ file: index.tsx:77 ~ fetchData ~ respons:", respons);
+            //  console.log("🚀 ~ file: index.tsx:77 ~ fetchData ~ respons:", respons);
   
           }
           fetchData();
@@ -92,7 +86,9 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         apolloClient.query({ query: GET_PROVIDERS, variables: { zipcode, type } }),
         apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
     ]) ;
-    const allProviders = providers.data.providers.nodes ;
+    const allProviders = providers.data.allProviders.nodes ;
+    console.log("🚀 ~ file: index.tsx:90 ~ constgetServerSideProps:GetServerSideProps= ~ allProviders:", allProviders)
+    
     const zones = zone.data.zones.nodes ;
    
     return {
