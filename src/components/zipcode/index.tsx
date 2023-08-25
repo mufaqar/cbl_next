@@ -8,7 +8,7 @@ import Nearby_City from '../provider/nearby-city'
 import Faqs_Sec from '../faqs'
 import Image from 'next/image'
 
-function Zip_Code_Com({zipcode,city, state ,county, allProviders,zones,Faqs_Data}:any) {
+function Zip_Code_Com({zipcode,city, state , allProviders,zones,Faqs_Data}:any) {
   return (
     <>
     <section className="pt-16 pb-16 relative overflow-hidden">
@@ -60,7 +60,7 @@ function Zip_Code_Com({zipcode,city, state ,county, allProviders,zones,Faqs_Data
         <div className="container mx-auto px-4">
             <div className=''>
                 <h2 className="text-2xl font-bold">
-                    Overview of Internet Service Providers in {city}, {state}, {county}
+                    Overview of Internet Service Providers in {city}, {state}
                 </h2>
                 <p className='text-xl font-[Roboto] mt-5'>
                     As of the time this page was written, (insert city name) with the population of (insert population) residents has (insert number of listed Internet providers) or more internet service providers offering various types of internet service plans including (list provider’s connection types). (Listed provider 1 and listed provider 2) are the largest providers in the area.
@@ -73,7 +73,7 @@ function Zip_Code_Com({zipcode,city, state ,county, allProviders,zones,Faqs_Data
         <div className="container mx-auto px-4">
             <div className='mb-10'>
                 <h2 className="text-2xl font-bold">
-                    Summary of Internet service providers in  {city}, {state}, {county}
+                    Summary of Internet service providers in  {city}, {state}
                 </h2>
             </div>
             <div>
@@ -86,7 +86,7 @@ function Zip_Code_Com({zipcode,city, state ,county, allProviders,zones,Faqs_Data
         <div className="container mx-auto px-4">
             <div className='mb-10'>
                 <h2 className="text-2xl font-bold">
-                    Types of internet Technologies available in {city}, {state}, {county}
+                    Types of internet Technologies available in {city}, {state}
                 </h2>
                 <p className='text-base'>
                     As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)

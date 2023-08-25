@@ -28,7 +28,6 @@ export default function Providers({ allProviders, zones,zipcode,my_city  }: any)
 
     console.log("params:", zipcode);
     var city = zipcode?zones[0].cities?.nodes[0].name:[];
-    var county = zipcode?zones[0].countys.nodes[0].name:[];
     var state = zipcode?zones[0].states.nodes[0].name:[];
 
     const [city_data , set_city_data] = useState();
@@ -62,7 +61,7 @@ export default function Providers({ allProviders, zones,zipcode,my_city  }: any)
 
     return (
 
-        zipcode? <Zip_Code_Com zipcode={zipcode} city={city}  state={state} county={county} allProviders={allProviders} zones={zones} Faqs_Data={Faqs_Data} />  : <Cities_com my_city={my_city} city_data={city_data} /> 
+        zipcode? <Zip_Code_Com zipcode={zipcode} city={city}  state={state} allProviders={allProviders} zones={zones} Faqs_Data={Faqs_Data} />  : <Cities_com my_city={my_city} city_data={city_data} /> 
 
     );
 }

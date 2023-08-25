@@ -55,11 +55,6 @@ export const GET_ZONE = gql`
             name
           }
         }
-        countys {
-          nodes {
-            name
-          }
-        }
         states {
           nodes {
             name
