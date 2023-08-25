@@ -87,7 +87,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
     ]) ;
     const allProviders = providers.data.allProviders.nodes ;
-    console.log("🚀 ~ file: index.tsx:90 ~ constgetServerSideProps:GetServerSideProps= ~ allProviders:", allProviders)
+    //console.log("🚀 ~ file: index.tsx:90 ~ constgetServerSideProps:GetServerSideProps= ~ allProviders:", allProviders)
     
     const zones = zone.data.zones.nodes ;
    

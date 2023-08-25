@@ -2,7 +2,7 @@
 import { useParams } from 'next/navigation'
 import apolloClient from '@/config/client'
 
-import { GET_PROVIDERS, GET_ZONE } from '@/config/query'
+import { GET_PROVIDERS, GET_ZONE, SINGLE_Provider } from '@/config/query'
 import { GetStaticProps, GetServerSideProps } from 'next'
 
 import Image from 'next/image'
@@ -20,14 +20,12 @@ import { Faqs_Data } from '@/const/exports'
 export default function SProviders({ allProviders, zones,zipcode}: any) {
     console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", allProviders)
     //const params = useParams()
-    const { cities, states } = zones[0];
-    var city = cities.nodes[0].name;
-    var state = states.nodes[0].name;
+  
 
 
     return (
         <>
-            <section className="pt-16 pb-16 relative overflow-hidden">
+            {/* <section className="pt-16 pb-16 relative overflow-hidden">
                 <Image src='/images/hero-left.png' alt="hero-left" width={500} height={222} className='absolute top-0 left-[-175px]' />
                 <Image src='/images/hero-right.png' alt="hero-left" width={500} height={222} className='absolute top-0 right-[-175px]' />
                 <div className="container mx-auto px-4">
@@ -140,7 +138,7 @@ export default function SProviders({ allProviders, zones,zipcode}: any) {
                         return <Faqs_Sec key={idx} data={item} city={city} state={state}  />
                     })}
                 </div>
-            </section>
+            </section> */}
         </>
 
     );
@@ -150,15 +148,16 @@ export default function SProviders({ allProviders, zones,zipcode}: any) {
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const { zipcode, type } = query;
-    const [providers, zone] = await Promise.all([
-        apolloClient.query({ query: GET_PROVIDERS, variables: { zipcode, type } }),
-        apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
-    ]);
-    const allProviders = providers.data.providers.nodes
-    const zones = zone.data.zones.nodes
+    
+    // const [providers, zone] = await Promise.all([
+    //     apolloClient.query({ query: SINGLE_Provider, variables: { zipcode, type } }),
+    //     apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
+    // ]);
+    // const allProviders = providers.data.providers.nodes
+    // const zones = zone.data.zones.nodes
     return {
         props: {
-            allProviders, zones , zipcode
+            allProviders:[], zones :[], zipcode:[]
         },
     };
 }
