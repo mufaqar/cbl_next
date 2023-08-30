@@ -126,6 +126,24 @@ query ZoneByCity {
   }
 }`;
 
+export const ALLZoneByCity = gql`
+query ALLZoneByCity($city: [String] = "") {
+  zones(
+    where: {taxQuery: {taxArray: {terms: $city, taxonomy: CITY, operator: EXISTS}}}
+    first: 100
+  ) {
+    nodes {
+      title
+    }
+  }
+}`;
+
+
+
+
+
+
+
 export const CITES_by_STATE = gql`
 query CITES_by_STATE{
   zones(
