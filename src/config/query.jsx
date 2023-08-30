@@ -68,7 +68,7 @@ export const GET_ZONE = gql`
 
 export const SINGLE_Provider = gql`
 query SINGLE_Provider($slug: ID!) {
-  provider(id: $slug, idType: URI) {
+  singleProvider(id: $slug, idType: URI) {
     title
   }
 }`;
@@ -140,3 +140,19 @@ query CITES_by_STATE{
     }
   }
 }`;
+
+export const GET_ZONE_BY_CITY = gql`
+query GET_ZONE_BY_CITY{
+  zones(
+    where: {taxQuery: {taxArray: {taxonomy: CITY, terms: "ketchikan", operator: EXISTS}}}
+  ) {
+    edges {
+      node {
+      title
+      }
+    }
+  }
+}`;
+
+
+

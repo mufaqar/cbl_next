@@ -15,151 +15,483 @@ import Inter_Service from '@/components/provider/inter-service'
 import Technology_Box from '@/components/provider/technology-box'
 import Nearby_City from '@/components/provider/nearby-city'
 import Faqs_Sec from '@/components/faqs'
-import { Faqs_Data } from '@/const/exports'
+import Link from 'next/link'
+import Pricing_Plan from '@/components/provider/pricing-plan'
+//import { Faqs_Data } from '@/const/exports'
+import React, { useState } from 'react'
 
-export default function SProviders({ allProviders, zones,zipcode}: any) {
+export default function SProviders({ allProviders, zones,zipcode , city , state,providers}: any) {
     console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", allProviders)
     //const params = useParams()
+
+    const provider_name = allProviders?.title;
+
+    const [nav, setNav] = useState(false);
+
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonthIndex = currentDate.getMonth();
+    const currentMonthNumber = currentMonthIndex + 1;
+
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    
+    const currentMonthName = monthNames[currentMonthIndex];
+
+    const changeBackground = () => {
+      if (window.scrollY >= 350) {
+        setNav(true);
+      }
+      else {
+        setNav(false);
+      }
+    }
+    if (typeof window !== "undefined") {
   
+      window.addEventListener('scroll', changeBackground);
+  
+    }
+  
+ 
+  return (
+    <>
+      <section className="pt-16 pb-16 bg-[url('/images/deals_desktop.jpg')] bg-cover bg-no-repeat bg-center">
+        <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
+          <div className='col-span-2'>
+            <h1 className="sm:text-3xl text-2xl font-bold">
+              {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
+            </h1>
+            <h2 className="text-xl font-bold my-3">
+              Prices starting at $49.99/mo.
+            </h2>
+            <ul>
+              <li className="text-lg font-[Roboto]">
+                Built-in WiFi
+              </li>
+              <li className="text-lg font-[Roboto]">
+                No hard data limits
+              </li>
+              <li className="text-lg font-[Roboto]">
+                2 year price lock guarantee
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img src="/images/partner1.png" alt="logo" className='w-3/4' />
+          </div>
+        </div>
+      </section>
 
+      <section className='md:my-32 my-10'>
+        <div className='container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-5 items-center'>
+          <div className="">
+            <h2 className='text-3xl font-bold'>
+              Enter your zip code below to find out if {provider_name} is available in your area.
+            </h2>
+          </div>
+          <div>
+            <SearchForm />
+          </div>
+        </div>
+      </section>
 
-    return (
-        <>
-            {/* <section className="pt-16 pb-16 relative overflow-hidden">
-                <Image src='/images/hero-left.png' alt="hero-left" width={500} height={222} className='absolute top-0 left-[-175px]' />
-                <Image src='/images/hero-right.png' alt="hero-left" width={500} height={222} className='absolute top-0 right-[-175px]' />
-                <div className="container mx-auto px-4">
-                    <div >
-                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto">
-                            Internet Service Providers in {zipcode} <br/><span className="text-[#ef9831]">{city}, {state}</span>
-                        </h1>
-                        <p className="text-xl text-center font-[Roboto] mt-3">
-                            Enter your zip so we can find the best providers in your area:
-                        </p>
-                        <div className='grid justify-center'>
-                            <SearchForm />
-                        </div>
-                    </div>
+      <section className={`bg-white py-3 shadow-sm border-y border-zinc-400/20  ${nav ? 'fixed top-0 left-0 right-0' : 'sticky'
+        }`}>
+        <div className="container mx-auto px-4 grid grid-cols-2 items-center">
+          <div>
+            <h3 className="md:text-2xl text-lg font-bold">
+              Call NOW to order {provider_name}
+            </h3>
+          </div>
+          <div className='text-end'>
+            <Link href="tel:000-000-000" className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
+              000-000-000
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Internet Plans,
+            </h2>
+          </div>
+          <div>
+            <Pricing_Plan />
+          </div>
+          <div>
+            <p className="text-sm font-[Roboto] mt-10">
+              *Price shown is with $25 off for 6 or 12 months. Offer not valid on 15 GB plan. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Fusion Internet Plans
+            </h2>
+          </div>
+          <div>
+            <Pricing_Plan />
+          </div>
+          <div>
+            <p className="text-sm font-[Roboto] mt-10">
+              *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Fusion plans combines satellite and wireless technologies to give you low latency internet connection and deliver a faster, more responsive Internet experience which makes it easy to perform activities that are nearly impossible over a normal satellite internet connection e.g Online meetings, streaming and video gaming.
+            </h2>
+          </div>
+          <div className=" w-full lg:max-w-[1200px] mx-auto py-4 h-auto rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
+            <div className="bg-white w-full h-auto grid md:grid-cols-3 pt-4 pb-4">
+              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center p-5">
+                <div>
+                  <p className="text-center text-base mt-2">
+                    Best {provider_name} deals
+                  </p>
                 </div>
-            </section>
-            <Provider_Nav />
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className='mb-10'>
-                        <h2 className="text-2xl font-bold">
-                            Home Internet in {zipcode}
-                        </h2>
-                    </div>
-                    <div>
-                        {
-                            allProviders.map((item: any, idx: number) => {
-                                return (
-                                    <>
-                                        <ProviderCard key={idx} item={item} zone={zones}  />
-
-                                    </>
-                                )
-                            })
-                        }
-                    </div>
-                    <div>
-                        <p className="text-sm font-[Roboto] mt-10">
-                            Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time
-                        </p>
-                    </div>
+              </div>
+              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center p-5">
+                <div>
+                  <p className="text-center text-base mt-2">
+                    $25 off for 12 months, Get a $100 prepaid mastercard via Rebate
+                  </p>
                 </div>
-            </section>
-
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className=''>
-                        <h2 className="text-2xl font-bold">
-                            Overview of Internet Service Providers in {city}, {state}
-                        </h2>
-                        <p className='text-xl font-[Roboto] mt-5'>
-                            As of the time this page was written, (insert city name) with the population of (insert population) residents has (insert number of listed Internet providers) or more internet service providers offering various types of internet service plans including (list provider’s connection types). (Listed provider 1 and listed provider 2) are the largest providers in the area.
-                        </p>
-                    </div>
+              </div>
+              <div className="grid justify-center p-5">
+                <div>
+                  <Link href="tel:000-000-000" className="text-base text-[#ef9831] hover:text-[#215690] font-[Roboto] font-medium uppercase px-5 py-2.5">
+                    000-000-0000
+                  </Link>
                 </div>
-            </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className='mb-10'>
-                        <h2 className="text-2xl font-bold">
-                            Summary of Internet service providers in  {city}, {state}
-                        </h2>
-                    </div>
-                    <div>
-                        <Inter_Service />
-                    </div>
-                </div>
-            </section>
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Business Internet Plans
+            </h2>
+          </div>
+          <div>
+            <Pricing_Plan />
+          </div>
+          <div>
+            <p className="text-sm font-[Roboto] mt-10">
+              *Price shown is with $25 off for 12 months. Offer not valid on 50 GB plan. New business subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className='mb-10'>
-                        <h2 className="text-2xl font-bold">
-                            Types of internet Technologies available in {city}, {state}
-                        </h2>
-                        <p className='text-base'>
-                            As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
-                        <Technology_Box
-                            title="Cable Internet"
-                            content="Cable internet uses the coaxial cable infrastructure to provide high-speed internet access. It offers relatively fast and stable internet connections."
-                        />
-                    </div>
-                </div>
-            </section>
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Business fusion Internet Plans
+            </h2>
+          </div>
+          <div>
+            <Pricing_Plan />
+          </div>
+          <div>
+            <p className="text-sm font-[Roboto] mt-10">
+              *Price shown is with $25 off for 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className='mb-10'>
-                        <h2 className="text-2xl font-bold">
-                            Internet service providers in nearby cities
-                        </h2>
-                        <p>
-                            As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 gap-5 md:grid-cols-5 ">
-                        <Nearby_City />
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className=''>
+            <h2 className="text-2xl font-bold">
+              {provider_name} for Business provides a reliable and secure connection that gives you instant access to the critical business information and applications you need, email, point of sale system, file sharing, online videos and more. It is available wherever your business is located even if you are located beyond the reach of DSL, Cable and Fiber.
+            </h2>
+          </div>
+        </div>
+      </section>
 
-                    </div>
-                </div>
-            </section>
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Voice Plans
+            </h2>
+          </div>
+          <div>
+            <Pricing_Plan />
+          </div>
+          <div>
+            <p className="text-sm font-[Roboto] mt-10">
+              *Save $20 off on Voice with commitment plan. New residential subscribers only, Limited-time offer. Other terms may apply.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <section className="my-16">
-                <div className="container mx-auto px-4 grid gap-10">
-                    {Faqs_Data?.map((item: any, idx: number) => {
-                        return <Faqs_Sec key={idx} data={item} city={city} state={state}  />
-                    })}
-                </div>
-            </section> */}
-        </>
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className=''>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Voice uses advanced Voice-over-IP (VoIP) technology to deliver home phone service over satellite internet connection. All voice plans offers unlimited local and long distance calling to US and Canada. {provider_name} Voice provides a range of features like caller ID, Voicemail, Call waiting, Call forwarding and Enhanced 911 service.
+            </h2>
+          </div>
+        </div>
+      </section>
 
-    );
+      <section className='md:py-32 py-10 bg-[#F3FAFF]'>
+        <div className='container mx-auto px-4 grid gap-5 items-center'>
+          <div className="">
+            <h2 className='text-3xl font-bold text-center'>
+              Find out if {provider_name} is available in your area
+            </h2>
+          </div>
+          <div className="w-fit mx-auto py-5 mt-6 bg-white shadow-xl border md:h-52 rounded-3xl">
+            <SearchForm />
+
+          </div>
+        </div>
+      </section>
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Fees
+            </h2>
+          </div>
+          <div className="rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
+            <ul className="bg-white w-full h-auto grid pt-4 pb-4">
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full font-bold'>Fee name</span>
+                <span className='text-center w-full font-bold'>Price</span>
+              </li>
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full'>
+                  Professional Install
+                </span>
+                <span className='text-center w-full'>
+                  FREE
+                </span>
+              </li>
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full'>
+                  Equipment Rental (per month)
+                </span>
+                <span className='text-center w-full'>
+                  $14.99 ($19.99 for Fusion plans)
+                </span>
+              </li>
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full'>
+                  Equipment Purchase (one time)
+                </span>
+                <span className='text-center w-full'>
+                  $349.99 ($449.99 for Fusion plans)
+                </span>
+              </li>
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full'>
+                  Early Termination Fee
+                </span>
+                <span className='text-center w-full'>
+                  $400
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              Hughes Data Tokens
+            </h2>
+          </div>
+          <div className="rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
+            <ul className="bg-white w-full h-auto grid pt-4 pb-4">
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full font-bold'>
+                  Data Token
+                </span>
+                <span className='text-center w-full font-bold'>Price</span>
+              </li>
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full'>
+                  3 GB
+                </span>
+                <span className='text-center w-full'>
+                  $9
+                </span>
+              </li>
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full'>
+                  5 GB
+                </span>
+                <span className='text-center w-full'>
+                  $15
+                </span>
+              </li>
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full'>
+                  10 GB
+                </span>
+                <span className='text-center w-full'>
+                  $30
+                </span>
+              </li>
+              <li className='w-full flex justify-between items-center divide-x'>
+                <span className='text-center w-full'>
+                  25 GB
+                </span>
+                <span className='text-center w-full'>
+                  $75
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-sm font-[Roboto] mt-10">
+              (NOTE: {provider_name} Fees and {provider_name} Data tokens columns should be side by side)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className=''>
+            <h2 className="text-2xl font-bold">
+              About {provider_name}
+            </h2>
+            <p className='text-xl font-[Roboto] mt-5'>
+              {provider_name} is a satellite internet service provider invented by Hughes® more than 25 years ago and offering high speed internet service to the rural and remote areas where other internet options are limited or not available such as DSL, Cable and Fiber. It uses its satellite technology to provide internet service and it is currently available in the entire US.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Internet Pros and Cons
+            </h2>
+            <p className='text-xl font-[Roboto] mt-5'>
+              {provider_name} is a valuable choice for individuals and businesses seeking high speed internet connectivity especially in the rural and remote area. Here are some of the pros and cons of {provider_name}.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-2 grid-cols-1 gap-7'>
+            <div>
+              <h2 className="text-2xl font-bold">
+                Pros
+              </h2>
+              <ul>
+                <li>
+                  Widespread Coverage
+                </li>
+                <li>
+                  Reliable Connectivity
+                </li>
+                <li>
+                  Flexible Plans
+                </li>
+                <li>
+                  No Hard Data Limits
+                </li>
+                <li>
+                  Built-in Wi-Fi
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold">
+                Cons
+              </h2>
+              <ul>
+                <li>
+                  Expensive ETF
+                </li>
+                <li>
+                  Low data caps
+                </li>
+                <li>
+                  Two year contract
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section >
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className=''>
+            <h2 className="text-2xl font-bold">
+              {provider_name} Internet Discounts
+            </h2>
+            <p className='text-xl font-[Roboto] mt-5'>
+              {provider_name} participates in the Affordable Connectivity Program (ACP) to provide $30 discount per month ($75 on tribal lands) to all eligible participants on {provider_name} Internet service through the Federal Communications Commission's (FCC) ACP program. It requires participants to submit an application that demonstrates their eligibility.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              {provider_name} FAQ’s
+            </h2>
+          </div>
+          <div className='grid gap-10'>           
+              <Faqs_Sec city={provider_name} state={state}  />        
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }
-
+      
 
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const { zipcode, type } = query;
-    
-    // const [providers, zone] = await Promise.all([
-    //     apolloClient.query({ query: SINGLE_Provider, variables: { zipcode, type } }),
-    //     apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
-    // ]);
-    // const allProviders = providers.data.providers.nodes
-    // const zones = zone.data.zones.nodes
+    const { slug } = query;
+    console.log("🚀 ~ file: [slug].tsx:468 ~ constgetServerSideProps:GetServerSideProps= ~ query:", slug)
+
+    const [providers] = await Promise.all([
+        apolloClient.query({ query: SINGLE_Provider, variables: { slug } }),
+     
+    ]);
+    const allProviders = providers.data.singleProvider; 
+
     return {
         props: {
-            allProviders:[], zones :[], zipcode:[]
+            allProviders
         },
     };
 }
-
+ 
 

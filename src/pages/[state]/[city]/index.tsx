@@ -2,7 +2,7 @@
 import apolloClient from '@/config/client'
 import { GET_PROVIDERS, GET_ZONE} from '@/config/query'
 import { GetServerSideProps } from 'next'
-import { Faqs_Data } from '@/const/exports'
+
 import { useEffect, useState } from 'react'
 import Cities_com from '@/components/cities'
 import Zip_Code_Com from '@/components/zipcode'
@@ -25,6 +25,10 @@ export default function Providers({ allProviders, zones,zipcode,my_city  }: any)
     var state = zipcode?zones[0].states.nodes[0].name:[];
 
     const [city_data , set_city_data] = useState();
+
+
+
+    
  
 
     useEffect( () => {
@@ -55,7 +59,7 @@ export default function Providers({ allProviders, zones,zipcode,my_city  }: any)
 
     return (
 
-        zipcode? <Zip_Code_Com zipcode={zipcode} city={city}  state={state} allProviders={allProviders} zones={zones} Faqs_Data={Faqs_Data} />  : <Cities_com my_city={my_city} city_data={city_data} /> 
+        zipcode? <Zip_Code_Com zipcode={zipcode} city={city}  state={state} allProviders={allProviders} zones={zones}  />  : <Cities_com my_city={my_city} city_data={city_data} /> 
 
     );
 }
@@ -64,6 +68,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
     const { zipcode, type } = query;
     //console.log("🚀 ~ file: index.tsx:206 ~ constgetServerSideProps:GetServerSideProps= ~ query:", query)
+
+
+    //const response_data = await fetch('http://localhost/clients/cbl/wp-json/custom/v1/providers?internet_services=20001,20005');
+    //const providers = await response_data.json();  
 
     // Check if zipcode exists before executing the queries
     if (!zipcode) { 

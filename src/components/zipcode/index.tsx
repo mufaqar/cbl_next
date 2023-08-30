@@ -8,7 +8,7 @@ import Nearby_City from '../provider/nearby-city'
 import Faqs_Sec from '../faqs'
 import Image from 'next/image'
 
-function Zip_Code_Com({zipcode,city, state , allProviders,zones,Faqs_Data}:any) {
+function Zip_Code_Com({zipcode,city, state , allProviders,zones}:any) {
     console.log("🚀 ~ file: index.tsx:12 ~ Zip_Code_Com ~ allProviders:", allProviders)
     
   return (
@@ -122,9 +122,9 @@ function Zip_Code_Com({zipcode,city, state , allProviders,zones,Faqs_Data}:any) 
 
     <section className="my-16">
         <div className="container mx-auto px-4 grid gap-10">
-            {Faqs_Data?.map((item: any, idx: number) => {
-                return <Faqs_Sec key={idx} data={item} city={city} state={state}  />
-            })}
+           
+             <Faqs_Sec  city={city} state={state} />
+          
         </div>
     </section>
 </>
