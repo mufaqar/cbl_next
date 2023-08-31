@@ -75,7 +75,7 @@ export default function Faqs_Sec({ zipcode , city , state }: any) {
                 </div>
                 <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                     <p className="text-base font-medium mt-5" >
-                    Yes. A few service providers in (insert city name, state name) offer no contract or month to month services. Check with the providers to know more.
+                    Yes. A few service providers in {city},{state} offer no contract or month to month services. Check with the providers to know more.
                     </p>
                 </div>
             </div>
@@ -99,7 +99,7 @@ export default function Faqs_Sec({ zipcode , city , state }: any) {
                 </div>
                 <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                     <p className="text-base font-medium mt-5" >
-                    (Insert provider’s number) bundle service providers are available in (insert city name). Based on the availability (insert provider’s name) is the best bundle service provider in {city}, {zipcode}.
+                    (Insert provider’s number) bundle service providers are available in {city}. Based on the availability (insert provider’s name) is the best bundle service provider in {city}, {zipcode}.
                     </p>
                 </div>
             </div>
