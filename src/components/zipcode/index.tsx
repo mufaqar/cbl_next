@@ -123,7 +123,7 @@ function Zip_Code_Com({zipcode,city, state , allProviders,zones}:any) {
     <section className="my-16">
         <div className="container mx-auto px-4 grid gap-10">
            
-             <Faqs_Sec  city={city} state={state} />
+             <Faqs_Sec  city={city} state={state} zipcode={zipcode} />
           
         </div>
     </section>
