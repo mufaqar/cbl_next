@@ -63,7 +63,7 @@ export default function Faqs_Sec({ zipcode , city , state }: any) {
                 <div className="">
                     <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(3)}>
                         <p className="text-lg font-semibold " >
-                        3.	Can I get internet and TV bundle without any contract in {city}, {state}?
+                       	Can I get internet and TV bundle without any contract in {city}, {state}?
                         </p>
                         <span className="text-lightBlue">
 
@@ -87,7 +87,7 @@ export default function Faqs_Sec({ zipcode , city , state }: any) {
                 <div className="">
                     <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(4)}>
                         <p className="text-lg font-semibold " >
-                        4.	Who is the Best bundle Service Provider in {city}, {state}?
+                       	Who is the Best bundle Service Provider in {city}, {state}?
                         </p>
                         <span className="text-lightBlue">
 
@@ -99,7 +99,7 @@ export default function Faqs_Sec({ zipcode , city , state }: any) {
                 </div>
                 <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                     <p className="text-base font-medium mt-5" >
-                    (Insert provider’s number) bundle service providers are available in {city}. Based on the availability (insert provider’s name) is the best bundle service provider in {city}, {zipcode}.
+                    20 bundle service providers are available in {city}. Based on the availability HughesNet is the best bundle service provider in {city}, {zipcode}.
                     </p>
                 </div>
             </div>
