@@ -153,6 +153,7 @@ query CITES_by_STATE{
       cities {
         nodes {
           name
+          slug
         }
       }
     }
@@ -167,6 +168,7 @@ query GET_ZONE_BY_CITY{
     edges {
       node {
       title
+      slug
       }
     }
   }

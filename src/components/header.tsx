@@ -38,7 +38,7 @@ const Header = () => {
                             <Link href="/providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Providers</Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Resources</Link>
+                            <Link href="/blog" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Blog</Link>
                         </li>
                         <Link href="tel:855-512-0491" className="items-center gap-2 text-[#ef9831] font-[Roboto] flex justify-end">
                             <BsTelephoneFill size={18} />
