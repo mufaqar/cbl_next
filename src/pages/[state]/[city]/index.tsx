@@ -54,7 +54,7 @@ export default function Providers({ allProviders, zones,zipcode,my_city ,provide
 
     return (
 
-        zipcode? <Zip_Code_Com zipcode={zipcode} city={city}  state={state} allProviders={allProviders} zones={zones}  />  : <Cities_com my_city={my_city} city_data={city_data} providers_data={providers_data} /> 
+        zipcode? <Zip_Code_Com zipcode={zipcode} city={city}  state={state} allProviders={allProviders} zones={zones}  />  : <Cities_com city={city}  state={state} my_city={my_city} city_data={city_data} providers_data={providers_data} /> 
 
     );
 }
@@ -83,8 +83,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
                 zones: [],
                 zipcode: null,
                 my_city : query.city,
-                providers_data
-               
+                providers_data               
             },
         };
     }
