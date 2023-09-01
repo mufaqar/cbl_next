@@ -276,7 +276,10 @@ export default function SProviders({ Provider , city , state}: any) {
         <div className="container mx-auto px-4">
           <div className=''>
           {Provider?.providersInfo?.block.map((item:any , index:number) => (
-                                <div key={index}> {parse(`${item.content} `)}</div>
+                                <div key={index}>
+                                  <h2 className='block_heading'>{parse(`${item.heading} `)} </h2>
+                                  
+                                  <div className='block_content'>{parse(`${item.content} `)}</div> </div>
             ))}
           </div>
         </div>
