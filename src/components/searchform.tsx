@@ -44,6 +44,7 @@ const SearchForm = () => {
      
  
        async function fetchData() {
+        
           const response = await fetch('http://cblproject.aspactglobal.com/graphql', {
             method: 'POST',
             headers: {

@@ -65,7 +65,7 @@ function Zip_Code_Com({zipcode,city, state , allProviders,zones}:any) {
                     Overview of Internet Service Providers in {city}, {state}
                 </h2>
                 <p className='text-xl font-[Roboto] mt-5'>
-                    As of the time this page was written, (insert city name) with the population of (insert population) residents has (insert number of listed Internet providers) or more internet service providers offering various types of internet service plans including (list provider’s connection types). (Listed provider 1 and listed provider 2) are the largest providers in the area.
+                    As of the time this page was written, {city} with the population of ( population) residents has (insert number of listed Internet providers) or more internet service providers offering various types of internet service plans including (list provider’s connection types). (Listed provider 1 and listed provider 2) are the largest providers in the area.
                 </p>
             </div>
         </div>
@@ -91,34 +91,27 @@ function Zip_Code_Com({zipcode,city, state , allProviders,zones}:any) {
                     Types of internet Technologies available in {city}, {state}
                 </h2>
                 <p className='text-base'>
-                    As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
+                    As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include Cable Internet , Satellite TV and Streaming TV
                 </p>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
                 <Technology_Box
                     title="Cable Internet"
-                    content="Cable internet uses the coaxial cable infrastructure to provide high-speed internet access. It offers relatively fast and stable internet connections."
+                    content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
+                />
+                <Technology_Box
+                    title="Satellite TV"
+                    content=" Satellite TV uses satellite dishes to receive TV signals from satellites in the orbit. Providers like DIRECTV and DISH Network offer satellite TV services, providing access to numerous channels and nationwide coverage."
+                />
+                <Technology_Box
+                    title="Streaming TV"
+                    content="Streaming TV is delivered over the internet and allows you to watch Live TV, movies, TV shows and other on-demand content or through live streaming. Providers like AT&T TV and various streaming platforms offer streaming TV services."
                 />
             </div>
         </div>
     </section>
 
-    <section className="my-16">
-        <div className="container mx-auto px-4">
-            <div className='mb-10'>
-                <h2 className="text-2xl font-bold">
-                    Internet service providers in nearby cities
-                </h2>
-                <p>
-                    As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include, (show only listed technologies types in the area)
-                </p>
-            </div>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-5 ">
-                <Nearby_City />
-
-            </div>
-        </div>
-    </section>
+   
 
     <section className="my-16">
         <div className="container mx-auto px-4 grid gap-10">

@@ -36,39 +36,6 @@ query zones($zipcode: String = "") {
 
 export default function Home() {
 
-   const [zipcode, setzipcode] = useState<string>();
-   const [pro_type, setpro_type] = useState<string>();
-   const router = useRouter();
-  
-
-
-   function handleState() {
-      alert("asdf");
-
-      console.log(zipcode);
-
-      async function fetchData() {
-         const response = await fetch('http://cblproject.aspactglobal.com/graphql', {
-           method: 'POST',
-           headers: {
-             'Content-Type': 'application/json',
-           },
-           body: JSON.stringify({ query , varables:{zipcode} }),
-         });
-         const respons = await response.json();
-         console.log("🚀  file: test.jsx:43  fetchData ~ data:", respons);
-       }
-       fetchData();
-    
-
-      () => router.push(`/providers/city/state?zipcode=${zipcode}&type=${pro_type}`);
-
-   //const { data, loading, error } = useQuery(ProviderByCITES);
-     }
-
-   
-
-
 
    return (
 
@@ -118,11 +85,7 @@ export default function Home() {
                   </h2>
                </div>
                <div>
-                  <div className="relative flex items-center w-full sm:px-12 px-6 mt-6 md:mt-10">
-                     <FaMagnifyingGlass className="absolute ml-3" />
-                     <input type="text" placeholder="Enter Zip Code" name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-3 pl-10 pr-8 border outline-none md:w-80 border-zinc-400 rounded-l-md" />
-                     <button className="px-4 py-[13px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-r-md" onClick={handleState}>Search</button>
-                  </div>
+               <SearchForm />
                </div>
             </div>
          </section>
