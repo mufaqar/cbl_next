@@ -16,7 +16,7 @@ import Nearby_City from '../provider/nearby-city'
 import Image from 'next/image'
 
 
-export default function Cities_com({my_city , city_data , providers_data , city , state}:any) {  
+export default function Cities_com({my_city , city_data , providers_data , city}:any) {  
 console.log("🚀 ~ file: index.tsx:20 ~ Cities_com ~ my_city:", my_city)
 console.log("🚀 ~ file: index.tsx:16 ~ Cities_com ~ providers_data:", providers_data) 
   return (
@@ -27,7 +27,7 @@ console.log("🚀 ~ file: index.tsx:16 ~ Cities_com ~ providers_data:", provider
         <div className="container mx-auto px-4">
             <div >
                 <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto">
-                    Internet Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                    Internet Service Providers in <span className="text-[#ef9831]">{city}</span>
                 </h1>
                 <p className="text-xl text-center font-[Roboto] mt-3">
                     Enter your zip so we can find the best providers in your area:
@@ -86,7 +86,7 @@ console.log("🚀 ~ file: index.tsx:16 ~ Cities_com ~ providers_data:", provider
         <div className="container mx-auto px-4">
             <div className='mb-10'>
                 <h2 className="text-2xl font-bold">
-                    Summary of Internet service providers in  {city}, {state}
+                    Summary of Internet service providers in  {city}
                 </h2>
             </div>
             <div>
@@ -99,7 +99,7 @@ console.log("🚀 ~ file: index.tsx:16 ~ Cities_com ~ providers_data:", provider
         <div className="container mx-auto px-4">
             <div className='mb-10'>
                 <h2 className="text-2xl font-bold">
-                    Types of internet Technologies available in {city}, {state}
+                    Types of internet Technologies available in {city}
                 </h2>
                 <p className='text-base'>
                     As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include Cable Internet , Satellite TV and Streaming TV
@@ -123,10 +123,8 @@ console.log("🚀 ~ file: index.tsx:16 ~ Cities_com ~ providers_data:", provider
     </section>
 
     <section className="my-16">
-        <div className="container mx-auto px-4 grid gap-10">
-           
-             <Faqs_Sec  city={city} state={state} zipcode=""  />
-          
+        <div className="container mx-auto px-4 grid gap-10">           
+             <Faqs_Sec  city={city} state="" zipcode=""  />          
         </div>
     </section>
      
