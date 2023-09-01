@@ -42,6 +42,7 @@ query GET_ALL_PROVIDERS{
         proPrice
         proSpeed
         features
+        
       }
       
     }
@@ -93,6 +94,25 @@ export const SINGLE_Provider = gql`
 query SINGLE_Provider($slug: ID!) {
   singleProvider(id: $slug, idType: URI) {
     title
+    featuredImage {
+      node {
+        mediaItemUrl
+      }
+    }
+    providersInfo {
+      proPhone
+      proPrice
+      proSpeed
+      features
+      block {
+        content
+        fieldGroupName
+        heading
+      }
+      cons
+      pros
+    }
+    
   }
 }`;
 

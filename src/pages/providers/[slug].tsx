@@ -17,14 +17,15 @@ import Nearby_City from '@/components/provider/nearby-city'
 import Faqs_Sec from '@/components/faqs'
 import Link from 'next/link'
 import Pricing_Plan from '@/components/provider/pricing-plan'
+import parse from 'html-react-parser';
 //import { Faqs_Data } from '@/const/exports'
 import React, { useState } from 'react'
 
-export default function SProviders({ allProviders, zones,zipcode , city , state,providers}: any) {
-    console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", allProviders)
+export default function SProviders({ Provider , city , state}: any) {
+    console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
     //const params = useParams()
 
-    const provider_name = allProviders?.title;
+    const provider_name = Provider?.title;
 
     const [nav, setNav] = useState(false);
 
@@ -60,26 +61,25 @@ export default function SProviders({ allProviders, zones,zipcode , city , state,
       <section className="pt-16 pb-16 bg-[url('/images/deals_desktop.jpg')] bg-cover bg-no-repeat bg-center">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
           <div className='col-span-2'>
+          <img src={Provider.featuredImage?.node.mediaItemUrl} alt="" className="" />
             <h1 className="sm:text-3xl text-2xl font-bold">
               {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
             </h1>
             <h2 className="text-xl font-bold my-3">
-              Prices starting at $49.99/mo.
+              Prices starting at {Provider?.providersInfo?.proSpeed} mo.
             </h2>
-            <ul>
-              <li className="text-lg font-[Roboto]">
-                Built-in WiFi
-              </li>
-              <li className="text-lg font-[Roboto]">
-                No hard data limits
-              </li>
-              <li className="text-lg font-[Roboto]">
-                2 year price lock guarantee
-              </li>
-            </ul>
+
+              {parse(`
+                ${Provider?.providersInfo?.features}
+              `)}
+
+             
+
+       
+
           </div>
           <div>
-            <img src="/images/partner1.png" alt="logo" className='w-3/4' />
+            <img src="/images/internet.jpg" alt="logo" className='w-3/4' />
           </div>
         </div>
       </section>
@@ -272,123 +272,12 @@ export default function SProviders({ allProviders, zones,zipcode , city , state,
           </div>
         </div>
       </section>
-
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              {provider_name} Fees
-            </h2>
-          </div>
-          <div className="rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
-            <ul className="bg-white w-full h-auto grid pt-4 pb-4">
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full font-bold'>Fee name</span>
-                <span className='text-center w-full font-bold'>Price</span>
-              </li>
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full'>
-                  Professional Install
-                </span>
-                <span className='text-center w-full'>
-                  FREE
-                </span>
-              </li>
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full'>
-                  Equipment Rental (per month)
-                </span>
-                <span className='text-center w-full'>
-                  $14.99 ($19.99 for Fusion plans)
-                </span>
-              </li>
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full'>
-                  Equipment Purchase (one time)
-                </span>
-                <span className='text-center w-full'>
-                  $349.99 ($449.99 for Fusion plans)
-                </span>
-              </li>
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full'>
-                  Early Termination Fee
-                </span>
-                <span className='text-center w-full'>
-                  $400
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              Hughes Data Tokens
-            </h2>
-          </div>
-          <div className="rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
-            <ul className="bg-white w-full h-auto grid pt-4 pb-4">
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full font-bold'>
-                  Data Token
-                </span>
-                <span className='text-center w-full font-bold'>Price</span>
-              </li>
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full'>
-                  3 GB
-                </span>
-                <span className='text-center w-full'>
-                  $9
-                </span>
-              </li>
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full'>
-                  5 GB
-                </span>
-                <span className='text-center w-full'>
-                  $15
-                </span>
-              </li>
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full'>
-                  10 GB
-                </span>
-                <span className='text-center w-full'>
-                  $30
-                </span>
-              </li>
-              <li className='w-full flex justify-between items-center divide-x'>
-                <span className='text-center w-full'>
-                  25 GB
-                </span>
-                <span className='text-center w-full'>
-                  $75
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              (NOTE: {provider_name} Fees and {provider_name} Data tokens columns should be side by side)
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className=''>
-            <h2 className="text-2xl font-bold">
-              About {provider_name}
-            </h2>
-            <p className='text-xl font-[Roboto] mt-5'>
-              {provider_name} is a satellite internet service provider invented by Hughes® more than 25 years ago and offering high speed internet service to the rural and remote areas where other internet options are limited or not available such as DSL, Cable and Fiber. It uses its satellite technology to provide internet service and it is currently available in the entire US.
-            </p>
+          {Provider?.providersInfo?.block.map((item:any , index:number) => (
+                                <div key={index}> {parse(`${item.content} `)}</div>
+            ))}
           </div>
         </div>
       </section>
@@ -408,56 +297,21 @@ export default function SProviders({ allProviders, zones,zipcode , city , state,
               <h2 className="text-2xl font-bold">
                 Pros
               </h2>
-              <ul>
-                <li>
-                  Widespread Coverage
-                </li>
-                <li>
-                  Reliable Connectivity
-                </li>
-                <li>
-                  Flexible Plans
-                </li>
-                <li>
-                  No Hard Data Limits
-                </li>
-                <li>
-                  Built-in Wi-Fi
-                </li>
-              </ul>
+              {parse(`
+                ${Provider?.providersInfo?.pros}
+              `)}
             </div>
             <div>
               <h2 className="text-2xl font-bold">
                 Cons
               </h2>
-              <ul>
-                <li>
-                  Expensive ETF
-                </li>
-                <li>
-                  Low data caps
-                </li>
-                <li>
-                  Two year contract
-                </li>
-              </ul>
+              {parse(`
+                ${Provider?.providersInfo?.cons}
+              `)}
             </div>
           </div>
         </div>
       </section >
-
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className=''>
-            <h2 className="text-2xl font-bold">
-              {provider_name} Internet Discounts
-            </h2>
-            <p className='text-xl font-[Roboto] mt-5'>
-              {provider_name} participates in the Affordable Connectivity Program (ACP) to provide $30 discount per month ($75 on tribal lands) to all eligible participants on {provider_name} Internet service through the Federal Communications Commission's (FCC) ACP program. It requires participants to submit an application that demonstrates their eligibility.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="my-16">
         <div className="container mx-auto px-4">
@@ -479,17 +333,17 @@ export default function SProviders({ allProviders, zones,zipcode , city , state,
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const { slug } = query;
-    console.log("🚀 ~ file: [slug].tsx:468 ~ constgetServerSideProps:GetServerSideProps= ~ query:", slug)
+   // console.log("🚀 ~ file: [slug].tsx:468 ~ constgetServerSideProps:GetServerSideProps= ~ query:", slug)
 
     const [providers] = await Promise.all([
         apolloClient.query({ query: SINGLE_Provider, variables: { slug } }),
      
     ]);
-    const allProviders = providers.data.singleProvider; 
+    const Provider = providers.data.singleProvider; 
 
     return {
         props: {
-            allProviders
+          Provider
         },
     };
 }
