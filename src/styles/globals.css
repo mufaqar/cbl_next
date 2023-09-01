@@ -51,3 +51,34 @@ h1,h2,h3,h4,h5,h6{
       max-width: 1110px;
   }
 }
+
+.custom-loader {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  border:8px solid #0000;
+  border-radius: 50%;
+  border-color:#FFFFFF #0000;
+  animation: s6 1s infinite linear;
+}
+.custom-loader::before,
+.custom-loader::after {    
+  content:"";
+  grid-area: 1/1;
+  margin:4px;
+  border:inherit;
+  border-radius: 50%;
+}
+.custom-loader::before {
+  border-color:#FFA500 #0000;
+  animation:inherit; 
+  animation-duration: .5s;
+  animation-direction: reverse;
+}
+.custom-loader::after {
+  margin:16px;
+}
+
+@keyframes s6 { 
+  100%{transform: rotate(1turn)}
+}
