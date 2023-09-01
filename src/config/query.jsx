@@ -26,6 +26,22 @@ query GET_ZIPCODE {
 }
 `;
 
+export const GET_ALL_PROVIDERS = gql`
+query GET_ALL_PROVIDERS{
+  allProviders ( first: 100) {
+    nodes {
+      title
+      slug
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+    }
+  }
+}
+`;
+
 export const GET_PROVIDERS = gql`
 query GET_PROVIDERS($value: String = "") {
   allProviders(

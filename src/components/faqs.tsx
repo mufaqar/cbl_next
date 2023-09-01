@@ -3,6 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 export default function Faqs_Sec({ zipcode , city , state }: any) {
     const [open, setOpen] = useState<any>(1);
+
     const handleFaq = (id: any) => {
         if (open === id) {
             return setOpen(null)

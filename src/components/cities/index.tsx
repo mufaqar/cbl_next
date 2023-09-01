@@ -16,8 +16,12 @@ import Nearby_City from '../provider/nearby-city'
 import Image from 'next/image'
 
 
-export default function Cities_com({my_city , city_data , providers_data , city}:any) {  
-console.log("🚀 ~ file: index.tsx:20 ~ Cities_com ~ my_city:", my_city)
+export default function Cities_com({my_city , city_data , providers_data}:any) { 
+  const inputString = my_city;
+  const parts = inputString.split('-');
+  const capitalizedWords = parts.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+  const city = capitalizedWords.join(' ');
+
 console.log("🚀 ~ file: index.tsx:16 ~ Cities_com ~ providers_data:", providers_data) 
   return (
     <>
