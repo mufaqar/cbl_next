@@ -17,7 +17,7 @@ export const ProviderCard = ({ item, zone }: any) => {
 
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <h4 className="font-bold text-center">Speeds from </h4>
-                        <h4 className="font-bold text-center">25-5000 Mbps </h4>
+                        <h4 className="text-center">{item?.providersInfo?.proSpeed}  Mbps </h4>
                     </div>
 
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
@@ -52,13 +52,13 @@ export const ProviderCard = ({ item, zone }: any) => {
                         <div>
                             <h5 className="font-bold text-center">Pricing starts from</h5>
                             <p className="text-center">
-                                <span className="font-extrabold text-[#215690] font-[Roboto] text-xl">$55.00</span> /mo.
+                                <span className="font-extrabold text-[#215690] font-[Roboto] text-xl"> {item?.providersInfo?.proPrice} </span> /mo.
                             </p>
                         </div>
                     </div>
                     <div className="grid items-center justify-center p-5">
                         <Link href="tel:000-000-000" className="text-base text-[#ef9831] hover:text-[#215690] font-[Roboto] font-medium uppercase px-5 py-2.5">
-                           {/* {item?.providersInfo?.pro_phone} */}
+                           {item?.providersInfo?.proPhone} 
                         </Link>
                         <Link href={`/providers/${item.slug}`} className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>

@@ -37,6 +37,13 @@ query GET_ALL_PROVIDERS{
           mediaItemUrl
         }
       }
+      providersInfo {
+        proPhone
+        proPrice
+        proSpeed
+        features
+      }
+      
     }
   }
 }
