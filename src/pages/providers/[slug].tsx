@@ -281,7 +281,6 @@ export default function SProviders({ Provider , city , state}: any) {
           </div>
         </div>
       </section>
-
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -312,7 +311,6 @@ export default function SProviders({ Provider , city , state}: any) {
           </div>
         </div>
       </section >
-
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -328,19 +326,14 @@ export default function SProviders({ Provider , city , state}: any) {
     </>
   )
 }
-      
-
+     
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const { slug } = query;
-   // console.log("🚀 ~ file: [slug].tsx:468 ~ constgetServerSideProps:GetServerSideProps= ~ query:", slug)
-
     const [providers] = await Promise.all([
-        apolloClient.query({ query: SINGLE_Provider, variables: { slug } }),
-     
+        apolloClient.query({ query: SINGLE_Provider, variables: { slug } }),     
     ]);
     const Provider = providers.data.singleProvider; 
-
     return {
         props: {
           Provider
