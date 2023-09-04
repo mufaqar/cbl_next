@@ -105,17 +105,39 @@ query SINGLE_Provider($slug: ID!) {
       proSpeed
       features
       block {
+        
         content
-        fieldGroupName
         heading
       }
       cons
       pros
       internetPlans {
-        package
         speeds
-        price
+          price
+          package
+      }    
+      internetTvPhoneBundles {
+        speeds
+          price
+          package
       }
+      internetAndTvBundles {
+        speeds
+          price
+          package
+      }
+      internetAndPhoneBundles {
+        speeds
+          price
+          package
+      }
+      tvPlans {
+        speeds
+          price
+          package
+      }
+
+
     }
     
   }

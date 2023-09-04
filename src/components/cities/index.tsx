@@ -1,5 +1,5 @@
 import Faqs_Sec from '@/components/faqs';
-import Pricing_Plan from '@/components/provider/pricing-plan';
+import Pricing_Plan from '@/components/pricing/internet-plan';
 import SearchForm from '@/components/searchform'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
