@@ -23,7 +23,7 @@ function Blog() {
                     </div>
                     <div className="block space-x-0 lg:flex lg:space-x-6">
 
-                        <div className="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+                        <div className="rounded w-full lg:w-1/3 p-4 lg:p-0">
                             <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="rounded" alt="technology" />
                             <div className="p-4 pl-0">
                                 <h2 className="font-bold text-2xl text-gray-800">Put all speaking her delicate recurred possible.</h2>

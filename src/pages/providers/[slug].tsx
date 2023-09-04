@@ -65,7 +65,8 @@ export default function SProviders({ Provider , city , state}: any) {
       <section className="pt-16 pb-16 bg-[url('/images/deals_desktop.jpg')] bg-cover bg-no-repeat bg-center">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
           <div className='col-span-2'>
-          <img src={Provider.featuredImage?.node.mediaItemUrl} alt="Logo" className="mb-5" />
+         
+          <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
             <h1 className="sm:text-3xl text-2xl font-bold">
               {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
             </h1>
