@@ -1,20 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
-
 export const ProviderCard = ({ item, zone }: any) => {
-    console.log(item);
-
+    //console.log(item);
     return (
-
         <>
             <div className=" w-full lg:max-w-[1200px]  mx-auto py-4 h-auto rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
                 <div className="flex justify-between px-4 py-1 md:border-b-0 border-b ">
                     <h2 className="font-[Roboto] text-lg font-normal">{item.title}</h2>
                 </div>
                 <div className="bg-white w-full h-auto grid md:grid-cols-5 pt-4 pb-12">
-                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                        <img src={item.featuredImage?.node.mediaItemUrl} alt="" className="" />
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">                       
+                        <Image src={item.featuredImage?.node.mediaItemUrl}  alt="Feature Image" width={140} height={50} />
                     </div>
-
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <h4 className="font-bold text-center">Speeds from </h4>
                         <h4 className="text-center">{item?.providersInfo?.proSpeed}  Mbps </h4>
