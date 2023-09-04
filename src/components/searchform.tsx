@@ -52,8 +52,7 @@ const SearchForm = () => {
       const response = await fetch('http://cblproject.aspactglobal.com/graphql', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Content-Security-Policy': 'upgrade-insecure-requests'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ query, variables: variables }),
       });
