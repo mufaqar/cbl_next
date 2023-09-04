@@ -45,7 +45,7 @@ export default Providers
 
 
 
-export const getStaticProps: GetStaticProps = async () => {  
+export const GetServerSideProps: GetServerSideProps = async () => {  
 
     const [providers] = await Promise.all([
         apolloClient.query({ query: GET_ALL_PROVIDERS }),     
