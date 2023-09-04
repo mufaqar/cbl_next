@@ -2,7 +2,7 @@ import Main from '@/components/main'
 import { ProviderCard } from '@/components/provider/provider-card'
 import apolloClient from '@/config/client'
 import { GET_ALL_PROVIDERS } from '@/config/query'
-import { GetServerSideProps, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import React from 'react'
 
 function Providers({allProviders}:any) {
@@ -44,8 +44,7 @@ function Providers({allProviders}:any) {
 export default Providers
 
 
-
-export const GetServerSideProps: GetServerSideProps = async () => {  
+export const getServerSideProps: GetServerSideProps = async () => {  
 
     const [providers] = await Promise.all([
         apolloClient.query({ query: GET_ALL_PROVIDERS }),     
@@ -57,5 +56,3 @@ export const GetServerSideProps: GetServerSideProps = async () => {
         },
     };
 }
-
-
