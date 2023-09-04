@@ -28,7 +28,7 @@ export const Services_data = [
 export const Providers_Data = [
     {
         name: "SPECTRUM",
-        link: "#",
+        link: "/providers/spectrum",
     },
     {
         name: "XFINITY",
@@ -44,35 +44,35 @@ export const Providers_Data = [
     },
     {
         name: "T-MOBILE",
-        link: "#",
+        link: "/providers/t-mobile",
     },
     {
         name: "AT&T",
-        link: "#",
+        link: "/providers/att",
     },
     {
         name: "VIASAT",
-        link: "#",
+        link: "/providers/viasat",
     },
     {
         name: "EARTHLINK",
-        link: "#",
+        link: "/providers/earthlink",
     },
     {
         name: "CENTURYLINK",
-        link: "#",
+        link: "/providers/centurylink",
     },
     {
         name: "HUGHESNET",
-        link: "#",
+        link: "/providers/hughesnet",
     },
     {
         name: "WINDSTREAM",
-        link: "#",
+        link: "/providers/windstream",
     },
     {
         name: "RISE BROADBAND",
-        link: "#",
+        link: "/providers/rise-broadband",
     },
 ];
 
