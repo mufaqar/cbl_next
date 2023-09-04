@@ -24,6 +24,7 @@ import TV_Plan from '@/components/pricing/tv_plan'
 import InternetTvPhonePlan from '@/components/pricing/internet-tv-phone-plan'
 import InternetPlans from '@/components/pricing/internet-plan'
 import InternetTVPlans from '@/components/pricing/internet-tv-plans'
+import Faqs_Provider from '@/components/faqs_provider'
 
 export default function SProviders({ Provider , city , state}: any) {
    // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
@@ -67,7 +68,7 @@ export default function SProviders({ Provider , city , state}: any) {
           <div className='col-span-2'>
          
           <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
-            <h1 className="sm:text-3xl text-2xl font-bold">
+            <h1 className="sm:text-3xl text-2xl font-bold mt-4">
               {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
             </h1>
             <h2 className="text-xl font-bold my-3">
@@ -78,7 +79,7 @@ export default function SProviders({ Provider , city , state}: any) {
               `)}
           </div>
           <div>
-            <img src="/images/internet.jpg" alt="logo" className='w-3/4 rounded-lg' />
+            <Image src="/images/internet.jpg" alt="logo" className='w-3/4 rounded-lg' width={640} height={425} />
           </div>
         </div>
       </section>
@@ -134,11 +135,10 @@ export default function SProviders({ Provider , city , state}: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              {provider_name} Tv Bundles 123
+              {provider_name} Tv Bundles
             </h2>
           </div>
-          <div>
-          
+          <div>          
             <TV_Plan Plans={Provider?.providersInfo?.tvPlans}  />
           </div>
           <div>
@@ -287,7 +287,7 @@ export default function SProviders({ Provider , city , state}: any) {
             </h2>
           </div>
           <div className='grid gap-10'>           
-              <Faqs_Sec city={provider_name} state={state}  />        
+              <Faqs_Provider faqS={Provider?.providersInfo?.faqS}   />        
           </div>
         </div>
       </section>

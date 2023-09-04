@@ -136,6 +136,10 @@ query SINGLE_Provider($slug: ID!) {
           price
           package
       }
+      faqS {
+        answer
+        question
+      }
 
 
     }

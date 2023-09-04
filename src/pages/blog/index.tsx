@@ -11,12 +11,6 @@ function Blog() {
 
 
                 <main className="mt-12">
-
-
-
-
-
-
                     <div className="flex mt-16 mb-4 px-4 lg:px-0 items-center justify-between">
                         <h2 className="font-bold text-3xl">Latest news</h2>
 
@@ -36,7 +30,7 @@ function Blog() {
                             </div>
                         </div>
 
-                        <div className="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+                        <div className="rounded w-full lg:w-1/3 p-4 lg:p-0">
                             <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" className="rounded" alt="technology" />
                             <div className="p-4 pl-0">
                                 <h2 className="font-bold text-2xl text-gray-800">Is at purse tried jokes china ready decay an. </h2>
@@ -49,7 +43,7 @@ function Blog() {
                             </div>
                         </div>
 
-                        <div className="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+                        <div className="rounded w-full lg:w-1/3 p-4 lg:p-0">
                             <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" className="rounded" alt="technology" />
                             <div className="p-4 pl-0">
                                 <h2 className="font-bold text-2xl text-gray-800">As dissuade cheerful overcame so of friendly he indulged unpacked.</h2>
