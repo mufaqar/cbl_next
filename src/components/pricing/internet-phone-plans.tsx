@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const InternetPhonePlans = ({ internetPlans }: any) => {
+const InternetPhonePlans = ({ internetPlans, pro_phone }: any) => {
     console.log("🚀 ~ file: pricing-plan.tsx:5 ~ internetPlans:", internetPlans)
     return (
         <div className=" w-full lg:max-w-[1200px] mx-auto  h-auto rounded-t-md rounded-b-md  border-zinc-400/10 ">
@@ -37,7 +37,7 @@ const InternetPhonePlans = ({ internetPlans }: any) => {
                         </div>
                     </div>
                 </div>
-                {internetPlans?.map((plan:any) => (
+                {internetPlans?.map((plan: any) => (
                     <div key={plan.id} className='grid grid-cols-4  border border-spacing-1 ' >
                         <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center p-5">
                             <div>
@@ -63,7 +63,7 @@ const InternetPhonePlans = ({ internetPlans }: any) => {
                         <div className="grid justify-center p-5">
                             <div>
                                 <Link href="tel:000-000-000" className="text-base text-[#ef9831] hover:text-[#215690] font-[Roboto] font-medium uppercase px-5 py-2.5">
-                                    000-000-0000
+                                    {pro_phone}
                                 </Link>
                             </div>
                         </div>

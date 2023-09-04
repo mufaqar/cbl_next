@@ -26,55 +26,58 @@ import InternetPlans from '@/components/pricing/internet-plan'
 import InternetTVPlans from '@/components/pricing/internet-tv-plans'
 import Faqs_Provider from '@/components/faqs_provider'
 
-export default function SProviders({ Provider , city , state}: any) {
-   // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
-    //const params = useParams()
+export default function SProviders({ Provider, city, state }: any) {
+  // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
+  //const params = useParams()
 
-    const provider_name = Provider?.title;
+  const provider_name = Provider?.title;
+  const pro_phone = Provider?.providersInfo?.proPhone;
 
-    const [nav, setNav] = useState(false);
 
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonthIndex = currentDate.getMonth();
-    const currentMonthNumber = currentMonthIndex + 1;
 
-    const monthNames = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-    
-    const currentMonthName = monthNames[currentMonthIndex];
+  const [nav, setNav] = useState(false);
 
-    const changeBackground = () => {
-      if (window.scrollY >= 350) {
-        setNav(true);
-      }
-      else {
-        setNav(false);
-      }
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonthIndex = currentDate.getMonth();
+  const currentMonthNumber = currentMonthIndex + 1;
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const currentMonthName = monthNames[currentMonthIndex];
+
+  const changeBackground = () => {
+    if (window.scrollY >= 350) {
+      setNav(true);
     }
-    if (typeof window !== "undefined") {
-  
-      window.addEventListener('scroll', changeBackground);
-  
+    else {
+      setNav(false);
     }
-  
- 
+  }
+  if (typeof window !== "undefined") {
+
+    window.addEventListener('scroll', changeBackground);
+
+  }
+
+
   return (
     <>
       <section className="pt-16 pb-16 bg-[url('/images/deals_desktop.jpg')] bg-cover bg-no-repeat bg-center">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
           <div className='col-span-2'>
-         
-          <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
+
+            <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
             <h1 className="sm:text-3xl text-2xl font-bold mt-4">
               {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
             </h1>
             <h2 className="text-xl font-bold my-3">
               Prices starting at {Provider?.providersInfo?.proPrice} mo.
             </h2>
-              {parse(`
+            {parse(`
                 ${Provider?.providersInfo?.features}
               `)}
           </div>
@@ -121,7 +124,7 @@ export default function SProviders({ Provider , city , state}: any) {
               {provider_name} Internet Plans</h2>
           </div>
           <div>
-            <InternetPlans internetPlans={Provider?.providersInfo?.internetPlans}  />             
+            <InternetPlans internetPlans={Provider?.providersInfo?.internetPlans} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -138,8 +141,8 @@ export default function SProviders({ Provider , city , state}: any) {
               {provider_name} Tv Bundles
             </h2>
           </div>
-          <div>          
-            <TV_Plan Plans={Provider?.providersInfo?.tvPlans}  />
+          <div>
+            <TV_Plan Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -158,7 +161,7 @@ export default function SProviders({ Provider , city , state}: any) {
             </h2>
           </div>
           <div>
-            <InternetTvPhonePlan Plans={Provider?.providersInfo?.internetTvPhoneBundles}  />
+            <InternetTvPhonePlan Plans={Provider?.providersInfo?.internetTvPhoneBundles} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -176,7 +179,7 @@ export default function SProviders({ Provider , city , state}: any) {
             </h2>
           </div>
           <div>
-            <InternetTVPlans Plans={Provider?.providersInfo?.internetAndTvBundles}  />
+            <InternetTVPlans Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -194,7 +197,7 @@ export default function SProviders({ Provider , city , state}: any) {
             </h2>
           </div>
           <div>
-            <InternetTvPhonePlan internetPlans={Provider?.providersInfo?.internetAndTvBundles}  />
+            <InternetTvPhonePlan internetPlans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -212,7 +215,7 @@ export default function SProviders({ Provider , city , state}: any) {
             </h2>
           </div>
           <div>
-            <InternetTvPhonePlan internetPlans={Provider?.providersInfo?.internetAndTvBundles}  />
+            <InternetTvPhonePlan internetPlans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -223,7 +226,7 @@ export default function SProviders({ Provider , city , state}: any) {
       </section>
 
 
-     
+
       <section className='md:py-32 py-10 bg-[#F3FAFF]'>
         <div className='container mx-auto px-4 grid gap-5 items-center'>
           <div className="">
@@ -240,11 +243,11 @@ export default function SProviders({ Provider , city , state}: any) {
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className=''>
-          {Provider?.providersInfo?.block.map((item:any , index:number) => (
-                                <div key={index}>
-                                  <h2 className='block_heading'>{parse(`${item.heading} `)} </h2>
-                                  
-                                  <div className='block_content'>{parse(`${item.content} `)}</div> </div>
+            {Provider?.providersInfo?.block.map((item: any, index: number) => (
+              <div key={index}>
+                <h2 className='block_heading'>{parse(`${item.heading} `)} </h2>
+
+                <div className='block_content'>{parse(`${item.content} `)}</div> </div>
             ))}
           </div>
         </div>
@@ -286,27 +289,27 @@ export default function SProviders({ Provider , city , state}: any) {
               {provider_name} FAQ’s
             </h2>
           </div>
-          <div className='grid gap-10'>           
-              <Faqs_Provider faqS={Provider?.providersInfo?.faqS}   />        
+          <div className='grid gap-10'>
+            <Faqs_Provider faqS={Provider?.providersInfo?.faqS} />
           </div>
         </div>
       </section>
     </>
   )
 }
-     
+
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const { slug } = query;
-    const [providers] = await Promise.all([
-        apolloClient.query({ query: SINGLE_Provider, variables: { slug } }),     
-    ]);
-    const Provider = providers.data.singleProvider; 
-    return {
-        props: {
-          Provider
-        },
-    };
+  const { slug } = query;
+  const [providers] = await Promise.all([
+    apolloClient.query({ query: SINGLE_Provider, variables: { slug } }),
+  ]);
+  const Provider = providers.data.singleProvider;
+  return {
+    props: {
+      Provider
+    },
+  };
 }
- 
+
 
