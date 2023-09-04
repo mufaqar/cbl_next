@@ -22,7 +22,7 @@ import parse from 'html-react-parser';
 import React, { useState } from 'react'
 
 export default function SProviders({ Provider , city , state}: any) {
-    console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
+   // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
     //const params = useParams()
 
     const provider_name = Provider?.title;
@@ -61,25 +61,19 @@ export default function SProviders({ Provider , city , state}: any) {
       <section className="pt-16 pb-16 bg-[url('/images/deals_desktop.jpg')] bg-cover bg-no-repeat bg-center">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
           <div className='col-span-2'>
-          <img src={Provider.featuredImage?.node.mediaItemUrl} alt="" className="" />
+          <img src={Provider.featuredImage?.node.mediaItemUrl} alt="Logo" className="mb-5" />
             <h1 className="sm:text-3xl text-2xl font-bold">
               {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
             </h1>
             <h2 className="text-xl font-bold my-3">
-              Prices starting at {Provider?.providersInfo?.proSpeed} mo.
+              Prices starting at {Provider?.providersInfo?.proPrice} mo.
             </h2>
-
               {parse(`
                 ${Provider?.providersInfo?.features}
               `)}
-
-             
-
-       
-
           </div>
           <div>
-            <img src="/images/internet.jpg" alt="logo" className='w-3/4' />
+            <img src="/images/internet.jpg" alt="logo" className='w-3/4 rounded-lg' />
           </div>
         </div>
       </section>
@@ -118,11 +112,11 @@ export default function SProviders({ Provider , city , state}: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              {provider_name} Internet Plans,
-            </h2>
+              {provider_name} Internet Plans  {parse(``)}  </h2>
           </div>
           <div>
-            <Pricing_Plan />
+            <Pricing_Plan internetPlans={Provider?.providersInfo?.internetPlans}  />
+             
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">

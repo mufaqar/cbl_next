@@ -111,6 +111,11 @@ query SINGLE_Provider($slug: ID!) {
       }
       cons
       pros
+      internetPlans {
+        package
+        speeds
+        price
+      }
     }
     
   }
