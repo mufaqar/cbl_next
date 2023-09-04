@@ -83,7 +83,7 @@ const Footer = () => {
       </div>
       <div className='container mx-auto px-4 mt-24 pt-8 border-t border-white/20'>
         <p className='text-sm font-normal text-white/75'>
-          Copyright © 2023 cablemovers.net. All rights reserved.
+          Copyright © 2023 Cablemovers.net. All rights reserved.
         </p>
       </div>
     </footer>
