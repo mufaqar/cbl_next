@@ -88,6 +88,13 @@ html {
   .container {
     max-width: 768px;
   }
+  .dtable:nth-child(odd) {
+    background: #fafafa;
+    border-top: 1px solid #dedede !important;
+    border-bottom: 1px solid #dedede !important;
+    border-right: 0px solid #dedede !important;
+    border-left: 0px solid #dedede !important;
+  }
 }
 @media (min-width: 1024px) {
   .container {
@@ -167,8 +174,10 @@ html {
 
 .dtable:nth-child(odd) {
   background: #fafafa;
-  border-top: 1px solid #dedede;
-  border-bottom: 1px solid #dedede;
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 1px solid #dedede;
+  border-left: 1px solid #dedede;
 }
 
 .props ul li {
