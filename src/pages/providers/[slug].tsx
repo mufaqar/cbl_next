@@ -45,7 +45,7 @@ export default function SProviders({ Provider, city, state }: any) {
 
   return (
     <>
-      <section className="pt-16 pb-16 bg-[url('/images/banner-bg.jpg')] bg-cover bg-no-repeat bg-center">
+      <section className="min-h-screen pt-16 pb-16 bg-[url('/images/banner-bg.jpg')] bg-cover bg-no-repeat bg-center flex justify-center items-center">
         <div className="container mx-auto px-4">
           <div className=''>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
