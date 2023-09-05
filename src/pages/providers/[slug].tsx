@@ -66,7 +66,7 @@ export default function SProviders({ Provider, city, state }: any) {
 
   return (
     <>
-      <section className="pt-16 pb-16 bg-[url('/images/deals_desktop.jpg')] bg-cover bg-no-repeat bg-center">
+      <section className="pt-16 pb-16 bg-[url('/images/banner-bg.jpg')] bg-cover bg-no-repeat bg-center">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
           <div className='col-span-2'>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
@@ -81,9 +81,6 @@ export default function SProviders({ Provider, city, state }: any) {
                 ${Provider?.providersInfo?.features}
               `)}
             </div>
-          </div>
-          <div>
-            <Image src="/images/internet.jpg" alt="logo" className='w-3/4 rounded-lg' width={640} height={425} />
           </div>
         </div>
       </section>
