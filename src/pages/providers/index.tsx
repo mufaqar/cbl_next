@@ -24,7 +24,7 @@ function Providers({ allProviders }: any) {
                     </div>
                     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-4 text-center">
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10  ">
-                            <Link href="/providers/centurylink">  <Image src='/../images/logo/att.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                            <Link href="/providers/att">  <Image src='/../images/logo/att.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
                                 <h2 className="mt-4 text-lg  text-center">
                                     AT&T
 
@@ -32,21 +32,21 @@ function Providers({ allProviders }: any) {
                             </Link>
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
-                            <Link href="/providers/centurylink">  <Image src='/../images/logo/Spectrum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                            <Link href="/providers/spectrum">  <Image src='/../images/logo/Spectrum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
                                 <h2 className="mt-4 text-lg  text-center">
                                     SPECTRUM
                                 </h2>
                             </Link>
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
-                            <Link href="/providers/centurylink">  <Image src='/../images/logo/EarthLink.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                            <Link href="/providers/earthlink">  <Image src='/../images/logo/EarthLink.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
                                 <h2 className="mt-4 text-lg  text-center">
                                     EARTHLINK
                                 </h2>
                             </Link>
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
-                            <Link href="/providers/centurylink">  <Image src='/../images/logo/HughesNet.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                            <Link href="/providers/hughesnet">  <Image src='/../images/logo/HughesNet.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
                                 <h2 className="mt-4 text-lg  text-center">
                                     HUGHESNET
                                 </h2>
@@ -136,7 +136,7 @@ function Providers({ allProviders }: any) {
                         <h2 className='text-3xl font-bold'>
                             What to read next
                         </h2>
-                        <Link href="#" className='px-5 py-2 text-base text-center block bg-[#ef9831] hover:bg-[#215690] text-white w-fit'>
+                        <Link href="/blog" className='px-5 py-2 text-base text-center block bg-[#ef9831] hover:bg-[#215690] text-white w-fit'>
                             Read more
                         </Link>
                     </div>
@@ -147,7 +147,7 @@ function Providers({ allProviders }: any) {
                                 <div className="p-4 pl-0">
                                     <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
                                     <p className="text-gray-700 mt-2 text-center text-sm">
-                                        Ari Howard                      —  6 min read
+                                        Ari Howard —  6 min read
                                     </p>
                                 </div>
                             </div>
@@ -158,7 +158,7 @@ function Providers({ allProviders }: any) {
                                 <div className="p-4 pl-0">
                                     <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
                                     <p className="text-gray-700 mt-2 text-center text-sm">
-                                        Ari Howard                      —  6 min read
+                                        Ari Howard —  5 min read
                                     </p>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ function Providers({ allProviders }: any) {
                                 <div className="p-4 pl-0">
                                     <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
                                     <p className="text-gray-700 mt-2 text-center text-sm">
-                                        Ari Howard                      —  6 min read
+                                        Ari Howard —  7 min read
                                     </p>
                                 </div>
                             </div>
