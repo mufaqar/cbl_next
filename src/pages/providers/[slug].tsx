@@ -70,11 +70,11 @@ export default function SProviders({ Provider, city, state }: any) {
         <div className="container mx-auto px-4">
           <div className=''>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
-            <h1 className="sm:text-3xl text-2xl font-bold text-white mt-4">
-              {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
+            <h1 className="sm:text-3xl md:text-4xl md:leading-normal font-bold text-white mt-4 max-w-lg">
+              <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
-            <h2 className="text-xl font-bold text-white my-3">
-              Prices starting at {Provider?.providersInfo?.proPrice} mo.
+            <h2 className="text-xl font-bold text-white my-4">
+              Prices starting at <span className='text-[#ef9831]'>{Provider?.providersInfo?.proPrice} </span> mo.
             </h2>
             <div className='features text-white'>
               {parse(`
@@ -83,7 +83,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       <section className={`bg-white py-3 shadow-sm border-y border-zinc-400/20 z-50  ${nav ? 'md:fixed top-0 left-0 right-0' : 'sticky'
         }`}>
@@ -93,7 +93,7 @@ export default function SProviders({ Provider, city, state }: any) {
               Call NOW to order {provider_name}
             </h3>
             <Link href="tel:000-000-000" className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-sm text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
-              000-000-000
+              {pro_phone}
             </Link>
           </div>
           <div className='[&>div:nth-child(1)]:mt-0'>

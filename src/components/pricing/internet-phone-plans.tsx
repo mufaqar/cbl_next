@@ -5,9 +5,8 @@ const InternetPhonePlans = ({ internetPlans, pro_phone }: any) => {
     console.log("🚀 ~ file: pricing-plan.tsx:5 ~ internetPlans:", internetPlans)
     return (
         <div className=" w-full lg:max-w-[1200px] mx-auto  h-auto rounded-t-md rounded-b-md  border-zinc-400/10 ">
-            <div className="bg-white w-full h-auto shadow-md border ">
-
-                <div className='grid grid-cols-4'>
+            <div className="w-full h-auto shadow-md border ">
+                <div className='grid grid-cols-4 bg-[#f2f2f2]'>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center p-5">
                         <div>
                             <h4 className="font-bold text-center">
@@ -38,7 +37,7 @@ const InternetPhonePlans = ({ internetPlans, pro_phone }: any) => {
                     </div>
                 </div>
                 {internetPlans?.map((plan: any) => (
-                    <div key={plan.id} className='grid grid-cols-4  border border-spacing-1 ' >
+                    <div key={plan.id} className='grid grid-cols-4  border border-spacing-1 dtable' >
                         <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center p-5">
                             <div>
                                 <p className="text-center text-base mt-2">
