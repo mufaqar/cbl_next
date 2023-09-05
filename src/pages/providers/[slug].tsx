@@ -67,16 +67,16 @@ export default function SProviders({ Provider, city, state }: any) {
   return (
     <>
       <section className="pt-16 pb-16 bg-[url('/images/banner-bg.jpg')] bg-cover bg-no-repeat bg-center">
-        <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
-          <div className='col-span-2'>
+        <div className="container mx-auto px-4">
+          <div className=''>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
-            <h1 className="sm:text-3xl text-2xl font-bold mt-4">
+            <h1 className="sm:text-3xl text-2xl font-bold text-white mt-4">
               {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
             </h1>
-            <h2 className="text-xl font-bold my-3">
+            <h2 className="text-xl font-bold text-white my-3">
               Prices starting at {Provider?.providersInfo?.proPrice} mo.
             </h2>
-            <div className='features'>
+            <div className='features text-white'>
               {parse(`
                 ${Provider?.providersInfo?.features}
               `)}
@@ -85,20 +85,19 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
-
-
-      <section className={`bg-white py-3 shadow-sm border-y border-zinc-400/20  ${nav ? 'fixed top-0 left-0 right-0' : 'sticky'
+      <section className={`bg-white py-3 shadow-sm border-y border-zinc-400/20 z-50  ${nav ? 'md:fixed top-0 left-0 right-0' : 'sticky'
         }`}>
-        <div className="container mx-auto px-4 grid grid-cols-2 items-center">
-          <div>
-            <h3 className="md:text-2xl text-lg font-bold">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
+          <div className='md:text-end text-center'>
+            <h3 className="md:text-lg text-lg font-bold mb-1">
               Call NOW to order {provider_name}
             </h3>
-          </div>
-          <div className='text-end'>
-            <Link href="tel:000-000-000" className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
+            <Link href="tel:000-000-000" className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-sm text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
               000-000-000
             </Link>
+          </div>
+          <div className='[&>div:nth-child(1)]:mt-0'>
+            <SearchForm />
           </div>
 
         </div>
@@ -138,7 +137,6 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
-
 
       <section className="my-16">
         <div className="container mx-auto px-4">
@@ -212,8 +210,6 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
-
-
       <section className='md:py-32 py-10 bg-[#F3FAFF]'>
         <div className='container mx-auto px-4 grid gap-5 items-center'>
           <div className="">
@@ -223,7 +219,6 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
           <div className="w-fit mx-auto py-5 mt-6 bg-white shadow-xl border md:h-52 rounded-3xl">
             <SearchForm />
-
           </div>
         </div>
       </section>
@@ -251,7 +246,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
           <div className='grid md:grid-cols-2 grid-cols-1 gap-7'>
             <div>
-              <h2 className="text-2xl font-bold">
+              <h2 className="text-2xl font-bold mb-4">
                 Pros
               </h2>
               {parse(`
@@ -259,7 +254,7 @@ export default function SProviders({ Provider, city, state }: any) {
               `)}
             </div>
             <div>
-              <h2 className="text-2xl font-bold">
+              <h2 className="text-2xl font-bold mb-4">
                 Cons
               </h2>
               {parse(`
