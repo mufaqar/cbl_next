@@ -223,8 +223,8 @@ export default function SProviders({ Provider, city, state }: any) {
               {provider_name} is a valuable choice for individuals and businesses seeking high speed internet connectivity especially in the rural and remote area. Here are some of the pros and cons of {provider_name}.
             </p>
           </div>
-          <div className='grid md:grid-cols-2 grid-cols-1 gap-7'>
-            <div>
+          <div className='grid md:grid-cols-2 grid-cols-1 props'>
+            <div className='bg-gray-200  p-8'>
               <h2 className="text-2xl font-bold mb-4">
                 Pros
               </h2>
@@ -232,7 +232,7 @@ export default function SProviders({ Provider, city, state }: any) {
                 ${Provider?.providersInfo?.pros}
               `)}
             </div>
-            <div>
+            <div className='bg-gray-100 p-8'>
               <h2 className="text-2xl font-bold mb-4">
                 Cons
               </h2>
