@@ -8,7 +8,7 @@ export const ProviderBox = ({ item }: any) => {
             <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
                 <Link href={`/providers/${item.slug}`} >
                     <Image src={item.featuredImage?.node.mediaItemUrl} alt="Feature" width={140} height={50} className='mx-auto' />
-                    <h2 className="mt-4 text-xl font-bold text-center">
+                    <h2 className="mt-4 text-lg  text-center uppercase">
                         {item.title}
                     </h2>
                 </Link>

@@ -2,16 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
-
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-body , p , html { 
-  font-family: 'Roboto', sans-serif;}
+body,
+p,
+html {
+  font-family: 'Roboto', sans-serif;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -27,67 +33,86 @@ body , p , html {
   }
 }
 
-
 .container {
   width: 100%;
 }
 @media (min-width: 640px) {
   .container {
-      max-width: 640px;
+    max-width: 640px;
   }
 }
 @media (min-width: 768px) {
   .container {
-      max-width: 768px;
+    max-width: 768px;
   }
 }
 @media (min-width: 1024px) {
   .container {
-      max-width: 1024px;
+    max-width: 1024px;
   }
 }
 @media (min-width: 1280px) {
   .container {
-      max-width: 1110px;
+    max-width: 1110px;
   }
 }
 @media (min-width: 1536px) {
   .container {
-      max-width: 1110px;
+    max-width: 1110px;
   }
 }
 .custom-loader {
   width: 100px;
   height: 100px;
   display: grid;
-  border:8px solid #0000;
+  border: 8px solid #0000;
   border-radius: 50%;
-  border-color:#FFFFFF #0000;
+  border-color: #ffffff #0000;
   animation: s6 1s infinite linear;
 }
 .custom-loader::before,
-.custom-loader::after {    
-  content:"";
+.custom-loader::after {
+  content: '';
   grid-area: 1/1;
-  margin:4px;
-  border:inherit;
+  margin: 4px;
+  border: inherit;
   border-radius: 50%;
 }
 .custom-loader::before {
-  border-color:#FFA500 #0000;
-  animation:inherit; 
-  animation-duration: .5s;
+  border-color: #ffa500 #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
   animation-direction: reverse;
 }
 .custom-loader::after {
-  margin:16px;
+  margin: 16px;
 }
 
-@keyframes s6 { 
-  100%{transform: rotate(1turn)}
+@keyframes s6 {
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
-.block_heading { font-size: 24px; line-height: 32px; margin-bottom: 10px;}
-.block_content p { font-size: 16px; line-height: 22px;  margin-bottom: 6px;}
-.block_content ul li { font-size: 16px; line-height: 24px; margin-bottom: 6px;}
-.block_content ul li  strong {  color:#444}
+.features ul li {
+  list-style: circle;
+}
+
+.block_heading {
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+.block_content p {
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 6px;
+}
+.block_content ul li {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 6px;
+}
+.block_content ul li strong {
+  color: #444;
+}

@@ -69,7 +69,6 @@ export default function SProviders({ Provider, city, state }: any) {
       <section className="pt-16 pb-16 bg-[url('/images/deals_desktop.jpg')] bg-cover bg-no-repeat bg-center">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-7 items-center">
           <div className='col-span-2'>
-
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
             <h1 className="sm:text-3xl text-2xl font-bold mt-4">
               {provider_name} Internet plans and pricing for ({currentYear}, {currentMonthName})
@@ -77,9 +76,11 @@ export default function SProviders({ Provider, city, state }: any) {
             <h2 className="text-xl font-bold my-3">
               Prices starting at {Provider?.providersInfo?.proPrice} mo.
             </h2>
-            {parse(`
+            <div className='features'>
+              {parse(`
                 ${Provider?.providersInfo?.features}
               `)}
+            </div>
           </div>
           <div>
             <Image src="/images/internet.jpg" alt="logo" className='w-3/4 rounded-lg' width={640} height={425} />
@@ -87,18 +88,7 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
-      <section className='md:my-32 my-10'>
-        <div className='container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-5 items-center'>
-          <div className="">
-            <h2 className='text-3xl font-bold'>
-              Enter your zip code below to find out if {provider_name} is available in your area.
-            </h2>
-          </div>
-          <div>
-            <SearchForm />
-          </div>
-        </div>
-      </section>
+
 
       <section className={`bg-white py-3 shadow-sm border-y border-zinc-400/20  ${nav ? 'fixed top-0 left-0 right-0' : 'sticky'
         }`}>

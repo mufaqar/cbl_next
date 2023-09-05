@@ -16,15 +16,15 @@ function Providers({ allProviders }: any) {
             <Main />
             <section className="">
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
-                    <div className="mx-auto max-w-lg text-center">
-                        <h2 className='text-2xl font-bold'>
+                    <div className="mx-auto max-w-xl text-center">
+                        <h2 className='text-3xl font-bold'>
                             Feature Provider
                         </h2>
                     </div>
                     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-4 text-center">
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10  ">
                             <Link href="/providers/centurylink">  <Image src='/../images/logo/att.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
-                                <h2 className="mt-4 text-xl font-bold text-center">
+                                <h2 className="mt-4 text-lg  text-center">
                                     AT&T
 
                                 </h2>
@@ -32,21 +32,21 @@ function Providers({ allProviders }: any) {
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
                             <Link href="/providers/centurylink">  <Image src='/../images/logo/Spectrum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
-                                <h2 className="mt-4 text-xl font-bold text-center">
+                                <h2 className="mt-4 text-lg  text-center">
                                     SPECTRUM
                                 </h2>
                             </Link>
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
                             <Link href="/providers/centurylink">  <Image src='/../images/logo/EarthLink.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
-                                <h2 className="mt-4 text-xl font-bold text-center">
+                                <h2 className="mt-4 text-lg  text-center">
                                     EARTHLINK
                                 </h2>
                             </Link>
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
                             <Link href="/providers/centurylink">  <Image src='/../images/logo/HughesNet.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
-                                <h2 className="mt-4 text-xl font-bold text-center">
+                                <h2 className="mt-4 text-lg  text-center">
                                     HUGHESNET
                                 </h2>
                             </Link>
@@ -57,8 +57,8 @@ function Providers({ allProviders }: any) {
 
             <section className="">
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
-                    <div className="mx-auto max-w-lg text-center">
-                        <h2 className='text-2xl font-bold'>
+                    <div className="mx-auto max-w-xl text-center">
+                        <h2 className='text-3xl font-bold'>
                             Top Internet and TV Service providers
                         </h2>
                     </div>
