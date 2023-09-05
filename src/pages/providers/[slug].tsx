@@ -207,7 +207,6 @@ export default function SProviders({ Provider, city, state }: any) {
             {Provider?.providersInfo?.block.map((item: any, index: number) => (
               <div key={index}>
                 <h2 className='block_heading'>{parse(`${item.heading} `)} </h2>
-
                 <div className='block_content'>{parse(`${item.content} `)}</div> </div>
             ))}
           </div>
