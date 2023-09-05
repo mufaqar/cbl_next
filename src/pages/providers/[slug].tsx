@@ -1,30 +1,15 @@
 'use client'
 import { useParams } from 'next/navigation'
 import apolloClient from '@/config/client'
-
-import { GET_PROVIDERS, GET_ZONE, SINGLE_Provider } from '@/config/query'
+import { SINGLE_Provider } from '@/config/query'
 import { GetStaticProps, GetServerSideProps } from 'next'
-
 import Image from 'next/image'
-import { ProviderCard } from '@/components/provider/provider-card'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
 import SearchForm from '@/components/searchform'
-import Provider_Nav from '@/components/provider/provider-nav'
-import Inter_Service from '@/components/provider/inter-service'
-import Technology_Box from '@/components/provider/technology-box'
-import Nearby_City from '@/components/provider/nearby-city'
-import Faqs_Sec from '@/components/faqs'
 import Link from 'next/link'
-import Pricing_Plan from '@/components/pricing/internet-plan'
 import parse from 'html-react-parser';
-//import { Faqs_Data } from '@/const/exports'
 import React, { useState } from 'react'
-import TV_Plan from '@/components/pricing/tv_plan'
-import InternetTvPhonePlan from '@/components/pricing/internet-tv-phone-plan'
-import InternetPlans from '@/components/pricing/internet-plan'
-import InternetTVPlans from '@/components/pricing/internet-tv-plans'
 import Faqs_Provider from '@/components/faqs_provider'
+import PlanBox from '@/components/pricing/planBox'
 
 export default function SProviders({ Provider, city, state }: any) {
   // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
@@ -32,11 +17,7 @@ export default function SProviders({ Provider, city, state }: any) {
 
   const provider_name = Provider?.title;
   const pro_phone = Provider?.providersInfo?.proPhone;
-
-
-
   const [nav, setNav] = useState(false);
-
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const currentMonthIndex = currentDate.getMonth();
@@ -46,9 +27,7 @@ export default function SProviders({ Provider, city, state }: any) {
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
-
   const currentMonthName = monthNames[currentMonthIndex];
-
   const changeBackground = () => {
     if (window.scrollY >= 350) {
       setNav(true);
@@ -110,7 +89,7 @@ export default function SProviders({ Provider, city, state }: any) {
               {provider_name} Internet Plans</h2>
           </div>
           <div>
-            <InternetPlans internetPlans={Provider?.providersInfo?.internetPlans} pro_phone={pro_phone} />
+            <PlanBox Plans={Provider?.providersInfo?.internetPlans} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -128,7 +107,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </h2>
           </div>
           <div>
-            <TV_Plan Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone} />
+            <PlanBox Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -146,7 +125,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </h2>
           </div>
           <div>
-            <InternetTvPhonePlan Plans={Provider?.providersInfo?.internetTvPhoneBundles} pro_phone={pro_phone} />
+            <PlanBox Plans={Provider?.providersInfo?.internetTvPhoneBundles} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -164,7 +143,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </h2>
           </div>
           <div>
-            <InternetTVPlans Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
+            <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -182,7 +161,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </h2>
           </div>
           <div>
-            <InternetTvPhonePlan internetPlans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
+            <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -200,7 +179,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </h2>
           </div>
           <div>
-            <InternetTvPhonePlan internetPlans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
+            <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">

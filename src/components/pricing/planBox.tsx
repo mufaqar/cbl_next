@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 
-const InternetTvPhonePlan = ({ Plans, pro_phone }: any) => {
-
+function PlanBox({ Plans, pro_phone }: any) {
     return (
-        <div className=" w-full lg:max-w-[1200px] mx-auto  h-auto rounded-t-md rounded-b-md  border-zinc-400/10 ">
-            <div className="w-full h-auto shadow-md border ">
+        <div className=" w-full lg:max-w-[1200px] mx-auto  h-auto ">
+            <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md ">
                 <div className='grid grid-cols-4 bg-[#f2f2f2]'>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center p-5">
                         <div>
@@ -37,7 +36,7 @@ const InternetTvPhonePlan = ({ Plans, pro_phone }: any) => {
                     </div>
                 </div>
                 {Plans?.map((plan: any) => (
-                    <div key={plan.id} className='grid grid-cols-4  border border-spacing-1 dtable' >
+                    <div key={plan.id} className='grid grid-cols-4 dtable' >
                         <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center p-5">
                             <div>
                                 <p className="text-center text-base mt-2">
@@ -71,13 +70,7 @@ const InternetTvPhonePlan = ({ Plans, pro_phone }: any) => {
                 ))}
             </div>
         </div>
-
-
-
-
-
-
     )
 }
 
-export default InternetTvPhonePlan
+export default PlanBox
