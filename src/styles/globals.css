@@ -2,7 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+@font-face {
+  font-family: 'Manrope-Bold';
+  src: url('../../public/fonts/Manrope-Bold.woff2') format('woff2'),
+    url('../../public/fonts/Manrope-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('../../public/fonts/Manrope-Regular.woff2') format('woff2'),
+    url('../../public/fonts/Manrope-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope-Light';
+  src: url('../../public/fonts/Manrope-Light.woff2') format('woff2'),
+    url('../../public/fonts/Manrope-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope-Medium';
+  src: url('../../public/fonts/Manrope-Medium.woff2') format('woff2'),
+    url('../../public/fonts/Manrope-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope-SamiBold';
+  src: url('../../public/fonts/Manrope-SemiBold.woff2') format('woff2'),
+    url('../../public/fonts/Manrope-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 h1,
 h2,
@@ -10,13 +53,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Manrope', sans-serif !important;
 }
 
 body,
 p,
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 :root {
