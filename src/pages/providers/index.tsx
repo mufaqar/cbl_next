@@ -1,54 +1,98 @@
 import Main from '@/components/main'
 import { ProviderCard } from '@/components/provider/provider-card'
+import SearchForm from '@/components/searchform'
 import apolloClient from '@/config/client'
 import { GET_ALL_PROVIDERS } from '@/config/query'
 import { GetServerSideProps } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
-function Providers({allProviders}:any) {
-  console.log("🚀 ~ file: index.tsx:9 ~ Providers ~ allProviders:", allProviders)
-  return (
-    <>
-    {/* <Main /> */}
+function Providers({ allProviders }: any) {
+    console.log("🚀 ~ file: index.tsx:9 ~ Providers ~ allProviders:", allProviders)
+    return (
+        <>
+            <Main />
 
-    <section className="my-16">
-        <div className="container mx-auto px-4">
-            <div className='mb-10'>
-                <h2 className="text-2xl font-bold">
-                    Providers
-                </h2>
-            </div>
-            <div>
-                {
-                    allProviders.map((item: any, idx: number) => {
-                        return (
-                            <>
-                                <ProviderCard key={idx} item={item} zone=""  />
 
-                            </>
-                        )
-                    })
-                }
-            </div>
-            <div>
-                <p className="text-sm font-[Roboto] mt-10">
-                    Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time
-                </p>
-            </div>
-        </div>
-    </section>
-    </>
-  )
+            <section className="">
+                <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+                    <div className="mx-auto max-w-lg text-center">
+                        <h2 className='text-2xl font-bold'>
+                            Feature Provider
+                        </h2>
+                    </div>
+                    <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-4">
+                        <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
+                            <Link href="/providers/centurylink">  <Image src='/../images/partner8.jpg' alt="Feature" width={272} height={110} />
+                                <h2 className="mt-4 text-xl font-bold text-center">
+                                    CenturyLink
+                                </h2>
+                            </Link>
+                        </div>
+                        <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
+                            <Link href="/providers/centurylink">  <Image src='/../images/partner8.jpg' alt="Feature" width={272} height={110} />
+                                <h2 className="mt-4 text-xl font-bold text-center">
+                                    CenturyLink
+                                </h2>
+                            </Link>
+                        </div>
+                        <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
+                            <Link href="/providers/centurylink">  <Image src='/../images/partner8.jpg' alt="Feature" width={272} height={110} />
+                                <h2 className="mt-4 text-xl font-bold text-center">
+                                    CenturyLink
+                                </h2>
+                            </Link>
+                        </div>
+                        <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
+                            <Link href="/providers/centurylink">  <Image src='/../images/partner8.jpg' alt="Feature" width={272} height={110} />
+                                <h2 className="mt-4 text-xl font-bold text-center">
+                                    CenturyLink
+                                </h2>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="my-16">
+                <div className="container mx-auto px-4">
+                    <div className='mb-10'>
+                        <h2 className="text-2xl font-bold">
+                            Providers
+                        </h2>
+                    </div>
+                    <div>
+                        {
+                            allProviders.map((item: any, idx: number) => {
+                                return (
+                                    <>
+                                        <ProviderCard key={idx} item={item} zone="" />
+
+                                    </>
+                                )
+                            })
+                        }
+                    </div>
+                    <div>
+                        <p className="text-sm font-[Roboto] mt-10">
+                            Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </>
+    )
 }
 
 export default Providers
 
 
-export const getServerSideProps: GetServerSideProps = async () => {  
+export const getServerSideProps: GetServerSideProps = async () => {
 
     const [providers] = await Promise.all([
-        apolloClient.query({ query: GET_ALL_PROVIDERS }),     
-    ]) ;
+        apolloClient.query({ query: GET_ALL_PROVIDERS }),
+    ]);
     const allProviders = providers.data.allProviders.nodes;
     return {
         props: {
