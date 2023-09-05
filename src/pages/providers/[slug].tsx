@@ -49,7 +49,7 @@ export default function SProviders({ Provider, city, state }: any) {
         <div className="container mx-auto px-4">
           <div className=''>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
-            <h1 className="sm:text-3xl md:text-4xl md:leading-normal font-bold text-white mt-4 max-w-lg">
+            <h1 className="text-3xl md:text-4xl md:leading-normal font-bold text-white mt-4 max-w-lg">
               <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
             <h2 className="text-xl font-bold text-white my-4">
