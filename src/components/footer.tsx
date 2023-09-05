@@ -6,11 +6,11 @@ import { BiLogoFacebookCircle, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoYoutub
 
 const Footer = () => {
   return (
-    <footer className='bg-[#111827] pt-32 pb-8 '>
+    <footer className='bg-[#111827] pt-16 pb-4 '>
       <div className='container mx-auto px-4 grid md:grid-cols-4 grid-cols-1 gap-5'>
         <div>
           <Link href="/">
-            <Image src="/images/logo.png" alt="logo.svg" height={32} width={300} className='max-h-[67px] object-cover' />
+            <Image src="/logo.png" alt="logo.svg" height={56} width={254} />
           </Link>
           <p className='text-sm font-normal text-white/75 mt-5'>
             Making the world a better place through constructing elegant hierarchies.
@@ -81,7 +81,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className='container mx-auto px-4 mt-24 pt-8 border-t border-white/20'>
+      <div className='container mx-auto px-4 mt-12 pt-4 border-t border-white/20'>
         <p className='text-sm font-normal text-white/75'>
           Copyright © 2023 Cablemovers.net. All rights reserved.
         </p>

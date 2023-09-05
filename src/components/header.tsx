@@ -23,7 +23,7 @@ const Header = () => {
                 </div>
                 <div className="sm:pl-0 pl-7 sm:w-1/3 w-full">
                     <Link href="/">
-                        <Image src="/images/logo.png" alt="logo.svg" height={32} width={300} className='max-h-[67px] object-cover' />
+                        <Image src="/logo.png" alt="Logo" width={254} height={56} className='' />
                     </Link>
                 </div>
                 <div className={`sm:w-2/3 w-full sm:justify-end sm:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white z-40' : 'top-[-100%] '}`}>
