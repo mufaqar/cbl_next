@@ -10,6 +10,9 @@ import parse from 'html-react-parser';
 import React, { useState } from 'react'
 import Faqs_Provider from '@/components/faqs_provider'
 import PlanBox from '@/components/pricing/planBox'
+import IconBox from '@/components/provider/icon-box'
+import { GrChannel, GrInstallOption } from 'react-icons/gr'
+import {GoDeviceMobile} from 'react-icons/go'
 
 export default function SProviders({ Provider, city, state }: any) {
   // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
@@ -245,7 +248,33 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
           </div>
         </div>
-      </section >
+      </section>
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              Switch to {provider_name} And Get Benefits You’ll Love
+            </h2>
+          </div>
+          <div className='grid md:grid-cols-3 grid-cols-1 gap-7'>
+            <IconBox
+              icon={<GrInstallOption />}
+              title="FREE Installation"
+              content="DISH TV helps you save while making the switch by offering FREE standard professional installation in up to 6 rooms (same-day often available)."
+            />
+            <IconBox
+              icon={<GrChannel />}
+              title="HD Channels for $0 Extra"
+              content="Smart HD DVR receiver and FREE HD for Life.®"
+            />
+            <IconBox
+              icon={<GoDeviceMobile />}
+              title="FREE DISH Anywhere App"
+              content="Stream live TV channels on mobile."
+            />
+          </div>
+        </div>
+      </section>
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
