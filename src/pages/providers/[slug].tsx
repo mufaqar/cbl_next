@@ -45,31 +45,32 @@ export default function SProviders({ Provider, city, state }: any) {
 
   return (
     <>
-      <section className="min-h-screen pt-16 pb-16 bg-[url('/images/banner-bg.jpg')] bg-cover bg-no-repeat bg-center flex justify-center items-center">
-        <div className="container mx-auto px-4">
-          <div className=''>
+      <section className='h-full relative bg-white/30'>
+        <div className='shape-left'></div>
+        <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center pt-24">
+          <div className='md:w-1/2 w-full'>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
-            <h1 className="text-3xl md:text-4xl md:leading-normal font-bold text-white mt-4 max-w-lg">
+            <h1 className="text-3xl md:text-4xl md:leading-normal font-bold text-black mt-4 max-w-lg">
               <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
-            <h2 className="text-xl font-bold text-white my-4">
+            <h2 className="text-xl font-bold text-black my-4">
               Prices starting at <span className='text-[#ef9831]'>{Provider?.providersInfo?.proPrice} </span> mo.
             </h2>
-            <div className='features text-white mb-5'>
+            <div className='features text-black mb-5'>
               {parse(`
                 ${Provider?.providersInfo?.features}
               `)}
             </div>
-            <Link href="#" className="text-base font-medium text-white">
+            <Link href="#" className="text-base font-medium text-black">
               {pro_phone}
             </Link>
           </div>
+          <div className='md:w-1/2 w-full h-full'>
+            <Image src="/images/banner-bg.jpg" alt="Feature Image" width={1440} height={600} className='object-cover h-full w-full md:hidden block' />
+          </div>
         </div>
-      </section >
-
-      <section className={`bg-white py-3 shadow-sm border-y border-zinc-400/20 z-50  ${nav ? 'md:fixed top-0 left-0 right-0' : 'sticky'
-        }`}>
-        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300">
+        <div className={`bg-white px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-3 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed top-0 left-0 right-0 mt-0' : 'sticky mt-20'
+          }`}>
           <div className='md:text-end text-center'>
             <h3 className="md:text-lg text-lg font-bold mb-1">
               Call NOW to order {provider_name}
