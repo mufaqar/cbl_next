@@ -1,10 +1,8 @@
 import Main from '@/components/main'
 import { ProviderBox } from '@/components/provider/provider-box'
-import { ProviderCard } from '@/components/provider/provider-card'
-import SearchForm from '@/components/searchform'
 import apolloClient from '@/config/client'
 import { GET_ALL_PROVIDERS } from '@/config/query'
-import { GetServerSideProps } from 'next'
+import {  GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -184,8 +182,7 @@ function Providers({ allProviders }: any) {
 export default Providers
 
 
-export const getServerSideProps: GetServerSideProps = async () => {
-
+export const getStaticProps: GetStaticProps = async () => {
     const [providers] = await Promise.all([
         apolloClient.query({ query: GET_ALL_PROVIDERS }),
     ]);
