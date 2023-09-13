@@ -34,7 +34,7 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
 
     async function fetchData() {
 
-      const response = await fetch('https://cblproject.aspactglobal.com/graphql', {
+      const response = await fetch('http://localhost/clients/cbl/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
 
   return (
 
-    zipcode ? <Zip_Code_Com zipcode={zipcode} city={city} state={state} allProviders={allProviders} zones={zones} /> : <Cities_com city={city} state={state} my_city={my_city} city_data={city_data} providers_data={providers_data} />
+    zipcode ? <Zip_Code_Com zipcode={zipcode} city={city} state={state} allProviders={allProviders} zones={zones} /> : <Cities_com city={city} state={state} my_city={my_city} city_data={city_data} providers_data={providers_data} type="tv" />
 
   );
 }
@@ -71,9 +71,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const resultString = zones_list_arr.join(',');
   const All_zones_list = resultString.replace(/["\[\]]/g, '');
 
-  const response_data = await fetch(`http://cblproject.aspactglobal.com/wp-json/custom/v1/providers?internet_services=${All_zones_list}`);
+  const response_data = await fetch(`http://localhost/clients/cbl/wp-json/custom/v1/providers?internet_services=${All_zones_list}`);
   const providers_data = await response_data.json();
-
 
   // Check if zipcode exists before executing the queries
   if (!zipcode) {
@@ -93,11 +92,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
   ]);
   const allProviders = providers.data.allProviders.nodes;
-
-
-
   const zones = zone.data.zones.nodes;
-
   return {
     props: {
       allProviders, zones, zipcode

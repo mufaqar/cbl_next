@@ -8,7 +8,7 @@ import Technology_Box from '../provider/technology-box'
 import Image from 'next/image'
 
 
-export default function Cities_com({ my_city, providers_data }: any) {
+export default function Cities_com({ my_city, providers_data , type }: any) {
     const inputString = my_city;
     const parts = inputString.split('-');
     const capitalizedWords: string[] = parts.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));

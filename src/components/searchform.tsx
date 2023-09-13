@@ -49,7 +49,7 @@ const SearchForm = () => {
 
     async function fetchData() {
       setloader(true);
-      const response = await fetch('https://cblproject.aspactglobal.com/graphql', {
+      const response = await fetch('http://localhost/clients/cbl/graphql' , {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -63,7 +63,6 @@ const SearchForm = () => {
         router.push(`/${respons.data.zones.nodes[0].states.nodes[0].slug}/${respons.data.zones.nodes[0].cities.nodes[0].slug}?zipcode=${zipcode}&type=tv`);
       }
       else {
-
         setloader(false);
       }
 
@@ -71,8 +70,6 @@ const SearchForm = () => {
     }
     fetchData();
     // console.log("🚀  file: test.jsx:43  fetchData ~ data:", get_state); 
-
-
 
   }
 

@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    domains:['cblproject.aspactglobal.com']
+    domains:['cblproject.aspactglobal.com', 'localhost']
   }
 }
 

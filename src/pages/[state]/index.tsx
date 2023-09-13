@@ -48,12 +48,10 @@ export default function OurState({ allzones, state }: any) {
 }
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { state } = query;
-  console.log("🚀 ~ file: index.tsx:43 ~ constgetServerSideProps:GetServerSideProps= ~ state:", state)
-
+ // console.log("🚀 ~ file: index.tsx:43 ~ constgetServerSideProps:GetServerSideProps= ~ state:", state)
   const [zone] = await Promise.all([
     apolloClient.query({ query: CITES_by_STATE }),
   ]);
-
   const allzones = zone.data.zones.nodes
   return {
     props: {
