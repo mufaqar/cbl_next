@@ -140,7 +140,10 @@ query SINGLE_Provider($slug: ID!) {
         answer
         question
       }
-
+      featuresBlock {        
+        title
+        details
+      }
 
     }
     
