@@ -49,7 +49,7 @@ const SearchForm = () => {
 
     async function fetchData() {
       setloader(true);
-      const response = await fetch('http://cblproject.aspactglobal.com/graphql' , {
+      const response = await fetch('https://cblproject.cablemovers.net/graphql' , {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
