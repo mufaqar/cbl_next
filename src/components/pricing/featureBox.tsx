@@ -8,15 +8,12 @@ function FeatureBox({ Plans }: any) {
     return (
         
         <div className='grid md:grid-cols-3 grid-cols-1 gap-7'>
-                {Plans?.map((plan: any) => (
-                    <div key={plan.id}>
-                          <IconBox
+                {Plans?.map((plan: any) => (                  
+                          <IconBox key={plan.id}
                             icon={<GoDeviceMobile />}
                             title={plan.title}
                             content={plan.details}
-                            />                       
-                    </div>
-
+                            />    
                 ))}
         </div>
     )

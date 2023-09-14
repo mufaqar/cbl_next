@@ -12,7 +12,7 @@ import Faqs_Provider from '@/components/faqs_provider'
 import PlanBox from '@/components/pricing/planBox'
 import IconBox from '@/components/provider/icon-box'
 import { GrChannel, GrInstallOption } from 'react-icons/gr'
-import {GoDeviceMobile} from 'react-icons/go'
+import { GoDeviceMobile } from 'react-icons/go'
 import FeatureBox from '@/components/pricing/featureBox'
 
 export default function SProviders({ Provider, city, state }: any) {
@@ -65,7 +65,7 @@ export default function SProviders({ Provider, city, state }: any) {
                 ${Provider?.providersInfo?.features}
               `)}
             </div>
-            <Link href={`tel:${pro_phone}`} className="text-base font-medium text-black">
+            <Link href={`tel:${pro_phone}`} className="text-base font-medium text-white bg-[#ef9831] hover:bg-[#215690] px-3 py-1.5 rounded-3xl">
               {pro_phone}
             </Link>
           </div>
@@ -76,12 +76,12 @@ export default function SProviders({ Provider, city, state }: any) {
         <div className={`bg-white px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-3 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed top-0 left-0 right-0 mt-0' : 'sticky mt-20'
           }`}>
           <div className='md:text-end text-center'>
-            <h3 className="md:text-lg text-lg font-bold mb-1">
-              Call NOW to order {provider_name}
-            </h3>
-            <Link href="tel:000-000-000" className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-sm text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
+            <h3 className="md:text-lg text-lg font-bold">
+              Call NOW to order {provider_name}            
+            <Link href="tel:000-000-000" className='ml-8 bg-[#ef9831] hover:bg-[#215690] text-white md:text-sm text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
               {pro_phone}
             </Link>
+            </h3>
           </div>
           <div className='[&>div:nth-child(1)]:mt-0'>
             <SearchForm />
@@ -125,102 +125,90 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
-          {console.log(Provider?.providersInfo?.internetTvPhoneBundles)}
-     
+      {console.log(Provider?.providersInfo?.internetTvPhoneBundles)}
 
-       {Provider?.providersInfo?.internetTvPhoneBundles && 
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              {provider_name}  Internet TV Phone Plan
-            </h2>
-          </div>
-          <div>
-            <PlanBox Plans={Provider?.providersInfo?.internetTvPhoneBundles} pro_phone={pro_phone} />
-          </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
-            </p>
-          </div>
-        </div>
-      </section>
-      }   
 
-{Provider?.providersInfo?.internetAndTvBundles && 
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              {provider_name}  Internet And Tv Bundles
-            </h2>
+      {Provider?.providersInfo?.internetTvPhoneBundles &&
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name}  Internet TV Phone Plan
+              </h2>
+            </div>
+            <div>
+              <PlanBox Plans={Provider?.providersInfo?.internetTvPhoneBundles} pro_phone={pro_phone} />
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
+              </p>
+            </div>
           </div>
-          <div>
-            <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
-          </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
-            </p>
-          </div>
-        </div>
-      </section>
-    }
+        </section>
+      }
 
-{Provider?.providersInfo?.internetAndTvBundles && 
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              {provider_name}  Internet TV and Phone Bundles
-            </h2>
+      {Provider?.providersInfo?.internetAndTvBundles &&
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name}  Internet And Tv Bundles
+              </h2>
+            </div>
+            <div>
+              <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
+              </p>
+            </div>
           </div>
-          <div>
-            <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
-          </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
-            </p>
-          </div>
-        </div>
-      </section>
-}
+        </section>
+      }
 
-{Provider?.providersInfo?.internetAndTvBundles &&
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              {provider_name}  Internet And TV Bundles
-            </h2>
+      {Provider?.providersInfo?.internetAndTvBundles &&
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name}  Internet TV and Phone Bundles
+              </h2>
+            </div>
+            <div>
+              <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
+              </p>
+            </div>
           </div>
-          <div>
-            <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
-          </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
+      }
 
-}
+      {Provider?.providersInfo?.internetAndTvBundles &&
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name}  Internet And TV Bundles
+              </h2>
+            </div>
+            <div>
+              <PlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
+              </p>
+            </div>
+          </div>
+        </section>
+      }
 
-      <section className='md:py-32 py-10 bg-[#F3FAFF]'>
-        <div className='container mx-auto px-4 grid gap-5 items-center'>
-          <div className="">
-            <h2 className='text-3xl font-bold text-center'>
-              Find out if {provider_name} is available in your area
-            </h2>
-          </div>
-          <div className="w-fit mx-auto py-5 mt-6 bg-white shadow-xl border md:h-52 rounded-3xl">
-            <SearchForm />
-          </div>
-        </div>
-      </section>
+   
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -228,7 +216,7 @@ export default function SProviders({ Provider, city, state }: any) {
               Switch to {provider_name} And Get Benefits You’ll Love
             </h2>
           </div>
-          <FeatureBox Plans={Provider?.providersInfo?.featuresBlock}  />
+          <FeatureBox Plans={Provider?.providersInfo?.featuresBlock} />
         </div>
       </section>
       <section className="my-16">
@@ -272,7 +260,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
-      
+
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>

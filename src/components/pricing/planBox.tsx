@@ -60,7 +60,7 @@ function PlanBox({ Plans, pro_phone }: any) {
                         </div>
                         <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                             <div>
-                                <Link href="tel:000-000-000" className="md:text-base text-xs text-[#ef9831] hover:text-[#215690] font-medium uppercase md:px-5 md:py-2.5">
+                                <Link href="tel:000-000-000" className="text-base font-medium text-white bg-[#ef9831] hover:bg-[#215690] px-3 py-1.5 rounded-3xl">
                                     {pro_phone}
                                 </Link>
                             </div>
