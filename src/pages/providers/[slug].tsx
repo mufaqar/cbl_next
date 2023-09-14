@@ -211,6 +211,16 @@ export default function SProviders({ Provider, city, state }: any) {
       </section>
       <section className="my-16">
         <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              Switch to {provider_name} And Get Benefits You’ll Love
+            </h2>
+          </div>
+          <FeatureBox Plans={Provider?.providersInfo?.featuresBlock}  />
+        </div>
+      </section>
+      <section className="my-16">
+        <div className="container mx-auto px-4">
           <div className=''>
             {Provider?.providersInfo?.block.map((item: any, index: number) => (
               <div key={index}>
@@ -250,23 +260,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              Switch to {provider_name} And Get Benefits You’ll Love
-            </h2>
-          </div>
-
-          
-
-          <FeatureBox Plans={Provider?.providersInfo?.featuresBlock}  />
-
-
-   
-         
-        </div>
-      </section>
+      
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
