@@ -24,17 +24,13 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
   var city = zipcode ? zones[0].cities?.nodes[0].name : [];
   var state = zipcode ? zones[0].states.nodes[0].name : [];
   const [city_data, set_city_data] = useState();
-
-
   useEffect(() => {
-
     const variables = {
-      city: my_city // Replace with the actual user ID
+      city: my_city 
     };
 
     async function fetchData() {
-
-      const response = await fetch('http://localhost/clients/cbl/graphql', {
+      const response = await fetch('http://cblproject.aspactglobal.com/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,9 +38,7 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
         body: JSON.stringify({ query, variables }),
       });
       const respons = await response.json();
-
       set_city_data(respons.data.zones.nodes);
-
       //  console.log("🚀 ~ file: index.tsx:77 ~ fetchData ~ respons:", respons);
 
     }
