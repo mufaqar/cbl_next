@@ -23,7 +23,7 @@ export default function Cities_com({ my_city, providers_data , type }: any) {
                 <div className="container mx-auto px-4">
                     <div >
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto">
-                            Internet Service Providers in <span className="text-[#ef9831]">{city}</span>
+                            Internet Service Providers in <span className="text-[#ef9831]">{city}</span> -- {type}
                         </h1>
                         <p className="text-xl text-center font-[Roboto] mt-3">
                             Enter your zip so we can find the best providers in your area:

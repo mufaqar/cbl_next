@@ -7,9 +7,12 @@ import Technology_Box from '../provider/technology-box'
 import Nearby_City from '../provider/nearby-city'
 import Faqs_Sec from '../faqs'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
-function Zip_Code_Com({zipcode,city, state , allProviders,zones}:any) {
-    console.log("🚀 ~ file: index.tsx:12 ~ Zip_Code_Com ~ allProviders:", allProviders)
+function Zip_Code_Com({zipcode,city, state , allProviders,zones }:any) {
+    console.log("🚀 ~ file: index.tsx:13 ~ Zip_Code_Com ~ allProviders:", allProviders)
+    const {query} = useRouter();
+    var type = query?.type;
     
   return (
     <>
@@ -19,7 +22,7 @@ function Zip_Code_Com({zipcode,city, state , allProviders,zones}:any) {
         <div className="container mx-auto px-4">
             <div >
                 <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto">
-                    Internet Service Providers in {zipcode} <br/><span className="text-[#ef9831]">{city}, {state}</span>
+                {type} Service Providers in {zipcode} <br/><span className="text-[#ef9831]">{city}, {state}</span>
                 </h1>
                 <p className="text-xl text-center font-[Roboto] mt-3">
                     Enter your zip so we can find the best providers in your area:
@@ -35,16 +38,15 @@ function Zip_Code_Com({zipcode,city, state , allProviders,zones}:any) {
         <div className="container mx-auto px-4">
             <div className='mb-10'>
                 <h2 className="text-2xl font-bold">
-                    Home Internet in {zipcode}
+                    Home {type} in {zipcode}
                 </h2>
             </div>
             <div>
                 {
-                    allProviders.map((item: any, idx: number) => {
+                    allProviders?.map((item: any, idx: number) => {
                         return (
                             <>
                                 <ProviderCard key={idx} item={item} zone={zones}  />
-
                             </>
                         )
                     })

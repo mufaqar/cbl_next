@@ -51,9 +51,10 @@ query GET_ALL_PROVIDERS{
 `;
 
 export const GET_PROVIDERS = gql`
-query GET_PROVIDERS($value: String = "") {
+query GET_PROVIDERS($zipcode: String = "") {
   allProviders(
-    where: {metaQuery: {metaArray: {key: "internet_services", value: $value, compare: LIKE}}}
+    where: {metaQuery: {metaArray: {key: "internet_services", value: $zipcode, compare: LIKE}}}
+    first:50
   ) {
     nodes {
       title
@@ -61,6 +62,14 @@ query GET_PROVIDERS($value: String = "") {
       featuredImage {
         node {
           mediaItemUrl
+        }
+      }
+      terms {
+        edges {
+          node {          
+            name
+            slug
+          }
         }
       }
     }
