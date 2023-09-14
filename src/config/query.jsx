@@ -1,9 +1,5 @@
 import { gql } from '@apollo/client';
 
-
-
-
-
 export const GET_ZIPCODE= gql`
 query GET_ZIPCODE {
   zones(where: {title: "99929"}) {
