@@ -23,13 +23,13 @@ const Header = () => {
                 </div>
                 <div className="sm:pl-0 pl-7 sm:w-1/3 w-full">
                     <Link href="/">
-                        <Image src="/logo.png" alt="Logo" width={254} height={56} className='' />
+                        <Image src="/logo.png" alt="Logo" width={155} height={34} className='' />
                     </Link>
                 </div>
                 <div className={`sm:w-2/3 w-full sm:justify-end sm:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white z-40' : 'top-[-100%] '}`}>
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
                         <li>
-                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
+                            <Link href="/tv-providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
                         </li>
                         <li>
                             <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Internet</Link>
