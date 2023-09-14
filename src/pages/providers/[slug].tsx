@@ -65,7 +65,7 @@ export default function SProviders({ Provider, city, state }: any) {
                 ${Provider?.providersInfo?.features}
               `)}
             </div>
-            <Link href="#" className="text-base font-medium text-black">
+            <Link href={`tel:${pro_phone}`} className="text-base font-medium text-black">
               {pro_phone}
             </Link>
           </div>
@@ -125,6 +125,10 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
+          {console.log(Provider?.providersInfo?.internetTvPhoneBundles)}
+     
+
+       {Provider?.providersInfo?.internetTvPhoneBundles && 
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -142,7 +146,9 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
+      }   
 
+{Provider?.providersInfo?.internetAndTvBundles && 
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -160,7 +166,9 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
+    }
 
+{Provider?.providersInfo?.internetAndTvBundles && 
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -178,7 +186,9 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
+}
 
+{Provider?.providersInfo?.internetAndTvBundles &&
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -196,6 +206,8 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
+
+}
 
       <section className='md:py-32 py-10 bg-[#F3FAFF]'>
         <div className='container mx-auto px-4 grid gap-5 items-center'>
