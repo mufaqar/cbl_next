@@ -125,9 +125,6 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
-      {console.log(Provider?.providersInfo?.internetTvPhoneBundles)}
-
-
       {Provider?.providersInfo?.internetTvPhoneBundles &&
         <section className="my-16">
           <div className="container mx-auto px-4">

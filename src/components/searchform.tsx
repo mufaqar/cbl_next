@@ -40,16 +40,13 @@ const SearchForm = () => {
 
 
   function handleState() {
-
-    console.log(zipcode);
     const variables = {
-      zipcode: zipcode // Replace with the actual user ID
+      zipcode: zipcode
     };
-
 
     async function fetchData() {
       setloader(true);
-      const response = await fetch('https://cblproject.cablemovers.net/graphql' , {
+      const response = await fetch('https://cblproject.cablemovers.net/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

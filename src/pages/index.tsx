@@ -5,7 +5,7 @@ import SearchForm from '@/components/searchform';
 import ServiceBox from '@/components/service-box';
 import Why_ChooseUs from '@/components/why-choose-us';
 import Link from 'next/link';
-import React, { useEffect,useState } from 'react'
+import React from 'react'
 import { useRouter } from 'next/navigation'
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { gql, useQuery } from '@apollo/client';
@@ -99,7 +99,7 @@ export default function Home() {
                   <p className="text-base font-[Roboto] my-3">
                      Let us help you sift through the noise by comparing the top providers near you. Find high-speed options for internet, TV, or bundles that meet your needs.
                   </p>
-                  <Link href="https://www.highspeedoptions.com/disclosure" className="text-[#215690] font-[Roboto] ">
+                  <Link href="/providers" className="text-[#215690] font-[Roboto] ">
                      View All Providers
                   </Link>
                </div>
