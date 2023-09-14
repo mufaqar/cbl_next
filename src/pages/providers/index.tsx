@@ -9,7 +9,7 @@ import React from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
 
 function Providers({ allProviders }: any) {
-    //console.log("🚀 ~ file: index.tsx:9 ~ Providers ~ allProviders:", allProviders)
+
     return (
         <>
             <Main />

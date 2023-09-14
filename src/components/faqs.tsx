@@ -129,29 +129,3 @@ export default function Faqs_Sec({ zipcode , city , state }: any) {
     );
 }
 
-
-
-// const getFaqsData = ({props) => {
-//     console.log("🚀 ~ file: exports.jsx:162 ~ getFaqsData ~ city:", city)
-    
-//   return (
-//     [
-//         {
-//             id: 1,
-//             question: `Who is the Best Internet Service Provider in ${city}, ${state}?`,
-//             answer: `.`
-//         },
-//         {
-//             id: 2,
-//             question: `Who is the fastest Internet service provider in ${city}, ${state}?`,
-//             answer: `(${city}  name}) is the faster internet service provider in ${city}, ${state} and offers max download speeds up to (${provider}) in select areas.`
-//         },
-//         {
-//             id: 3,
-//             question: `Who is the fastest Internet service provider in ${city}, ${state}?`,
-//             answer: `(${city}) is the faster internet service provider in ${city}, ${state} and offers max download speeds up to (${provider}) in select areas.`
-//         },
-//     ]
-//   )
-// }
-

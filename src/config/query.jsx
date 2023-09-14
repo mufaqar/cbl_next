@@ -65,7 +65,6 @@ query GET_PROVIDERS($zipcode: String = "") {
         proPrice
         proSpeed
         features
-
       }
       terms {
         edges {

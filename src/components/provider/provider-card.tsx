@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 export const ProviderCard = ({ item, zone }: any) => {
-   console.log(item);
+   //console.log(item);
     return (
         <>
             <div className=" w-full lg:max-w-[1200px]  mx-auto py-4 h-auto rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">

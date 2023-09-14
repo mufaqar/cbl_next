@@ -13,8 +13,6 @@ export default function Cities_com({ my_city, providers_data , type }: any) {
     const parts = inputString.split('-');
     const capitalizedWords: string[] = parts.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));
     const city = capitalizedWords.join(' ');
-
-    //console.log("🚀 ~ file: index.tsx:16 ~ Cities_com ~ providers_data:", providers_data)
     return (
         <>
             <section className="pt-16 pb-16 relative overflow-hidden">

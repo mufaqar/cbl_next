@@ -20,7 +20,7 @@ query ProveryByZipcode($city: [String] ) {
 `;
 
 export default function Providers({ allProviders, zones, zipcode, my_city, providers_data }: any) {
-  console.log("allProviders:", allProviders);
+ // console.log("allProviders:", allProviders);
   var city = zipcode ? zones[0].cities?.nodes[0].name : [];
   var state = zipcode ? zones[0].states.nodes[0].name : [];
   const [city_data, set_city_data] = useState();
@@ -39,7 +39,6 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
       });
       const respons = await response.json();
       set_city_data(respons.data.zones.nodes);
-      //  console.log("🚀 ~ file: index.tsx:77 ~ fetchData ~ respons:", respons);
 
     }
     fetchData();
