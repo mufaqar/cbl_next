@@ -30,9 +30,21 @@ const Header = () => {
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
                         <li>
                             <Link href="/tv-providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
+                            <ul>
+                            <li>Xfinity</li>
+                            <li>CenturyLink</li>
+                            <li>Brightspeed</li>
+                            <li>Astound Broadband</li>
+                           </ul>
                         </li>
                         <li>
                             <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Internet</Link>
+                            <ul>
+                            <li>Xfinity</li>
+                            <li>CenturyLink</li>
+                            <li>Brightspeed</li>
+                            <li>Astound Broadband</li>
+                           </ul>
                         </li>
                         <li>
                             <Link href="/providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Providers</Link>
