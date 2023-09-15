@@ -18,6 +18,7 @@ import TV_Plan from '@/components/pricing/tv_plan'
 import InternetPhonePlanBox from '@/components/pricing/internetPhonePlanBox'
 import InternetTVPlanBox from '@/components/pricing/internetTVPlanBox'
 import InternetTVPhonePlanBox from '@/components/pricing/internetTVPhonePlanBox'
+import { BiPhone } from 'react-icons/bi'
 
 export default function SProviders({ Provider, city, state }: any) {
   // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
@@ -53,45 +54,52 @@ export default function SProviders({ Provider, city, state }: any) {
 
   return (
     <>
-      <section className='h-full relative bg-white/30'>
-        <div className='shape-left md:block hidden'></div>
-        <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center pt-24">
+      <section className='h-full relative bg-[#215690]'>
+        <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center py-10">
           <div className='md:w-1/2 w-full'>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
-            <h1 className="text-3xl md:text-4xl md:leading-normal font-bold text-black mt-4 max-w-lg">
+            <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
               <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
-            <p>Get Spectrum Internet ® today and enjoy the
-lightning fast speeds for surfing, gaming,
-streaming and more with no limits and overages.</p>
-            <h2 className="text-xl font-bold text-black my-4">
-              Prices starting at <span className='text-[#ef9831]'>{Provider?.providersInfo?.proPrice} </span> mo.
-            </h2>
+            <p className='text-xl font-normal text-white my-4'>
+              Get Spectrum Internet ® today and enjoy the
+              lightning fast speeds for surfing, gaming,
+              streaming and more with no limits and overages.
+            </p>
             <div className='features text-black mb-5'>
-               <ul>
-                  <li>Reliable download speeds</li>
-                  <li>NO contracts & data caps</li>
-                  <li>Free internet modem and antivirus software</li>
-                  <li>Bundle with Spectrum TV, Voice and Mobile services</li>
+              <ul>
+                <li>Reliable download speeds</li>
+                <li>NO contracts & data caps</li>
+                <li>Free internet modem and antivirus software</li>
+                <li>Bundle with Spectrum TV, Voice and Mobile services</li>
               </ul>
             </div>
-            <h5>Spectrum Internet</h5>
-            <Link href={`tel:${pro_phone}`} className="text-base font-medium text-white bg-[#ef9831] hover:bg-[#215690] px-3 py-1.5 rounded-3xl">
-              {pro_phone}
+            <h5 className='text-2xl font-bold text-white'>
+              Spectrum Internet
+            </h5>
+            <h2 className="md:text-6xl text-3xl font-extrabold text-white my-4 flex items-start">
+              <span className='md:text-3xl text-base'>$</span>
+              49 <span className='grid'> <span className='md:text-3xl text-base'>99<sub>/mo</sub></span> <span className='text-base'>for 12 mos</span></span>
+            </h2>
+            <Link href={`tel:${pro_phone}`} className="md:text-3xl text-base font-bold text-white flex items-center gap-3 mb-4">
+              <BiPhone /> {pro_phone}
             </Link>
+            <span className='text-xs font-light text-white'>
+              Wireless speeds may vary.
+            </span>
           </div>
           <div className='md:w-1/2 w-full h-full'>
-            <Image src="/images/banner-bg.jpg" alt="Feature Image" width={1440} height={600} className='object-cover h-full w-full md:hidden block' />
+            <Image src="/images/spectrum.png" alt="Feature Image" width={694} height={468} />
           </div>
         </div>
         <div className={`bg-white px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-3 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed top-0 left-0 right-0 mt-0' : 'sticky mt-20'
           }`}>
           <div className='md:text-end text-center'>
             <h3 className="md:text-lg text-lg font-bold">
-              Call NOW to order {provider_name}            
-            <Link href="tel:000-000-000" className='ml-8 bg-[#ef9831] hover:bg-[#215690] text-white md:text-sm text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
-              {pro_phone}
-            </Link>
+              Call NOW to order {provider_name}
+              <Link href="tel:000-000-000" className='ml-8 bg-[#ef9831] hover:bg-[#215690] text-white md:text-sm text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
+                {pro_phone}
+              </Link>
             </h3>
           </div>
           <div className='[&>div:nth-child(1)]:mt-0'>
@@ -126,7 +134,7 @@ streaming and more with no limits and overages.</p>
             </h2>
           </div>
           <div>
-            <TV_Plan Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone}  />          
+            <TV_Plan Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone} />
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
@@ -196,7 +204,7 @@ streaming and more with no limits and overages.</p>
         </section>
       }
 
-    
+
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -220,7 +228,7 @@ streaming and more with no limits and overages.</p>
       </section>
       <section className="mt-8">
         <div className="container mx-auto px-4">
-          
+
           <div className='grid md:grid-cols-2 grid-cols-1 props'>
             <div className='bg-gray-200  p-8'>
               <h2 className="text-2xl font-bold mb-4">

@@ -8,6 +8,8 @@ import { BsTelephoneFill } from 'react-icons/bs'
 
 const Header = () => {
     const [open, setOpen] = useState(false)
+    const [subMenu, setSubMenu] = useState(false)
+    const [subMenu1, setSubMenu1] = useState(false)
     return (
         <header className="h-auto shadow-md py-5 font-[Roboto]">
             <nav className="container mx-auto px-4 flex items-center justify-between ">
@@ -28,23 +30,55 @@ const Header = () => {
                 </div>
                 <div className={`sm:w-2/3 w-full sm:justify-end sm:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white z-40' : 'top-[-100%] '}`}>
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
-                        <li>
+                        <li onMouseEnter={() => { setSubMenu(true) }} onClick={()=>{setSubMenu(!subMenu)}} onMouseLeave={()=>setSubMenu(false)}>
                             <Link href="/tv-providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
-                            <ul>
-                            <li>Xfinity</li>
-                            <li>CenturyLink</li>
-                            <li>Brightspeed</li>
-                            <li>Astound Broadband</li>
-                           </ul>
+                            <ul className={`bg-white md:absolute static top-16 md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow  ${subMenu ? 'block' : 'hidden'}`}>
+                                <li>
+                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Xfinity
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        CenturyLink
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Brightspeed
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Astound Broadband
+                                    </Link>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
+                        <li onMouseEnter={() => { setSubMenu1(true) }} onClick={()=>{setSubMenu1(!subMenu1)}} onMouseLeave={()=>setSubMenu1(false)}>
                             <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Internet</Link>
-                            <ul>
-                            <li>Xfinity</li>
-                            <li>CenturyLink</li>
-                            <li>Brightspeed</li>
-                            <li>Astound Broadband</li>
-                           </ul>
+                            <ul className={`bg-white md:absolute static top-16 md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow  ${subMenu1 ? 'block' : 'hidden'}`}>
+                                <li>
+                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Xfinity
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        CenturyLink
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Brightspeed
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Astound Broadband
+                                    </Link>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <Link href="/providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Providers</Link>
