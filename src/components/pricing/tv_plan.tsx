@@ -24,7 +24,7 @@ const TV_Plan = ({ Plans, pro_phone }: any) => {
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                         <div>
                             <h4 className="md:text-base text-xs font-bold text-center text-white mb-2">
-                                Speed Up To
+                                Channels
                             </h4>
                         </div>
                     </div>
