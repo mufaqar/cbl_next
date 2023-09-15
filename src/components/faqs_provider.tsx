@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 export default function Faqs_Provider({ faqS }: any) {
-    const [open, setOpen] = useState<any>(1);
+    const [open, setOpen] = useState<any>(0);
 
     const handleFaq = (id: any) => {
         if (open === id) {
