@@ -61,14 +61,21 @@ export default function SProviders({ Provider, city, state }: any) {
             <h1 className="text-3xl md:text-4xl md:leading-normal font-bold text-black mt-4 max-w-lg">
               <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
+            <p>Get Spectrum Internet ® today and enjoy the
+lightning fast speeds for surfing, gaming,
+streaming and more with no limits and overages.</p>
             <h2 className="text-xl font-bold text-black my-4">
               Prices starting at <span className='text-[#ef9831]'>{Provider?.providersInfo?.proPrice} </span> mo.
             </h2>
             <div className='features text-black mb-5'>
-              {parse(`
-                ${Provider?.providersInfo?.features}
-              `)}
+               <ul>
+                  <li>Reliable download speeds</li>
+                  <li>NO contracts & data caps</li>
+                  <li>Free internet modem and antivirus software</li>
+                  <li>Bundle with Spectrum TV, Voice and Mobile services</li>
+              </ul>
             </div>
+            <h5>Spectrum Internet</h5>
             <Link href={`tel:${pro_phone}`} className="text-base font-medium text-white bg-[#ef9831] hover:bg-[#215690] px-3 py-1.5 rounded-3xl">
               {pro_phone}
             </Link>
