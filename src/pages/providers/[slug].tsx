@@ -14,6 +14,7 @@ import IconBox from '@/components/provider/icon-box'
 import { GrChannel, GrInstallOption } from 'react-icons/gr'
 import { GoDeviceMobile } from 'react-icons/go'
 import FeatureBox from '@/components/pricing/featureBox'
+import TV_Plan from '@/components/pricing/tv_plan'
 
 export default function SProviders({ Provider, city, state }: any) {
   // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
@@ -50,7 +51,7 @@ export default function SProviders({ Provider, city, state }: any) {
   return (
     <>
       <section className='h-full relative bg-white/30'>
-        <div className='shape-left'></div>
+        <div className='shape-left md:block hidden'></div>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center pt-24">
           <div className='md:w-1/2 w-full'>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
@@ -115,7 +116,8 @@ export default function SProviders({ Provider, city, state }: any) {
             </h2>
           </div>
           <div>
-            <PlanBox Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone} />
+            <TV_Plan Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone}  />
+            {/* <PlanBox Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone} /> */}
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
