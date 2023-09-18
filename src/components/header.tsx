@@ -30,52 +30,87 @@ const Header = () => {
                 </div>
                 <div className={`sm:w-2/3 w-full sm:justify-end sm:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white z-40' : 'top-[-100%] '}`}>
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
-                        <li onMouseEnter={() => { setSubMenu(true) }} onClick={()=>{setSubMenu(!subMenu)}} onMouseLeave={()=>setSubMenu(false)}>
+                        <li onMouseEnter={() => { setSubMenu(true), setSubMenu1(false) }} onClick={() => { setSubMenu(!subMenu) }}>
                             <Link href="/tv-providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
-                            <ul className={`bg-white md:absolute static top-16 md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow  ${subMenu ? 'block' : 'hidden'}`}>
+                            <ul className={`bg-white md:absolute static top-16 md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow  ${subMenu ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu(false)}>
                                 <li>
-                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                    <Link href="/providers/spectrum" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Spectrum
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/dish" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Dish
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/directv" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        DIRECTV
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/optimum" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Optimum
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/cox" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        Cox
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/xfinity" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
                                         Xfinity
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        CenturyLink
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Brightspeed
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Astound Broadband
                                     </Link>
                                 </li>
                             </ul>
                         </li>
-                        <li onMouseEnter={() => { setSubMenu1(true) }} onClick={()=>{setSubMenu1(!subMenu1)}} onMouseLeave={()=>setSubMenu1(false)}>
+                        <li onMouseEnter={() => { setSubMenu1(true), setSubMenu(false) }} onClick={() => { setSubMenu1(!subMenu1) }}>
                             <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Internet</Link>
-                            <ul className={`bg-white md:absolute static top-16 md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow  ${subMenu1 ? 'block' : 'hidden'}`}>
+                            <ul className={`bg-white md:absolute static top-16 .md:w-40 w-fit md:py-4 pt-5 pb-0 md:px-4 px-0 grid md:grid-cols-2 md:gap-7 gap-5 z-50 md:shadow  ${subMenu1 ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu1(false)}>
                                 <li>
-                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Xfinity
+                                    <Link href="/providers/att" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        AT&T
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        CenturyLink
+                                    <Link href="/providers/spectrum" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        SPECTRUM
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Brightspeed
+                                    <Link href="/providers/frontier" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        FRONTIER
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Astound Broadband
+                                    <Link href="/providers/windstream" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        WINDSTREAM
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/centurylink" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        CENTURYLINK
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/earthlink" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        EARTHLINK
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/hughesnet" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        HUGHESNET
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/viasat" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        VIASAT
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/providers/t-mobile" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
+                                        T-MOBILE
                                     </Link>
                                 </li>
                             </ul>
