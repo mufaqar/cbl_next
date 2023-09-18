@@ -131,7 +131,7 @@ export default function Home() {
                      </div>
                      <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
                         <Link href="/providers/optimum">
-                           <Image src='/images/logo/optimum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/optimum.JPG' alt="Feature" width={140} height={50} className='mx-auto' />
                            <h2 className="mt-4 text-lg  text-center">
                               OPTIMUM
                            </h2>
@@ -139,7 +139,7 @@ export default function Home() {
                      </div>
                      <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
                         <Link href="/providers/cox">
-                           <Image src='/images/logo/cox.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/cox.JPG' alt="Feature" width={140} height={50} className='mx-auto' />
                            <h2 className="mt-4 text-lg  text-center">
                               COX
                            </h2>
