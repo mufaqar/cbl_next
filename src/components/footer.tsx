@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { Providers_Data, Services_data } from '@/const/exports'
+import { NavLinks, Providers_Data, Services_data } from '@/const/exports'
 import { BiLogoFacebookCircle, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoYoutube } from 'react-icons/bi'
 
 const Footer = () => {
@@ -71,7 +71,7 @@ const Footer = () => {
             COMPANY
           </h6>
           <ul className='grid gap-3'>
-            {Services_data?.map((item: any, idx: number) => {
+            {NavLinks?.map((item: any, idx: number) => {
               return <li key={idx}>
                 <Link href={item?.link} className='text-sm font-medium capitalize text-white/75 hover:text-white'>
                   {item?.name}

@@ -93,6 +93,14 @@ export const NavLinks = [
         name: "DO NOT SELL MY INFORMATION",
         link: "#",
     },
+    {
+        name: "TERMS AND CONDITIONS",
+        link: "#",
+    },
+    {
+        name: "SITEMAP",
+        link: "#",
+    },
 ];
 
 export const Galler_Data = [
