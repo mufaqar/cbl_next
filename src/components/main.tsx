@@ -9,7 +9,7 @@ const Main = () => {
                     <h1 className="sm:text-5xl text-2xl font-bold">
                         Find <span className="text-[#ef9831]">Internet & TV Providers</span> in Your Area
                     </h1>
-                    <div className="w-full py-5 mt-6 bg-white border md:h-52 rounded-3xl">
+                    <div className="w-full py-5 mt-6 bg-white border md:h-52 h-40 rounded-3xl flex">
                         <SearchForm />
                         
                     </div>
