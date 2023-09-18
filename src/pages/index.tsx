@@ -87,10 +87,13 @@ export default function Home() {
 
          <section className="py-16">
             <div className='container mx-auto px-4'>
-               <div className="mb-10">
+               <div className="mx-auto max-w-3xl mb-10">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
                      Find The Best Internet And Tv Service Providers!
                   </h2>
+                  <p className='text-xl font-normal text-center my-4'>
+                     Here at Cable Movers, we research and review leading providers and have found the most popular plans and deals on every major Internet and TV service provider to help you shop smartly.
+                  </p>
                </div>
                <div className='mb-16'>
                   <h3 className='text-3xl font-bold mb-10'>
@@ -234,7 +237,7 @@ export default function Home() {
 
          <section className="py-16">
             <div className='container mx-auto px-4'>
-               <div className="mb-10">
+               <div className="mx-auto max-w-3xl mb-10">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
                      Compare Internet And Tv Service Providers In Major Cities.
                   </h2>
