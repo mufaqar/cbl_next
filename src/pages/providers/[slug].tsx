@@ -91,7 +91,7 @@ export default function SProviders({ Provider, city, state }: any) {
           <h3 className="md:text-2xl text-lg font-extrabold text-white mb-2">
             Call NOW to order {provider_name}
           </h3>
-          <Link href="tel:000-000-000" className='ml-8 bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-1.5 rounded-3xl'>
+          <Link href={`tel:${pro_phone}`} className='ml-8 bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-1.5 rounded-3xl'>
             {pro_phone}
           </Link>
         </div>

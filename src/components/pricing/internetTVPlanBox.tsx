@@ -83,7 +83,7 @@ function InternetTVPlanBox({ Plans, pro_phone }: any) {
                         </div>
                         <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                             <div>
-                                <Link href="tel:000-000-000" className="md:text-base text-[9px] font-medium text-white bg-[#ef9831] hover:bg-[#215690] md:px-3 px-[5px] py-1.5 rounded-3xl">
+                                <Link href={`tel:${pro_phone}`} className="md:text-base text-[9px] font-medium text-white bg-[#ef9831] hover:bg-[#215690] md:px-3 px-[5px] py-1.5 rounded-3xl">
                                     {pro_phone}
                                 </Link>
                             </div>
