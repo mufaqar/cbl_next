@@ -38,7 +38,7 @@ export default function SProviders({ Provider, city, state }: any) {
   ];
   const currentMonthName = monthNames[currentMonthIndex];
   const changeBackground = () => {
-    if (window.scrollY >= 350) {
+    if (window.scrollY >= 650) {
       setNav(true);
     }
     else {
@@ -54,14 +54,14 @@ export default function SProviders({ Provider, city, state }: any) {
 
   return (
     <>
-      <section className='h-full relative bg-[#215690]'>
-        <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center py-10">
-          <div className='md:w-1/2 w-full'>
+      <section className='relative bg-[#F3FAFF]'>
+        <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
+          <div className='md:w-1/2 w-full py-10'>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
-            <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
+            <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-black">
               <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
-            <p className='text-xl font-normal text-white my-4'>
+            <p className='text-xl font-normal text-black my-4'>
               Get Spectrum Internet ® today and enjoy the
               lightning fast speeds for surfing, gaming,
               streaming and more with no limits and overages.
@@ -74,38 +74,38 @@ export default function SProviders({ Provider, city, state }: any) {
                 <li>Bundle with Spectrum TV, Voice and Mobile services</li>
               </ul>
             </div>
-            <h5 className='text-2xl font-bold text-white'>
-              Spectrum Internet
+            <h5 className='text-2xl font-bold text-black'>
+              {provider_name} Internet
             </h5>
-            <h2 className="md:text-6xl text-3xl font-extrabold text-white my-4 flex items-start">
+            <h2 className="md:text-6xl text-3xl font-extrabold text-black my-4 flex items-start">
               <span className='md:text-3xl text-base'>$</span>
               49 <span className='grid'> <span className='md:text-3xl text-base'>99<sub>/mo</sub></span> <span className='text-base'>for 12 mos</span></span>
             </h2>
-            <Link href={`tel:${pro_phone}`} className="md:text-3xl text-base font-bold text-white flex items-center gap-3 mb-4">
+            <Link href={`tel:${pro_phone}`} className="md:text-3xl text-base font-bold text-black flex items-center gap-3 mb-4">
               <BiPhone /> {pro_phone}
             </Link>
-            <span className='text-xs font-light text-white'>
+            <span className='text-xs font-light text-black'>
               Wireless speeds may vary.
             </span>
           </div>
-          <div className='md:w-1/2 w-full h-full'>
-            <Image src="/images/spectrum.png" alt="Feature Image" width={694} height={468} />
+          <div className='md:w-1/2 w-full'>
+            <Image src="/images/slug-bg.png" alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' />
           </div>
         </div>
-        <div className={`bg-white px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-3 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed top-0 left-0 right-0 mt-0' : 'sticky mt-20'
-          }`}>
-          <div className='md:text-end text-center'>
-            <h3 className="md:text-lg text-lg font-bold">
-              Call NOW to order {provider_name}
-              <Link href="tel:000-000-000" className='ml-8 bg-[#ef9831] hover:bg-[#215690] text-white md:text-sm text-xs text-center inline-block w-fit font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
-                {pro_phone}
-              </Link>
-            </h3>
-          </div>
-          <div className='[&>div:nth-child(1)]:mt-0'>
-            <SearchForm />
-          </div>
+      </section>
 
+      <section className={`bg-[#215690] px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-10 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed bottom-0 left-0 right-0' : 'sticky'
+        }`}>
+        <div className='md:text-center text-center max-w-xs ml-auto'>
+          <h3 className="md:text-2xl text-lg font-extrabold text-white mb-4">
+            Call NOW to order {provider_name}
+          </h3>
+          <Link href="tel:000-000-000" className='ml-8 bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-2 rounded-3xl'>
+            {pro_phone}
+          </Link>
+        </div>
+        <div className='[&>div:nth-child(1)]:mt-0'>
+          <SearchForm />
         </div>
       </section>
 
