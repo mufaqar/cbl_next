@@ -94,13 +94,13 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
-      <section className={`bg-[#215690] px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-10 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed bottom-0 left-0 right-0' : 'sticky'
+      <section className={`bg-[#215690] px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-5 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed bottom-0 left-0 right-0' : 'sticky'
         }`}>
         <div className='md:text-center text-center max-w-xs ml-auto'>
-          <h3 className="md:text-2xl text-lg font-extrabold text-white mb-4">
+          <h3 className="md:text-2xl text-lg font-extrabold text-white mb-2">
             Call NOW to order {provider_name}
           </h3>
-          <Link href="tel:000-000-000" className='ml-8 bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-2 rounded-3xl'>
+          <Link href="tel:000-000-000" className='ml-8 bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-1.5 rounded-3xl'>
             {pro_phone}
           </Link>
         </div>
