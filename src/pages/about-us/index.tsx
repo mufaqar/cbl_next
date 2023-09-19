@@ -3,7 +3,7 @@ import React from 'react'
 
 function About_Us() {
     return (
-        <div>
+        <>
             <PageBanner title="About Us" />
             <section className="py-16">
                 <div className='container mx-auto px-4'>
@@ -20,7 +20,7 @@ function About_Us() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }
 
