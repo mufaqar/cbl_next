@@ -58,19 +58,20 @@ export default function SProviders({ Provider, city, state }: any) {
           <div className='md:w-1/2 w-full py-10'>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
             <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-black">
-              <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
+              <span className='text-[#ef9831]'>{provider_name} </span>Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
 
             <div className='features text-black mb-5'>
               {parse(`${Provider?.providersInfo?.features}`)}
             </div>
-            <h5 className='text-2xl font-bold text-black'>
-              {provider_name}  </h5>
-            <h2 className="md:text-6xl text-3xl font-extrabold text-black my-4 flex items-start">
+            <h5 className='text-xl font-bold text-black'>
+              Price Starting At
+            </h5>
+            <h2 className="md:text-4xl text-3xl font-extrabold text-black my-4 flex items-start">
               <span className='md:text-3xl text-base'>$</span>
               {Provider?.providersInfo?.proPrice}<span className='grid'> <span className='md:text-3xl text-base'><sub>/mo</sub></span></span>
             </h2>
-            <Link href={`tel:${pro_phone}`} className="md:text-3xl text-base font-bold text-black flex items-center gap-3 mb-4">
+            <Link href={`tel:${pro_phone}`} className="bg-[#ef9831] rounded-3xl md:text-4xl text-base font-bold text-white  flex items-center gap-3 mb-4">
               <BiPhone /> {pro_phone}
             </Link>
           </div>

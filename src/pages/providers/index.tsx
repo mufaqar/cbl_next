@@ -17,7 +17,7 @@ function Providers({ allProviders }: any) {
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
                     <div className="mx-auto max-w-xl text-center">
                         <h2 className='text-3xl font-bold'>
-                            Feature Provider
+                            Featured Providers
                         </h2>
                     </div>
                     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-4 text-center">
