@@ -97,7 +97,7 @@ export default function Home() {
                </div>
                <div className='mb-16'>
                   <h3 className='text-3xl font-bold mb-10'>
-                     TV Peoviders
+                     TV Providers
                   </h3>
                   <div className='grid md:grid-cols-3 grid-cols-1 gap-7'>
                      <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10  ">

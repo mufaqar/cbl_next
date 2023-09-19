@@ -79,15 +79,15 @@ export const Providers_Data = [
 export const NavLinks = [
     {
         name: "ABOUT US",
-        link: "#",
+        link: "/about-us",
     },
     {
         name: "CONTACT US",
-        link: "#",
+        link: "/contact-us",
     },
     {
         name: "PRIVACY POLICY",
-        link: "#",
+        link: "/privacy-policy",
     },
     {
         name: "DO NOT SELL MY INFORMATION",
