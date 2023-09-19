@@ -228,8 +228,8 @@ export default function Home() {
                   </p>
                </div>
                <div className="md:w-1/4 w-full flex md:justify-end justify-center">
-                  <Link href="tel:000-000-000" className='bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-2 rounded-3xl'>
-                     000-000-000
+                  <Link href="tel:855-512-0491" className='bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-2 rounded-3xl'>
+                  855-512-0491
                   </Link>
                </div>
             </div>
