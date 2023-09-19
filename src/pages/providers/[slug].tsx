@@ -21,7 +21,7 @@ import InternetTVPhonePlanBox from '@/components/pricing/internetTVPhonePlanBox'
 import { BiPhone } from 'react-icons/bi'
 
 export default function SProviders({ Provider, city, state }: any) {
- //console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
+  //console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
   //const params = useParams()
 
   const provider_name = Provider?.title;
@@ -51,19 +51,18 @@ export default function SProviders({ Provider, city, state }: any) {
 
   }
 
-
   return (
     <>
-      <section className='relative bg-[#F3FAFF]'>
+      <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
           <div className='md:w-1/2 w-full py-10'>
             <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
             <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-black">
               <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
-            
+
             <div className='features text-black mb-5'>
-            {parse(`${Provider?.providersInfo?.features}`)}
+              {parse(`${Provider?.providersInfo?.features}`)}
             </div>
             <h5 className='text-2xl font-bold text-black'>
               {provider_name} Internet
