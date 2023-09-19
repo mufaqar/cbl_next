@@ -65,8 +65,7 @@ export default function SProviders({ Provider, city, state }: any) {
               {parse(`${Provider?.providersInfo?.features}`)}
             </div>
             <h5 className='text-2xl font-bold text-black'>
-              {provider_name} Internet
-            </h5>
+              {provider_name}  </h5>
             <h2 className="md:text-6xl text-3xl font-extrabold text-black my-4 flex items-start">
               <span className='md:text-3xl text-base'>$</span>
               {Provider?.providersInfo?.proPrice}<span className='grid'> <span className='md:text-3xl text-base'><sub>/mo</sub></span></span>
