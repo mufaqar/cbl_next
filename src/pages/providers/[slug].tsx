@@ -70,14 +70,11 @@ export default function SProviders({ Provider, city, state }: any) {
             </h5>
             <h2 className="md:text-6xl text-3xl font-extrabold text-black my-4 flex items-start">
               <span className='md:text-3xl text-base'>$</span>
-              {Provider?.providersInfo?.proPrice}<span className='grid'> <span className='md:text-3xl text-base'><sub>/mo</sub></span> <span className='text-base'>for 12 mos</span></span>
+              {Provider?.providersInfo?.proPrice}<span className='grid'> <span className='md:text-3xl text-base'><sub>/mo</sub></span></span>
             </h2>
             <Link href={`tel:${pro_phone}`} className="md:text-3xl text-base font-bold text-black flex items-center gap-3 mb-4">
               <BiPhone /> {pro_phone}
             </Link>
-            <span className='text-xs font-light text-black'>
-              Wireless speeds may vary.
-            </span>
           </div>
           <div className='md:w-1/2 w-full'>
             <Image src="/images/slug-bg.png" alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' />
