@@ -123,9 +123,12 @@ query SINGLE_Provider($slug: ID!) {
       cons
       pros
       internetPlans {
-        speeds
-          price
+       
           package
+          price
+          priceInfo
+          speedInfo
+          speeds
       }    
       internetTvPhoneBundles {
         speeds
@@ -138,14 +141,20 @@ query SINGLE_Provider($slug: ID!) {
           package
       }
       internetAndPhoneBundles {
+        voiceInfo
+        voice
         speeds
-          price
-          package
+        speedInfo
+        priceInfo
+        price
+        package
       }
       tvPlans {
         speeds
-          price
-          package
+        speedInfo
+        priceInfo
+        price
+        package
       }
       faqS {
         answer

@@ -21,7 +21,7 @@ import InternetTVPhonePlanBox from '@/components/pricing/internetTVPhonePlanBox'
 import { BiPhone } from 'react-icons/bi'
 
 export default function SProviders({ Provider, city, state }: any) {
-  // console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
+ //console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
   //const params = useParams()
 
   const provider_name = Provider?.title;
@@ -61,25 +61,16 @@ export default function SProviders({ Provider, city, state }: any) {
             <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-black">
               <span className='text-[#ef9831]'>{provider_name} </span>Internet Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
-            <p className='text-xl font-normal text-black my-4'>
-              Get Spectrum Internet ® today and enjoy the
-              lightning fast speeds for surfing, gaming,
-              streaming and more with no limits and overages.
-            </p>
+            
             <div className='features text-black mb-5'>
-              <ul>
-                <li>Reliable download speeds</li>
-                <li>NO contracts & data caps</li>
-                <li>Free internet modem and antivirus software</li>
-                <li>Bundle with Spectrum TV, Voice and Mobile services</li>
-              </ul>
+            {parse(`${Provider?.providersInfo?.features}`)}
             </div>
             <h5 className='text-2xl font-bold text-black'>
               {provider_name} Internet
             </h5>
             <h2 className="md:text-6xl text-3xl font-extrabold text-black my-4 flex items-start">
               <span className='md:text-3xl text-base'>$</span>
-              49 <span className='grid'> <span className='md:text-3xl text-base'>99<sub>/mo</sub></span> <span className='text-base'>for 12 mos</span></span>
+              {Provider?.providersInfo?.proPrice}<span className='grid'> <span className='md:text-3xl text-base'><sub>/mo</sub></span> <span className='text-base'>for 12 mos</span></span>
             </h2>
             <Link href={`tel:${pro_phone}`} className="md:text-3xl text-base font-bold text-black flex items-center gap-3 mb-4">
               <BiPhone /> {pro_phone}

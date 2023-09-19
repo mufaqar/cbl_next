@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 function PlanBox({ Plans, pro_phone }: any) {
+   // console.log("🚀 ~ file: planBox.tsx:5 ~ PlanBox ~ Plans:", Plans)
     return (
         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto">
             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
@@ -47,22 +48,22 @@ function PlanBox({ Plans, pro_phone }: any) {
                         <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                             <div>
                                 <p className="text-center md:text-base text-xs font-bold">
-                                    {/* {plan.price} */}
-                                    $19.99/mo
+                                   {plan.price}
+                                 
                                 </p>
                                 <p className="text-center md:text-xs text-xs">
-                                (*w/ Autopay & Paperless Billing)
+                                {plan.priceInfo}
                                 </p>
                             </div>
                         </div>
                         <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                             <div>
                                 <p className="text-center md:text-base text-xs font-bold">
-                                    {/* {plan.speeds} */}
-                                    300 Mbps 
+                                    {plan.speeds}
+                                   
                                 </p>
                                 <p className="text-center md:text-xs text-xs">
-                                    (*Wireless speeds may vary)
+                                {plan.speedInfo}
                                 </p>
                             </div>
                         </div>

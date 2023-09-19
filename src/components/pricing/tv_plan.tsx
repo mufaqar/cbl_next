@@ -48,22 +48,21 @@ const TV_Plan = ({ Plans, pro_phone }: any) => {
                         <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                             <div>
                                 <p className="text-center md:text-base text-xs font-bold">
-                                    {/* {plan.price} */}
-                                    $19.99/mo
+                                    {plan.price}
+                                  
                                 </p>
                                 <p className="text-center md:text-xs text-xs">
-                                    (*w/ Autopay & Paperless Billing)
+                                {plan.priceInfo}
                                 </p>
                             </div>
                         </div>
                         <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                             <div>
                                 <p className="text-center md:text-base text-xs font-bold">
-                                    {/* {plan.speeds} */}
-                                    Channels: 125+
+                                {plan.speeds}
                                 </p>
                                 <p className="text-center md:text-xs text-xs">
-                                    (*Channel availability may vary by location)
+                                {plan.speedInfo}
                                 </p>
                             </div>
                         </div>
