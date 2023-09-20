@@ -1,40 +1,12 @@
-import Brands from '@/components/brands';
 import CityBox from '@/components/city-box';
-import Main from '@/components/main';
 import SearchForm from '@/components/searchform';
 import ServiceBox from '@/components/service-box';
 import Why_ChooseUs from '@/components/why-choose-us';
 import Link from 'next/link';
 import React from 'react'
-import { useRouter } from 'next/navigation'
-import { FaMagnifyingGlass } from 'react-icons/fa6'
-import { gql, useQuery } from '@apollo/client';
 import { HiOutlineSearchCircle, HiOutlineShoppingCart } from 'react-icons/hi'
 import { BiGitCompare } from 'react-icons/bi'
 import Image from 'next/image';
-
-const query = `
-query zones($zipcode: String = "") {
-   zones(where: {title: $zipcode}) {
-     nodes {
-       title
-       cities {
-         nodes {
-           name
-           slug
-         }
-       }
-       states {
-         nodes {
-           name
-           slug
-         }
-       }
-     }
-   }
- }
-`;
-
 
 
 export default function Home() {

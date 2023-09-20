@@ -64,12 +64,8 @@ const SearchForm = () => {
       else {
         setloader(false);
       }
-
-
     }
     fetchData();
-    // console.log("🚀  file: test.jsx:43  fetchData ~ data:", get_state); 
-
   }
 
   return (
