@@ -217,6 +217,21 @@ export default function Home() {
             </div>
          </section>
 
+        
+
+         <section className="py-16">
+            <div className='container mx-auto px-4'>
+               <div className="mx-auto max-w-3xl mb-10">
+                  <h2 className='text-center md:text-4xl text-2xl font-bold'>
+                     Compare Internet And Tv Service Providers In Major Cities.
+                  </h2>
+               </div>
+               <div>
+                  <CityBox />
+               </div>
+            </div>
+         </section>
+
          <section className="py-24 bg-[url('/images/home-cta.jpg')] bg-center bg-no-repeat bg-cover bg-fixed bg-blend-overlay bg-black/40">
             <div className='container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center'>
                <div className="md:w-3/4 w-full">
@@ -231,19 +246,6 @@ export default function Home() {
                   <Link href="tel:855-512-0491" className='bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-2 rounded-3xl'>
                   855-512-0491
                   </Link>
-               </div>
-            </div>
-         </section>
-
-         <section className="py-16">
-            <div className='container mx-auto px-4'>
-               <div className="mx-auto max-w-3xl mb-10">
-                  <h2 className='text-center md:text-4xl text-2xl font-bold'>
-                     Compare Internet And Tv Service Providers In Major Cities.
-                  </h2>
-               </div>
-               <div>
-                  <CityBox />
                </div>
             </div>
          </section>

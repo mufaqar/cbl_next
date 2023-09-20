@@ -18,7 +18,8 @@ import TV_Plan from '@/components/pricing/tv_plan'
 import InternetPhonePlanBox from '@/components/pricing/internetPhonePlanBox'
 import InternetTVPlanBox from '@/components/pricing/internetTVPlanBox'
 import InternetTVPhonePlanBox from '@/components/pricing/internetTVPhonePlanBox'
-import { BiPhone } from 'react-icons/bi'
+import { BiPhone  } from 'react-icons/bi'
+
 
 export default function SProviders({ Provider, city, state }: any) {
   //console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)

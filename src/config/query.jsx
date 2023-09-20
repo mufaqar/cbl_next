@@ -172,6 +172,7 @@ query SINGLE_Provider($slug: ID!) {
       featuresBlock {        
         title
         details
+        icon
       }
 
     }
