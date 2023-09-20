@@ -18,7 +18,7 @@ import TV_Plan from '@/components/pricing/tv_plan'
 import InternetPhonePlanBox from '@/components/pricing/internetPhonePlanBox'
 import InternetTVPlanBox from '@/components/pricing/internetTVPlanBox'
 import InternetTVPhonePlanBox from '@/components/pricing/internetTVPhonePlanBox'
-import { BiPhone  } from 'react-icons/bi'
+import { BiPhone } from 'react-icons/bi'
 
 
 export default function SProviders({ Provider, city, state }: any) {
@@ -72,7 +72,7 @@ export default function SProviders({ Provider, city, state }: any) {
               <span className='md:text-3xl text-base'>$</span>
               {Provider?.providersInfo?.proPrice}<span className='grid'> <span className='md:text-3xl text-base'><sub>/mo</sub></span></span>
             </h2>
-            <Link href={`tel:${pro_phone}`} className="bg-[#ef9831] rounded-3xl md:text-4xl text-base font-bold text-white  flex items-center gap-3 mb-4">
+            <Link href={`tel:${pro_phone}`} className="bg-[#ef9831] rounded-3xl md:text-4xl text-base font-bold text-white w-fit px-3 py-1.5 flex items-center gap-3 mb-4">
               <BiPhone /> {pro_phone}
             </Link>
           </div>
@@ -84,7 +84,7 @@ export default function SProviders({ Provider, city, state }: any) {
 
       <section className={`bg-[#215690] px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-5 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed bottom-0 left-0 right-0' : 'sticky'
         }`}>
-        <div className='md:text-center text-center max-w-xs ml-auto'>
+        <div className='md:text-center text-center max-w-xs ml-auto md:mr-0 mx-auto'>
           <h3 className="md:text-2xl text-lg font-extrabold text-white mb-2">
             Call NOW to order {provider_name}
           </h3>
@@ -92,7 +92,10 @@ export default function SProviders({ Provider, city, state }: any) {
             {pro_phone}
           </Link>
         </div>
-        <div className='[&>div:nth-child(1)]:mt-0'>
+        <div className='[&>div:nth-child(1)]:mt-0 max-w-xs slug_cta'>
+          <h3 className="md:text-2xl text-lg font-extrabold text-center text-white mb-2">
+            Check avaiablity
+          </h3>
           <SearchForm />
         </div>
       </section>

@@ -224,6 +224,15 @@ html {
   background-size: cover;
   -webkit-clip-path: polygon(0 12%, 0 86%, 35% 50%);
   clip-path: polygon(44% 100%, 100% -350%, 100% 100%, 40% 100%);
+}
 
-
+.slug_cta .serch_form{
+  padding: 0;
+  justify-content: center;
+}
+.slug_cta .serch_form svg{
+  left: 2.5rem;
+}
+.slug_cta .serch_form input{
+  max-width: 9rem;
 }
