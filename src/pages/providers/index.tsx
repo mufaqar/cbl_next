@@ -1,8 +1,9 @@
 import Main from '@/components/main'
 import { ProviderBox } from '@/components/provider/provider-box'
+import SearchForm from '@/components/searchform'
 import apolloClient from '@/config/client'
 import { GET_ALL_PROVIDERS } from '@/config/query'
-import {  GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -12,7 +13,21 @@ function Providers({ allProviders }: any) {
 
     return (
         <>
-            <Main />
+            <section className={`min-h-screen h-full flex items-center`}>
+                <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
+                    <div className="py-10">
+                        <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-black">
+                            Find <span className="text-[#ef9831]">Internet and TV Service Providers</span> in your area by Cable Movers
+                        </h1>
+                        <div className="w-full py-5 mt-6 bg-white border md:h-52 h-40 rounded-3xl flex">
+                            <SearchForm />
+                        </div>
+                    </div>
+                    <div className=''>
+                        <Image src="/images/slug-bg.png" alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' />
+                    </div>
+                </div>
+            </section>
             <section className="">
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
                     <div className="mx-auto max-w-xl text-center">
@@ -73,9 +88,6 @@ function Providers({ allProviders }: any) {
                             })
                         }
                     </div>
-
-
-
                 </div>
             </section>
             <section className="">
@@ -152,7 +164,7 @@ function Providers({ allProviders }: any) {
                         </Link>
                         <Link href="/blog">
                             <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg"   width={500} height={360}/>
+                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
                                 <div className="p-4 pl-0">
                                     <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
                                     <p className="text-gray-700 mt-2 text-center text-sm">
@@ -163,7 +175,7 @@ function Providers({ allProviders }: any) {
                         </Link>
                         <Link href="/blog">
                             <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg"  width={500} height={360} />
+                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
                                 <div className="p-4 pl-0">
                                     <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
                                     <p className="text-gray-700 mt-2 text-center text-sm">
