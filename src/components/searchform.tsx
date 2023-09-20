@@ -37,7 +37,6 @@ const SearchForm = () => {
   const [pro_type, setpro_type] = useState<string>();
   const router = useRouter();
   const router2 = Router();
-  console.log("🚀 ~ file: searchform.tsx:40 ~ SearchForm ~ router2:", router2)
   const [loader, setloader] = useState<boolean>(false);
 
 
