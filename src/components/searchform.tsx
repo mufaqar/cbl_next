@@ -1,10 +1,10 @@
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
+import { useRouter as Router } from 'next/router'
 import React, { useState } from 'react'
 //import { useQuery } from '@apollo/client';
 //import { ProviderByCITES } from '@/config/query';
 
-import Loader from '../../public/images/loader.gif';
 
 
 const query = `
@@ -36,6 +36,8 @@ const SearchForm = () => {
   const [zipcode, setzipcode] = useState<string>();
   const [pro_type, setpro_type] = useState<string>();
   const router = useRouter();
+  const router2 = Router();
+  console.log("🚀 ~ file: searchform.tsx:40 ~ SearchForm ~ router2:", router2)
   const [loader, setloader] = useState<boolean>(false);
 
 
@@ -43,6 +45,7 @@ const SearchForm = () => {
     const variables = {
       zipcode: zipcode
     };
+
 
     async function fetchData() {
       setloader(true);
@@ -59,7 +62,7 @@ const SearchForm = () => {
         router.push(`/${respons.data?.zones?.nodes[0]?.states?.nodes[0]?.slug}/${respons.data.zones?.nodes[0]?.cities.nodes[0].slug}?zipcode=${zipcode}&type=internet`);
         setTimeout(()=>{
           setloader(false);
-        }, 2000)
+        }, router2.pathname === "/" ? 2000 : 1000)
       }
       else {
         setloader(false);
