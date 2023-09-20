@@ -1,22 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 export const ProviderCard = ({ item, zone }: any) => {
-   //console.log(item);
+    //console.log(item);
     return (
         <>
-            <div className=" w-full lg:max-w-[1200px]  mx-auto py-4 h-auto rounded-t-md rounded-b-md shadow-md border border-zinc-400/10">
-                <div className="flex justify-between px-4 py-1 md:border-b-0 border-b ">
-                    <h2 className="font-[Roboto] text-lg font-normal">{item.title}</h2>
+            <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
+                <div className="md:w-full min-w-fit grid md:grid-cols-5 grid-cols-1 bg-[#215690]">
+                    <h2 className="text-base font-bold text-center text-white p-5">{item.title}</h2>
                 </div>
-                <div className="bg-white w-full h-auto grid md:grid-cols-5 pt-4 pb-12">
-                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">                       
-                        <Image src={item.featuredImage?.node.mediaItemUrl}  alt="Feature Image" width={140} height={50} />
+                <div className="md:w-full w-full grid md:grid-cols-5 grid-cols-1 dtable">
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                        <Image src={item.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} />
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                        <h4 className="font-bold text-center">Speeds from </h4>
-                        <h4 className="text-center">{item?.providersInfo?.proSpeed} Mbps </h4>
+                        <div>
+                            <h4 className="text-center md:text-base text-xs font-bold">Speeds from </h4>
+                            <p className="text-center md:text-xs text-xs">{item?.providersInfo?.proSpeed} Mbps </p>
+                        </div>
                     </div>
-
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <ul className="grid items-center justify-center ">
                             <li className="flex gap-2 items-center">
@@ -47,15 +48,15 @@ export const ProviderCard = ({ item, zone }: any) => {
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <div>
-                            <h5 className="font-bold text-center">Pricing starts from</h5>
-                            <p className="text-center">
+                            <h5 className="text-center md:text-base text-xs font-bold">Pricing starts from</h5>
+                            <p className="text-center md:text-xs text-xs">
                                 <span className="font-extrabold text-[#215690] font-[Roboto] text-xl"> {item?.providersInfo?.proPrice} </span> /mo.
                             </p>
                         </div>
                     </div>
-                    <div className="grid items-center justify-center p-5">
-                    <Link href="tel:000-000-000" className="text-base font-medium text-white bg-[#ef9831] hover:bg-[#215690] px-3 py-1.5 rounded-3xl">
-                           {item?.providersInfo?.proPhone} 
+                    <div className="grid gap-1 items-center justify-center p-5">
+                        <Link href="tel:000-000-000" className="text-base font-medium text-white bg-[#ef9831] hover:bg-[#215690] px-3 py-1.5 rounded-3xl">
+                            {item?.providersInfo?.proPhone}
                         </Link>
                         <Link href={`/providers/${item.slug}`} className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>

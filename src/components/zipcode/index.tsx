@@ -8,6 +8,8 @@ import Nearby_City from '../provider/nearby-city'
 import Faqs_Sec from '../faqs'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import {CiStreamOn} from 'react-icons/ci'
+import {MdCable, MdSatelliteAlt} from 'react-icons/md'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
@@ -41,7 +43,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             Home {type} in {zipcode}
                         </h2>
                     </div>
-                    <div>
+                    <div className='grid gap-7'>
                         {
                             allProviders?.map((item: any, idx: number) => {
                                 return (
@@ -98,14 +100,17 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     </div>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
                         <Technology_Box
+                        icon={<MdCable />}
                             title="Cable Internet"
                             content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
                         />
                         <Technology_Box
+                        icon={<MdSatelliteAlt />}
                             title="Satellite TV"
                             content=" Satellite TV uses satellite dishes to receive TV signals from satellites in the orbit. Providers like DIRECTV and DISH Network offer satellite TV services, providing access to numerous channels and nationwide coverage."
                         />
                         <Technology_Box
+                        icon={<CiStreamOn />}
                             title="Streaming TV"
                             content="Streaming TV is delivered over the internet and allows you to watch Live TV, movies, TV shows and other on-demand content or through live streaming. Providers like AT&T TV and various streaming platforms offer streaming TV services."
                         />
