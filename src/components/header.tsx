@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { IoMdClose } from 'react-icons/io'
 import Link from 'next/link'
-import { BsTelephoneFill } from 'react-icons/bs'
+import { LuPhoneCall } from 'react-icons/lu'
 
 const Header = () => {
     const [open, setOpen] = useState(false)
@@ -32,7 +32,7 @@ const Header = () => {
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
                         <li onMouseEnter={() => { setSubMenu(true), setSubMenu1(false) }} onClick={() => { setSubMenu(!subMenu) }}>
                             <Link href="/tv-providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
-                            <ul className={`bg-white md:absolute static top-16 md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow  ${subMenu ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu(false)}>
+                            <ul className={`bg-white md:absolute static top-[4.6rem] md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow-xl  ${subMenu ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu(false)}>
                                 <li>
                                     <Link href="/providers/spectrum" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
                                         Spectrum
@@ -45,7 +45,7 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link href="/providers/directv" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        DIRECTV
+                                        Directv
                                     </Link>
                                 </li>
                                 <li>
@@ -67,50 +67,50 @@ const Header = () => {
                         </li>
                         <li onMouseEnter={() => { setSubMenu1(true), setSubMenu(false) }} onClick={() => { setSubMenu1(!subMenu1) }}>
                             <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Internet</Link>
-                            <ul className={`bg-white md:absolute static top-16 .md:w-40 w-fit md:py-4 pt-5 pb-0 md:px-4 px-0 grid md:grid-cols-2 md:gap-7 gap-5 z-50 md:shadow  ${subMenu1 ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu1(false)}>
+                            <ul className={`bg-white md:absolute static top-[4.6rem] md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow-xl  ${subMenu1 ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu1(false)}>
                                 <li>
                                     <Link href="/providers/att" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        AT&T
+                                        At&t
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/spectrum" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        SPECTRUM
+                                        Spectrum
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/frontier" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        FRONTIER
+                                        Frontier
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/windstream" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        WINDSTREAM
+                                        Windstream
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/centurylink" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        CENTURYLINK
+                                        Centurylink
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/earthlink" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        EARTHLINK
+                                        Earthlink
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/hughesnet" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        HUGHESNET
+                                        Hughesnet
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/viasat" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        VIASAT
+                                        Viasat
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/t-mobile" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        T-MOBILE
+                                        T-mobile
                                     </Link>
                                 </li>
                             </ul>
@@ -122,7 +122,7 @@ const Header = () => {
                             <Link href="/blog" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Blog</Link>
                         </li>
                         <Link href="tel:855-512-0491" className="items-center gap-2 text-[#ef9831] font-[Roboto] flex justify-end">
-                            <BsTelephoneFill size={18} />
+                            <LuPhoneCall size={18} />
                             <span className="text-base font-normal">855-512-0491</span>
                         </Link>
                     </ul>

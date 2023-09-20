@@ -220,8 +220,8 @@ export default function SProviders({ Provider, city, state }: any) {
       <section className="mt-8">
         <div className="container mx-auto px-4">
 
-          <div className='grid md:grid-cols-2 grid-cols-1 props'>
-            <div className='bg-gray-200  p-8'>
+          <div className='grid md:grid-cols-2 grid-cols-1'>
+            <div className='bg-gray-200 p-8 pros'>
               <h2 className="text-2xl font-bold mb-4">
                 Pros
               </h2>
@@ -229,7 +229,7 @@ export default function SProviders({ Provider, city, state }: any) {
                 ${Provider?.providersInfo?.pros}
               `)}
             </div>
-            <div className='bg-gray-100 p-8'>
+            <div className='bg-gray-100 p-8 cons'>
               <h2 className="text-2xl font-bold mb-4">
                 Cons
               </h2>
