@@ -59,7 +59,7 @@ const SearchForm = () => {
         router.push(`/${respons.data?.zones?.nodes[0]?.states?.nodes[0]?.slug}/${respons.data.zones?.nodes[0]?.cities.nodes[0].slug}?zipcode=${zipcode}&type=internet`);
         setTimeout(()=>{
           setloader(false);
-        }, 2000)
+        }, 1000)
       }
       else {
         setloader(false);
