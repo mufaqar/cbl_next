@@ -12,7 +12,6 @@ import { CiStreamOn } from 'react-icons/ci'
 import { MdCable, MdSatelliteAlt } from 'react-icons/md'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
-    console.log("🚀 ~ file: index.tsx:15 ~ Zip_Code_Com ~ allProviders:", allProviders)
 
     const { query } = useRouter();
     var type = query?.type;
@@ -21,8 +20,6 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
     const flattenedNames = [].concat(...newServicesTypes);
     const uniqueServiceType = [...new Set(flattenedNames)];
-
-    console.log("🚀 ~ file: index.tsx:21 ~ Zip_Code_Com ~ servicesType:", uniqueServiceType)
 
     return (
         <>

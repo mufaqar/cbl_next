@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 export const ProviderCard = ({ item, zone }: any) => {
-    var features = item.summery.features.split(', ');
+    var features = item?.summery?.features?.split(', ');
     return (
         <>
             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
