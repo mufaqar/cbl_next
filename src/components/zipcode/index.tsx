@@ -12,9 +12,17 @@ import { CiStreamOn } from 'react-icons/ci'
 import { MdCable, MdSatelliteAlt } from 'react-icons/md'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
+    console.log("🚀 ~ file: index.tsx:15 ~ Zip_Code_Com ~ allProviders:", allProviders)
 
     const { query } = useRouter();
     var type = query?.type;
+
+    const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
+    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
+    const flattenedNames = [].concat(...newServicesTypes);
+    const uniqueServiceType = [...new Set(flattenedNames)];
+
+    console.log("🚀 ~ file: index.tsx:21 ~ Zip_Code_Com ~ servicesType:", uniqueServiceType)
 
     return (
         <>
@@ -46,9 +54,21 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     <div className='grid gap-7'>
                         {
                             allProviders?.map((item: any, idx: number) => {
+                                var summaryData = {
+                                    logo: item?.featuredImage?.node?.mediaItemUrl,
+                                    provider: item?.title,
+                                    type: item.serviceTypes.nodes,
+                                    summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+                                    price: item.providersInfo.proPrice,
+                                    mobileNo: item.providersInfo?.proPhone,
+                                    slug: item.slug
+                                }
+
                                 return (
                                     <>
-                                        <ProviderCard key={idx} item={item} zone={zones} />
+                                        <ProviderCard key={idx} item={summaryData} zone={zones} />
                                     </>
                                 )
                             })
@@ -83,7 +103,25 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </h2>
                     </div>
                     <div>
-                        <Inter_Service />
+                        {
+                            allProviders?.map((item: any, idx: number) => {
+                                var summaryData = {
+                                    provider: item?.title,
+                                    type: item.serviceTypes.nodes,
+                                    summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+                                    price: item.providersInfo.proPrice
+                                }
+                                return (
+                                    <>
+                                        <Inter_Service data={summaryData} />
+                                    </>
+                                )
+                            })
+                        }
+
+
                     </div>
                 </div>
             </section>
@@ -99,21 +137,17 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
-                        <Technology_Box
-                            icon={<MdCable />}
-                            title="Cable Internet"
-                            content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
-                        />
-                        <Technology_Box
-                            icon={<MdSatelliteAlt />}
-                            title="Satellite TV"
-                            content=" Satellite TV uses satellite dishes to receive TV signals from satellites in the orbit. Providers like DIRECTV and DISH Network offer satellite TV services, providing access to numerous channels and nationwide coverage."
-                        />
-                        <Technology_Box
-                            icon={<CiStreamOn />}
-                            title="Streaming TV"
-                            content="Streaming TV is delivered over the internet and allows you to watch Live TV, movies, TV shows and other on-demand content or through live streaming. Providers like AT&T TV and various streaming platforms offer streaming TV services."
-                        />
+                        {
+                            uniqueServiceType.map((t: any, i: number) => (
+                                <Technology_Box
+                                    icon={<MdCable />}
+                                    title={t}
+                                    content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
+                                />
+                            ))
+                        }
+
+
                     </div>
                 </div>
             </section>

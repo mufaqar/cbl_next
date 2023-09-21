@@ -55,6 +55,11 @@ query GET_PROVIDERS($zipcode: String = "") {
     nodes {
       title
       slug
+      serviceTypes {
+        nodes {
+          name
+        }
+      }
       featuredImage {
         node {
           mediaItemUrl
@@ -65,6 +70,28 @@ query GET_PROVIDERS($zipcode: String = "") {
         proPrice
         proSpeed
         features
+        servicesInfo {
+          internetServices {
+            features
+            speed
+            summaryFeatures
+            summarySpeed
+          }
+          internetTvBundles {
+            channels
+            features
+            speed
+            summaryChannel
+            summaryFeatures
+            summarySpeed
+          }
+          tvServices {
+            features
+            speed
+            summaryFeatures
+            summarySpeed
+          }
+        }
       }
       terms {
         edges {
