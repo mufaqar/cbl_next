@@ -19,7 +19,7 @@ export const ProviderCard = ({ item, zone }: any) => {
                             <p className="text-center md:text-xs text-xs">{ item?.summery?.summaryChannel && <>{item?.summery?.summaryChannel} Channels</> }</p>
                         </div>
                     </div>
-                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5 px-3">
                         <ul className="grid items-center justify-center ">
                             {
                                 features?.map((feature: any, idx: number) => (
@@ -27,7 +27,7 @@ export const ProviderCard = ({ item, zone }: any) => {
                                         <svg className="min-w-[1rem] h-4  text-[#ef9831] font-extrabold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" ></path>
                                         </svg>
-                                        <span>
+                                        <span className="text-sm">
                                             {feature}
                                         </span>
                                     </li>
