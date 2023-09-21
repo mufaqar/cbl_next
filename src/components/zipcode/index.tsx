@@ -139,6 +139,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                 <Technology_Box
                                     icon={<MdCable />}
                                     title={t}
+                                    key={i}
                                     content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
                                 />
                             ))
