@@ -45,7 +45,7 @@ export const ProviderCard = ({ item, zone }: any) => {
                             </p>
                         </div>
                     </div>
-                    <div className="grid gap-1 items-center justify-center p-5">
+                    <div className="grid gap-3 items-center justify-center p-5">
                         <Link href="tel:000-000-000" className="text-base text-center font-medium text-white bg-[#ef9831] hover:bg-[#215690] px-3 py-1.5 rounded-3xl">
                             {item?.mobileNo}
                         </Link>
