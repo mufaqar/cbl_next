@@ -112,7 +112,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                 }
                                 return (
                                     <>
-                                        <Inter_Service data={summaryData} />
+                                        <Inter_Service data={summaryData} key={idx}/>
                                     </>
                                 )
                             })

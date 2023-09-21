@@ -53,7 +53,7 @@ const Inter_Service = ({ data }: any) => {
                         <div>
                             {
                                 data.type.map((t: any, i: number) => (
-                                    <p className="text-center md:text-base text-xs">
+                                    <p className="text-center md:text-base text-xs" key={i}>
                                         {t.name}
                                     </p>
                                 ))
