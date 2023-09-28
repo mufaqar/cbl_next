@@ -19,7 +19,7 @@ function Providers({ allProviders }: any) {
                         <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
                             Find <span className="text-[#ef9831]">Internet and TV Service Providers</span> in your area by Cable Movers
                         </h1>
-                        <div className="w-full py-5 mt-6 bg-white border md:h-52 h-40 rounded-3xl flex">
+                        <div className="mt-5">
                             <SearchForm />
                         </div>
                     </div>

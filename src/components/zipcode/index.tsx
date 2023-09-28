@@ -23,15 +23,13 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
     return (
         <>
-            <section className="pt-16 pb-16 relative overflow-hidden">
-                <Image src='/images/hero-left.png' alt="hero-left" width={500} height={222} className='absolute top-0 left-[-175px]' />
-                <Image src='/images/hero-right.png' alt="hero-left" width={500} height={222} className='absolute top-0 right-[-175px]' />
+            <section className="min-h-[80vh] h-full flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div >
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto">
                             {type} Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
                         </h1>
-                        <p className="text-xl text-center font-[Roboto] mt-3">
+                        <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
                         </p>
                         <div className='grid justify-center'>
@@ -50,7 +48,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     </div>
                     <div className='grid gap-7'>
 
-                        
+
 
 
 

@@ -19,10 +19,10 @@ export default function Home() {
                   <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
                      Find <span className="text-[#ef9831]">Internet and TV Service Providers</span> in your area by Cable Movers
                   </h1>
-                  <p className='text-[22px] font-normal text-white my-4'>
+                  <p className='text-[22px] font-normal text-white my-5'>
                      Moving or looking to change your service provider, Cable Movers can help. Compare Internet and TV service providers, plans and prices by ZIP code.
                   </p>
-                  <div className="w-full py-5 mt-6 bg-white border md:h-52 h-40 rounded-3xl flex">
+                  <div className="">
                      <SearchForm />
                   </div>
                </div>
@@ -189,7 +189,7 @@ export default function Home() {
                      Enter your zip code to find providers and plans in your area.
                   </h3>
                </div>
-               <div className='flex md:justify-end justify-center'>
+               <div className='flex md:justify-end justify-center [&>div:nth-child(1)]:mr-0 [&>div:nth-child(1)]:w-fit'>
                   <SearchForm />
                </div>
             </div>
