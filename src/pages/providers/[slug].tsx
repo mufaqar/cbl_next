@@ -152,6 +152,28 @@ export default function SProviders({ Provider, city, state }: any) {
         </section>
       }
 
+      {Provider?.providersInfo?.internetAndMobileBundles &&
+              <section className="my-16">
+                <div className="container mx-auto px-4">
+                  <div className='mb-10'>
+                    <h2 className="text-2xl font-bold">
+                      {provider_name}  Internet and Mobile Bundles
+                    </h2>
+                  </div>
+                  <div>
+                    <InternetPhonePlanBox Plans={Provider?.providersInfo?.internetAndMobileBundles} pro_phone={pro_phone} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-[Roboto] mt-10">
+                    {Provider?.providersInfo?.internetTvPhoneBundlesShort} </p>
+                  </div>
+                </div>
+              </section>
+            }
+
+
+
+
       {Provider?.providersInfo?.internetAndTvBundles &&
         <section className="my-16">
           <div className="container mx-auto px-4">

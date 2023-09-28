@@ -176,6 +176,17 @@ query SINGLE_Provider($slug: ID!) {
         voice
         voiceInfo
       }
+      internetAndMobileBundles {
+        channels
+        channelsInfo
+        package
+        price
+        priceInfo
+        speedInfo
+        speeds
+        voice
+        voiceInfo
+      }
       internetAndTvBundles {
           speeds
           speedInfo
