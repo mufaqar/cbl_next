@@ -13,13 +13,13 @@ import { LuPhoneCall } from 'react-icons/lu'
 export default function Home() {
    return (
       <>
-         <section className={`min-h-screen h-full flex items-center`}>
+         <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
                <div className="py-10">
-                  <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-black">
+                  <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
                      Find <span className="text-[#ef9831]">Internet and TV Service Providers</span> in your area by Cable Movers
                   </h1>
-                  <p className='text-[22px] font-normal text-black my-4'>
+                  <p className='text-[22px] font-normal text-white my-4'>
                      Moving or looking to change your service provider, Cable Movers can help. Compare Internet and TV service providers, plans and prices by ZIP code.
                   </p>
                   <div className="w-full py-5 mt-6 bg-white border md:h-52 h-40 rounded-3xl flex">
@@ -27,7 +27,7 @@ export default function Home() {
                   </div>
                </div>
                <div className=''>
-                  <Image src="/images/slug-bg.png" alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' />
+                  {/* <Image src="/images/slug-bg.png" alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' /> */}
                </div>
             </div>
          </section>
