@@ -77,7 +77,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </Link>
           </div>
           <div className='md:w-1/2 w-full'>
-            <Image src="/images/slug-bg.png" alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' />
+            <Image src={Provider?.providersInfo?.bannerImage?.mediaItemUrl} alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' />
           </div>
         </div>
       </section>
@@ -111,8 +111,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
-              *Price shown is with $25 off for 6 or 12 months. Offer not valid on 15 GB plan. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment
-            </p>
+            {Provider?.providersInfo?.internetPlansShort} </p>
           </div>
         </div>
       </section>
@@ -129,8 +128,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
-              *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
-            </p>
+            {Provider?.providersInfo?.tvPlansShort}  </p>
           </div>
         </div>
       </section>
@@ -148,8 +146,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
             <div>
               <p className="text-sm font-[Roboto] mt-10">
-                *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
-              </p>
+              {Provider?.providersInfo?.internetTvPhoneBundlesShort} </p>
             </div>
           </div>
         </section>
@@ -168,8 +165,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
             <div>
               <p className="text-sm font-[Roboto] mt-10">
-                *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
-              </p>
+              {Provider?.providersInfo?.internetAndTvBundlesShort}  </p>
             </div>
           </div>
         </section>
@@ -188,8 +184,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
             <div>
               <p className="text-sm font-[Roboto] mt-10">
-                *Price shown is with $25 off for 6 or 12 months. Service plan availability varies based on geographical area. New residential subscribers only, Limited-time offer. Other terms may apply. Service plans require a 24-month commitment.
-              </p>
+              {Provider?.providersInfo?.internetAndPhoneBundlesShort}  </p>
             </div>
           </div>
         </section>

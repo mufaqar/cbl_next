@@ -142,6 +142,15 @@ query SINGLE_Provider($slug: ID!) {
       proPrice
       proSpeed
       features
+      bannerImage {
+        mediaItemUrl
+      }
+
+      internetAndPhoneBundlesShort
+      internetAndTvBundlesShort
+      internetPlansShort
+      internetTvPhoneBundlesShort
+      tvPlansShort
       block {
         
         content
