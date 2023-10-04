@@ -32,7 +32,7 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(1)}>
                                 <p className="text-lg font-semibold " >
-                                    How do I check the availability of Internet and TV service providers in {city}, {state}?
+                                1.	Who is the Best Internet Service Provider in {city}, {state}?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -44,8 +44,8 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                To check Internet and TV service providers bundles availability, enter your zip code {zipcode}to find the best bundle options available to you.
-                            </p>
+                            (Insert TOTAL provider number) internet service providers are available in {city}. Based on the availability (insert #1 listed provider’s name) is the best internet service provider in {city}.    
+                             </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
@@ -53,7 +53,7 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(2)}>
                                 <p className="text-lg font-semibold " >
 
-                                    How do I setup internet and TV service in my new home in {city}, {state}?
+                                2.	Who is the fastest Internet service provider in {city}, {state}?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -65,7 +65,7 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         </div>
                         <div className={`${open === 2 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                To setup internet and TV service in your new home, contact the above listed service providers, inquire about their plans and select the plan that works for you.
+                            (Insert provider’s name) is the faster internet service provider in {city} and offers max download speeds up to (insert provider speed) in select areas.
                             </p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(3)}>
                                 <p className="text-lg font-semibold " >
-                                    Can I get internet and TV bundle without any contract in {city}, {state}?
+                                3.	Who is the cheapest Internet service provider in {city}, {state}?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -85,7 +85,7 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. A few service providers in {city},{state} offer no contract or month to month services. Check with the providers to know more.
+                            (Insert provider name) is the cheapest internet service provider in {city} with price starting from (insert provider’s price).
                             </p>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(4)}>
                                 <p className="text-lg font-semibold " >
-                                    Who is the Best bundle Service Provider in {city}, {state}?
+                                4.	What is the typical internet speed options offered in {city}, {state}?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -105,7 +105,7 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                20 bundle service providers are available in {city}. Based on the availability HughesNet is the best bundle service provider in {city}, {zipcode}.
+                            In {city}, internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
                             </p>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(5)}>
                                 <p className="text-lg font-semibold " >
-                                    Can I bundle Internet and TV service in {city}, {state}?
+                                5.	How do I check the availability of Internet service providers in  {city}, {state}?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -125,7 +125,28 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. Many providers in {city} offer bundle options to combine internet and TV services for potential cost savings.  </p>
+                            To check Internet service providers availability, enter your zip code (zip code has a popup link to the zip search bar) to find the best internet options available to you.
+                             </p>
+                        </div>
+                    </div>
+                    <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
+                        <div className="">
+                            <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(6)}>
+                                <p className="text-lg font-semibold " >
+                                6.	How do I setup internet service in my new home in  {city}, {state}?
+                                </p>
+                                <span className="text-lightBlue">
+
+                                    <AiOutlinePlus size={24}
+                                        className={`${open === 5 ? "rotate-45 transform transition duration-200" : "rotate-0 transform transition duration-200"}`} />
+
+                                </span>
+                            </div>
+                        </div>
+                        <div className={`${open === 6 ? 'flex' : 'hidden'} `}>
+                            <p className="text-base font-medium mt-5" >
+                            To setup internet service in your new home, contact the above listed service providers, Inquire about their plans and select the plan that works for you.
+                             </p>
                         </div>
                     </div>
                 </>

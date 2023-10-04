@@ -23,10 +23,10 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
 
     return (
         <>
-            <section className="min-h-[80vh] h-full flex items-center bg-gray-50">
+            <section className="min-h-[40vh]  flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div >
-                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize">
+                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
                             {type} Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
@@ -42,8 +42,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
             <section className="my-16">
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
-                        <h2 className="text-2xl font-bold">
-                            Home {type} in {zipcode}
+                        <h2 className="text-2xl font-bold  capitalize leading-10">
+                        {type} Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
                     </div>
                     <div className='grid gap-7'>
@@ -71,7 +71,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
                     </div>
                     <div>
                         <p className="text-sm font-[Roboto] mt-10">
-                            Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time
+                        *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
                         </p>
                     </div>
                 </div>
@@ -87,21 +87,10 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
                        
 
                             As of the time this page was written, {city} with the residents has     
-                                     {
-                                    allProviders?.map((item: any, idx: number) => (
-                                    // console.log("🚀 ~ file: index.tsx:90 ~ allProviders?.map ~ item:", item)
                                      
-                                        
-                                             item.serviceTypes.nodes.map((type:any,i:number) => {
-                                                return (
-                                                    <>
-                                                    <span key={i}> {type.name}, </span>
-                                                    </>
-                                                )
-                                              })                                         
-                                      
-                                    ))
-                                } or more internet service providers offering various types of internet service plans including  {
+
+                                As of the time this page was written, {city} has three or more internet service providers offering various types of internet plans to its residents. You’ll likely have options from 
+                                {
                                     allProviders?.slice(0,2).map((item: any, idx: number) => (
                                              item.serviceTypes.nodes.map((type:any,i:number) => {
                                                 return (
@@ -112,7 +101,103 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
                                               })                                         
                                       
                                     ))
-                                } are the largest providers in the area.
+                                } internet service providers. 
+                                {
+                                    allProviders?.slice(0,2).map((item: any, idx: number) => (
+                                             item.serviceTypes.nodes.map((type:any,i:number) => {
+                                                return (
+                                                    <>
+                                                    <span key={i}> {type.name}, </span>
+                                                    </>
+                                                )
+                                              })                                         
+                                      
+                                    ))
+                                } 
+                                
+                                
+                                 are the best internet service providers in {city},{state}.
+
+
+
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="my-16">
+                <div className="container mx-auto px-4">
+                    <div className='mb-10'>
+                        <h2 className="text-2xl font-bold  capitalize leading-10">
+                        Cheap {type} Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                        </h2>
+                        <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an internet service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap internet service providers in {city}, {state}.</p>
+                    </div>
+                    <div className='grid gap-7'>
+                        {
+                            allProviders?.map((item: any, idx: number) => {
+                                var summaryData = {
+                                    logo: item?.featuredImage?.node?.mediaItemUrl,
+                                    provider: item?.title,
+                                    type: item.serviceTypes.nodes,
+                                    summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+                                    price: item.providersInfo.proPrice,
+                                    mobileNo: item.providersInfo?.proPhone,
+                                    slug: item.slug
+                                }
+
+                                return (
+                                    <>
+                                        <ProviderCard key={idx} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                    </>
+                                )
+                            })
+                        }
+                    </div>
+                    <div>
+                        <p className="text-sm font-[Roboto] mt-10">
+                        *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="my-16">
+                <div className="container mx-auto px-4">
+                    <div className='mb-10'>
+                        <h2 className="text-2xl font-bold  capitalize leading-10">
+                        Fastest  {type} Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                        </h2>
+                        <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following internet service providers in  {city}, {state}.</p>
+                    </div>
+                    <div className='grid gap-7'>
+                        {
+                            allProviders?.map((item: any, idx: number) => {
+                                var summaryData = {
+                                    logo: item?.featuredImage?.node?.mediaItemUrl,
+                                    provider: item?.title,
+                                    type: item.serviceTypes.nodes,
+                                    summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+                                    price: item.providersInfo.proPrice,
+                                    mobileNo: item.providersInfo?.proPhone,
+                                    slug: item.slug
+                                }
+
+                                return (
+                                    <>
+                                        <ProviderCard key={idx} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                    </>
+                                )
+                            })
+                        }
+                    </div>
+                    <div>
+                        <p className="text-sm font-[Roboto] mt-10">
+                        *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
                         </p>
                     </div>
                 </div>
