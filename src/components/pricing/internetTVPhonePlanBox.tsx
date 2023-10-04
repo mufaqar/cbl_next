@@ -81,10 +81,10 @@ function InternetTVPhonePlanBox({ Plans, pro_phone }: any) {
                         <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                             <div>
                                 <p className="text-center md:text-base text-xs font-bold">                               
-                                {plan.channels}  
+                                {plan.channels}
                                 </p>
                                 <p className="text-center md:text-xs text-xs">
-                                {plan.channelsInfo}  
+                                {plan.channelsInfo}
                                 </p>
                             </div>
                         </div>

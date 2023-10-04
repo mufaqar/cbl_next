@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-export const ProviderCard = ({ item, zone }: any) => {
+export const ProviderCard = ({ item, zone , offer}: any) => {
     var features = item?.summery?.features?.split(', ');
     return (
         <>
             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
-                <div className="md:w-full min-w-fit grid md:grid-cols-5 grid-cols-1 bg-[#215690]">
+                <div className="md:w-full min-w-fit  bg-[#215690] flex justify-between items-center ">
                     <h2 className="text-base font-bold text-center text-white p-5">{item.provider}</h2>
+                    <h2 className="text-base font-bold text-center text-white p-5">{offer}</h2>
                 </div>
                 <div className="md:w-full w-full grid md:grid-cols-5 grid-cols-1 dtable">
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">

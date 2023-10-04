@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 import { CiStreamOn } from 'react-icons/ci'
 import { MdCable, MdSatelliteAlt } from 'react-icons/md'
 
-function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
+function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
 
     const { query } = useRouter();
     var type = query?.type;
@@ -26,7 +26,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             <section className="min-h-[80vh] h-full flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div >
-                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto">
+                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize">
                             {type} Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
@@ -47,12 +47,6 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </h2>
                     </div>
                     <div className='grid gap-7'>
-
-
-
-
-
-
                         {
                             allProviders?.map((item: any, idx: number) => {
                                 var summaryData = {
@@ -69,7 +63,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
                                 return (
                                     <>
-                                        <ProviderCard key={idx} item={summaryData} zone={zones} />
+                                        <ProviderCard key={idx} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                     </>
                                 )
                             })
@@ -90,7 +84,35 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             Overview of Internet Service Providers in {city}, {state}
                         </h2>
                         <p className='text-xl font-[Roboto] mt-5'>
-                            As of the time this page was written, {city} with the population of ( population) residents has (insert number of listed Internet providers) or more internet service providers offering various types of internet service plans including (list provider’s connection types). (Listed provider 1 and listed provider 2) are the largest providers in the area.
+                       
+
+                            As of the time this page was written, {city} with the residents has     
+                                     {
+                                    allProviders?.map((item: any, idx: number) => (
+                                    // console.log("🚀 ~ file: index.tsx:90 ~ allProviders?.map ~ item:", item)
+                                     
+                                        
+                                             item.serviceTypes.nodes.map((type:any,i:number) => {
+                                                return (
+                                                    <>
+                                                    <span key={i}> {type.name}, </span>
+                                                    </>
+                                                )
+                                              })                                         
+                                      
+                                    ))
+                                } or more internet service providers offering various types of internet service plans including  {
+                                    allProviders?.slice(0,2).map((item: any, idx: number) => (
+                                             item.serviceTypes.nodes.map((type:any,i:number) => {
+                                                return (
+                                                    <>
+                                                    <span key={i}> {type.name}, </span>
+                                                    </>
+                                                )
+                                              })                                         
+                                      
+                                    ))
+                                } are the largest providers in the area.
                         </p>
                     </div>
                 </div>
@@ -203,7 +225,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
 
-                    <Faqs_Sec city={city} state={state} zipcode={zipcode} />
+                    <Faqs_Sec city={city} state={state} zipcode={zipcode} type={type} />
 
                 </div>
             </section>

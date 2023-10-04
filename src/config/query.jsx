@@ -69,6 +69,7 @@ query GET_PROVIDERS($zipcode: String = "") {
         proPhone
         proPrice
         proSpeed
+        proOffer
         features
         servicesInfo {
           internetServices {
@@ -177,8 +178,7 @@ query SINGLE_Provider($slug: ID!) {
         voiceInfo
       }
       internetAndMobileBundles {
-        channels
-        channelsInfo
+       
         package
         price
         priceInfo

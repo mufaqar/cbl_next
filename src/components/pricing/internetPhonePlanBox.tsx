@@ -81,6 +81,7 @@ function InternetPhonePlanBox({ Plans, pro_phone }: any) {
                                 </p>
                                 <p className="text-center md:text-xs text-xs">
                                 {plan.voiceInfo}
+                                
                                 </p>
                             </div>
                         </div>
