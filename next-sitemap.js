@@ -8,6 +8,14 @@ const query = `
       }
     }
     
+      states(first: 100000) {
+        nodes {
+          slug
+       
+        }
+      }
+    
+    
     
   }
 `;
@@ -46,7 +54,7 @@ const currentDateInISO8601Format = getCurrentDateInISO8601Format();
 
 
 async function generateSitemap() {
-  const { allProviders } = await fetchData();
+  const { allProviders ,states} = await fetchData();
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -79,6 +87,17 @@ async function generateSitemap() {
       `
         )
         .join('')}
+        ${states?.nodes
+          .map(
+            (item) => `
+          <url>
+            <loc>${SITE_URI}/${item.slug}</loc>
+            <lastmod>${currentDateInISO8601Format}</lastmod>
+            <priority>1.00</priority>
+          </url>
+        `
+          )
+          .join('')}
       
     </urlset>
   `;
