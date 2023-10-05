@@ -46,7 +46,7 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
 
 
   return (
-    zipcode ? <Zip_Code_Com zipcode={zipcode} city={city} state={state} allProviders={allProviders} zones={zones} type='internet' /> : <Cities_com city={city} state={state} my_city={my_city} city_data={city_data} providers_data={providers_data} type="tv" />
+    zipcode ? <Zip_Code_Com zipcode={zipcode} city={city} state={state} allProviders={allProviders} zones={zones} type='internet' /> : <Cities_com city={city} state={state} my_city={my_city} city_data={city_data} providers_data={providers_data} type="internet" />
 
   );
 }

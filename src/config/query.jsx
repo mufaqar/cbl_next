@@ -312,15 +312,18 @@ query ALLZoneByCity($city: [String] = "") {
 
 
 export const CITES_by_STATE = gql`
-query CITES_by_STATE{
-  zones(
-    where: {taxQuery: {taxArray: {taxonomy: STATE, terms:"nc", operator: EXISTS}}}
-  ) {
+query CITES_by_STATE($state: [String] = "") {
+  states(where: {slug: $state},first: 10000) {
     nodes {
-      cities {
-        nodes {
-          name
-          slug
+      zones(first: 10000){
+        nodes  {
+          title
+          cities {
+            nodes {
+              name
+              slug
+            }
+          }
         }
       }
     }

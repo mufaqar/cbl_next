@@ -15,6 +15,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
 
     const { query } = useRouter();
     var type = query?.type;
+    var types = query?.type;
 
     const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
     const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
@@ -63,7 +64,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
 
                                 return (
                                     <>
-                                        <ProviderCard key={idx} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                        <ProviderCard key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                     </>
                                 )
                             })
@@ -150,7 +151,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
 
                                 return (
                                     <>
-                                        <ProviderCard key={idx} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                          <ProviderCard key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                     </>
                                 )
                             })
@@ -189,7 +190,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
 
                                 return (
                                     <>
-                                        <ProviderCard key={idx} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                        <ProviderCard key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                     </>
                                 )
                             })
@@ -285,7 +286,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones  }: any) {
                             Types of internet Technologies available in {city}, {state}
                         </h2>
                         <p className='text-base'>
-                            As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include Cable Internet , Satellite TV and Streaming TV
+                            As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include {
+                            uniqueServiceType.map((t: any, i: number) => (
+                                <span key={i}>{t} , </span>
+                               
+                            ))
+                        }
                         </p>
                     </div>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">

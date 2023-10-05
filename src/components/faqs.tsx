@@ -65,7 +65,9 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         </div>
                         <div className={`${open === 2 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                            (Insert provider’s name) is the faster internet service provider in {city} and offers max download speeds up to (insert provider speed) in select areas.
+                             {
+                                    allProviders[0].title
+                                }  is the faster internet service provider in {city} and offers max download speeds up to (insert provider speed) in select areas.
                             </p>
                         </div>
                     </div>
@@ -339,7 +341,11 @@ export default function Faqs_Sec({ zipcode, city, state, type, allProviders }: a
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                (Insert provider’s number) bundle service providers are available in {city}. Based on the availability (insert provider’s name) is the best bundle service provider in (insert city name, zip code).
+                            {
+                                    allProviders[0].title
+                                }  bundle service providers are available in {city}. Based on the availability  {
+                                    allProviders[0].title
+                                }  is the best bundle service provider in {city} , {state}.
                             </p>
                         </div>
                     </div>
