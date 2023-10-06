@@ -6,11 +6,8 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import React from 'react'
 import { BsArrowRight } from 'react-icons/bs';
-
-
-
-export default function OurState({ allcities, state }: any) {
-console.log("🚀 ~ cities", allcities[0].zones.nodes)
+export default function OurState({ allcities, state ,zoneTitles }: any) {
+console.log("🚀 ~ allzone", zoneTitles);
 
   return (
     <>
@@ -51,11 +48,19 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const [cities] = await Promise.all([
     apolloClient.query({ query: CITES_by_STATE ,variables: { state } }),
   ]);
-  const allcities = cities.data.states.nodes
+  const allcities = cities.data.states.nodes;
+  const allzone = cities.data.states.nodes[0].zones.nodes;
+
+  const zoneTitles = allzone.map((zone:any) => zone.title);
+
+
+  
   return {
     props: {
       allcities,
-      state
+      state,
+      allzone,
+      zoneTitles
     },
   };
 }
