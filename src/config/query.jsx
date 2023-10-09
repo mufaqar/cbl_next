@@ -308,6 +308,15 @@ query ALLZoneByCity($city: [String] = "") {
 
 
 
+export const ALLZoneByZode = gql`
+query CITES_by_STATE($providerIds: [ID!]!) {
+  zones(where: { in: $providerIds }) {
+    nodes {
+      title
+    }
+  }
+}`;
+
 
 
 
@@ -317,6 +326,7 @@ query CITES_by_STATE($state: [String] = "") {
     nodes {
       zones(first: 10000){
         nodes  {
+          id
           title
           cities {
             nodes {

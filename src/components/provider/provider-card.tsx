@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 export const ProviderCard = ({ item, type, offer }: any) => {
-    console.log("🚀 ~ file: provider-card.tsx:4 ~ ProviderCard ~ type:", type)
-    console.log("🚀 ~ file: provider-card.tsx:4 ~ ProviderCard ~ item:", item)
+   
+    console.log("🚀 ~ file: Items---:", item)
     var features = item?.summery?.features?.split(', ');
+
+    var features2 = item?.features;
 
     return (
         <>
@@ -52,6 +54,9 @@ export const ProviderCard = ({ item, type, offer }: any) => {
                                     </li>
                                 ))
                             }
+                            <div dangerouslySetInnerHTML={{__html:features2}} />
+
+                        
 
 
                         </ul>
