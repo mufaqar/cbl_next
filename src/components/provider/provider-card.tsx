@@ -30,9 +30,9 @@ export const ProviderCard = ({ item, type, offer }: any) => {
                                 )}
                             </h4>
                             {type === "tv" ? (
-                                <> {item?.summery.speed} </>
+                                <> {item?.summery?.speed} </>
                             ) : type === "internet-tv" ? (
-                                <> {item?.summery.speed} Mbps
+                                <> {item?.summery?.speed} Mbps
                                     <h4 className="text-center md:text-base text-xs font-bold"> Channels</h4>
                                     {item?.summery?.summaryChannel} </>
                             ) : (

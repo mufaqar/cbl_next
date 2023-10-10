@@ -4,6 +4,7 @@ import Faqs_Sec from '@/components/faqs';
 import Inter_Service from '@/components/provider/inter-service';
 import { ProviderCard } from '@/components/provider/provider-card';
 import Provider_Nav from '@/components/provider/provider-nav';
+import Provider_Nav_State from '@/components/provider/provider-nav-state';
 import Technology_Box from '@/components/provider/technology-box';
 import SearchForm from '@/components/searchform';
 import apolloClient from '@/config/client';
@@ -13,15 +14,20 @@ import Link from 'next/link';
 import React from 'react'
 import { BsArrowRight } from 'react-icons/bs';
 import { MdCable } from 'react-icons/md';
-export default function OurState({ allcities, state, allProviders, allzones, type = "internet" }: any) {
+import { useRouter } from 'next/router'
+export default function OurState({ allcities, state, allProviders, allzones}: any) {
   console.log("🚀 ~ providers_data", allProviders);
+  const {query} = useRouter();
+
+  const type = query.type || "internet";
+ 
 
 
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
   const flattenedNames = [].concat(...newServicesTypes);
   const uniqueServiceType = [...new Set(flattenedNames)];
-  console.log("🚀 ~ file: index.tsx:23 ~ OurState ~ uniqueServiceType:", uniqueServiceType)
+ 
 
 
   return (
@@ -42,7 +48,7 @@ export default function OurState({ allcities, state, allProviders, allzones, typ
           </div>
         </div>
       </section>
-      <Provider_Nav />
+      <Provider_Nav_State />
 
       <section className="my-16">
         <div className="container mx-auto px-4">
@@ -231,19 +237,20 @@ export default function OurState({ allcities, state, allProviders, allzones, typ
 
                 {
                   allProviders?.map((item: any, idx: number) => {
+                     var speed_channel = `${item.services_info_internet_tv_bundles_summary_speed} mbps , ${item.services_info_internet_tv_bundles_summary_channel} Channels`
                     var summaryData = {
                       provider: item?.title,
                       type: item.providers_service_types[0],
-                      summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
-                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
-                          type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-                      price: "item.providersInfo.proPrice"
-
-
-
-
-
+                      summery: type === "internet" ? item.services_info_internet_services_summary_features :
+                       type === "tv" ? item.services_info_tv_services_summary_features :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
+                      price: item.pro_price,
+                      speed: type === "internet" ? item.services_info_internet_services_summary_speed :
+                      type === "tv" ? item.services_info_tv_services_summary_speed :
+                       type === "internet-tv" && speed_channel,
                     }
+                 
+                    
                     return (
                       <>
                         <Inter_Service data={summaryData} key={idx} />
