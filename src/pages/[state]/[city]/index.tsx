@@ -20,8 +20,7 @@ query ProveryByZipcode($city: [String] ) {
 `;
 
 export default function Providers({ allProviders, zones, zipcode, my_city, providers_data }: any) {
- // console.log("allProviders:", allProviders);
-  var city = zipcode ? zones[0].cities?.nodes[0].name : [];
+   var city = zipcode ? zones[0].cities?.nodes[0].name : [];
   var state = zipcode ? zones[0].states.nodes[0].name : [];
   const [city_data, set_city_data] = useState();
   useEffect(() => {
@@ -46,14 +45,14 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
 
 
   return (
-    zipcode ? <Zip_Code_Com zipcode={zipcode} city={city} state={state} allProviders={allProviders} zones={zones} type='internet' /> : <Cities_com city={city} state={state} my_city={my_city} city_data={city_data} providers_data={providers_data} type="internet" />
+    zipcode ? <Zip_Code_Com zipcode={zipcode} city={city} state={state} allProviders={allProviders} zones={zones} type='internet' /> : <Cities_com city={city}  my_city={my_city} city_data={city_data} allProviders={allProviders} type="internet" />
 
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
-  const { zipcode, type, city } = query;
+  const { zipcode, type, city , state } = query;
   const [city_zone] = await Promise.all([
     apolloClient.query({ query: ALLZoneByCity, variables: { city } }),
 
@@ -65,16 +64,17 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const response_data = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/providers?internet_services=${All_zones_list}`);
   const providers_data = await response_data.json();
+  
 
   // Check if zipcode exists before executing the queries
   if (!zipcode) {
     return {
       props: {
-        allProviders: [],
+       
         zones: [],
         zipcode: null,
         my_city: query.city,
-        providers_data
+       allProviders: providers_data.providers
       },
     };
   }
