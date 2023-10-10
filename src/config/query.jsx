@@ -3,10 +3,18 @@ import { gql } from '@apollo/client';
 
 export const AllPosts= gql`
 query GET_POSTS {
-  posts {
+  posts(first: 10000) {
     edges {
       node {
         title
+        content
+        slug
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+        excerpt
       }
     }
   }
