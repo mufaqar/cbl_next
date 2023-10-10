@@ -16,6 +16,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import { MdCable } from 'react-icons/md';
 import { useRouter } from 'next/router'
 import { ProviderCardState } from '@/components/provider/provider-card-state';
+import Inter_Service_State from '@/components/provider/inter-service-state';
 export default function OurState({ allcities, state, allProviders, allzones}: any) {
   //console.log("🚀 ~ providers_data", allProviders);
   const {query} = useRouter();
@@ -269,7 +270,7 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
                     
                     return (
                       <>
-                        <Inter_Service data={summaryData} key={idx} />
+                        <Inter_Service_State data={summaryData} key={idx} />
                       </>
                     )
                   })
