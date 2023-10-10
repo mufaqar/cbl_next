@@ -248,8 +248,7 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
                       speed: type === "internet" ? item.services_info_internet_services_summary_speed :
                       type === "tv" ? item.services_info_tv_services_summary_speed :
                        type === "internet-tv" && speed_channel,
-                    }
-                 
+                    }                
                     
                     return (
                       <>
