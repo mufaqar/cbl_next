@@ -15,7 +15,7 @@ function Blog({ BlogPosts }: any) {
                 <div className="flex mb-4 px-4 lg:px-0 items-center justify-between">
                     <h2 className="font-bold text-3xl">Latest news</h2>
                 </div>
-                <div className="block space-x-0 lg:flex lg:space-x-6">
+                <div className="block space-x-0 lg:flex flex-wrap lg:space-x-6">
                     {
                         BlogPosts.map((item: any, idx: number) => {
                             return (

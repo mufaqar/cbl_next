@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 export const ProviderCard = ({ item, type, offer }: any) => {
    
-    console.log("🚀 ~ file: Items---:", item)
-    var features = item?.summery?.features?.split(', ') || item?.summery?.split(', ');
+
+    var features = item?.summery?.features?.split(', ') ;
 
    
 
