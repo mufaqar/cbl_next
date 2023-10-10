@@ -17,7 +17,7 @@ import { MdCable } from 'react-icons/md';
 import { useRouter } from 'next/router'
 import { ProviderCardState } from '@/components/provider/provider-card-state';
 export default function OurState({ allcities, state, allProviders, allzones}: any) {
-  console.log("🚀 ~ providers_data", allProviders);
+  //console.log("🚀 ~ providers_data", allProviders);
   const {query} = useRouter();
 
   const type = query.type || "internet";
@@ -28,6 +28,10 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
   const flattenedNames = [].concat(...newServicesTypes);
   const uniqueServiceType = [...new Set(flattenedNames)];
+
+
+  allProviders = allProviders.filter((item:any) => item?.providers_types?.some((i:any) => i.toLowerCase() === type));
+  console.log("🚀 ~ file: index.tsx:34 ~ OurState ~ allProviders:", allProviders)
  
 
 

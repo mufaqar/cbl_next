@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Inter_Service = ({ data }: any) => {
-   console.log("🚀 ~ file: inter-service.tsx:4 ~ data:", data)
+  // console.log("🚀 ~ file: inter-service.tsx:4 ~ data:", data)
    
     return (
         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto ">
