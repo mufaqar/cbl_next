@@ -28,6 +28,7 @@ export default function Cities_com({ my_city,  allProviders, type }: any) {
 
 
     allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
+    const cheepProviders = allProviders.sort((a:any, b:any) => a.pro_price - b.pro_price);
 
 
 
@@ -160,7 +161,7 @@ export default function Cities_com({ my_city,  allProviders, type }: any) {
                     </div>
                     <div className='grid gap-7'>
                         {
-                            allProviders?.map((item: any, idx: number) => {
+                            cheepProviders?.map((item: any, idx: number) => {
 
                                 var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
                                 var summaryData = {

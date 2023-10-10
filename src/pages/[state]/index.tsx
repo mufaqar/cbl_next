@@ -18,22 +18,18 @@ import { useRouter } from 'next/router'
 import { ProviderCardState } from '@/components/provider/provider-card-state';
 import Inter_Service_State from '@/components/provider/inter-service-state';
 export default function OurState({ allcities, state, allProviders, allzones}: any) {
-  //console.log("🚀 ~ providers_data", allProviders);
   const {query} = useRouter();
-
   const type = query.type || "internet";
- 
-
 
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
   const flattenedNames = [].concat(...newServicesTypes);
   const uniqueServiceType = [...new Set(flattenedNames)];
+  allProviders = allProviders.filter((item:any) => item?.providers_types?.some((i:any) => i.toLowerCase() === type)); 
+
+  const cheepProviders = allProviders.sort((a:any, b:any) => a.pro_price - b.pro_price);
 
 
-  allProviders = allProviders.filter((item:any) => item?.providers_types?.some((i:any) => i.toLowerCase() === type));
-  console.log("🚀 ~ file: index.tsx:34 ~ OurState ~ allProviders:", allProviders)
- 
 
 
   return (
@@ -164,7 +160,7 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
           </div>
           <div className='grid gap-7'>
             {
-              allProviders?.map((item: any, idx: number) => {
+              cheepProviders?.map((item: any, idx: number) => {
 
                 var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
                 var summaryData = {
@@ -346,6 +342,13 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
           </div>
         </div>
       </section>
+
+      <section className="my-16">
+                <div className="container mx-auto px-4 grid gap-10">
+                    <Faqs_Sec city="" type={type} state="" zipcode="" allProviders={allProviders}  />
+                </div>
+            </section>
+
 
 
     </>
