@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-export const ProviderCard = ({ item, type, offer }: any) => {
+export const ProviderCardState = ({ item, type, offer }: any) => {
    
-    console.log("🚀 ~ file: Items---:", item)
+ 
     var features = item?.summery?.features?.split(', ') || item?.summery?.split(', ');
 
    
@@ -19,25 +19,8 @@ export const ProviderCard = ({ item, type, offer }: any) => {
                         <Image src={item.logo} alt="Feature Image" width={140} height={50} />
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                        <div className="text-center">
-                            <h4 className="text-center md:text-base text-xs font-bold">
-                                {type === "tv" ? (
-                                    "Channels"
-                                ) : type === "internet-tv" ? (
-                                    "Speeds from "
-                                ) : (
-                                    "Speeds from "
-                                )}
-                            </h4>
-                            {type === "tv" ? (
-                                <> {item?.summery?.speed} </>
-                            ) : type === "internet-tv" ? (
-                                <> {item?.summery?.speed} Mbps
-                                    <h4 className="text-center md:text-base text-xs font-bold"> Channels</h4>
-                                    {item?.summery?.summaryChannel} </>
-                            ) : (
-                                <> {item?.summery?.speed} Mbps</>
-                            )}
+                        <div className="text-center">                          
+                        <div dangerouslySetInnerHTML={{__html: item.speed}}  />
                         </div>
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5 px-3">

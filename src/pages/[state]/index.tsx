@@ -15,6 +15,7 @@ import React from 'react'
 import { BsArrowRight } from 'react-icons/bs';
 import { MdCable } from 'react-icons/md';
 import { useRouter } from 'next/router'
+import { ProviderCardState } from '@/components/provider/provider-card-state';
 export default function OurState({ allcities, state, allProviders, allzones}: any) {
   console.log("🚀 ~ providers_data", allProviders);
   const {query} = useRouter();
@@ -60,22 +61,28 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
           <div className='grid gap-7'>
             {
               allProviders?.map((item: any, idx: number) => {
+
+                var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
                   type: item.providers_service_types[0],
-                  summery: item.providers_types === "internet" ? item.providersInfo?.servicesInfo.internetServices :
-                    type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
-                      type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+                  summery: type === "internet" ? item.services_info_internet_services_features:
+                    type === "tv" ? item.services_info_tv_services_features :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,
                   price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
-                  features: item.features
+                  speed: type === "internet" ? `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_services_speed}</p>` :
+                      type === "tv" ? `<h4 class="text-center md:text-base text-xs font-bold">Channels </h4><p>${item.services_info_tv_services_speed}</p>` :
+                       type === "internet-tv" && speed_channel,
+                  
                 }
-
+           
                 return (
                   <>
-                    <ProviderCard key={idx} type={type} item={summaryData} zone="{zones}" offer={item.providersInfo?.proOffer} />
+                    <ProviderCardState key={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                   
                   </>
                 )
               })
@@ -153,22 +160,28 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
           <div className='grid gap-7'>
             {
               allProviders?.map((item: any, idx: number) => {
+
+                var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
                   type: item.providers_service_types[0],
-                  summery: item.providers_types === "internet" ? item.providersInfo?.servicesInfo.internetServices :
-                    type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
-                      type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+                  summery: type === "internet" ? item.services_info_internet_services_features:
+                    type === "tv" ? item.services_info_tv_services_features :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,
                   price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
-                  features: item.features
+                  speed: type === "internet" ? `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_services_speed}</p>` :
+                      type === "tv" ? `<h4 class="text-center md:text-base text-xs font-bold">Channels </h4><p>${item.services_info_tv_services_speed}</p>` :
+                       type === "internet-tv" && speed_channel,
+                  
                 }
-
+           
                 return (
                   <>
-                    <ProviderCard key={idx} type="internet" item={summaryData} offer={item.providersInfo?.proOffer} />
+                    <ProviderCardState key={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                   
                   </>
                 )
               })
