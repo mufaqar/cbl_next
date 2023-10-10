@@ -33,7 +33,6 @@ function Blog({ BlogPosts }: any) {
                         })
                     }
 
-
                 </div>
             </main>
         </>
