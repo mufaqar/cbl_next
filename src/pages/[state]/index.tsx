@@ -17,6 +17,7 @@ import { MdCable } from 'react-icons/md';
 import { useRouter } from 'next/router'
 import { ProviderCardState } from '@/components/provider/provider-card-state';
 import Inter_Service_State from '@/components/provider/inter-service-state';
+import Table_CardProviderState from '@/components/provider/table-cardProviderState';
 export default function OurState({ allcities, state, allProviders, allzones}: any) {
   const {query} = useRouter();
   const type = query.type || "internet";
@@ -150,7 +151,54 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
             </h2>
             <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an internet service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap internet service providers in {state}.</p>
           </div>
-          <div className='grid gap-7'>
+
+          <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white">
+                                        Provider
+                                    </h4>
+                                </div>
+                            </div>
+                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white">
+                                        {type === "tv" ? (
+                                            "Channels"
+                                        ) : type === "internet-tv" ? (
+                                            "Speeds from "
+                                        ) : (
+                                            "Speeds from "
+                                        )}
+                                    </h4>
+                                </div>
+                            </div>
+                                {type === "internet-tv" &&
+                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                        <div>
+                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                                Channels
+                                            </h4>
+                                        </div>
+                                    </div>
+
+                                }
+                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                        Features
+                                    </h4>
+                                </div>
+                            </div>
+                            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                        Pricing starts from
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+          <div className='grid'>
             {
               cheepProviders?.map((item: any, idx: number) => {
 
@@ -172,7 +220,7 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
            
                 return (
                   <>
-                   <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
+                   <Table_CardProviderState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
                    
                   </>
                 )

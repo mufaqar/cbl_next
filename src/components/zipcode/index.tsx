@@ -114,7 +114,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                 Cheap {type} Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                             </h2>
                             <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an internet service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap internet service providers in {city}, {state}.</p>
-                        </div>                    <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+                        </div>                 
+                        
+                        <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
                             <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                 <div>
                                     <h4 className="md:text-base text-xs text-center text-white">
@@ -135,21 +137,16 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     </h4>
                                 </div>
                             </div>
-
-
-                            {type === "internet-tv" &&
-                                <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                    <div>
-                                        <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                            Channels
-                                        </h4>
+                                {type === "internet-tv" &&
+                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                        <div>
+                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                                Channels
+                                            </h4>
+                                        </div>
                                     </div>
-                                </div>
 
-                            }
-
-
-
+                                }
                             <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                 <div>
                                     <h4 className="md:text-base text-xs text-center text-white mb-2">
