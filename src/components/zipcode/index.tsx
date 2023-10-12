@@ -10,6 +10,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { CiStreamOn } from 'react-icons/ci'
 import { MdCable, MdSatelliteAlt } from 'react-icons/md'
+import Table_CardProvider from '../provider/table-cardProvider'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
@@ -21,6 +22,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
     const flattenedNames = [].concat(...newServicesTypes);
     const uniqueServiceType = [...new Set(flattenedNames)];
+
+    const totalProviderCount = allProviders?.length || 0;
 
     return (
         <>
@@ -82,16 +85,10 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className=''>
                         <h2 className="text-2xl font-bold">
-                            Overview of Internet Service Providers in {city}, {state}
+                            Overview of Internet Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
                         <p className='text-xl font-[Roboto] mt-5'>
-
-
-                            As of the time this page was written, {city} with the residents has
-
-
-                            As of the time this page was written, {city} has three or more internet service providers offering various types of internet plans to its residents. You’ll likely have options from
-                            {
+                            As of the time this page was written, {city}  residents has {totalProviderCount}  or more internet service providers offering various types of internet service plans including  {
                                 allProviders?.slice(0, 2).map((item: any, idx: number) => (
                                     item.serviceTypes.nodes.map((type: any, i: number) => {
                                         return (
@@ -102,25 +99,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     })
 
                                 ))
-                            } internet service providers.
-                            {
-                                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    item.serviceTypes.nodes.map((type: any, i: number) => {
-                                        return (
-                                            <>
-                                                <span key={i}> {type.name}, </span>
-                                            </>
-                                        )
-                                    })
-
-                                ))
-                            }
-
-
-                            are the best internet service providers in {city},{state}.
-
-
-
+                            } are the largest providers in the area.
                         </p>
                     </div>
                 </div>
@@ -134,7 +113,60 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </h2>
                         <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an internet service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap internet service providers in {city}, {state}.</p>
                     </div>
-                    <div className='grid gap-7'>
+
+
+                    <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white">
+                                    Provider
+                                </h4>
+                            </div>
+                        </div>
+                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white">
+                                    {type === "tv" ? (
+                                        "Channels"
+                                    ) : type === "internet-tv" ? (
+                                        "Speeds from "
+                                    ) : (
+                                        "Speeds from "
+                                    )}
+                                </h4>
+                            </div>
+                        </div>
+
+
+                        {type === "internet-tv" &&
+                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                        Channels
+                                    </h4>
+                                </div>
+                            </div>
+
+                        }
+
+
+
+                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                    Features
+                                </h4>
+                            </div>
+                        </div>
+                        <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                    Pricing starts from
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='grid'>
                         {
                             allProviders?.map((item: any, idx: number) => {
                                 var summaryData = {
@@ -151,7 +183,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
                                 return (
                                     <>
-                                        <ProviderCard key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                        <Table_CardProvider key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                     </>
                                 )
                             })
@@ -173,7 +205,59 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </h2>
                         <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following internet service providers in  {city}, {state}.</p>
                     </div>
-                    <div className='grid gap-7'>
+
+                    <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white">
+                                    Provider
+                                </h4>
+                            </div>
+                        </div>
+                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white">
+                                    {type === "tv" ? (
+                                        "Channels"
+                                    ) : type === "internet-tv" ? (
+                                        "Speeds from "
+                                    ) : (
+                                        "Speeds from "
+                                    )}
+                                </h4>
+                            </div>
+                        </div>
+
+
+                        {type === "internet-tv" &&
+                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                        Channels
+                                    </h4>
+                                </div>
+                            </div>
+
+                        }
+
+
+
+                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                    Features
+                                </h4>
+                            </div>
+                        </div>
+                        <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                    Pricing starts from
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='grid'>
                         {
                             allProviders?.map((item: any, idx: number) => {
                                 var summaryData = {
@@ -190,7 +274,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
                                 return (
                                     <>
-                                        <ProviderCard key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                        <Table_CardProvider key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                     </>
                                 )
                             })
@@ -215,7 +299,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
                         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
                             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                                <div className='md:w-full min-w-fit grid md:grid-cols-5 grid-cols-1 bg-[#215690] '>
+                                <div className='md:w-full min-w-fit grid md:grid-cols-7 grid-cols-1 bg-[#215690] '>
                                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white">
@@ -237,7 +321,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                             </h4>
                                         </div>
                                     </div>
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto col-span-3 h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white mb-2">
                                                 Features
@@ -270,7 +354,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     })
                                 }
 
-                            </div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

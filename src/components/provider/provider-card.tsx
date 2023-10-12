@@ -14,13 +14,14 @@ export const ProviderCard = ({ item, type, offer }: any) => {
                     <h2 className="text-base font-bold text-center text-white p-5">{item.provider}</h2>
                     <h2 className="text-base font-bold text-center text-white p-5">{offer}</h2>
                 </div>
-                <div className="md:w-full w-full grid md:grid-cols-5 grid-cols-1 dtable">
+              
+                <div className={`md:w-full w-full grid grid-cols-1 dtable ${type === 'internet-tv' ? ' md:grid-cols-6' : ' md:grid-cols-5'} flex flex-col`}>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <Image src={item.logo} alt="Feature Image" width={140} height={50} />
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <div className="text-center">
-                            <h4 className="text-center md:text-base text-xs font-bold">
+                            <p className="tch">
                                 {type === "tv" ? (
                                     "Channels"
                                 ) : type === "internet-tv" ? (
@@ -28,18 +29,29 @@ export const ProviderCard = ({ item, type, offer }: any) => {
                                 ) : (
                                     "Speeds from "
                                 )}
-                            </h4>
+                            </p>
                             {type === "tv" ? (
                                 <> {item?.summery?.speed} </>
                             ) : type === "internet-tv" ? (
-                                <> {item?.summery?.speed} Mbps
-                                    <h4 className="text-center md:text-base text-xs font-bold"> Channels</h4>
-                                    {item?.summery?.summaryChannel} </>
+                              <> <p className="tcd">{item?.summery?.speed} Mbps </p>
+                                    </>
                             ) : (
-                                <> {item?.summery?.speed} Mbps</>
+                                <>   <p className="tcd">{item?.summery?.speed} Mbps</p></>
                             )}
                         </div>
                     </div>
+
+                    {type === "internet-tv"  &&
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                        <div className="text-center">
+                        <p className="tch"> Channels</p>
+                        <p className="tcd"> {item?.summery?.summaryChannel}  </p>
+                        </div>
+                    </div>
+
+                            }
+
+
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5 px-3">
                         <ul className="grid items-center justify-center ">
                             {
@@ -61,8 +73,8 @@ export const ProviderCard = ({ item, type, offer }: any) => {
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <div>
-                            <h5 className="text-center md:text-base text-xs font-bold">Pricing starts from</h5>
-                            <p className="text-center md:text-xs text-xs">
+                        <p className="tch">Pricing starts from</p>
+                        <p className="tcd">
                                 <span className="font-extrabold text-[#215690] font-[Roboto] text-xl"> ${item?.price} </span> /mo.
                             </p>
                         </div>

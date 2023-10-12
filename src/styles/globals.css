@@ -243,3 +243,7 @@ html {
 .slug_cta .serch_form input{
   max-width: 9rem;
 }
+
+
+.tch { font-size: medium; text-align: center;}
+.tcd { font-size: larger; text-align: center; font-weight: bold;}
