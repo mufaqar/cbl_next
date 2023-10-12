@@ -1,23 +1,57 @@
 import Image from "next/image";
 import Link from "next/link";
-export const ProviderCardState = ({ item, type, offer }: any) => {
-   
+export const ProviderCardState = ({ item, type, offer , count }: any) => {   
  
-    var features = item?.summery?.features?.split(', ') || item?.summery?.split(', ');
-
-   
+    var features = item?.summery?.features?.split(', ') || item?.summery?.split(', ');  
 
     return (
         <>
             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
                 <div className="md:w-full min-w-fit  bg-[#215690] flex justify-between items-center ">
-                    <h2 className="text-base font-bold text-center text-white p-5">{item.provider}</h2>
+                   
+                    <h2 className="text-base font-bold text-center text-white p-5"> <span> {count+1} </span>-  {item.provider}</h2>
                     <h2 className="text-base font-bold text-center text-white p-5">{offer}</h2>
                 </div>
-                <div className="md:w-full w-full grid md:grid-cols-5 grid-cols-1 dtable">
+                <div className={`md:w-full w-full grid grid-cols-1 dtable ${type === 'internet-tv' ? ' md:grid-cols-6' : ' md:grid-cols-5'} flex flex-col`}>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <Image src={item.logo} alt="Feature Image" width={140} height={50} />
                     </div>
+
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                        <div className="text-center">
+                            <p className="tch">
+                                {type === "tv" ? (
+                                    "Channels"
+                                ) : type === "internet-tv" ? (
+                                    "Speeds from "
+                                ) : (
+                                    "Speeds from "
+                                )}
+                            </p>
+                            {type === "tv" ? (
+                                <> {item?.summery?.speed} </>
+                            ) : type === "internet-tv" ? (
+                              <> <p className="tcd">{item?.summery?.speed} Mbps </p>
+                                    </>
+                            ) : (
+                                <>   <p className="tcd">{item?.summery?.speed} Mbps</p></>
+                            )}
+                        </div>
+                    </div>
+
+                    {type === "internet-tv"  &&
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                        <div className="text-center">
+                        <p className="tch"> Channels</p>
+                        <p className="tcd"> {item?.summery?.summaryChannel}  </p>
+                        </div>
+                    </div>
+
+                            }
+
+
+
+
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <div className="text-center">                          
                         <div dangerouslySetInnerHTML={{__html: item.speed}}  />

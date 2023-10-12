@@ -39,7 +39,7 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
         <div className="container mx-auto px-4">
           <div >
             <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-              {type} Service Providers in <br /><span className="text-[#ef9831]">{state}</span>
+              {type}  Service Providers in <br /><span className="text-[#ef9831] uppercase">{state}</span>
             </h1>
             <p className="text-xl text-center font-[Roboto] my-5">
               Enter your zip so we can find the best providers in your area:
@@ -56,14 +56,14 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold  capitalize leading-10">
-              {type} Service Providers in <span className="text-[#ef9831]">{state}</span>
+              {type} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
           </div>
           <div className='grid gap-7'>
             {
               allProviders?.map((item: any, idx: number) => {
 
-                var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
+                var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed From </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
@@ -82,7 +82,7 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
            
                 return (
                   <>
-                    <ProviderCardState key={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
                    
                   </>
                 )
@@ -345,7 +345,7 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
 
       <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
-                    <Faqs_Sec city="" type={type} state="" zipcode="" allProviders={allProviders}  />
+                    {/* <Faqs_Sec city="" type={type} state="" zipcode="" allProviders={allProviders}  /> */}
                 </div>
             </section>
 
