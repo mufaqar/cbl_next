@@ -70,8 +70,8 @@ query GET_ALL_PROVIDERS{
 export const GET_PROVIDERS = gql`
 query GET_PROVIDERS($zipcode: String = "") {
   allProviders(
-    where: {metaQuery: {metaArray: {key: "internet_services", value: $zipcode, compare: LIKE}}}
-    first:50
+    where: {orderby: {field: MENU_ORDER, order: ASC},metaQuery: {metaArray: {key: "internet_services", value: $zipcode, compare: LIKE}}}
+    first:100
   ) {
     nodes {
       title
