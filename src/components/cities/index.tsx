@@ -10,11 +10,12 @@ import Provider_Nav_City from '../provider/provider-nav-city';
 import { ProviderCardState } from '../provider/provider-card-state';
 import { MdCable } from 'react-icons/md';
 import Inter_Service_State from '../provider/inter-service-state';
+import Table_CardProviderState from '../provider/table-cardProviderState';
 
 
-export default function Cities_com({ my_city,  allProviders, type }: any) {
+export default function Cities_com({ my_city,  allProviders, type  }: any) {
 
-
+    var state = "";
 
     const inputString = my_city;
     const parts = inputString.split('-');
@@ -55,228 +56,191 @@ export default function Cities_com({ my_city,  allProviders, type }: any) {
             <Provider_Nav_City />
 
             <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className='mb-10'>
-                        <h2 className="text-2xl font-bold  capitalize leading-10">
-                            {type} Service Providers in <span className="text-[#ef9831]">{city}</span>
-                        </h2>
-                    </div>
-                    <div className='grid gap-7'>
-                        {
-                            allProviders?.map((item: any, idx: number) => {
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold  capitalize leading-10">
+              {type} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
+            </h2>
+          </div>
+          <div className='grid gap-7'>
+            {
+              allProviders?.map((item: any, idx: number) => {
 
-                                var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
-                                var summaryData = {
-                                    logo: item?.featured_image,
-                                    provider: item?.title,
-                                    type: item.providers_service_types[0],
-                                    summery: type === "internet" ? item.services_info_internet_services_features :
-                                        type === "tv" ? item.services_info_tv_services_features :
-                                            type === "internet-tv" && item.services_info_internet_tv_bundles_features,
-                                    price: item.pro_price,
-                                    mobileNo: item.pro_phone,
-                                    slug: item.slug,
-                                    speed: type === "internet" ? `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_services_speed}</p>` :
-                                        type === "tv" ? `<h4 class="text-center md:text-base text-xs font-bold">Channels </h4><p>${item.services_info_tv_services_speed}</p>` :
-                                            type === "internet-tv" && speed_channel,
-
-                                }
-
-                                return (
-                                    <>
-                                        <ProviderCardState key={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
-
-                                    </>
-                                )
-                            })
-                        }
-                    </div>
-                    <div>
-                        <p className="text-sm font-[Roboto] mt-10">
-                            *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className=''>
-                        <h2 className="text-2xl font-bold">
-                            Overview of Internet Service Providers in {city}
-                        </h2>
-                        <p className='text-xl font-[Roboto] mt-5'>
+               var summaryData = {
+                  logo: item?.featured_image,
+                  provider: item?.title,
+                  type: item.providers_service_types[0],
+                  
+                  price: item.pro_price,
+                  mobileNo: item.pro_phone,
+                  slug: item.slug,
+                  channels:item.services_info_internet_tv_bundles_summary_channel,
+                  speed: type === "internet" ? item.services_info_internet_services_speed:
+                  type === "tv" ? item.services_info_tv_services_speed :
+                    type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                    summery: type === "internet" ? item.services_info_internet_services_features:
+                    type === "tv" ? item.services_info_tv_services_features :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,  
+                }
+           
+                return (
+                  <>
+                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
+                   
+                  </>
+                )
+              })
+            }
+          </div>
+          <div>
+            <p className="text-sm font-[Roboto] mt-10">
+              *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
+            </p>
+          </div>
+        </div>
+      </section>
 
 
-                            As of the time this page was written, {city} with the residents has
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className=''>
+            <h2 className="text-2xl font-bold">
+              Overview of Internet Service Providers in {state}
+            </h2>
+            <p className='text-xl font-[Roboto] mt-5'>
 
 
-                            As of the time this page was written, {city} has three or more internet service providers offering various types of internet plans to its residents. You’ll likely have options from
-                            {
-                                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    item.providers_service_types.map((type: any, i: number) => {
-                                        return (
-                                            <>
-                                                <div key={i} className='inline-block pr-1' dangerouslySetInnerHTML={{ __html: type }} />,
-                                            </>
-                                        )
-                                    })
-
-                                ))
-                            }
+              As of the time this page was written, {state} with the residents has
 
 
-                            internet service providers.
-                            {
-                                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    item.providers_service_types.map((type: any, i: number) => {
-                                        return (
-                                            <>
-                                                <div key={i} className='inline-block pr-1' dangerouslySetInnerHTML={{ __html: type }} />,
-                                            </>
-                                        )
-                                    })
+              As of the time this page was written, {state} has three or more internet service providers offering various types of internet plans to its residents. You’ll likely have options from
+              {
+                allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                  item.providers_service_types.map((type: any, i: number) => {
+                    return (
+                      <>
+                        <div key={i} className='inline-block pr-1' dangerouslySetInnerHTML={{ __html: type }} />,
+                      </>
+                    )
+                  })
 
-                                ))
-                            }
-
-
-                            are the best internet service providers in {city}.
+                ))
+              }
 
 
+              internet service providers.
+              {
+                allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                  item.providers_service_types.map((type: any, i: number) => {
+                    return (
+                      <>
+                        <div key={i} className='inline-block pr-1' dangerouslySetInnerHTML={{ __html: type }} />,
+                      </>
+                    )
+                  })
 
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className='mb-10'>
-                        <h2 className="text-2xl font-bold  capitalize leading-10">
-                            Cheap {type} Service Providers in <span className="text-[#ef9831]"> {city}</span>
-                        </h2>
-                        <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an internet service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap internet service providers in {city}.</p>
-                    </div>
-                    <div className='grid gap-7'>
-                        {
-                            cheepProviders?.map((item: any, idx: number) => {
-
-                                var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
-                                var summaryData = {
-                                    logo: item?.featured_image,
-                                    provider: item?.title,
-                                    type: item.providers_service_types[0],
-                                    summery: type === "internet" ? item.services_info_internet_services_features :
-                                        type === "tv" ? item.services_info_tv_services_features :
-                                            type === "internet-tv" && item.services_info_internet_tv_bundles_features,
-                                    price: item.pro_price,
-                                    mobileNo: item.pro_phone,
-                                    slug: item.slug,
-                                    speed: type === "internet" ? `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_services_speed}</p>` :
-                                        type === "tv" ? `<h4 class="text-center md:text-base text-xs font-bold">Channels </h4><p>${item.services_info_tv_services_speed}</p>` :
-                                            type === "internet-tv" && speed_channel,
-
-                                }
-
-                                return (
-                                    <>
-                                        <ProviderCardState key={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
-
-                                    </>
-                                )
-                            })
-                        }
-                    </div>
-                    <div>
-                        <p className="text-sm font-[Roboto] mt-10">
-                            *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
-                        </p>
-                    </div>
-                </div>
-            </section>
+                ))
+              }
+              are the best internet service providers in {state}.
+            </p>
+          </div>
+        </div>
+      </section>
 
 
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className='mb-10'>
-                        <h2 className="text-2xl font-bold">
-                            Summary of Internet service providers in  {city}
-                        </h2>
-                    </div>
-                    <div>
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold  capitalize leading-10">
+              Cheap {type} Service Providers in <span className="text-[#ef9831]"> {state}</span>
+            </h2>
+            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an internet service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap internet service providers in {state}.</p>
+          </div>
 
-                        <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
-                            <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                                <div className='md:w-full min-w-fit grid md:grid-cols-5 grid-cols-1 bg-[#215690] '>
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                        <div>
-                                            <h4 className="md:text-base text-xs text-center text-white">
-                                                Provider
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                        <div>
-                                            <h4 className="md:text-base text-xs text-center text-white">
-                                                Connection Type
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                        <div>
-                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                                Download Speeds up to
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                        <div>
-                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                                Features
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                        <div>
-                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                                Pricing starts from
-                                            </h4>
-                                        </div>
-                                    </div>
+          <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white">
+                                        Provider
+                                    </h4>
                                 </div>
+                            </div>
+                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white">
+                                        {type === "tv" ? (
+                                            "Channels"
+                                        ) : type === "internet-tv" ? (
+                                            "Speeds from "
+                                        ) : (
+                                            "Speeds from "
+                                        )}
+                                    </h4>
+                                </div>
+                            </div>
+                                {type === "internet-tv" &&
+                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                        <div>
+                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                                Channels
+                                            </h4>
+                                        </div>
+                                    </div>
 
-
-
-
-                                {
-                                    allProviders?.map((item: any, idx: number) => {
-                                        var speed_channel = `${item.services_info_internet_tv_bundles_summary_speed} mbps , ${item.services_info_internet_tv_bundles_summary_channel} Channels`
-                                        var summaryData = {
-                                            provider: item?.title,
-                                            type: item.providers_service_types[0],
-                                            summery: type === "internet" ? item.services_info_internet_services_summary_features :
-                                                type === "tv" ? item.services_info_tv_services_summary_features :
-                                                    type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
-                                            price: item.pro_price,
-                                            speed: type === "internet" ? item.services_info_internet_services_summary_speed :
-                                                type === "tv" ? item.services_info_tv_services_summary_speed :
-                                                    type === "internet-tv" && speed_channel,
-                                        }
-
-                                        return (
-                                            <>
-                                                <Inter_Service_State data={summaryData} key={idx} />
-                                            </>
-                                        )
-                                    })
                                 }
+                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                        Features
+                                    </h4>
+                                </div>
+                            </div>
+                            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                <div>
+                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                        Pricing starts from
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+          <div className='grid'>
+            {
+              cheepProviders?.map((item: any, idx: number) => {
 
-                            </div></div>
-                    </div>
-                </div>
-            </section>
+                var summaryData = {
+                  logo: item?.featured_image,
+                  provider: item?.title,
+                  type: item.providers_service_types[0],                  
+                  price: item.pro_price,
+                  mobileNo: item.pro_phone,
+                  slug: item.slug,
+                  channels:item.services_info_internet_tv_bundles_summary_channel,
+                  speed: type === "internet" ? item.services_info_internet_services_speed:
+                         type === "tv" ? item.services_info_tv_services_speed :
+                         type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                  summery: type === "internet" ? item.services_info_internet_services_features:
+                        type === "tv" ? item.services_info_tv_services_features :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_features  
+                }
+           
+                return (
+                  <>
+                   <Table_CardProviderState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
+                   
+                  </>
+                )
+              })
+            }
+          </div>
+          <div>
+            <p className="text-sm font-[Roboto] mt-10">
+              *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
 
 
 
