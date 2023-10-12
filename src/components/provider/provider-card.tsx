@@ -27,7 +27,7 @@ export const ProviderCard = ({ item, type, offer , count }: any) => {
                                 )}
                             </p>
                             {type === "tv" ? (
-                                <> {item?.summery?.speed} </>
+                                <> {item?.summery?.speed} speed </>
                             ) : type === "internet-tv" ? (
                               <> <p className="tcd">{item?.summery?.speed} Mbps </p>
                                     </>

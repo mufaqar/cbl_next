@@ -29,9 +29,6 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
 
   const cheepProviders = allProviders.sort((a:any, b:any) => a.pro_price - b.pro_price);
 
-
-
-
   return (
     <>
 
@@ -63,26 +60,33 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
             {
               allProviders?.map((item: any, idx: number) => {
 
-                var speed_channel = `<h4 class="text-center md:text-base text-xs font-bold">Speed From </h4><p>${item.services_info_internet_tv_bundles_speed} mbps , <h4 class="text-center md:text-base text-xs font-bold">Channels </h4>${item.services_info_internet_tv_bundles_channels} `
-                var summaryData = {
+               var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
                   type: item.providers_service_types[0],
-                  summery: type === "internet" ? item.services_info_internet_services_features:
-                    type === "tv" ? item.services_info_tv_services_features :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,
+                  
                   price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
-                  speed: type === "internet" ? `<h4 class="text-center md:text-base text-xs font-bold">Speed </h4><p>${item.services_info_internet_services_speed}</p>` :
-                      type === "tv" ? `<h4 class="text-center md:text-base text-xs font-bold">Channels </h4><p>${item.services_info_tv_services_speed}</p>` :
-                       type === "internet-tv" && speed_channel,
+                  channels:item.services_info_internet_tv_bundles_summary_channel,
+                  speed: type === "internet" ? item.services_info_internet_services_speed:
+                  type === "tv" ? item.services_info_tv_services_speed :
+                    type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                    summery: type === "internet" ? item.services_info_internet_services_features:
+                    type === "tv" ? item.services_info_tv_services_features :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,
+
+                    
+                  
+                  
+                 
+                  
                   
                 }
            
                 return (
                   <>
-                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
                    
                   </>
                 )
@@ -181,7 +185,7 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
            
                 return (
                   <>
-                    <ProviderCardState key={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                    {/* <ProviderCardState key={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} /> */}
                    
                   </>
                 )
