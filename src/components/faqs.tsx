@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useRouter } from 'next/router'
 
-export default function Faqs_Sec({ zipcode, city, type, allProviders }: any) {
+export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProviderCount }: any) {
+    console.log("🚀 ~ file: faqs.tsx:6 ~ Faqs_Sec ~ allProviders:", allProviders)
+
 
     city = !city ? "" : `${city},`
     const { query } = useRouter();
@@ -21,7 +23,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders }: any) {
             {type === "internet" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        FAQ’S. {city} {state}   Internet FAQ’s
+                        {city} {state}   Internet FAQ’s
                     </h2>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
@@ -39,7 +41,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders }: any) {
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                (Insert TOTAL provider number) internet service providers are available in {city}. Based on the availability (insert #1 listed provider’s name) is the best internet service provider in {city}.
+                                {totalProviderCount} internet service providers are available in {city}. Based on the availability  {allProviders[0].title} is the best internet service provider in {city}.
                             </p>
                         </div>
                     </div>
@@ -62,7 +64,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders }: any) {
                             <p className="text-base font-medium mt-5" >
                                 {
                                     allProviders[0].title
-                                }  is the faster internet service provider in {city} and offers max download speeds up to (insert provider speed) in select areas.
+                                }  is the faster internet service provider in {city} and offers max download speeds up to {allProviders[0].providersInfo.proSpeed} in select areas.
                             </p>
                         </div>
                     </div>
@@ -82,7 +84,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders }: any) {
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                (Insert provider name) is the cheapest internet service provider in {city} with price starting from (insert provider’s price).
+                                {allProviders[0].title} is the cheapest internet service provider in {city} with price starting from ${allProviders[0].providersInfo.proPrice}.
                             </p>
                         </div>
                     </div>
@@ -250,7 +252,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders }: any) {
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                DIRECTV is the cheapest internet service provider in {city} {state} with price starting from $64.99/m.  </p>
+                                DIRECTV is the cheapest internet service provider in {city} {state} with price starting from {allProviders[0].providersInfo.proPrice}   </p>
                         </div>
                     </div>
                 </>
@@ -260,7 +262,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders }: any) {
             {type === "internet-tv" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        FAQ’S. {city} {state}  Internet and TV Bundles FAQ’s;              </h2>
+                        {city} {state}  Internet and TV Bundles FAQ’s;              </h2>
 
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">

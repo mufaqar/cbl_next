@@ -392,7 +392,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             </section>
             <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
-                    <Faqs_Sec city={city} state={state} zipcode={zipcode} type={type} allProviders={allProviders} />
+                    <Faqs_Sec city={city} state={state} zipcode={zipcode} type={type} allProviders={allProviders} totalProviderCount={totalProviderCount} />
                 </div>
             </section>
         </>
