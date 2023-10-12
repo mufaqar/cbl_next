@@ -1,23 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-export const ProviderCard = ({ item, type, offer }: any) => {
-   
-
-    var features = item?.summery?.features?.split(', ') ;
-
-   
+export const ProviderCard = ({ item, type, offer , count }: any) => {
+    var features = item?.summery?.features?.split(', ') ; 
 
     return (
         <>
             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
                 <div className="md:w-full min-w-fit  bg-[#215690] flex justify-between items-center ">
-                    <h2 className="text-base font-bold text-center text-white p-5">{item.provider}</h2>
+                    <h2 className="text-base font-bold text-center text-white p-5"> <span> {count+1} </span>-  {item.provider}</h2>
                     <h2 className="text-base font-bold text-center text-white p-5">{offer}</h2>
                 </div>
               
                 <div className={`md:w-full w-full grid grid-cols-1 dtable ${type === 'internet-tv' ? ' md:grid-cols-6' : ' md:grid-cols-5'} flex flex-col`}>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                        <Image src={item.logo} alt="Feature Image" width={140} height={50} />
+                       <Image src={item.logo} alt="Feature Image" width={140} height={50} />
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <div className="text-center">

@@ -67,7 +67,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
                                 return (
                                     <>
-                                        <ProviderCard key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                        <ProviderCard count={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                     </>
                                 )
                             })
