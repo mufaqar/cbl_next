@@ -63,8 +63,8 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className={`${open === 2 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
                                 {
-                                    allProviders[0].title
-                                }  is the faster internet service provider in {city} and offers max download speeds up to {allProviders[0].providersInfo.proSpeed} in select areas.
+                                    allProviders[0]?.title
+                                }  is the faster internet service provider in {city} and offers max download speeds up to {allProviders[0]?.providersInfo?.proSpeed} in select areas.
                             </p>
                         </div>
                     </div>
@@ -84,7 +84,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0].title} is the cheapest internet service provider in {city} with price starting from ${allProviders[0].providersInfo.proPrice}.
+                                {allProviders[0].title} is the cheapest internet service provider in {city} with price starting from ${allProviders[0]?.providersInfo?.proPrice}.
                             </p>
                         </div>
                     </div>
@@ -232,7 +232,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
                                 {
-                                    allProviders[0].title
+                                    allProviders[0]?.title
                                 } TV service providers are available in {city}. Based on the availability and pricing DIRECTV is the best TV service provider in {city} , {state}. </p>
                         </div>
                     </div>
@@ -339,9 +339,9 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
                                 {
-                                    allProviders[0].title
+                                    allProviders[0]?.title
                                 }  bundle service providers are available in {city}. Based on the availability  {
-                                    allProviders[0].title
+                                    allProviders[0]?.title
                                 }  is the best bundle service provider in {city} , {state}.
                             </p>
                         </div>
