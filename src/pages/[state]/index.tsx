@@ -18,17 +18,18 @@ import { useRouter } from 'next/router'
 import { ProviderCardState } from '@/components/provider/provider-card-state';
 import Inter_Service_State from '@/components/provider/inter-service-state';
 import Table_CardProviderState from '@/components/provider/table-cardProviderState';
-export default function OurState({ allcities, state, allProviders, allzones}: any) {
-  const {query} = useRouter();
+export default function OurState({ allcities, state, allProviders, allzones }: any) {
+  const { query } = useRouter();
   const type = query.type || "internet";
 
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
   const flattenedNames = [].concat(...newServicesTypes);
   const uniqueServiceType = [...new Set(flattenedNames)];
-  allProviders = allProviders.filter((item:any) => item?.providers_types?.some((i:any) => i.toLowerCase() === type)); 
+  allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
 
-  const cheepProviders = allProviders.sort((a:any, b:any) => a.pro_price - b.pro_price);
+  const cheepProviders = allProviders.sort((a: any, b: any) => a.pro_price - b.pro_price);
+  const totalProviderCount = allProviders?.length || 0;
 
   return (
     <>
@@ -61,27 +62,27 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
             {
               allProviders?.map((item: any, idx: number) => {
 
-               var summaryData = {
+                var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
                   type: item.providers_service_types[0],
-                  
+
                   price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
-                  channels:item.services_info_internet_tv_bundles_summary_channel,
-                  speed: type === "internet" ? item.services_info_internet_services_speed:
-                  type === "tv" ? item.services_info_tv_services_speed :
-                    type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
-                    summery: type === "internet" ? item.services_info_internet_services_features:
+                  channels: item.services_info_internet_tv_bundles_summary_channel,
+                  speed: type === "internet" ? item.services_info_internet_services_speed :
+                    type === "tv" ? item.services_info_tv_services_speed :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                  summery: type === "internet" ? item.services_info_internet_services_features :
                     type === "tv" ? item.services_info_tv_services_features :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,  
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,
                 }
-           
+
                 return (
                   <>
-                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
-                   
+                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+
                   </>
                 )
               })
@@ -102,42 +103,15 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
             <h2 className="text-2xl font-bold">
               Overview of Internet Service Providers in {state}
             </h2>
+
+
+
+
             <p className='text-xl font-[Roboto] mt-5'>
+              As of the time this page was written, {state}  residents has {totalProviderCount}  or more internet service providers offering various types of internet service plans including
+              <div className='inline-block px-1' dangerouslySetInnerHTML={{ __html: uniqueServiceType }} />
+              are the largest providers in the area.</p>
 
-
-              As of the time this page was written, {state} with the residents has
-
-
-              As of the time this page was written, {state} has three or more internet service providers offering various types of internet plans to its residents. You’ll likely have options from
-              {
-                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                  item.providers_service_types.map((type: any, i: number) => {
-                    return (
-                      <>
-                        <div key={i} className='inline-block pr-1' dangerouslySetInnerHTML={{ __html: type }} />,
-                      </>
-                    )
-                  })
-
-                ))
-              }
-
-
-              internet service providers.
-              {
-                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                  item.providers_service_types.map((type: any, i: number) => {
-                    return (
-                      <>
-                        <div key={i} className='inline-block pr-1' dangerouslySetInnerHTML={{ __html: type }} />,
-                      </>
-                    )
-                  })
-
-                ))
-              }
-              are the best internet service providers in {state}.
-            </p>
           </div>
         </div>
       </section>
@@ -153,51 +127,51 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
           </div>
 
           <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white">
-                                        Provider
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white">
-                                        {type === "tv" ? (
-                                            "Channels"
-                                        ) : type === "internet-tv" ? (
-                                            "Speeds from "
-                                        ) : (
-                                            "Speeds from "
-                                        )}
-                                    </h4>
-                                </div>
-                            </div>
-                                {type === "internet-tv" &&
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                        <div>
-                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                                Channels
-                                            </h4>
-                                        </div>
-                                    </div>
+            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white">
+                  Provider
+                </h4>
+              </div>
+            </div>
+            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white">
+                  {type === "tv" ? (
+                    "Channels"
+                  ) : type === "internet-tv" ? (
+                    "Speeds from "
+                  ) : (
+                    "Speeds from "
+                  )}
+                </h4>
+              </div>
+            </div>
+            {type === "internet-tv" &&
+              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                <div>
+                  <h4 className="md:text-base text-xs text-center text-white mb-2">
+                    Channels
+                  </h4>
+                </div>
+              </div>
 
-                                }
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                        Features
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                        Pricing starts from
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
+            }
+            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                  Features
+                </h4>
+              </div>
+            </div>
+            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                  Pricing starts from
+                </h4>
+              </div>
+            </div>
+          </div>
           <div className='grid'>
             {
               cheepProviders?.map((item: any, idx: number) => {
@@ -205,23 +179,23 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
-                  type: item.providers_service_types[0],                  
+                  type: item.providers_service_types[0],
                   price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
-                  channels:item.services_info_internet_tv_bundles_summary_channel,
-                  speed: type === "internet" ? item.services_info_internet_services_speed:
-                         type === "tv" ? item.services_info_tv_services_speed :
-                         type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
-                  summery: type === "internet" ? item.services_info_internet_services_features:
-                        type === "tv" ? item.services_info_tv_services_features :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_features  
+                  channels: item.services_info_internet_tv_bundles_summary_channel,
+                  speed: type === "internet" ? item.services_info_internet_services_speed :
+                    type === "tv" ? item.services_info_tv_services_speed :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                  summery: type === "internet" ? item.services_info_internet_services_features :
+                    type === "tv" ? item.services_info_tv_services_features :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_features
                 }
-           
+
                 return (
                   <>
-                   <Table_CardProviderState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
-                   
+                    <Table_CardProviderState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+
                   </>
                 )
               })
@@ -290,19 +264,19 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
 
                 {
                   allProviders?.map((item: any, idx: number) => {
-                     var speed_channel = `${item.services_info_internet_tv_bundles_summary_speed} mbps , ${item.services_info_internet_tv_bundles_summary_channel} Channels`
+                    var speed_channel = `${item.services_info_internet_tv_bundles_summary_speed} mbps , ${item.services_info_internet_tv_bundles_summary_channel} Channels`
                     var summaryData = {
                       provider: item?.title,
                       type: item.providers_service_types[0],
                       summery: type === "internet" ? item.services_info_internet_services_summary_features :
-                       type === "tv" ? item.services_info_tv_services_summary_features :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
+                        type === "tv" ? item.services_info_tv_services_summary_features :
+                          type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
                       price: item.pro_price,
                       speed: type === "internet" ? item.services_info_internet_services_summary_speed :
-                      type === "tv" ? item.services_info_tv_services_summary_speed :
-                       type === "internet-tv" && speed_channel,
-                    }                
-                    
+                        type === "tv" ? item.services_info_tv_services_summary_speed :
+                          type === "internet-tv" && speed_channel,
+                    }
+
                     return (
                       <>
                         <Inter_Service_State data={summaryData} key={idx} />
@@ -383,10 +357,10 @@ export default function OurState({ allcities, state, allProviders, allzones}: an
       </section>
 
       <section className="my-16">
-                <div className="container mx-auto px-4 grid gap-10">
-                    {/* <Faqs_Sec city="" type={type} state="" zipcode="" allProviders={allProviders}  /> */}
-                </div>
-            </section>
+        <div className="container mx-auto px-4 grid gap-10">
+          {/* <Faqs_Sec city="" type={type} state="" zipcode="" allProviders={allProviders}  /> */}
+        </div>
+      </section>
 
 
 
