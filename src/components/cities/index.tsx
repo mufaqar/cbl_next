@@ -47,6 +47,12 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
   allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
   const cheepProviders = allProviders.sort((a: any, b: any) => a.pro_price - b.pro_price);
+  const FastProviders = allProviders.sort((a: any, b: any) => {
+    const speedA = parseInt(a.services_info_internet_services_speed.split("-")[1], 10);
+    const speedB = parseInt(b.services_info_internet_services_speed.split("-")[1], 10);
+    return speedB - speedA;
+  });
+
   const totalProviderCount = allProviders?.length || 0;
 
   return (
@@ -287,7 +293,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
             </div>
             <div className='grid'>
               {
-                cheepProviders?.map((item: any, idx: number) => {
+                FastProviders?.map((item: any, idx: number) => {
 
                   var summaryData = {
                     logo: item?.featured_image,

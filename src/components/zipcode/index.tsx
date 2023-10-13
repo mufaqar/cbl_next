@@ -37,8 +37,16 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
     const flattenedNames = [].concat(...newServicesTypes);
     const uniqueServiceType = [...new Set(flattenedNames)];
-
     const totalProviderCount = allProviders?.length || 0;
+    const allProvidersFast = [...allProviders];
+    const allProvidersCheep = [...allProviders];
+    const cheepProviders = allProvidersCheep.sort((a: any, b: any) => a.providersInfo.proPrice - b.providersInfo.proPrice);
+    const FastProviders = allProvidersFast.sort((fa: any, fb: any) => {
+        const speedA = parseInt(fa.providersInfo.servicesInfo.internetServices.speed.split("-")[1], 10);
+        const speedB = parseInt(fb.providersInfo.servicesInfo.internetServices.speed.split("-")[1], 10);
+        return speedB - speedA;
+      });   
+    
 
     return (
         <>
@@ -179,7 +187,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </div>
                         <div className='grid'>
                             {
-                                allProviders?.map((item: any, idx: number) => {
+                                cheepProviders?.map((item: any, idx: number) => {
                                     var summaryData = {
                                         logo: item?.featuredImage?.node?.mediaItemUrl,
                                         provider: item?.title,
@@ -271,7 +279,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </div>
                         <div className='grid'>
                             {
-                                allProviders?.map((item: any, idx: number) => {
+                                FastProviders?.map((item: any, idx: number) => {
                                     var summaryData = {
                                         logo: item?.featuredImage?.node?.mediaItemUrl,
                                         provider: item?.title,

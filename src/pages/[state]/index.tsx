@@ -19,8 +19,11 @@ import { ProviderCardState } from '@/components/provider/provider-card-state';
 import Inter_Service_State from '@/components/provider/inter-service-state';
 import Table_CardProviderState from '@/components/provider/table-cardProviderState';
 export default function OurState({ allcities, state, allProviders, allzones }: any) {
+ 
   const { query } = useRouter();
   const type = query.type || "internet";
+
+ 
 
   function formatType(type:any) {
     if (type === "internet") {
@@ -42,9 +45,22 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
   const flattenedNames = [].concat(...newServicesTypes);
   const uniqueServiceType = [...new Set(flattenedNames)];
   allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
-
   const cheepProviders = allProviders.sort((a: any, b: any) => a.pro_price - b.pro_price);
+  const FastProviders = allProviders.sort((a: any, b: any) => {
+    const speedA = parseInt(a.services_info_internet_services_speed.split("-")[1], 10);
+    const speedB = parseInt(b.services_info_internet_services_speed.split("-")[1], 10);
+    return speedB - speedA;
+  });
+
+
+  
   const totalProviderCount = allProviders?.length || 0;
+
+
+  
+
+
+ 
 
   return (
     <>
@@ -76,12 +92,10 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
           <div className='grid gap-7'>
             {
               allProviders?.map((item: any, idx: number) => {
-
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
                   type: item.providers_service_types[0],
-
                   price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
@@ -287,7 +301,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
           </div>
           <div className='grid'>
             {
-              cheepProviders?.map((item: any, idx: number) => {
+              FastProviders?.map((item: any, idx: number) => {
 
                 var summaryData = {
                   logo: item?.featured_image,
@@ -496,6 +510,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const response_data = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/providers?internet_services=${All_zones_list}`);
   const providers_data = await response_data.json();
+  
   const [zones] = await Promise.all([
     apolloClient.query({ query: ALLZoneByZode, variables: { providerIds: zoneTitles, } }),
 

@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 export const ProviderCardState = ({ item, type, offer, count }: any) => {
-    console.log("🚀 ~ file: provider-card-state.tsx:4 ~ ProviderCardState ~ item:", item)
-
     var features = item?.summery?.split(', ');
 
     return (
