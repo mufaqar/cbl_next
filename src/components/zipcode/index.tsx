@@ -18,6 +18,20 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     var type = query?.type;
     var types = query?.type;
 
+    function formatType(type:any) {
+        if (type === "internet") {
+          return "Internet";
+        } else if (type === "tv") {
+          return "TV";
+        } else if (type === "internet-tv") {
+          return "Internet and TV";
+        } else {
+          // Handle other cases if needed
+          return type; // Return the original value if no match is found
+        }
+      }
+    
+
     const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
   
     const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
@@ -32,7 +46,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div >
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-                            {type} Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
+                        {formatType(type)}  Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
@@ -48,7 +62,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold  capitalize leading-10">
-                            {type} Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                        {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
                     </div>
                     <div className='grid gap-7'>
@@ -86,10 +100,10 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className=''>
                         <h2 className="text-2xl font-bold">
-                            Overview of Internet Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                            Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
                         <p className='text-xl font-[Roboto] mt-5'>
-                            As of the time this page was written, {city}  residents has {totalProviderCount}  or more internet service providers offering various types of internet service plans including  {
+                            As of the time this page was written, {city}  residents has {totalProviderCount}  or more {formatType(type)}  service providers offering various types of {formatType(type)}  service plans including  {
                                 allProviders?.slice(0, 2).map((item: any, idx: number) => (
                                     item.serviceTypes.nodes.map((type: any, i: number) => {
                                         return (
@@ -112,9 +126,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     <div className="container mx-auto px-4">
                         <div className='mb-10'>
                             <h2 className="text-2xl font-bold  capitalize leading-10">
-                                Cheap {type} Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                                Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                             </h2>
-                            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an internet service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap internet service providers in {city}, {state}.</p>
+                            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an {formatType(type)}  service provider in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {formatType(type)}  service providers in {city}, {state}.</p>
                         </div>                 
                         
                         <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
@@ -199,9 +213,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     <div className="container mx-auto px-4">
                         <div className='mb-10'>
                             <h2 className="text-2xl font-bold  capitalize leading-10">
-                                Fastest  {type} Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                                Fastest  {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                             </h2>
-                            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following internet service providers in  {city}, {state}.</p>
+                            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)}  service providers in  {city}, {state}.</p>
                         </div>
 
                         <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
@@ -292,7 +306,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold">
-                            Summary of Internet service providers in  {city}, {state}
+                            Summary of {formatType(type)}  service providers in  {city}, {state}
                         </h2>
                     </div>
                     <div>
@@ -363,10 +377,10 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold">
-                            Types of internet Technologies available in {city}, {state}
+                            Types of {formatType(type)}  Technologies available in {city}, {state}
                         </h2>
                         <p className='text-base'>
-                            As of the time this page was written, {city} likely have several types of internet technologies available to its residents. These technologies include {
+                            As of the time this page was written, {city} likely have several types of {formatType(type)}  technologies available to its residents. These technologies include {
                                 uniqueServiceType.map((t: any, i: number) => (
                                     <span key={i}>{t} , </span>
 

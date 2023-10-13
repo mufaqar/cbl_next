@@ -1,8 +1,6 @@
 import React from 'react'
 
 const Table_CardProviderState = ({ item, type}: any) => {
-console.log("🚀 ~ file: table-cardProviderState.tsx:4 ~ item:", item)
-
     var features = item?.summery?.split(', ');
 
 
@@ -21,7 +19,7 @@ console.log("🚀 ~ file: table-cardProviderState.tsx:4 ~ item:", item)
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                         <div>
                             {type === "tv" ? (
-                                <> {item?.speed} </>
+                                <> {item?.speed} Mbps</>
                             ) : type === "internet-tv" ? (
                                 <> <p className="tcd">{item?.speed} Mbps </p>
                                 </>

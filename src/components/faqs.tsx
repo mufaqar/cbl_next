@@ -3,9 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { useRouter } from 'next/router'
 
 export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProviderCount }: any) {
-    console.log("🚀 ~ file: faqs.tsx:6 ~ Faqs_Sec ~ allProviders:", allProviders)
-
-
+  
     city = !city ? "" : `${city},`
     const { query } = useRouter();
     let state = query.state;
@@ -23,7 +21,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
             {type === "internet" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        {city} {state}   Internet FAQ’s
+                    <span className="text-[#ef9831] uppercase">{city} {state} </span>  Internet FAQ’s
                     </h2>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
@@ -252,7 +250,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                DIRECTV is the cheapest internet service provider in {city} {state} with price starting from {allProviders[0].providersInfo.proPrice}   </p>
+                                DIRECTV is the cheapest internet service provider in {city} {state} with price starting from {allProviders[0].providersInfo?.proPrice}   </p>
                         </div>
                     </div>
                 </>
