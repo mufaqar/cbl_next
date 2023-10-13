@@ -115,7 +115,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
 
                 return (
                   <>
-                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                    <ProviderCardState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
 
                   </>
                 )
@@ -229,7 +229,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
 
                 return (
                   <>
-                    <Table_CardProviderState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                    <Table_CardProviderState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
 
                   </>
                 )
@@ -326,7 +326,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
 
                 return (
                   <>
-                    <Table_CardProviderState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                    <Table_CardProviderState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
 
                   </>
                 )

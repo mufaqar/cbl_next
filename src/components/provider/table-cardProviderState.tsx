@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Table_CardProviderState = ({ item, type}: any) => {
+const Table_CardProviderState = ({ item, type }: any) => {
     var features = item?.summery?.split(', ');
 
 
 
     return (
-        <div className=" w-full lg:max-w-[1200px] mx-auto h-auto ">
+        <div  className=" w-full lg:max-w-[1200px] mx-auto h-auto ">
             <div className="w-full h-auto  flex md:flex-col flex-row items-stretch">
                 <div className={`md:w-full w-full grid grid-cols-1 dtable ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">

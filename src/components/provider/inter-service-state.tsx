@@ -1,5 +1,5 @@
 import React from 'react'
-const Inter_Service_State = ({ data }: any) => {
+const Inter_Service_State = ({ data}: any) => {
        return (
         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto ">
             <div className="w-full h-auto  flex md:flex-col flex-row items-stretch">

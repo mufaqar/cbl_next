@@ -5,7 +5,7 @@ export const ProviderCardState = ({ item, type, offer, count }: any) => {
 
     return (
         <>
-            <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
+            <div  className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
                 <div className="md:w-full min-w-fit  bg-[#215690] flex justify-between items-center ">
                     <h2 className="text-base font-bold text-center text-white p-5"> <span> {count + 1} </span>-  {item.provider}</h2>
                     <h2 className="text-base font-bold text-center text-white p-5">{offer}</h2>
