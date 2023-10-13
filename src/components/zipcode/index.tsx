@@ -19,6 +19,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     var types = query?.type;
 
     const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
+  
     const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
     const flattenedNames = [].concat(...newServicesTypes);
     const uniqueServiceType = [...new Set(flattenedNames)];
@@ -381,6 +382,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     title={t}
                                     key={i}
                                     content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
+                                    
                                 />
                             ))
                         }

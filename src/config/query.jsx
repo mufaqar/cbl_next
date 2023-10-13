@@ -79,6 +79,7 @@ query GET_PROVIDERS($zipcode: String = "") {
       serviceTypes {
         nodes {
           name
+          description
         }
       }
       featuredImage {

@@ -7,7 +7,7 @@ const Technology_Box = ({ title, content, icon }: any) => {
                 {icon}
             </span>
             <h2 className="mt-4 text-xl font-bold">
-                {title}
+               <span dangerouslySetInnerHTML={{__html:title}}></span> 
             </h2>
             <p className="mt-1 text-base">
                 {content}

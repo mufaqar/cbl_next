@@ -13,49 +13,47 @@ import Inter_Service_State from '../provider/inter-service-state';
 import Table_CardProviderState from '../provider/table-cardProviderState';
 
 
-export default function Cities_com({ my_city,  allProviders, type  }: any) {
+export default function Cities_com({ my_city, allProviders, type }: any) {
 
-    var state = "";
+  var state = "";
 
-    const inputString = my_city;
-    const parts = inputString.split('-');
-    const capitalizedWords: string[] = parts.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));
-    const city = capitalizedWords.join(' ');
+  const inputString = my_city;
+  const parts = inputString.split('-');
+  const capitalizedWords: string[] = parts.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));
+  const city = capitalizedWords.join(' ');
 
-    const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
-    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
-    const flattenedNames = [].concat(...newServicesTypes);
-    const uniqueServiceType = [...new Set(flattenedNames)];
-
-
-    allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
-    const cheepProviders = allProviders.sort((a:any, b:any) => a.pro_price - b.pro_price);
+  const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
+  const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
+  const flattenedNames = [].concat(...newServicesTypes);
+  const uniqueServiceType = [...new Set(flattenedNames)];
 
 
+  allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
+  const cheepProviders = allProviders.sort((a: any, b: any) => a.pro_price - b.pro_price);
+  const totalProviderCount = allProviders?.length || 0;
 
+  return (
+    <>
 
-    return (
-        <>
+      <section className="min-h-[40vh]  flex items-center bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div >
+            <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
+              {type} Service Providers in <br /><span className="text-[#ef9831]">{city}</span>
+            </h1>
+            <p className="text-xl text-center font-[Roboto] my-5">
+              Enter your zip so we can find the best providers in your area:
+            </p>
+            <div className='grid justify-center'>
+              <SearchForm />
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <section className="min-h-[40vh]  flex items-center bg-gray-50">
-                <div className="container mx-auto px-4">
-                    <div >
-                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-                            {type} Service Providers in <br /><span className="text-[#ef9831]">{city}</span>
-                        </h1>
-                        <p className="text-xl text-center font-[Roboto] my-5">
-                            Enter your zip so we can find the best providers in your area:
-                        </p>
-                        <div className='grid justify-center'>
-                            <SearchForm />
-                        </div>
-                    </div>
-                </div>
-            </section>
+      <Provider_Nav_City />
 
-            <Provider_Nav_City />
-
-            <section className="my-16">
+      <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold  capitalize leading-10">
@@ -66,27 +64,27 @@ export default function Cities_com({ my_city,  allProviders, type  }: any) {
             {
               allProviders?.map((item: any, idx: number) => {
 
-               var summaryData = {
+                var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
                   type: item.providers_service_types[0],
-                  
+
                   price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
-                  channels:item.services_info_internet_tv_bundles_summary_channel,
-                  speed: type === "internet" ? item.services_info_internet_services_speed:
-                  type === "tv" ? item.services_info_tv_services_speed :
-                    type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
-                    summery: type === "internet" ? item.services_info_internet_services_features:
+                  channels: item.services_info_internet_tv_bundles_summary_channel,
+                  speed: type === "internet" ? item.services_info_internet_services_speed :
+                    type === "tv" ? item.services_info_tv_services_speed :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                  summery: type === "internet" ? item.services_info_internet_services_features :
                     type === "tv" ? item.services_info_tv_services_features :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,  
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,
                 }
-           
+
                 return (
                   <>
-                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
-                   
+                    <ProviderCardState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+
                   </>
                 )
               })
@@ -107,42 +105,13 @@ export default function Cities_com({ my_city,  allProviders, type  }: any) {
             <h2 className="text-2xl font-bold">
               Overview of Internet Service Providers in {state}
             </h2>
+
             <p className='text-xl font-[Roboto] mt-5'>
+              As of the time this page was written, {state}  residents has {totalProviderCount}  or more internet service providers offering various types of internet service plans including
+              <div className='inline-block px-1' dangerouslySetInnerHTML={{ __html: uniqueServiceType }} />
+              are the largest providers in the area.</p>
 
 
-              As of the time this page was written, {state} with the residents has
-
-
-              As of the time this page was written, {state} has three or more internet service providers offering various types of internet plans to its residents. You’ll likely have options from
-              {
-                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                  item.providers_service_types.map((type: any, i: number) => {
-                    return (
-                      <>
-                        <div key={i} className='inline-block pr-1' dangerouslySetInnerHTML={{ __html: type }} />,
-                      </>
-                    )
-                  })
-
-                ))
-              }
-
-
-              internet service providers.
-              {
-                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                  item.providers_service_types.map((type: any, i: number) => {
-                    return (
-                      <>
-                        <div key={i} className='inline-block pr-1' dangerouslySetInnerHTML={{ __html: type }} />,
-                      </>
-                    )
-                  })
-
-                ))
-              }
-              are the best internet service providers in {state}.
-            </p>
           </div>
         </div>
       </section>
@@ -158,51 +127,51 @@ export default function Cities_com({ my_city,  allProviders, type  }: any) {
           </div>
 
           <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white">
-                                        Provider
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white">
-                                        {type === "tv" ? (
-                                            "Channels"
-                                        ) : type === "internet-tv" ? (
-                                            "Speeds from "
-                                        ) : (
-                                            "Speeds from "
-                                        )}
-                                    </h4>
-                                </div>
-                            </div>
-                                {type === "internet-tv" &&
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                        <div>
-                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                                Channels
-                                            </h4>
-                                        </div>
-                                    </div>
+            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white">
+                  Provider
+                </h4>
+              </div>
+            </div>
+            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white">
+                  {type === "tv" ? (
+                    "Channels"
+                  ) : type === "internet-tv" ? (
+                    "Speeds from "
+                  ) : (
+                    "Speeds from "
+                  )}
+                </h4>
+              </div>
+            </div>
+            {type === "internet-tv" &&
+              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                <div>
+                  <h4 className="md:text-base text-xs text-center text-white mb-2">
+                    Channels
+                  </h4>
+                </div>
+              </div>
 
-                                }
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                        Features
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                        Pricing starts from
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
+            }
+            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                  Features
+                </h4>
+              </div>
+            </div>
+            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                  Pricing starts from
+                </h4>
+              </div>
+            </div>
+          </div>
           <div className='grid'>
             {
               cheepProviders?.map((item: any, idx: number) => {
@@ -210,23 +179,23 @@ export default function Cities_com({ my_city,  allProviders, type  }: any) {
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
-                  type: item.providers_service_types[0],                  
+                  type: item.providers_service_types[0],
                   price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
-                  channels:item.services_info_internet_tv_bundles_summary_channel,
-                  speed: type === "internet" ? item.services_info_internet_services_speed:
-                         type === "tv" ? item.services_info_tv_services_speed :
-                         type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
-                  summery: type === "internet" ? item.services_info_internet_services_features:
-                        type === "tv" ? item.services_info_tv_services_features :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_features  
+                  channels: item.services_info_internet_tv_bundles_summary_channel,
+                  speed: type === "internet" ? item.services_info_internet_services_speed :
+                    type === "tv" ? item.services_info_tv_services_speed :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                  summery: type === "internet" ? item.services_info_internet_services_features :
+                    type === "tv" ? item.services_info_tv_services_features :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_features
                 }
-           
+
                 return (
                   <>
-                   <Table_CardProviderState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer}  />
-                   
+                    <Table_CardProviderState count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+
                   </>
                 )
               })
@@ -241,54 +210,135 @@ export default function Cities_com({ my_city,  allProviders, type  }: any) {
       </section>
 
 
+      
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold">
+              Summary of Internet service providers in  {state}
+            </h2>
+          </div>
+          <div>
 
-
-
-            <section className="my-16">
-                <div className="container mx-auto px-4">
-                    <div className='mb-10'>
-                        <h2 className="text-2xl font-bold">
-                            Types of internet Technologies available in  {city}
-                        </h2>
-                        <p className='text-base'>
-                            As of the time this page was written, likely have several types of internet technologies available to its residents. These technologies include    {
-                                uniqueServiceType.map((t: any, i: number) => (
-                                    <span key={i}>{t} , </span>
-                                ))
-                            }
-                        </p>
+            <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
+              <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
+                <div className='md:w-full min-w-fit grid md:grid-cols-7 grid-cols-1 bg-[#215690] '>
+                  <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                    <div>
+                      <h4 className="md:text-base text-xs text-center text-white">
+                        Provider
+                      </h4>
                     </div>
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
-
-                        {
-                            uniqueServiceType.map((t: any, i: number) => (
-                                <Technology_Box
-                                    icon={<MdCable />}
-                                    title={t}
-                                    key={i}
-                                    content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
-                                />
-                            ))
+                  </div>
+                  <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                    <div>
+                      <h4 className="md:text-base text-xs text-center text-white">
+                        Connection Type
+                      </h4>
+                    </div>
+                  </div>
+                  <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                    <div>
+                      <h4 className="md:text-base text-xs text-center text-white mb-2">
+                        Download Speeds up to
+                      </h4>
+                    </div>
+                  </div>
+                  <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center col-span-3">
+                    <div>
+                      <h4 className="md:text-base text-xs text-center text-white mb-2">
+                        Features
+                      </h4>
+                    </div>
+                  </div>
+                  <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                    <div>
+                      <h4 className="md:text-base text-xs text-center text-white mb-2">
+                        Pricing starts from
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                
+                    {
+                      allProviders?.map((item: any, idx: number) => {
+                        var speed_channel = `${item.services_info_internet_tv_bundles_summary_speed} mbps , ${item.services_info_internet_tv_bundles_summary_channel} Channels`
+                        var summaryData = {
+                          provider: item?.title,
+                          type: item.providers_service_types[0],
+                          summery: type === "internet" ? item.services_info_internet_services_summary_features :
+                            type === "tv" ? item.services_info_tv_services_summary_features :
+                              type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
+                          price: item.pro_price,
+                          speed: type === "internet" ? item.services_info_internet_services_summary_speed :
+                            type === "tv" ? item.services_info_tv_services_summary_speed :
+                              type === "internet-tv" && speed_channel,
                         }
-                    </div>
+
+                        return (
+                          <>
+                            <Inter_Service_State data={summaryData} key={idx} />
+                          </>
+                        )
+                      })
+                    }
+
                 </div>
-            </section>
+              </div>
+          </div>
+        </div>
+      </section>
 
 
 
 
 
 
-            <section className="my-16">
-                <div className="container mx-auto px-4 grid gap-10">
-                    <Faqs_Sec city={city} type={type} state="" zipcode="" allProviders={allProviders}  />
-                </div>
-            </section>
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold mb-2">
+              Types of internet Technologies available in  {city}
+            </h2>
+            <p className='text-base'>
+              As of the time this page was written, likely have several types of internet technologies available to its residents. These technologies include    {
+                uniqueServiceType.map((t: any, i: number) => (
+                  <span key={i}> <span dangerouslySetInnerHTML={{__html: t}} /> , </span>
+                ))
+              }
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
+
+            {
+              uniqueServiceType.map((t: any, i: number) => (
+                <Technology_Box
+                  icon={<MdCable />}
+                  title={t}
+                  key={i}
+                  content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
+                />
+              ))
+            }
+          </div>
+        </div>
+      </section>
 
 
 
-        </>
-    )
+
+
+
+      <section className="my-16">
+        <div className="container mx-auto px-4 grid gap-10">
+          <Faqs_Sec city={city} type={type} state="" zipcode="" allProviders={allProviders} />
+        </div>
+      </section>
+
+
+
+    </>
+  )
 }
 
 

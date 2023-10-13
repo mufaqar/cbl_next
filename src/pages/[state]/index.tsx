@@ -22,6 +22,21 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
   const { query } = useRouter();
   const type = query.type || "internet";
 
+  function formatType(type:any) {
+    if (type === "internet") {
+      return "Internet";
+    } else if (type === "tv") {
+      return "TV";
+    } else if (type === "internet-tv") {
+      return "Internet and TV";
+    } else {
+      // Handle other cases if needed
+      return type; // Return the original value if no match is found
+    }
+  }
+
+
+
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
   const flattenedNames = [].concat(...newServicesTypes);
@@ -38,7 +53,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
         <div className="container mx-auto px-4">
           <div >
             <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-              {type}  Service Providers in <br /><span className="text-[#ef9831] uppercase">{state}</span>
+            {formatType(type)} Service Providers in <br /><span className="text-[#ef9831] uppercase">{state}</span>
             </h1>
             <p className="text-xl text-center font-[Roboto] my-5">
               Enter your zip so we can find the best providers in your area:
@@ -55,7 +70,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold  capitalize leading-10">
-              {type} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
+            {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
           </div>
           <div className='grid gap-7'>
@@ -101,14 +116,14 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
         <div className="container mx-auto px-4">
           <div className=''>
             <h2 className="text-2xl font-bold">
-              Overview of Internet Service Providers in {state}
+              Overview of  {formatType(type)} Service Providers in {state}
             </h2>
 
 
 
 
             <p className='text-xl font-[Roboto] mt-5'>
-              As of the time this page was written, {state}  residents has {totalProviderCount}  or more internet service providers offering various types of internet service plans including
+              As of the time this page was written, {state}  residents has {totalProviderCount}  or more  {formatType(type)}service providers offering various types of  {formatType(type)} service plans including
               <div className='inline-block px-1' dangerouslySetInnerHTML={{ __html: uniqueServiceType }} />
               are the largest providers in the area.</p>
 
@@ -121,9 +136,9 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold  capitalize leading-10">
-              Cheap {type} Service Providers in <span className="text-[#ef9831]"> {state}</span>
+              Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831]"> {state}</span>
             </h2>
-            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an internet service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap internet service providers in {state}.</p>
+            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an  {formatType(type)} service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {type} service providers in {state}.</p>
           </div>
 
           <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
@@ -214,14 +229,14 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              Summary of Internet service providers in  {state}
+              Summary of  {formatType(type)} service providers in  {state}
             </h2>
           </div>
           <div>
 
             <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
               <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                <div className='md:w-full min-w-fit grid md:grid-cols-5 grid-cols-1 bg-[#215690] '>
+                <div className='md:w-full min-w-fit grid md:grid-cols-7 grid-cols-1 bg-[#215690] '>
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white">
@@ -243,7 +258,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
                       </h4>
                     </div>
                   </div>
-                  <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                  <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center col-span-3">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white mb-2">
                         Features
@@ -258,9 +273,6 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
                     </div>
                   </div>
                 </div>
-
-
-
 
                 {
                   allProviders?.map((item: any, idx: number) => {
@@ -285,7 +297,8 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
                   })
                 }
 
-              </div></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -296,10 +309,10 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              Types of internet Technologies available in  {state}
+              Types of  {formatType(type)} Technologies available in  {state}
             </h2>
             <p className='text-base'>
-              As of the time this page was written, likely have several types of internet technologies available to its residents. These technologies include    {
+              As of the time this page was written, likely have several types of  {formatType(type)} technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}>{t} , </span>
                 ))
@@ -315,7 +328,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
                   title={t}
                   key={i}
                   content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
-                />
+                     />
               ))
             }
 
