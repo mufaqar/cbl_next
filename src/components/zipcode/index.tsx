@@ -42,8 +42,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     const allProvidersCheep = [...allProviders];
     const cheepProviders = allProvidersCheep.sort((a: any, b: any) => a.providersInfo.proPrice - b.providersInfo.proPrice);
     const FastProviders = allProvidersFast.sort((fa: any, fb: any) => {
-        const speedA = parseInt(fa.providersInfo.servicesInfo.internetServices.speed.split("-")[1], 10);
-        const speedB = parseInt(fb.providersInfo.servicesInfo.internetServices.speed.split("-")[1], 10);
+        const speedA = parseInt(fa.providersInfo?.servicesInfo?.internetServices?.speed?.split("-")[1], 10);
+        const speedB = parseInt(fb.providersInfo?.servicesInfo?.internetServices?.speed?.split("-")[1], 10);
         return speedB - speedA;
       });   
     

@@ -471,7 +471,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
             </h2>
           </div>
           <div>
-            <ul className="grid sm:grid-cols-4 grid-cols-2 gap-5">
+            {/* <ul className="grid sm:grid-cols-4 grid-cols-2 gap-5">
               {allcities[0].zones.nodes?.map((item: any, id: number) => {
                 return <li key={id} className='bg-[#F5F5F5] rounded-2xl px-4 py-4 text-[#215690] font-[Roboto] hover:drop-shadow-xl hover:shadow-bg-[#f5f5f5] group'>
                   <Link href={`${state}/${item.cities.nodes[0].slug}`} className="">
@@ -483,7 +483,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
                   </Link>
                 </li>
               })}
-            </ul>
+            </ul> */}
           </div>
         </div>
       </section>
@@ -502,31 +502,35 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { state } = query;
 
-  const [cities] = await Promise.all([
-    apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
+  // const [cities] = await Promise.all([
+  //   apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
 
-  ]);
-  const allcities = cities.data.states.nodes;
-  const allzone = cities.data.states.nodes[0].zones.nodes;
+  // ]);
+  // const allcities = cities.data.states.nodes;
+  // const allzone = cities.data.states.nodes[0].zones.nodes;
 
-  const zoneTitles = allzone.map((zone: any) => zone.title);
-  const resultString = zoneTitles.join(',');
-  const All_zones_list = resultString.replace(/["\[\]]/g, '');
+  // const zoneTitles = allzone.map((zone: any) => zone.title);
+  // const resultString = zoneTitles.join(',');
+  // const All_zones_list = resultString.replace(/["\[\]]/g, '');
 
-  const response_data = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/providers?internet_services=${All_zones_list}`);
+
+  const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones?state=${state}`);
+  const providers_city_data = await response_city.json();
+
+  const zoneTitlesQ = providers_city_data.map((zone: any) => zone.title);
+  const resultStringQ = zoneTitlesQ.join(',');
+  const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');  
+
+  const response_data = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/providers?internet_services=${All_zones_listQ}`);
   const providers_data = await response_data.json();
-  
-  const [zones] = await Promise.all([
-    apolloClient.query({ query: ALLZoneByZode, variables: { providerIds: zoneTitles, } }),
 
-  ]);
-  const allzones = zones.data
+   
+
+
   return {
     props: {
-      allcities,
+    
       state,
-      allzone,
-      allzones,
       allProviders: providers_data.providers
 
     },
