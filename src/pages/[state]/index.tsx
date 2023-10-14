@@ -521,7 +521,22 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const resultStringQ = zoneTitlesQ.join(',');
   const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');  
 
-  const response_data = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/providers?internet_services=${All_zones_listQ}`);
+
+  const postData = {
+    internet_services: All_zones_listQ
+  };
+  
+  const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  });
+
+  
+  
+
   const providers_data = await response_data.json();
 
    
