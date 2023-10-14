@@ -471,7 +471,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
             </h2>
           </div>
           <div>
-            {/* <ul className="grid sm:grid-cols-4 grid-cols-2 gap-5">
+            <ul className="grid sm:grid-cols-4 grid-cols-2 gap-5">
               {allcities[0].zones.nodes?.map((item: any, id: number) => {
                 return <li key={id} className='bg-[#F5F5F5] rounded-2xl px-4 py-4 text-[#215690] font-[Roboto] hover:drop-shadow-xl hover:shadow-bg-[#f5f5f5] group'>
                   <Link href={`${state}/${item.cities.nodes[0].slug}`} className="">
@@ -483,7 +483,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
                   </Link>
                 </li>
               })}
-            </ul> */}
+            </ul>
           </div>
         </div>
       </section>
@@ -500,14 +500,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
   )
 }
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const { state } = query;
-
-  // const [cities] = await Promise.all([
-  //   apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
-
-  // ]);
-  // const allcities = cities.data.states.nodes;
-  // const allzone = cities.data.states.nodes[0].zones.nodes;
+  const { state } = query;  
 
   // const zoneTitles = allzone.map((zone: any) => zone.title);
   // const resultString = zoneTitles.join(',');
@@ -539,12 +532,17 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const providers_data = await response_data.json();
 
-   
+  const [cities] = await Promise.all([
+    apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
+
+  ]);
+  const allcities = cities.data.states.nodes;
+
 
 
   return {
     props: {
-    
+      allcities,    
       state,
       allProviders: providers_data.providers
 

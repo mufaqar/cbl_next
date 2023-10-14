@@ -62,8 +62,28 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const resultString = zones_list_arr.join(',');
   const All_zones_list = resultString.replace(/["\[\]]/g, '');
 
-  const response_data = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/providers?internet_services=${All_zones_list}`);
+ 
+  const postData = {
+    internet_services: All_zones_list
+  };
+  
+  const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  });
+
+  
+  
+
   const providers_data = await response_data.json();
+
+  
+
+
+
   
 
   // Check if zipcode exists before executing the queries
