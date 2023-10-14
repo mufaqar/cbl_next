@@ -62,6 +62,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const resultString = zones_list_arr.join(',');
   const All_zones_list = resultString.replace(/["\[\]]/g, '');
 
+  
+
  
   const postData = {
     internet_services: All_zones_list
