@@ -6,34 +6,7 @@ const query = `
         date
         slug
       }
-    }
-    
-      states(first: 100000) {
-        nodes {
-          slug
-       
-        }
-      }
-
-    
-        zones(first: 10000) {
-          nodes {
-            cities {
-              nodes {
-                name
-              }
-            }
-            states {
-              nodes {
-                name
-              }
-            }
-          }
-        }
-      
-    
-    
-    
+    }    
   }
 `;
 

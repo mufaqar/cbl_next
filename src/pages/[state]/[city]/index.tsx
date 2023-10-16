@@ -53,20 +53,17 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const { zipcode, type, city , state } = query;
-  const [city_zone] = await Promise.all([
-    apolloClient.query({ query: ALLZoneByCity, variables: { city } }),
 
-  ]);
-  const allCityZone = city_zone.data.zones.nodes;
-  const zones_list_arr = allCityZone.map((item: any) => { return (item.title) });
-  const resultString = zones_list_arr.join(',');
-  const All_zones_list = resultString.replace(/["\[\]]/g, '');
+  const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones-city?state=${city}`);
 
-  
+  const providers_city_data = await response_city.json();
 
- 
+  const zoneTitlesQ = providers_city_data.map((zone: any) => zone.title);
+  const resultStringQ = zoneTitlesQ.join(',');
+  const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');  
+
   const postData = {
-    internet_services: All_zones_list
+    internet_services: All_zones_listQ
   };
   
   const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
@@ -77,16 +74,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     body: JSON.stringify(postData),
   });
 
-  
-  
-
   const providers_data = await response_data.json();
-
-  
-
-
-
-  
 
   // Check if zipcode exists before executing the queries
   if (!zipcode) {

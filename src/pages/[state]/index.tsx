@@ -19,13 +19,13 @@ import { ProviderCardState } from '@/components/provider/provider-card-state';
 import Inter_Service_State from '@/components/provider/inter-service-state';
 import Table_CardProviderState from '@/components/provider/table-cardProviderState';
 export default function OurState({ allcities, state, allProviders, allzones }: any) {
- 
+
   const { query } = useRouter();
   const type = query.type || "internet";
 
- 
 
-  function formatType(type:any) {
+
+  function formatType(type: any) {
     if (type === "internet") {
       return "Internet";
     } else if (type === "tv") {
@@ -47,8 +47,8 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
   allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
 
 
-    const allProvidersFast = [...allProviders];
-    const allProvidersCheep = [...allProviders];
+  const allProvidersFast = [...allProviders];
+  const allProvidersCheep = [...allProviders];
 
   const cheepProviders = allProvidersCheep.sort((a: any, b: any) => a.pro_price - b.pro_price);
   const FastProviders = allProvidersFast.sort((a: any, b: any) => {
@@ -58,14 +58,14 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
   });
 
 
-  
+
   const totalProviderCount = allProviders?.length || 0;
 
 
-  
 
 
- 
+
+
 
   return (
     <>
@@ -74,7 +74,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
         <div className="container mx-auto px-4">
           <div >
             <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-            {formatType(type)} Service Providers in <br /><span className="text-[#ef9831] uppercase">{state}</span>
+              {formatType(type)} Service Providers in <br /><span className="text-[#ef9831] uppercase">{state}</span>
             </h1>
             <p className="text-xl text-center font-[Roboto] my-5">
               Enter your zip so we can find the best providers in your area:
@@ -91,7 +91,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold  capitalize leading-10">
-            {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
+              {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
           </div>
           <div className='grid gap-7'>
@@ -152,196 +152,196 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
 
 
       {type !== 'tv' && (
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold  capitalize leading-10">
-              Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
-            </h2>
-            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an  {formatType(type)} service provider in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {type} service providers in {state}.</p>
-          </div>
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold  capitalize leading-10">
+                Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
+              </h2>
+              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an  {formatType(type)} service provider in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {type} service providers in {state}.</p>
+            </div>
 
-          <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
-            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-              <div>
-                <h4 className="md:text-base text-xs text-center text-white">
-                  Provider
-                </h4>
-              </div>
-            </div>
-            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-              <div>
-                <h4 className="md:text-base text-xs text-center text-white">
-                  {type === "tv" ? (
-                    "Channels"
-                  ) : type === "internet-tv" ? (
-                    "Speeds from "
-                  ) : (
-                    "Speeds from "
-                  )}
-                </h4>
-              </div>
-            </div>
-            {type === "internet-tv" &&
+            <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
               <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
-                  <h4 className="md:text-base text-xs text-center text-white mb-2">
-                    Channels
+                  <h4 className="md:text-base text-xs text-center text-white">
+                    Provider
                   </h4>
                 </div>
               </div>
-
-            }
-            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-              <div>
-                <h4 className="md:text-base text-xs text-center text-white mb-2">
-                  Features
-                </h4>
-              </div>
-            </div>
-            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-              <div>
-                <h4 className="md:text-base text-xs text-center text-white mb-2">
-                  Pricing starts from
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div className='grid'>
-            {
-              cheepProviders?.map((item: any, idx: number) => {
-
-                var summaryData = {
-                  logo: item?.featured_image,
-                  provider: item?.title,
-                  type: item.providers_service_types[0],
-                  price: item.pro_price,
-                  mobileNo: item.pro_phone,
-                  slug: item.slug,
-                  channels: item.services_info_internet_tv_bundles_summary_channel,
-                  speed: type === "internet" ? item.services_info_internet_services_speed :
-                    type === "tv" ? item.services_info_tv_services_speed :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
-                  summery: type === "internet" ? item.services_info_internet_services_features :
-                    type === "tv" ? item.services_info_tv_services_features :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_features
-                }
-
-                return (
-                  <>
-                    <Table_CardProviderState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
-
-                  </>
-                )
-              })
-            }
-          </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
-            </p>
-          </div>
-        </div>
-      </section>
-
-)}
-{type !== 'tv' && (
-
-
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold  capitalize leading-10">
-            
-              Fastest {formatType(type)} Service Providers In <span className="text-[#ef9831] uppercase">{state}</span>
-            </h2>
-            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in {state}</p>
-          </div>
-
-          <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
-            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-              <div>
-                <h4 className="md:text-base text-xs text-center text-white">
-                  Provider
-                </h4>
-              </div>
-            </div>
-            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-              <div>
-                <h4 className="md:text-base text-xs text-center text-white">
-                  {type === "tv" ? (
-                    "Channels"
-                  ) : type === "internet-tv" ? (
-                    "Speeds from "
-                  ) : (
-                    "Speeds from "
-                  )}
-                </h4>
-              </div>
-            </div>
-            {type === "internet-tv" &&
               <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
-                  <h4 className="md:text-base text-xs text-center text-white mb-2">
-                    Channels
+                  <h4 className="md:text-base text-xs text-center text-white">
+                    {type === "tv" ? (
+                      "Channels"
+                    ) : type === "internet-tv" ? (
+                      "Speeds from "
+                    ) : (
+                      "Speeds from "
+                    )}
                   </h4>
                 </div>
               </div>
+              {type === "internet-tv" &&
+                <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                  <div>
+                    <h4 className="md:text-base text-xs text-center text-white mb-2">
+                      Channels
+                    </h4>
+                  </div>
+                </div>
 
-            }
-            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-              <div>
-                <h4 className="md:text-base text-xs text-center text-white mb-2">
-                  Features
-                </h4>
+              }
+              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                <div>
+                  <h4 className="md:text-base text-xs text-center text-white mb-2">
+                    Features
+                  </h4>
+                </div>
+              </div>
+              <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                <div>
+                  <h4 className="md:text-base text-xs text-center text-white mb-2">
+                    Pricing starts from
+                  </h4>
+                </div>
               </div>
             </div>
-            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-              <div>
-                <h4 className="md:text-base text-xs text-center text-white mb-2">
-                  Pricing starts from
-                </h4>
-              </div>
+            <div className='grid'>
+              {
+                cheepProviders?.map((item: any, idx: number) => {
+
+                  var summaryData = {
+                    logo: item?.featured_image,
+                    provider: item?.title,
+                    type: item.providers_service_types[0],
+                    price: item.pro_price,
+                    mobileNo: item.pro_phone,
+                    slug: item.slug,
+                    channels: item.services_info_internet_tv_bundles_summary_channel,
+                    speed: type === "internet" ? item.services_info_internet_services_speed :
+                      type === "tv" ? item.services_info_tv_services_speed :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                    summery: type === "internet" ? item.services_info_internet_services_features :
+                      type === "tv" ? item.services_info_tv_services_features :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_features
+                  }
+
+                  return (
+                    <>
+                      <Table_CardProviderState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+
+                    </>
+                  )
+                })
+              }
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
+              </p>
             </div>
           </div>
-          <div className='grid'>
-            {
-              FastProviders?.map((item: any, idx: number) => {
+        </section>
 
-                var summaryData = {
-                  logo: item?.featured_image,
-                  provider: item?.title,
-                  type: item.providers_service_types[0],
-                  price: item.pro_price,
-                  mobileNo: item.pro_phone,
-                  slug: item.slug,
-                  channels: item.services_info_internet_tv_bundles_summary_channel,
-                  speed: type === "internet" ? item.services_info_internet_services_speed :
-                    type === "tv" ? item.services_info_tv_services_speed :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
-                  summery: type === "internet" ? item.services_info_internet_services_features :
-                    type === "tv" ? item.services_info_tv_services_features :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_features
-                }
+      )}
+      {type !== 'tv' && (
 
-                return (
-                  <>
-                    <Table_CardProviderState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
 
-                  </>
-                )
-              })
-            }
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold  capitalize leading-10">
+
+                Fastest {formatType(type)} Service Providers In <span className="text-[#ef9831] uppercase">{state}</span>
+              </h2>
+              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in {state}</p>
+            </div>
+
+            <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                <div>
+                  <h4 className="md:text-base text-xs text-center text-white">
+                    Provider
+                  </h4>
+                </div>
+              </div>
+              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                <div>
+                  <h4 className="md:text-base text-xs text-center text-white">
+                    {type === "tv" ? (
+                      "Channels"
+                    ) : type === "internet-tv" ? (
+                      "Speeds from "
+                    ) : (
+                      "Speeds from "
+                    )}
+                  </h4>
+                </div>
+              </div>
+              {type === "internet-tv" &&
+                <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                  <div>
+                    <h4 className="md:text-base text-xs text-center text-white mb-2">
+                      Channels
+                    </h4>
+                  </div>
+                </div>
+
+              }
+              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                <div>
+                  <h4 className="md:text-base text-xs text-center text-white mb-2">
+                    Features
+                  </h4>
+                </div>
+              </div>
+              <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                <div>
+                  <h4 className="md:text-base text-xs text-center text-white mb-2">
+                    Pricing starts from
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div className='grid'>
+              {
+                FastProviders?.map((item: any, idx: number) => {
+
+                  var summaryData = {
+                    logo: item?.featured_image,
+                    provider: item?.title,
+                    type: item.providers_service_types[0],
+                    price: item.pro_price,
+                    mobileNo: item.pro_phone,
+                    slug: item.slug,
+                    channels: item.services_info_internet_tv_bundles_summary_channel,
+                    speed: type === "internet" ? item.services_info_internet_services_speed :
+                      type === "tv" ? item.services_info_tv_services_speed :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                    summery: type === "internet" ? item.services_info_internet_services_features :
+                      type === "tv" ? item.services_info_tv_services_features :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_features
+                  }
+
+                  return (
+                    <>
+                      <Table_CardProviderState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+
+                    </>
+                  )
+                })
+              }
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-)}
+      )}
 
 
       <section className="my-16">
@@ -447,7 +447,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
                   title={t}
                   key={i}
                   content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
-                     />
+                />
               ))
             }
 
@@ -490,7 +490,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
 
       <section className="my-16">
         <div className="container mx-auto px-4 grid gap-10">
-          <Faqs_Sec city="" type={type} state="" zipcode="" allProviders={allProviders}  />
+          <Faqs_Sec city="" type={type} state="" zipcode="" allProviders={allProviders} />
         </div>
       </section>
 
@@ -500,7 +500,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
   )
 }
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const { state } = query;  
+  const { state } = query;
 
   // const zoneTitles = allzone.map((zone: any) => zone.title);
   // const resultString = zoneTitles.join(',');
@@ -512,13 +512,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const zoneTitlesQ = providers_city_data.map((zone: any) => zone.title);
   const resultStringQ = zoneTitlesQ.join(',');
-  const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');  
-
-
+  const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');
+  //console.log("🚀 ~ file: index.tsx:516 ~ constgetServerSideProps:GetServerSideProps= ~ All_zones_listQ:", All_zones_listQ)
   const postData = {
     internet_services: All_zones_listQ
   };
-  
   const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
     method: 'POST',
     headers: {
@@ -527,8 +525,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     body: JSON.stringify(postData),
   });
 
-  
-  
 
   const providers_data = await response_data.json();
 
@@ -542,7 +538,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   return {
     props: {
-      allcities,    
+      allcities,
       state,
       allProviders: providers_data.providers
 
