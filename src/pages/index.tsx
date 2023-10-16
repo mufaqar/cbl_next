@@ -1,3 +1,5 @@
+"use client"
+
 import CityBox from '@/components/city-box';
 import SearchForm from '@/components/searchform';
 import ServiceBox from '@/components/service-box';
@@ -8,9 +10,12 @@ import { HiOutlineSearchCircle, HiOutlineShoppingCart } from 'react-icons/hi'
 import { BiGitCompare } from 'react-icons/bi'
 import Image from 'next/image';
 import { LuPhoneCall } from 'react-icons/lu'
+import { AllPosts } from '@/config/query';
+import { GetServerSideProps } from 'next';
+import apolloClient from '@/config/client';
 
 
-export default function Home() {
+export default function Home({BlogPosts}:any) {
 
    useEffect(() => {
       let SITE_URI = "http:sitename.com/"
@@ -222,26 +227,6 @@ export default function Home() {
             </div>
          </section>
 
-         {/* <section className="flex md:flex-row flex-col bg-gradient-to-r from-white via-white to-[#F3FAFF]">
-            <div className='flex md:flex-row flex-col container mx-auto px-4 gap-7 items-center'>
-               <div className="md:w-5/12 w-full">
-                  <h2 className="text-2xl font-bold">
-                     Review Top Providers
-                  </h2>
-                  <p className="text-base font-[Roboto] my-3">
-                     Let us help you sift through the noise by comparing the top providers near you. Find high-speed options for internet, TV, or bundles that meet your needs.
-                  </p>
-                  <Link href="/providers" className="text-[#215690] font-[Roboto] ">
-                     View All Providers
-                  </Link>
-               </div>
-               <div className="md:w-7/12 w-full">
-                  <div className='rounded-l-[90px] bg-[#F3FAFF] py-20 px-5'>
-                     <Brands />
-                  </div>
-               </div>
-            </div>
-         </section> */}
 
          <Why_ChooseUs />
 
@@ -253,42 +238,32 @@ export default function Home() {
                   </h2>
                </div>
                <div className='grid md:grid-cols-3 grid-cols-1 gap-7'>
-                  <Link href="/blog">
-                     <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                        <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
-                        <div className="p-4 pl-0">
-                           <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
-                           <p className="text-gray-700 mt-2 text-center text-sm">
-                              Ari Howard —  6 min read
-                           </p>
-                        </div>
-                     </div>
-                  </Link>
-                  <Link href="/blog">
-                     <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                        <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
-                        <div className="p-4 pl-0">
-                           <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
-                           <p className="text-gray-700 mt-2 text-center text-sm">
-                              Ari Howard —  5 min read
-                           </p>
-                        </div>
-                     </div>
-                  </Link>
-                  <Link href="/blog">
-                     <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                        <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
-                        <div className="p-4 pl-0">
-                           <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
-                           <p className="text-gray-700 mt-2 text-center text-sm">
-                              Ari Howard —  7 min read
-                           </p>
-                        </div>
-                     </div>
-                  </Link>
+               {BlogPosts?.map( (item:any, idx:number) => {
+
+                  return (
+                     <>
+                     <BlogPosts key={idx} data={item} />
+                     </>
+                  )
+               })
+            }
+                  
+                  
                </div>
             </div>
          </section>
       </>
    );
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+   const [allposts] = await Promise.all([
+       apolloClient.query({ query: AllPosts }),
+   ]);
+   const BlogPosts = allposts.data.posts.edges;
+   return {
+       props: {
+           BlogPosts
+       },
+   };
 }
