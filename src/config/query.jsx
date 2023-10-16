@@ -365,3 +365,19 @@ query GET_ZONE_BY_CITY{
 
 
 
+
+export const GET_POST_SLUG = gql`
+query GET_POST_SLUG ($slug: String = ""){
+  postBy(slug: $slug) {
+    title
+    content
+    featuredImage {
+      node {
+        mediaItemUrl
+      }
+    }
+  }
+}`;
+
+
+

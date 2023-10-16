@@ -8,18 +8,18 @@ import Link from 'next/link'
 import React from 'react'
 
 function Blog({ BlogPosts }: any) {
-    console.log("🚀 ~ file: index.tsx:10 ~ Blog ~ BlogPosts:", BlogPosts)
+
     return (
         <>
             <PageBanner title="Blog" />
             <main className="py-16 max-w-screen-lg mx-auto">
-              
+
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-7">
                     {
                         BlogPosts.map((item: any, idx: number) => {
                             return (
                                 <>
-                                   
+
                                     <Blogpost key={idx} data={item} />
 
                                 </>

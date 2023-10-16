@@ -4,6 +4,7 @@ import React from 'react'
 
 export default function Blogpost({ data }: any) {
     return (
+        <Link href={`/blog/${data?.node?.slug}`}>
         <div className="rounded-lg p-4 lg:p-0 shadow-md">
             <Image src={data?.node?.featuredImage?.node?.mediaItemUrl} alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
             <div className="p-5">
@@ -11,6 +12,7 @@ export default function Blogpost({ data }: any) {
                 <div className="text-gray-700 mt-2 text-justify text-sm" dangerouslySetInnerHTML={{ __html: data?.node?.excerpt }} />
             </div>
         </div>
+        </Link>
 
     )
 }

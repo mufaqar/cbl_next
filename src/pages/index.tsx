@@ -1,4 +1,4 @@
-"use client"
+
 
 import CityBox from '@/components/city-box';
 import SearchForm from '@/components/searchform';
@@ -13,35 +13,11 @@ import { LuPhoneCall } from 'react-icons/lu'
 import { AllPosts } from '@/config/query';
 import { GetServerSideProps } from 'next';
 import apolloClient from '@/config/client';
+import Blogpost from '@/components/blogpost';
 
 
-export default function Home({BlogPosts}:any) {
+export default function Home({ BlogPosts }: any) {
 
-   useEffect(() => {
-      let SITE_URI = "http:sitename.com/"
-      async function fetchStateWiseCity(){
-         const responceStateWiseCity = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities')
-         const dataStateWiseCity = await responceStateWiseCity.json();
-         // Initialize an empty array to store the result URLs
-         const resultUrls = [];
-         // Iterate through the keys and their associated arrays
-         for (const key in dataStateWiseCity) {
-           const subArray = dataStateWiseCity[key];
-           for (const subValue of subArray) {
-             const url = SITE_URI + key + '/' + subValue;
-             resultUrls.push(url);
-           }
-         }
-         return resultUrls
-       }
-       
-       const f = async()=>{
-         let a = await fetchStateWiseCity()
-         console.log("🚀 ~ file: index.tsx:33 ~ useEffect ~ a:", a)
-       }
-      f()
-
-   }, [])
 
    return (
       <>
@@ -238,17 +214,13 @@ export default function Home({BlogPosts}:any) {
                   </h2>
                </div>
                <div className='grid md:grid-cols-3 grid-cols-1 gap-7'>
-               {BlogPosts?.map( (item:any, idx:number) => {
+                  {BlogPosts?.slice(0,3).map((item: any, idx: number) => {
+                     return (
+                        <Blogpost key={idx} data={item} />
+                     );
+                  })}
 
-                  return (
-                     <>
-                     <BlogPosts key={idx} data={item} />
-                     </>
-                  )
-               })
-            }
-                  
-                  
+
                </div>
             </div>
          </section>
@@ -258,12 +230,12 @@ export default function Home({BlogPosts}:any) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
    const [allposts] = await Promise.all([
-       apolloClient.query({ query: AllPosts }),
+      apolloClient.query({ query: AllPosts }),
    ]);
    const BlogPosts = allposts.data.posts.edges;
    return {
-       props: {
-           BlogPosts
-       },
+      props: {
+         BlogPosts
+      },
    };
 }
