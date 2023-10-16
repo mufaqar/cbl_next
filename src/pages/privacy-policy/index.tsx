@@ -9,24 +9,26 @@ function Privacy_Policy() {
                 <div className='container mx-auto px-4'>
                     <div className="">
                         <p className='text-xl leading-none mb-4'>
-                            Last updated: September 19, 2023
+                            Last updated: September 26, 2023
                         </p>
                         <p className='text-base leading-none mb-4'>
                             This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
                         </p>
                         <p className='text-base leading-none mb-4'>
-                            We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the <a href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/" target="_blank">Free Privacy Policy Generator</a>.
+                            We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the Privacy Policy Generator
                         </p>
                         <h3 className='md:text-3xl text-2xl mb-4'>
                             Interpretation and Definitions
                         </h3>
                         <h4 className='md:text-2xl text-xl mb-4'>
-                            Interpretation</h4>
+                            Interpretation
+                        </h4>
                         <p className='text-base leading-none mb-4'>
                             The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
                         </p>
                         <h4 className='md:text-2xl text-xl mb-4'>
-                            Definitions</h4>
+                            Definitions
+                        </h4>
                         <p className='text-base leading-none mb-4'>
                             For the purposes of this Privacy Policy:
                         </p>
@@ -38,12 +40,12 @@ function Privacy_Policy() {
                             </li>
                             <li>
                                 <p className='text-base leading-none mb-4'>
-                                    <strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where &quot;control&quot; means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
+                                    <strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
                                 </p>
                             </li>
                             <li>
                                 <p className='text-base leading-none mb-4'>
-                                    <strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Cablemovers, 1 Cupertino, CA 95014.
+                                    <strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to cablemovers.net.
                                 </p>
                             </li>
                             <li>
@@ -53,7 +55,7 @@ function Privacy_Policy() {
                             </li>
                             <li>
                                 <p className='text-base leading-none mb-4'>
-                                    <strong>Country</strong> refers to: South Carolina,  United States
+                                    <strong>Country</strong> refers to: Florida, United States
                                 </p>
                             </li>
                             <li>
@@ -83,7 +85,7 @@ function Privacy_Policy() {
                             </li>
                             <li>
                                 <p className='text-base leading-none mb-4'>
-                                    <strong>Website</strong> refers to Cablemovers, accessible from <a href="https://cablemovers.vercel.app" rel="external nofollow noopener" target="_blank">https://cablemovers.vercel.app</a>
+                                    <strong>Website</strong> refers to cablemovers.net, accessible from cablemovers.net
                                 </p>
                             </li>
                             <li>
@@ -96,7 +98,8 @@ function Privacy_Policy() {
                             Collecting and Using Your Personal Data
                         </h3>
                         <h4 className='md:text-2xl text-xl mb-4'>
-                            Types of Data Collected</h4>
+                            Types of Data Collected
+                        </h4>
                         <h3 className='md:text-3xl text-2xl mb-4'>
                             Personal Data
                         </h3>
@@ -116,6 +119,11 @@ function Privacy_Policy() {
                             </li>
                             <li>
                                 <p className='text-base leading-none mb-4'>
+                                    Phone number
+                                </p>
+                            </li>
+                            <li>
+                                <p className='text-base leading-none mb-4'>
                                     Address, State, Province, ZIP/Postal code, City
                                 </p>
                             </li>
@@ -129,32 +137,32 @@ function Privacy_Policy() {
                             Usage Data
                         </h3>
                         <p className='text-base leading-none mb-4'>
-                            Usage Data is collected automatically when using the Service.
+                        Usage Data is collected automatically when using the Service.
                         </p>
                         <p className='text-base leading-none mb-4'>
-                            Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
+                        Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
                         </p>
                         <p className='text-base leading-none mb-4'>
-                            When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.
+                        When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.
                         </p>
                         <p className='text-base leading-none mb-4'>
-                            We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.
+                        We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.
                         </p>
                         <h3 className='md:text-3xl text-2xl mb-4'>
                             Tracking Technologies and Cookies
                         </h3>
                         <p className='text-base leading-none mb-4'>
-                            We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:
+                        We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:
                         </p>
                         <ul className='md:text-base text-2xl'>
                             <li className='mb-4'><strong>Cookies or Browser Cookies.</strong> A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service. Unless you have adjusted Your browser setting so that it will refuse Cookies, our Service may use Cookies.</li>
                             <li className='mb-4'><strong>Web Beacons.</strong> Certain sections of our Service and our emails may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or opened an email and for other related website statistics (for example, recording the popularity of a certain section and verifying system and server integrity).</li>
                         </ul>
                         <p className='text-base leading-none mb-4'>
-                            Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web browser. Learn more about cookies on the <a href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking" target="_blank">Free Privacy Policy website</a> article.
+                        Cookies can be "Persistent" or "Session" Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web browser. You can learn more about cookies on TermsFeed website article.
                         </p>
                         <p className='text-base leading-none mb-4'>
-                            We use both Session and Persistent Cookies for the purposes set out below:
+                        We use both Session and Persistent Cookies for the purposes set out below:
                         </p>
                         <ul className='md:text-base text-2xl'>
                             <li>
@@ -168,7 +176,7 @@ function Privacy_Policy() {
                                     Administered by: Us
                                 </p>
                                 <p className='text-base leading-none mb-4'>
-                                    Purpose: These Cookies are essential to provide You with services available through the Website and to enable You to use some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies, the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services.
+                                Purpose: These Cookies are essential to provide You with services available through the Website and to enable You to use some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies, the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services.
                                 </p>
                             </li>
                             <li>
@@ -196,12 +204,12 @@ function Privacy_Policy() {
                                     Administered by: Us
                                 </p>
                                 <p className='text-base leading-none mb-4'>
-                                    Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website.
+                                Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website.
                                 </p>
                             </li>
                         </ul>
                         <p className='text-base leading-none mb-4'>
-                            For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.
+                        For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.
                         </p>
                         <h4 className='md:text-2xl text-xl mb-4'>
                             Use of Your Personal Data</h4>
@@ -365,12 +373,12 @@ function Privacy_Policy() {
                         <ul className='md:text-base text-2xl'>
                             <li>
                                 <p className='text-base leading-none mb-4'>
-                                    By email: info@cabelmovers.net
+                                By email: contact@cablemovers.net
                                 </p>
                             </li>
                             <li>
                                 <p className='text-base leading-none mb-4'>
-                                    By phone number: 855-512-0491
+                                By phone number: 833-592-0098
                                 </p>
                             </li>
                         </ul>
