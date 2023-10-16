@@ -3,7 +3,7 @@ import SearchForm from '@/components/searchform';
 import ServiceBox from '@/components/service-box';
 import Why_ChooseUs from '@/components/why-choose-us';
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { HiOutlineSearchCircle, HiOutlineShoppingCart } from 'react-icons/hi'
 import { BiGitCompare } from 'react-icons/bi'
 import Image from 'next/image';
@@ -11,6 +11,33 @@ import { LuPhoneCall } from 'react-icons/lu'
 
 
 export default function Home() {
+
+   useEffect(() => {
+      let SITE_URI = "http:sitename.com/"
+      async function fetchStateWiseCity(){
+         const responceStateWiseCity = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities')
+         const dataStateWiseCity = await responceStateWiseCity.json();
+         // Initialize an empty array to store the result URLs
+         const resultUrls = [];
+         // Iterate through the keys and their associated arrays
+         for (const key in dataStateWiseCity) {
+           const subArray = dataStateWiseCity[key];
+           for (const subValue of subArray) {
+             const url = SITE_URI + key + '/' + subValue;
+             resultUrls.push(url);
+           }
+         }
+         return resultUrls
+       }
+       
+       const f = async()=>{
+         let a = await fetchStateWiseCity()
+         console.log("🚀 ~ file: index.tsx:33 ~ useEffect ~ a:", a)
+       }
+      f()
+
+   }, [])
+
    return (
       <>
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
