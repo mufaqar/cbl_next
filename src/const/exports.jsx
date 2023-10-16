@@ -91,11 +91,11 @@ export const NavLinks = [
     },
     {
         name: "DO NOT SELL MY INFORMATION",
-        link: "#",
+        link: "/do-not-sell-my-information",
     },
     {
         name: "TERMS AND CONDITIONS",
-        link: "#",
+        link: "/terms-and-conditions",
     },
     {
         name: "SITEMAP",
