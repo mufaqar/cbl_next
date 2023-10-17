@@ -11,8 +11,10 @@ import { useRouter } from 'next/router'
 import { CiStreamOn } from 'react-icons/ci'
 import { MdCable, MdSatelliteAlt } from 'react-icons/md'
 import Table_CardProvider from '../provider/table-cardProvider'
+import { typeFromAST } from 'graphql'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
+console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProviders)
 
     const { query } = useRouter();
     var type = query?.type;
@@ -110,25 +112,30 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         <h2 className="text-2xl font-bold">
                             Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
+                       
                         <p className='text-xl font-[Roboto] mt-5'>
-                            As of the time this page was written, {city}  residents has {totalProviderCount}  or more {formatType(type)}  service providers offering various types of {formatType(type)}  service plans including  {
-                                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    item.serviceTypes.nodes.map((type: any, i: number) => {
-                                        return (
-                                            <>
-                                                <span key={i}> {type.name}, </span>
-                                            </>
-                                        )
-                                    })
+                        As of the time this page was written, {city} has three or more {formatType(type)}  service providers offering various types of {formatType(type)}  plans to its residents. You’ll likely have options from  
+                         {
+                                uniqueServiceType.map((t: any, i: number) => (
+                                    <span key={i}> {t} , </span>
 
                                 ))
-                            } are the largest providers in the area.
-                        </p>
+                            } {formatType(type)}  service providers.  {
+                                allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                  <span key={idx}>  {item?.title}, </span>
+                                ))
+                              } are the best {formatType(type)}  service providers in {city} , {state}.
+                              </p>
+
+                             
+
+
+
                     </div>
                 </div>
             </section>
 
-            {type !== 'tv' && (
+          
 
                 <section className="my-16">
                     <div className="container mx-auto px-4">
@@ -208,14 +215,10 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                 })
                             }
                         </div>
-                        <div>
-                            <p className="text-sm font-[Roboto] mt-10">
-                                *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
-                            </p>
-                        </div>
+                        
                     </div>
                 </section>
-            )}
+          
             {type !== 'tv' && (
                 <section className="my-16">
                     <div className="container mx-auto px-4">

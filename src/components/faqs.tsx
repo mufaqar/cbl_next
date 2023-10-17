@@ -126,26 +126,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                             </p>
                         </div>
                     </div>
-                    <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
-                        <div className="">
-                            <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(6)}>
-                                <p className="text-lg font-semibold " >
-                                    6.	How do I setup internet service in my new home in  {city} {state}?
-                                </p>
-                                <span className="text-lightBlue">
-
-                                    <AiOutlinePlus size={24}
-                                        className={`${open === 5 ? "rotate-45 transform transition duration-200" : "rotate-0 transform transition duration-200"}`} />
-
-                                </span>
-                            </div>
-                        </div>
-                        <div className={`${open === 6 ? 'flex' : 'hidden'} `}>
-                            <p className="text-base font-medium mt-5" >
-                                To setup internet service in your new home, contact the above listed service providers, Inquire about their plans and select the plan that works for you.
-                            </p>
-                        </div>
-                    </div>
+                    
                 </>
 
             }

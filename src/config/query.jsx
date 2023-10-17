@@ -45,7 +45,7 @@ query GET_ZIPCODE {
 
 export const GET_ALL_PROVIDERS = gql`
 query GET_ALL_PROVIDERS{
-  allProviders ( first: 100) {
+  allProviders ( first: 100 , where: {orderby: {field: MENU_ORDER, order: ASC}} ) {
     nodes {
       title
       slug

@@ -43,7 +43,7 @@ const Inter_Service = ({ data }: any) => {
                     <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                         <div>
                             <p className="text-center md:text-base text-xs">
-                               {data?.price}/mo
+                               ${data?.price}/mo
                             </p>
                         </div>
                     </div>

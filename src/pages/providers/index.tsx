@@ -13,21 +13,22 @@ function Providers({ allProviders }: any) {
 
     return (
         <>
-            <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
-                <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
-                    <div className="py-10">
-                        <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
-                            Find <span className="text-[#ef9831]">Internet and TV Service Providers</span> in your area by Cable Movers
-                        </h1>
-                        <div className="mt-5">
-                            <SearchForm />
-                        </div>
-                    </div>
-                    <div className=''>
-                        {/* <Image src="/images/slug-bg.png" alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' /> */}
-                    </div>
-                </div>
-            </section>
+             <section className="min-h-[40vh]  flex items-center bg-[#215690]">
+        <div className="container mx-auto px-4">
+          <div >
+            <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10 text-white">
+             Find Internet & TV Service Providers in 
+             <br /><span className="text-[#ef9831]">your area.</span>
+            </h1>
+            <p className="text-xl text-center font-[Roboto] my-5 text-white">
+              Enter your zip so we can find the best providers in your area:
+            </p>
+            <div className='grid justify-center'>
+              <SearchForm />
+            </div>
+          </div>
+        </div>
+      </section>
             <section className="">
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
                     <div className="mx-auto max-w-xl text-center">
@@ -100,7 +101,7 @@ function Providers({ allProviders }: any) {
                             Explore popular internet and TV providers we partner with to shop, compare and set up services at home.
                         </p>
                     </div>
-                    <div className='flex md:flex-row flex-col gap-5 items-center'>
+                    <div className='flex md:flex-row flex-col gap-8 items-center'>
                         <div className='bg-[#F3FAFF] max-w-[240px] w-full p-8 rounded-2xl'>
                             <Image src="/images/search.svg" alt={'search'} width={60} height={54} className='mx-auto' />
                             <h5 className='text-base font-bold text-center mt-3'>
@@ -119,17 +120,8 @@ function Providers({ allProviders }: any) {
                         <div>
                             <FaArrowRightLong className="text-[#0066d4] text-3xl transform md:rotate-0 rotate-90" />
                         </div>
-                        <div className='bg-[#F3FAFF] max-w-[240px] w-full p-8 rounded-2xl'>
-                            <Image src="/images/shopping-cart.svg" alt={'hopping-cart'} width={60} height={54} className='mx-auto' />
-                            <h5 className='text-base font-bold text-center mt-3'>
-                                Order on our one-stop online shop
-                            </h5>
-                        </div>
-                        <div>
-                            <span className='text-sm block w-fit border-2 border-gray-400 rounded-full py-2 px-3 text-gray-500'>
-                                or
-                            </span>
-                        </div>
+                        
+                        
                         <div className='bg-[#F3FAFF] max-w-[240px] w-full p-8 rounded-2xl'>
                             <Image src="/images/expert.png" alt={'expert'} width={60} height={54} className='mx-auto' />
                             <h5 className='text-base font-bold text-center mt-3'>
@@ -140,53 +132,7 @@ function Providers({ allProviders }: any) {
                 </div>
             </section>
 
-            <section className="">
-                <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
-                    <div className="flex md:flex-row flex-col gap-7 md:justify-between justify-center items-center">
-                        <h2 className='text-3xl font-bold'>
-                            What to read next
-                        </h2>
-                        <Link href="/blog" className='px-5 py-2 text-base text-center block bg-[#ef9831] hover:bg-[#215690] text-white w-fit'>
-                            Read more
-                        </Link>
-                    </div>
-                    <div className='grid md:grid-cols-3 grid-cols-1 gap-7 mt-10 pt-10 border-t '>
-                        <Link href="/blog">
-                            <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
-                                <div className="p-4 pl-0">
-                                    <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
-                                    <p className="text-gray-700 mt-2 text-center text-sm">
-                                        Ari Howard —  6 min read
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link href="/blog">
-                            <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
-                                <div className="p-4 pl-0">
-                                    <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
-                                    <p className="text-gray-700 mt-2 text-center text-sm">
-                                        Ari Howard —  5 min read
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link href="/blog">
-                            <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
-                                <div className="p-4 pl-0">
-                                    <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
-                                    <p className="text-gray-700 mt-2 text-center text-sm">
-                                        Ari Howard —  7 min read
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            
         </>
     )
 }

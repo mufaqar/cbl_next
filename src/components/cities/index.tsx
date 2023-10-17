@@ -143,9 +143,20 @@ export default function Cities_com({ my_city, allProviders }: any) {
             </h2>
 
             <p className='text-xl font-[Roboto] mt-5'>
-              As of the time this page was written, {state}  residents has {totalProviderCount}  or more internet service providers offering various types of internet service plans including
-              <div className='inline-block px-1' dangerouslySetInnerHTML={{ __html: uniqueServiceType }} />
-              are the largest providers in the area.</p>
+                        As of the time this page was written, {city} has three or more internet service providers offering various types of internet plans to its residents. You’ll likely have options from  
+                         {
+                                uniqueServiceType.map((t: any, i: number) => (
+                                    <span key={i}> {t} , </span>
+
+                                ))
+                            } internet service providers.  {
+                                allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                  <span key={idx}>  {item?.title}, </span>
+                                ))
+                              } are the best internet service providers in {city} , {state}.
+                              </p>
+
+              
 
 
           </div>

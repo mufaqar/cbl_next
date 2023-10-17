@@ -6,7 +6,7 @@ import { BiLogoFacebookCircle, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoYoutub
 
 const Footer = () => {
   return (
-    <footer className='bg-[#111827] pt-16 pb-4 '>
+    <footer className='bg-[#000] pt-16 pb-4 '>
       <div className='container mx-auto px-4 grid md:grid-cols-4 grid-cols-1 gap-5'>
         <div>
           <Link href="/">
@@ -38,25 +38,12 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <h6 className='text-lg font-normal text-white mb-5'>
-            SERVICES
-          </h6>
-          <ul className='grid gap-3'>
-            {Services_data?.map((item: any, idx: number) => {
-              return <li key={idx}>
-                <Link href={item?.link} className='text-sm font-medium capitalize text-white/75 hover:text-white'>
-                  {item?.name}
-                </Link>
-              </li>
-            })}
-          </ul>
-        </div>
-        <div>
-          <h6 className='text-lg font-normal text-white mb-5'>
+        
+        <div className='col-span-2'>
+          <h6 className='text-lg font-normal text-white mb-5 '>
             PROVIDERS
           </h6>
-          <ul className='grid md:grid-cols-2 grid-cols-1 gap-3'>
+          <ul className='grid md:grid-cols-3 grid-cols-1 gap-1'>
             {Providers_Data?.map((item: any, idx: number) => {
               return <li key={idx}>
                 <Link href={item?.link} className='text-sm font-medium capitalize text-white/75 hover:text-white'>

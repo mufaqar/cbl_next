@@ -1,148 +1,188 @@
 export const Services_data = [
-    {
-        name: "INTERNET PROVIDERS",
-        link: "#",
-    },
-    {
-        name: "SATELLITE INTERNET",
-        link: "#",
-    },
-    {
-        name: "TV PROVIDERS",
-        link: "#",
-    },
-    {
-        name: "INTERNET AND TV PROVIDERS",
-        link: "#",
-    },
-    {
-        name: "INTERNET AND TV PROVIDERS",
-        link: "#",
-    },
-    {
-        name: "CABLE MOVERS",
-        link: "#",
-    },
+  {
+    name: 'INTERNET PROVIDERS',
+    link: '#',
+  },
+  {
+    name: 'SATELLITE INTERNET',
+    link: '#',
+  },
+  {
+    name: 'TV PROVIDERS',
+    link: '#',
+  },
+  {
+    name: 'INTERNET AND TV PROVIDERS',
+    link: '#',
+  },
+  {
+    name: 'INTERNET AND TV PROVIDERS',
+    link: '#',
+  },
+  {
+    name: 'CABLE MOVERS',
+    link: '#',
+  },
 ];
 
 export const Providers_Data = [
-    {
-        name: "SPECTRUM",
-        link: "/providers/spectrum",
-    },
-    {
-        name: "XFINITY",
-        link: "#",
-    },
-    {
-        name: "OPTIMUM",
-        link: "#",
-    },
-    {
-        name: "FRONTIER",
-        link: "#",
-    },
-    {
-        name: "T-MOBILE",
-        link: "/providers/t-mobile",
-    },
-    {
-        name: "AT&T",
-        link: "/providers/att",
-    },
-    {
-        name: "VIASAT",
-        link: "/providers/viasat",
-    },
-    {
-        name: "EARTHLINK",
-        link: "/providers/earthlink",
-    },
-    {
-        name: "CENTURYLINK",
-        link: "/providers/centurylink",
-    },
-    {
-        name: "HUGHESNET",
-        link: "/providers/hughesnet",
-    },
-    {
-        name: "WINDSTREAM",
-        link: "/providers/windstream",
-    },
-    {
-        name: "RISE BROADBAND",
-        link: "/providers/rise-broadband",
-    },
+  {
+    name: 'SPECTRUM',
+    link: '/providers/spectrum',
+  },
+  {
+    name: 'Mediacom',
+    link: '/providers/mediacom',
+  },
+  {
+    name: 'Xfinity',
+    link: '/providers/xfinity',
+  },
+  {
+    name: 'Optimum',
+    link: '/providers/optimum',
+  },
+  {
+    name: 'Cox',
+    link: '/providers/cox',
+  },
+  {
+    name: 'Astound Broadband',
+    link: '/providers/astound-broadband',
+  },
+  {
+    name: 'TDS',
+    link: '/providers/tds',
+  },
+  {
+    name: 'Frontier',
+    link: '/providers/frontier',
+  },
+  {
+    name: 'Windstream',
+    link: '/providers/windstream',
+  },
+  {
+    name: 'Verizon',
+    link: '/providers/verizon',
+  },
+  {
+    name: 'CenturyLink',
+    link: '/providers/centurylink',
+  },
+  {
+    name: 'EarthLink',
+    link: '/providers/earthlink',
+  },
+  {
+    name: 'Brightspeed',
+    link: '/providers/brightspeed',
+  },
+  {
+    name: 'AT&T',
+    link: '/providers/att',
+  },
+  {
+    name: 'HughesNet',
+    link: '/providers/hughesnet',
+  },
+  {
+    name: 'Viasat',
+    link: '/providers/viasat',
+  },
+  {
+    name: 'DISH',
+    link: '/providers/dish',
+  },
+  {
+    name: 'DIRECTV',
+    link: '/providers/directv',
+  },
+  {
+    name: 'WOW!',
+    link: '/providers/',
+  },
+  {
+    name: 'wow',
+    link: '/providers/',
+  },
+  {
+    name: 'T-Mobile',
+    link: '/providers/t-mobile',
+  },
+  {
+    name: 'Rise Broadband',
+    link: '/providers/rise-broadband',
+  },
 ];
 
 export const NavLinks = [
-    {
-        name: "ABOUT US",
-        link: "/about-us",
-    },
-    {
-        name: "CONTACT US",
-        link: "/contact-us",
-    },
-    {
-        name: "PRIVACY POLICY",
-        link: "/privacy-policy",
-    },
-    {
-        name: "DO NOT SELL MY INFORMATION",
-        link: "/do-not-sell-my-information",
-    },
-    {
-        name: "TERMS AND CONDITIONS",
-        link: "/terms-and-conditions",
-    },
-    {
-        name: "SITEMAP",
-        link: "#",
-    },
+  {
+    name: 'ABOUT US',
+    link: '/about-us',
+  },
+  {
+    name: 'CONTACT US',
+    link: '/contact-us',
+  },
+  {
+    name: 'PRIVACY POLICY',
+    link: '/privacy-policy',
+  },
+  {
+    name: 'DO NOT SELL MY INFORMATION',
+    link: '/do-not-sell-my-information',
+  },
+  {
+    name: 'TERMS AND CONDITIONS',
+    link: '/terms-and-conditions',
+  },
+  {
+    name: 'SITEMAP',
+    link: '#',
+  },
 ];
 
 export const Galler_Data = [
-    {
-        img: "/images/partner1.png",
-    },
-    {
-        img: "/images/partner2.png",
-    },
-    {
-        img: "/images/partner3.jpg",
-    },
-    {
-        img: "/images/partner4.png",
-    },
-    {
-        img: "/images/partner5.png",
-    },
-    {
-        img: "/images/partner6.png",
-    },
-    {
-        img: "/images/partner7.png",
-    },
-    {
-        img: "/images/partner8.jpg",
-    },
-    {
-        img: "/images/partner9.png",
-    },
-    {
-        img: "/images/partner10.png",
-    },
-    {
-        img: "/images/partner11.png",
-    },
-    {
-        img: "/images/partner12.png",
-    },
-    {
-        img: "/images/partner13.png",
-    },
+  {
+    img: '/images/partner1.png',
+  },
+  {
+    img: '/images/partner2.png',
+  },
+  {
+    img: '/images/partner3.jpg',
+  },
+  {
+    img: '/images/partner4.png',
+  },
+  {
+    img: '/images/partner5.png',
+  },
+  {
+    img: '/images/partner6.png',
+  },
+  {
+    img: '/images/partner7.png',
+  },
+  {
+    img: '/images/partner8.jpg',
+  },
+  {
+    img: '/images/partner9.png',
+  },
+  {
+    img: '/images/partner10.png',
+  },
+  {
+    img: '/images/partner11.png',
+  },
+  {
+    img: '/images/partner12.png',
+  },
+  {
+    img: '/images/partner13.png',
+  },
 ];
 // export const getFaqsData = (city, state) => {
 //     return [
@@ -163,6 +203,3 @@ export const Galler_Data = [
 //         },
 //     ];
 // };
-
-
-
