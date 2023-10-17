@@ -7,8 +7,8 @@ import { BiLogoFacebookCircle, BiLogoTwitter, BiLogoLinkedinSquare, BiLogoYoutub
 const Footer = () => {
   return (
     <footer className='bg-[#000] pt-16 pb-4 '>
-      <div className='container mx-auto px-4 grid md:grid-cols-4 grid-cols-1 gap-5'>
-        <div>
+      <div className='container mx-auto px-4 grid md:grid-cols-5 grid-cols-1 gap-5'>
+      <div className='col-span-2'>
           <Link href="/">
             <Image src="/logo.png" alt="logo.svg" height={56} width={254} />
           </Link>
@@ -17,25 +17,21 @@ const Footer = () => {
           </p>
           <ul className='flex gap-5 mt-5'>
             <li>
-              <Link href="#" className='text-white/75 hover:text-white text-2xl'>
+              <Link href="https://facebook.com/cablemovers" className='text-white/75 hover:text-white text-2xl'>
                 <BiLogoFacebookCircle />
               </Link>
             </li>
             <li>
-              <Link href="#" className='text-white/75 hover:text-white text-2xl'>
+              <Link href="https://twitter.com/cablemovers" className='text-white/75 hover:text-white text-2xl'>
                 <BiLogoTwitter />
               </Link>
             </li>
             <li>
-              <Link href="#" className='text-white/75 hover:text-white text-2xl'>
+              <Link href="https://www.linkedin.com/" className='text-white/75 hover:text-white text-2xl'>
                 <BiLogoLinkedinSquare />
               </Link>
             </li>
-            <li>
-              <Link href="#" className='text-white/75 hover:text-white text-2xl'>
-                <BiLogoYoutube />
-              </Link>
-            </li>
+            
           </ul>
         </div>
         
