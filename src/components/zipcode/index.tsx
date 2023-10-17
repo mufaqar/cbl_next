@@ -10,32 +10,34 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { CiStreamOn } from 'react-icons/ci'
 import { MdCable, MdSatelliteAlt } from 'react-icons/md'
-import Table_CardProvider from '../provider/table-cardProvider'
+import Table_CardProvider from '../provider/cheeptable-cardProvider'
 import { typeFromAST } from 'graphql'
+import Cheep_Table_CardProvider from '../provider/cheeptable-cardProvider'
+import Fast_Table_CardProvider from '../provider/fasttable-cardProvider'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
-console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProviders)
+    console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProviders)
 
     const { query } = useRouter();
     var type = query?.type;
     var types = query?.type;
 
-    function formatType(type:any) {
+    function formatType(type: any) {
         if (type === "internet") {
-          return "Internet";
+            return "Internet";
         } else if (type === "tv") {
-          return "TV";
+            return "TV";
         } else if (type === "internet-tv") {
-          return "Internet and TV";
+            return "Internet and TV";
         } else {
-          // Handle other cases if needed
-          return type; // Return the original value if no match is found
+            // Handle other cases if needed
+            return type; // Return the original value if no match is found
         }
-      }
-    
+    }
+
 
     const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
-  
+
     const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
     const flattenedNames = [].concat(...newServicesTypes);
     const uniqueServiceType = [...new Set(flattenedNames)];
@@ -47,8 +49,8 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
         const speedA = parseInt(fa.providersInfo?.servicesInfo?.internetServices?.speed?.split("-")[1], 10);
         const speedB = parseInt(fb.providersInfo?.servicesInfo?.internetServices?.speed?.split("-")[1], 10);
         return speedB - speedA;
-      });   
-    
+    });
+
 
     return (
         <>
@@ -56,7 +58,7 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
                 <div className="container mx-auto px-4">
                     <div >
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-                        {formatType(type)}  Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
+                            {formatType(type)}  Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
@@ -72,7 +74,7 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold  capitalize leading-10">
-                        {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                            {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
                     </div>
                     <div className='grid gap-7'>
@@ -112,22 +114,22 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
                         <h2 className="text-2xl font-bold">
                             Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
-                       
+
                         <p className='text-xl font-[Roboto] mt-5'>
-                        As of the time this page was written, {city} has three or more {formatType(type)}  service providers offering various types of {formatType(type)}  plans to its residents. You’ll likely have options from  
-                         {
+                            As of the time this page was written, {city} has three or more {formatType(type)}  service providers offering various types of {formatType(type)}  plans to its residents. You’ll likely have options from
+                            {
                                 uniqueServiceType.map((t: any, i: number) => (
                                     <span key={i}> {t} , </span>
 
                                 ))
                             } {formatType(type)}  service providers.  {
                                 allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                  <span key={idx}>  {item?.title}, </span>
+                                    <span key={idx}>  {item?.title}, </span>
                                 ))
-                              } are the best {formatType(type)}  service providers in {city} , {state}.
-                              </p>
+                            } are the best {formatType(type)}  service providers in {city} , {state}.
+                        </p>
 
-                             
+
 
 
 
@@ -135,8 +137,8 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
                 </div>
             </section>
 
-          
 
+            {type !== 'internet-tv' && (
                 <section className="my-16">
                     <div className="container mx-auto px-4">
                         <div className='mb-10'>
@@ -144,43 +146,13 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
                                 Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                             </h2>
                             <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an {formatType(type)}  service provider in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {formatType(type)}  service providers in {city}, {state}.</p>
-                        </div>                 
-                        
-                        <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+                        </div>
+
+                        <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-2' : ' md:grid-cols-2'} flex flex-col`}>
                             <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                 <div>
                                     <h4 className="md:text-base text-xs text-center text-white">
                                         Provider
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white">
-                                        {type === "tv" ? (
-                                            "Channels"
-                                        ) : type === "internet-tv" ? (
-                                            "Speeds from "
-                                        ) : (
-                                            "Speeds from "
-                                        )}
-                                    </h4>
-                                </div>
-                            </div>
-                                {type === "internet-tv" &&
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                        <div>
-                                            <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                                Channels
-                                            </h4>
-                                        </div>
-                                    </div>
-
-                                }
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                        Features
                                     </h4>
                                 </div>
                             </div>
@@ -209,17 +181,18 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
 
                                     return (
                                         <>
-                                            <Table_CardProvider key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                            <Cheep_Table_CardProvider key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                         </>
                                     )
                                 })
                             }
                         </div>
-                        
+
                     </div>
                 </section>
-          
-            {type !== 'tv' && (
+            )}
+
+            {type !== 'internet-tv' && type !== 'tv' && (
                 <section className="my-16">
                     <div className="container mx-auto px-4">
                         <div className='mb-10'>
@@ -229,7 +202,7 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
                             <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)}  service providers in  {city}, {state}.</p>
                         </div>
 
-                        <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+                        <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-2' : ' md:grid-cols-2'} flex flex-col`}>
                             <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                 <div>
                                     <h4 className="md:text-base text-xs text-center text-white">
@@ -252,33 +225,10 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
                             </div>
 
 
-                            {type === "internet-tv" &&
-                                <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                    <div>
-                                        <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                            Channels
-                                        </h4>
-                                    </div>
-                                </div>
-
-                            }
 
 
 
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                        Features
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                        Pricing starts from
-                                    </h4>
-                                </div>
-                            </div>
+
                         </div>
                         <div className='grid'>
                             {
@@ -297,17 +247,13 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
 
                                     return (
                                         <>
-                                            <Table_CardProvider key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                            <Fast_Table_CardProvider key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
                                         </>
                                     )
                                 })
                             }
                         </div>
-                        <div>
-                            <p className="text-sm font-[Roboto] mt-10">
-                                *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
-                            </p>
-                        </div>
+
                     </div>
                 </section>
 
@@ -407,7 +353,7 @@ console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProvi
                                     title={t}
                                     key={i}
                                     content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
-                                    
+
                                 />
                             ))
                         }
