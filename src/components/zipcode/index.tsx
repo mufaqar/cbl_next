@@ -16,7 +16,7 @@ import Cheep_Table_CardProvider from '../provider/cheeptable-cardProvider'
 import Fast_Table_CardProvider from '../provider/fasttable-cardProvider'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
-    console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProviders)
+    // console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProviders)
 
     const { query } = useRouter();
     var type = query?.type;
@@ -38,9 +38,25 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
     const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
 
-    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType.name));
-    const flattenedNames = [].concat(...newServicesTypes);
-    const uniqueServiceType = [...new Set(flattenedNames)];
+    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
+
+
+    const uniqueServiceType: any = [];
+    const seenNames = new Set();
+    newServicesTypes.forEach((st: any) => {
+        st.forEach((serviceType: any) => {
+            if (!seenNames.has(serviceType.name)) {
+                uniqueServiceType.push(serviceType);
+                seenNames.add(serviceType.name);
+            }
+        });
+    });
+
+    const countServiceType = uniqueServiceType?.length || 0;
+
+
+
+
     const totalProviderCount = allProviders?.length || 0;
     const allProvidersFast = [...allProviders];
     const allProvidersCheep = [...allProviders];
@@ -117,12 +133,14 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
                         <p className='text-xl font-[Roboto] mt-5'>
                             As of the time this page was written, {city} has three or more {formatType(type)}  service providers offering various types of {formatType(type)}  plans to its residents. You’ll likely have options from
-                            {
+                            {/* {
                                 uniqueServiceType.map((t: any, i: number) => (
                                     <span key={i}> {t} , </span>
 
                                 ))
-                            } {formatType(type)}  service providers.  {
+                            } */}
+
+                            {formatType(type)}  service providers.  {
                                 allProviders?.slice(0, 2).map((item: any, idx: number) => (
                                     <span key={idx}>  {item?.title}, </span>
                                 ))
@@ -331,9 +349,10 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             Types of {formatType(type)}  Technologies available in {city}, {state}
                         </h2>
                         <p className='text-base'>
-                            As of the time this page was written, {city} likely have several types of {formatType(type)}  technologies available to its residents. These technologies include {
+                            As of the time this page was written, {city} likely have several types of {formatType(type)}  technologies available to its residents. These technologies include
+                            {
                                 uniqueServiceType.map((t: any, i: number) => (
-                                    <span key={i}>{t} , </span>
+                                    <span key={i}> {t.name} {i < uniqueServiceType.length - 1 && ', '} </span>
 
                                 ))
                             }
@@ -344,9 +363,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             uniqueServiceType.map((t: any, i: number) => (
                                 <Technology_Box
                                     icon={<MdCable />}
-                                    title={t}
+                                    title={t.name}
                                     key={i}
-                                    content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
+                                    content={t.description}
 
                                 />
                             ))
@@ -356,7 +375,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             </section>
             <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
-                    <Faqs_Sec city={city} state={state} zipcode={zipcode} type={type} allProviders={allProviders} totalProviderCount={totalProviderCount} />
+                    <Faqs_Sec city={city} state={state} zipcode={zipcode} type={type} allProviders={allProviders} totalProviderCount={totalProviderCount} countServiceType={countServiceType} />
                 </div>
             </section>
         </>
