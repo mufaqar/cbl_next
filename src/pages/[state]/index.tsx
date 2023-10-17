@@ -17,7 +17,9 @@ import { MdCable } from 'react-icons/md';
 import { useRouter } from 'next/router'
 import { ProviderCardState } from '@/components/provider/provider-card-state';
 import Inter_Service_State from '@/components/provider/inter-service-state';
-import Table_CardProviderState from '@/components/provider/table-cardProviderState';
+import Table_CardProviderState from '@/components/provider/cheeptable-cardProviderState';
+import CheepTable_CardProviderState from '@/components/provider/cheeptable-cardProviderState';
+import FastTable_CardProviderState from '@/components/provider/fasttable-cardProviderState';
 export default function OurState({ allcities, state, allProviders, allzones }: any) {
 
   const { query } = useRouter();
@@ -139,8 +141,6 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
             </h2>
 
 
-
-
             <p className='text-xl font-[Roboto] mt-5'>
               As of the time this page was written, <span className="uppercase">{state}</span>  residents has {totalProviderCount}  or more  {formatType(type)} service providers offering various types of  {formatType(type)} service plans including
               <div className='inline-block px-1' dangerouslySetInnerHTML={{ __html: uniqueServiceType }} />
@@ -151,7 +151,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
       </section>
 
 
-      {type !== 'tv' && (
+      {type !== 'internet-tv' && (
         <section className="my-16">
           <div className="container mx-auto px-4">
             <div className='mb-10'>
@@ -161,7 +161,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
               <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an  {formatType(type)} service provider in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {type} service providers in {state}.</p>
             </div>
 
-            <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+            <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] md:grid-cols-2`}>
               <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                   <h4 className="md:text-base text-xs text-center text-white">
@@ -169,36 +169,9 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
                   </h4>
                 </div>
               </div>
-              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                <div>
-                  <h4 className="md:text-base text-xs text-center text-white">
-                    {type === "tv" ? (
-                      "Channels"
-                    ) : type === "internet-tv" ? (
-                      "Speeds from "
-                    ) : (
-                      "Speeds from "
-                    )}
-                  </h4>
-                </div>
-              </div>
-              {type === "internet-tv" &&
-                <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                  <div>
-                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                      Channels
-                    </h4>
-                  </div>
-                </div>
 
-              }
-              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                <div>
-                  <h4 className="md:text-base text-xs text-center text-white mb-2">
-                    Features
-                  </h4>
-                </div>
-              </div>
+
+
               <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                   <h4 className="md:text-base text-xs text-center text-white mb-2">
@@ -210,42 +183,25 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
             <div className='grid'>
               {
                 cheepProviders?.map((item: any, idx: number) => {
-
                   var summaryData = {
-                    logo: item?.featured_image,
                     provider: item?.title,
-                    type: item.providers_service_types[0],
-                    price: item.pro_price,
-                    mobileNo: item.pro_phone,
-                    slug: item.slug,
-                    channels: item.services_info_internet_tv_bundles_summary_channel,
-                    speed: type === "internet" ? item.services_info_internet_services_speed :
-                      type === "tv" ? item.services_info_tv_services_speed :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
-                    summery: type === "internet" ? item.services_info_internet_services_features :
-                      type === "tv" ? item.services_info_tv_services_features :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_features
+                    price: item.pro_price
                   }
-
                   return (
                     <>
-                      <Table_CardProviderState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                      <CheepTable_CardProviderState key={idx} count={idx} item={summaryData} />
 
                     </>
                   )
                 })
               }
             </div>
-            <div>
-              <p className="text-sm font-[Roboto] mt-10">
-                *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
-              </p>
-            </div>
+
           </div>
         </section>
 
       )}
-      {type !== 'tv' && (
+      {type !== 'internet-tv' && type !== 'tv' && (
 
 
         <section className="my-16">
@@ -258,7 +214,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
               <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in {state}</p>
             </div>
 
-            <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-5' : ' md:grid-cols-4'} flex flex-col`}>
+            <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] md:grid-cols-2`}>
               <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                   <h4 className="md:text-base text-xs text-center text-white">
@@ -269,75 +225,32 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
               <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                   <h4 className="md:text-base text-xs text-center text-white">
-                    {type === "tv" ? (
-                      "Channels"
-                    ) : type === "internet-tv" ? (
-                      "Speeds from "
-                    ) : (
-                      "Speeds from "
-                    )}
+                    Speeds from
                   </h4>
                 </div>
               </div>
-              {type === "internet-tv" &&
-                <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                  <div>
-                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                      Channels
-                    </h4>
-                  </div>
-                </div>
 
-              }
-              <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                <div>
-                  <h4 className="md:text-base text-xs text-center text-white mb-2">
-                    Features
-                  </h4>
-                </div>
-              </div>
-              <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                <div>
-                  <h4 className="md:text-base text-xs text-center text-white mb-2">
-                    Pricing starts from
-                  </h4>
-                </div>
-              </div>
+
             </div>
             <div className='grid'>
               {
                 FastProviders?.map((item: any, idx: number) => {
 
                   var summaryData = {
-                    logo: item?.featured_image,
                     provider: item?.title,
-                    type: item.providers_service_types[0],
-                    price: item.pro_price,
-                    mobileNo: item.pro_phone,
-                    slug: item.slug,
-                    channels: item.services_info_internet_tv_bundles_summary_channel,
-                    speed: type === "internet" ? item.services_info_internet_services_speed :
-                      type === "tv" ? item.services_info_tv_services_speed :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
-                    summery: type === "internet" ? item.services_info_internet_services_features :
-                      type === "tv" ? item.services_info_tv_services_features :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_features
+                    speed: item.services_info_internet_services_summary_speed
                   }
 
                   return (
                     <>
-                      <Table_CardProviderState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                      <FastTable_CardProviderState key={idx} count={idx} item={summaryData} />
 
                     </>
                   )
                 })
               }
             </div>
-            <div>
-              <p className="text-sm font-[Roboto] mt-10">
-                *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
-              </p>
-            </div>
+
           </div>
         </section>
 
