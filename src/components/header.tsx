@@ -31,7 +31,7 @@ const Header = () => {
                 <div className={`sm:w-2/3 w-full sm:justify-end sm:static absolute left-0 sm:py-0 py-7 sm:px-0 px-5 flex items-center ${open ? 'top-[107px] bg-white z-40' : 'top-[-100%] '}`}>
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
                         <li onMouseEnter={() => { setSubMenu(true), setSubMenu1(false) }} onClick={() => { setSubMenu(!subMenu) }}>
-                            <Link href="/tv-providers" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
+                            <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
                             <ul className={`bg-white md:absolute static top-[4.6rem] md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow-xl  ${subMenu ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu(false)}>
                                 <li>
                                     <Link href="/providers/spectrum" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
