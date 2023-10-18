@@ -20,7 +20,8 @@ import Inter_Service_State from '@/components/provider/inter-service-state';
 import Table_CardProviderState from '@/components/provider/cheeptable-cardProviderState';
 import CheepTable_CardProviderState from '@/components/provider/cheeptable-cardProviderState';
 import FastTable_CardProviderState from '@/components/provider/fasttable-cardProviderState';
-export default function OurState({ allcities, state, allProviders, allzones }: any) {
+import OverView from '@/components/overview';
+export default function OurState({ allcities, state, allProviders }: any) {
 
   const { query } = useRouter();
   const type = query.type || "internet";
@@ -43,9 +44,18 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
 
 
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
-  const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
-  const flattenedNames = [].concat(...newServicesTypes);
-  const uniqueServiceType = [...new Set(flattenedNames)];
+  const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
+  const uniqueServiceType: any = [];
+  const seenNames = new Set();
+  newServicesTypes.forEach((st: any) => {
+    st.forEach((serviceType: any) => {
+      if (!seenNames.has(serviceType.name)) {
+        uniqueServiceType.push(serviceType);
+        seenNames.add(serviceType.name);
+      }
+    });
+  });
+
   allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
 
 
@@ -140,11 +150,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
               Overview of  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
 
-
-            <p className='text-xl font-[Roboto] mt-5'>
-              As of the time this page was written, <span className="uppercase">{state}</span>  residents has {totalProviderCount}  or more  {formatType(type)} service providers offering various types of  {formatType(type)} service plans including
-              <div className='inline-block px-1' dangerouslySetInnerHTML={{ __html: uniqueServiceType }} />
-              are the largest providers in the area.</p>
+            <OverView uniqueServiceType={uniqueServiceType} type={type} city="" state={state} allProviders={allProviders} />
 
           </div>
         </div>
@@ -346,7 +352,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
             <p className='text-base'>
               As of the time this page was written, likely have several types of  {formatType(type)} technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
-                  <span key={i}>{t} , </span>
+                  <span key={i}>{t.name} , </span>
                 ))
               }
             </p>
@@ -357,9 +363,9 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
               uniqueServiceType.map((t: any, i: number) => (
                 <Technology_Box
                   icon={<MdCable />}
-                  title={t}
+                  title={t.name}
                   key={i}
-                  content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
+                  content={t.description}
                 />
               ))
             }
@@ -403,7 +409,7 @@ export default function OurState({ allcities, state, allProviders, allzones }: a
 
       <section className="my-16">
         <div className="container mx-auto px-4 grid gap-10">
-          <Faqs_Sec city="" type={type} state="" zipcode="" allProviders={allProviders} />
+          <Faqs_Sec city="" type={type} state={state} zipcode="" allProviders={allProviders} />
         </div>
       </section>
 

@@ -14,6 +14,7 @@ import Table_CardProvider from '../provider/cheeptable-cardProvider'
 import { typeFromAST } from 'graphql'
 import Cheep_Table_CardProvider from '../provider/cheeptable-cardProvider'
 import Fast_Table_CardProvider from '../provider/fasttable-cardProvider'
+import OverView from '../overview'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     // console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProviders)
@@ -131,21 +132,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
 
-                        <p className='text-xl font-[Roboto] mt-5'>
-                            As of the time this page was written, {city} has three or more {formatType(type)}  service providers offering various types of {formatType(type)}  plans to its residents. You’ll likely have options from
-                            {/* {
-                                uniqueServiceType.map((t: any, i: number) => (
-                                    <span key={i}> {t} , </span>
-
-                                ))
-                            } */}
-
-                            {formatType(type)}  service providers.  {
-                                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    <span key={idx}>  {item?.title}, </span>
-                                ))
-                            } are the best {formatType(type)}  service providers in {city} , {state}.
-                        </p>
+                       
+                        <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} />
+                      
 
 
 

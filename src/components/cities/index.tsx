@@ -14,6 +14,7 @@ import Table_CardProviderState from '../provider/cheeptable-cardProviderState';
 import { useRouter } from 'next/router'
 import FastTable_CardProviderState from '../provider/fasttable-cardProviderState';
 import CheepTable_CardProviderState from '../provider/cheeptable-cardProviderState';
+import OverView from '../overview';
 
 
 export default function Cities_com({ my_city, allProviders }: any) {
@@ -44,9 +45,20 @@ export default function Cities_com({ my_city, allProviders }: any) {
   const city = capitalizedWords.join(' ');
 
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
-  const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => serviceType));
-  const flattenedNames = [].concat(...newServicesTypes);
-  const uniqueServiceType = [...new Set(flattenedNames)];
+
+  const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
+
+
+  const uniqueServiceType: any = [];
+  const seenNames = new Set();
+  newServicesTypes.forEach((st: any) => {
+    st.forEach((serviceType: any) => {
+      if (!seenNames.has(serviceType.name)) {
+        uniqueServiceType.push(serviceType);
+        seenNames.add(serviceType.name);
+      }
+    });
+  });
 
 
   allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
@@ -146,19 +158,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
               Overview of Internet Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
 
-            <p className='text-xl font-[Roboto] mt-5'>
-              As of the time this page was written, {city} has three or more internet service providers offering various types of internet plans to its residents. You’ll likely have options from
-              {
-                uniqueServiceType.map((t: any, i: number) => (
-                  <span key={i}> {t} , </span>
-
-                ))
-              } internet service providers.  {
-                allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                  <span key={idx}>  {item?.title}, </span>
-                ))
-              } are the best internet service providers in {city} , {state}.
-            </p>
+            <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} />
 
 
 
@@ -368,7 +368,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
             <p className='text-base'>
               As of the time this page was written, likely have several types of internet technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
-                  <span key={i}> <span dangerouslySetInnerHTML={{ __html: t }} /> , </span>
+                  <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
                 ))
               }
             </p>
@@ -379,9 +379,9 @@ export default function Cities_com({ my_city, allProviders }: any) {
               uniqueServiceType.map((t: any, i: number) => (
                 <Technology_Box
                   icon={<MdCable />}
-                  title={t}
+                  title={t.name}
                   key={i}
-                  content="Cable TV uses coaxial cables to deliver television signals to your home. It provides a wide range of channels and is widely available.."
+                  content={t.description}
                 />
               ))
             }

@@ -12,7 +12,7 @@ const Inter_Service_State = ({ data}: any) => {
                         </div>
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
-                        <div dangerouslySetInnerHTML={{ __html: data?.type }} ></div>
+                        <div dangerouslySetInnerHTML={{ __html: data?.type.name }} ></div>
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                         <div>
