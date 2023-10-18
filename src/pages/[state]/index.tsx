@@ -169,8 +169,6 @@ export default function OurState({ allcities, state, allProviders }: any) {
                 </div>
               </div>
 
-
-
               <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                   <h4 className="md:text-base text-xs text-center text-white mb-2">
