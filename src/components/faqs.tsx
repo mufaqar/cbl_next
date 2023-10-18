@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useRouter } from 'next/router'
+import SearchZipcodeModelBox from '../components/search-zipcode-modelBox'
+
 
 export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProviderCount , countServiceType }: any) {
-
     city = !city ? "" : `${city},`
     const { query } = useRouter();
     let state = query.state;
@@ -15,9 +16,15 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
         setOpen(id)
     }
 
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    const handleModelBox = () => {
+        setIsOpen(true)
+    }
+
     return (
         <>
-
+            <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen}/>
             {type === "internet" &&
                 <>
                     <h2 className="text-2xl font-bold">
@@ -122,7 +129,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                To check Internet service providers availability, enter your zip code (zip code has a popup link to the zip search bar) to find the best internet options available to you.
+                                To check Internet service providers availability, <button className="text-blue-400" onClick={handleModelBox}>Enter your zip code</button> (zip code has a popup link to the zip search bar) to find the best internet options available to you.
                             </p>
                         </div>
                     </div>
@@ -152,7 +159,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                To check TV service providers availability, enter your zip code {zipcode} to find the best TV options available to you.  </p>
+                                To check TV service providers availability, <button className="text-blue-400" onClick={handleModelBox}>Enter your zip code</button> {zipcode} to find the best TV options available to you.  </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
@@ -259,7 +266,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                To check Internet and TV service providers bundles availability, enter your zip code {zipcode}to find the best bundle options available to you. </p>
+                                To check Internet and TV service providers bundles availability, <button className="text-blue-400" onClick={handleModelBox}>Enter your zip code</button> {zipcode} to find the best bundle options available to you. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">

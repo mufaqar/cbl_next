@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const providers_city_data = await response_city.json();
 
-  const zoneTitlesQ = providers_city_data.map((zone: any) => zone.title);
+  const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
   const resultStringQ = zoneTitlesQ.join(',');
   const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');  
 
