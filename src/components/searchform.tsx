@@ -54,7 +54,7 @@ const SearchForm = () => {
     });
     const respons = await response.json();
 
-    if (respons.data?.zones?.nodes.length > 0) {
+    if (respons?.data?.zones?.nodes.length > 0) {
       router.push(`/${respons.data?.zones?.nodes[0]?.states?.nodes[0]?.slug}/${respons.data.zones?.nodes[0]?.cities.nodes[0].slug}?zipcode=${zipcode}&type=internet`);
       setTimeout(()=>{
         setloader(false);
@@ -79,7 +79,7 @@ const SearchForm = () => {
 
   return (
     <>
-      {loader ? <div className='fixed z-50 inset-0 bg-black/60 flex items-center flex-col justify-center'><div className="custom-loader"></div></div> :
+      {loader ? <div className='fixed z-50 inset-0 !w-full bg-black/60 flex items-center flex-col justify-center'><div className="custom-loader"></div></div> :
       <form>
         <div className="relative flex items-center w-full m-auto serch_form">
           <FaMagnifyingGlass className="absolute ml-3" />
