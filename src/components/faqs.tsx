@@ -129,7 +129,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                To check Internet service providers availability, <button className="text-blue-400" onClick={handleModelBox}>Enter your zip code</button> (zip code has a popup link to the zip search bar) to find the best internet options available to you.
+                                To check Internet service providers availability, <button className="text-blue-400" onClick={handleModelBox}>Enter your zip code</button>  to find the best internet options available to you.
                             </p>
                         </div>
                     </div>
