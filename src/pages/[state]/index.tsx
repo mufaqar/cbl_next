@@ -407,14 +407,6 @@ export default function OurState({ allcities, state, allProviders }: any) {
         </div>
       </section>
 
-      <section className="my-16">
-        <div className="container mx-auto px-4 grid gap-10">
-          <Faqs_Sec city="" type={type} state={state} zipcode="" allProviders={allProviders} />
-        </div>
-      </section>
-
-
-
     </>
   )
 }
