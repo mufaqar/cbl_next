@@ -101,7 +101,7 @@ function Providers({ allProviders }: any) {
                             Explore popular internet and TV providers we partner with to shop, compare and set up services at home.
                         </p>
                     </div>
-                    <div className='flex md:flex-row flex-col gap-8 items-center'>
+                    <div className='flex md:flex-row flex-col gap-8 items-center justify-center'>
                         <div className='bg-[#F3FAFF] max-w-[240px] w-full p-8 rounded-2xl'>
                             <Image src="/images/search.svg" alt={'search'} width={60} height={54} className='mx-auto' />
                             <h5 className='text-base font-bold text-center mt-3'>
