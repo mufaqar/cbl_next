@@ -38,6 +38,7 @@ const SearchForm = () => {
   const router = useRouter();
   const router2 = Router();
   const [loader, setloader] = useState<boolean>(false);
+  const [resultNotFound, setResultNotFound] = useState(false)
 
   const variables = {
     zipcode: zipcode
@@ -53,14 +54,16 @@ const SearchForm = () => {
     });
     const respons = await response.json();
 
-    if (respons) {
+    if (respons.data?.zones?.nodes.length > 0) {
       router.push(`/${respons.data?.zones?.nodes[0]?.states?.nodes[0]?.slug}/${respons.data.zones?.nodes[0]?.cities.nodes[0].slug}?zipcode=${zipcode}&type=internet`);
       setTimeout(()=>{
         setloader(false);
       }, router2.pathname === "/" ? 2000 : 1000)
+      setResultNotFound(false)
     }
     else {
       setloader(false);
+      setResultNotFound(true)
     }
   }
 
@@ -83,6 +86,7 @@ const SearchForm = () => {
           <input type="text" onKeyDown={handleKeyDown} placeholder="Enter Zip Code" maxLength={5} name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-3 pl-10 pr-8 border outline-none md:w-80 border-zinc-400 rounded-l-md" />
           <button className="px-4 py-[13px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-r-md" onClick={handleState}>Search</button>
         </div>
+        {resultNotFound && <div className='text-center w-full p-2 text-red-500'>Result not found! please enter correct zipcode </div>}
         </form>
       }
     </>
