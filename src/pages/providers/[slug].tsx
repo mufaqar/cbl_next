@@ -20,11 +20,8 @@ import InternetTVPlanBox from '@/components/pricing/internetTVPlanBox'
 import InternetTVPhonePlanBox from '@/components/pricing/internetTVPhonePlanBox'
 import { BiPhone } from 'react-icons/bi'
 
-
+import Head from 'next/head';
 export default function SProviders({ Provider, city, state }: any) {
-  //console.log("🚀 ~ file: index.tsx:21 ~ SProviders ~ allProviders:", Provider)
-  //const params = useParams()
-
   const provider_name = Provider?.title;
   const pro_phone = Provider?.providersInfo?.proPhone;
   const [nav, setNav] = useState(false);
@@ -54,6 +51,11 @@ export default function SProviders({ Provider, city, state }: any) {
 
   return (
     <>
+
+      <Head>
+        <title>{provider_name} - Cable Movers</title>
+        <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+      </Head>
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
           <div className='md:w-1/2 w-full py-10'>
@@ -111,7 +113,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
-            {Provider?.providersInfo?.internetPlansShort} </p>
+              {Provider?.providersInfo?.internetPlansShort} </p>
           </div>
         </div>
       </section>
@@ -128,7 +130,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
-            {Provider?.providersInfo?.tvPlansShort}  </p>
+              {Provider?.providersInfo?.tvPlansShort}  </p>
           </div>
         </div>
       </section>
@@ -146,30 +148,30 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
             <div>
               <p className="text-sm font-[Roboto] mt-10">
-              {Provider?.providersInfo?.internetTvPhoneBundlesShort} </p>
+                {Provider?.providersInfo?.internetTvPhoneBundlesShort} </p>
             </div>
           </div>
         </section>
       }
 
       {Provider?.providersInfo?.internetAndMobileBundles &&
-              <section className="my-16">
-                <div className="container mx-auto px-4">
-                  <div className='mb-10'>
-                    <h2 className="text-2xl font-bold">
-                      {provider_name}  Internet and Mobile Bundles
-                    </h2>
-                  </div>
-                  <div>
-                    <InternetPhonePlanBox Plans={Provider?.providersInfo?.internetAndMobileBundles} pro_phone={pro_phone} />
-                  </div>
-                  <div>
-                    <p className="text-sm font-[Roboto] mt-10">
-                    {Provider?.providersInfo?.internetTvPhoneBundlesShort} </p>
-                  </div>
-                </div>
-              </section>
-            }
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name}  Internet and Mobile Bundles
+              </h2>
+            </div>
+            <div>
+              <InternetPhonePlanBox Plans={Provider?.providersInfo?.internetAndMobileBundles} pro_phone={pro_phone} />
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                {Provider?.providersInfo?.internetTvPhoneBundlesShort} </p>
+            </div>
+          </div>
+        </section>
+      }
 
 
 
@@ -187,7 +189,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
             <div>
               <p className="text-sm font-[Roboto] mt-10">
-              {Provider?.providersInfo?.internetAndTvBundlesShort}  </p>
+                {Provider?.providersInfo?.internetAndTvBundlesShort}  </p>
             </div>
           </div>
         </section>
@@ -206,7 +208,7 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
             <div>
               <p className="text-sm font-[Roboto] mt-10">
-              {Provider?.providersInfo?.internetAndPhoneBundlesShort}  </p>
+                {Provider?.providersInfo?.internetAndPhoneBundlesShort}  </p>
             </div>
           </div>
         </section>
@@ -229,7 +231,7 @@ export default function SProviders({ Provider, city, state }: any) {
             {Provider?.providersInfo?.block.map((item: any, index: number) => (
               <div key={index}>
 
-                
+
                 <h2 className='block_heading'>{parse(`${item.heading} `)} </h2>
                 <div className='block_content'>{parse(`${item.content} `)}</div> </div>
             ))}

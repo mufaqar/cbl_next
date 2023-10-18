@@ -14,6 +14,7 @@ import { AllPosts } from '@/config/query';
 import { GetServerSideProps } from 'next';
 import apolloClient from '@/config/client';
 import Blogpost from '@/components/blogpost';
+import Head from 'next/head';
 
 
 export default function Home({ BlogPosts }: any) {
@@ -21,6 +22,27 @@ export default function Home({ BlogPosts }: any) {
 
    return (
       <>
+      <Head>
+        <title>Cable Movers - Find Top Internet and TV Service providers</title>
+        <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+        <link rel="canonical" href="https://www.cablemovers.net" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Home" />
+        <meta property="og:description" content="Find Top Internet and TV Service providers" />
+        <meta property="og:url" content="https://www.cablemovers.net" />
+        <meta property="og:site_name" content="Find Top Internet and TV Service providers" />
+        <meta property="article:publisher" content="https://www.facebook.com/cablemovers" />
+        <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
+        <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />
+        <meta property="og:image:width" content="700" />
+        <meta property="og:image:height" content="467" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@cablemovers" />
+        <meta name="twitter:label1" content="Est. reading time" />
+        <meta name="twitter:data1" content="57 minutes" />
+      </Head>
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
                <div className="py-10">

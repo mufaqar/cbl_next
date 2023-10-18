@@ -2,18 +2,22 @@ import Main from '@/components/main'
 import { ProviderBox } from '@/components/provider/provider-box'
 import apolloClient from '@/config/client'
 import { GET_ALL_PROVIDERS } from '@/config/query'
-import {  GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
-
+import Head from 'next/head';
 function TVProviders({ allProviders }: any) {
 
     return (
         <>
-          
-          
+            <Head>
+                <title>All Providers - Cable Movers</title>
+                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+            </Head>
+
+
 
             <section className="">
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
@@ -113,7 +117,7 @@ function TVProviders({ allProviders }: any) {
                         </Link>
                         <Link href="/blog">
                             <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg"   width={500} height={360}/>
+                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
                                 <div className="p-4 pl-0">
                                     <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
                                     <p className="text-gray-700 mt-2 text-center text-sm">
@@ -124,7 +128,7 @@ function TVProviders({ allProviders }: any) {
                         </Link>
                         <Link href="/blog">
                             <div className="rounded-lg p-4 lg:p-0 shadow-md">
-                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg"  width={500} height={360} />
+                                <Image src="/images/blog_post.jpg" alt="technology" className="rounded-tr-lg rounded-tl-lg" width={500} height={360} />
                                 <div className="p-4 pl-0">
                                     <h2 className="font-bold text-xl text-gray-800 text-center">Put all speaking her delicate recurred possible.</h2>
                                     <p className="text-gray-700 mt-2 text-center text-sm">

@@ -21,6 +21,11 @@ import Table_CardProviderState from '@/components/provider/cheeptable-cardProvid
 import CheepTable_CardProviderState from '@/components/provider/cheeptable-cardProviderState';
 import FastTable_CardProviderState from '@/components/provider/fasttable-cardProviderState';
 import OverView from '@/components/overview';
+
+import Head from 'next/head';
+
+
+
 export default function OurState({ allcities, state, allProviders }: any) {
 
   const { query } = useRouter();
@@ -74,6 +79,10 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
   return (
     <>
+    <Head>
+                <title>Internet Service Providers In {state}- Cable Movers</title>
+                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+            </Head>
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">

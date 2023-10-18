@@ -8,11 +8,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
-
+import Head from 'next/head';
 function Providers({ allProviders }: any) {
 
     return (
         <>
+        <Head>
+                <title>All Providers - Cable Movers</title>
+                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+            </Head>
              <section className="min-h-[40vh]  flex items-center bg-[#215690]">
         <div className="container mx-auto px-4">
           <div >

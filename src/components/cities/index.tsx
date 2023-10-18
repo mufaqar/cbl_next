@@ -15,7 +15,7 @@ import { useRouter } from 'next/router'
 import FastTable_CardProviderState from '../provider/fasttable-cardProviderState';
 import CheepTable_CardProviderState from '../provider/cheeptable-cardProviderState';
 import OverView from '../overview';
-
+import Head from 'next/head';
 
 export default function Cities_com({ my_city, allProviders }: any) {
 
@@ -86,6 +86,11 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
   return (
     <>
+
+<Head>
+                <title>Internet Service Providers In {city}- Cable Movers</title>
+                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+            </Head>
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">

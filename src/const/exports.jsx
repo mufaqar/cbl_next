@@ -136,11 +136,7 @@ export const NavLinks = [
   {
     name: 'TERMS AND CONDITIONS',
     link: '/terms-and-conditions',
-  },
-  {
-    name: 'SITEMAP',
-    link: '#',
-  },
+  }
 ];
 
 export const Galler_Data = [

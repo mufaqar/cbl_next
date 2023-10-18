@@ -15,6 +15,7 @@ import { typeFromAST } from 'graphql'
 import Cheep_Table_CardProvider from '../provider/cheeptable-cardProvider'
 import Fast_Table_CardProvider from '../provider/fasttable-cardProvider'
 import OverView from '../overview'
+import Head from 'next/head';
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     // console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProviders)
@@ -71,6 +72,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
     return (
         <>
+
+<Head>
+                <title>Internet Service Providers In {zipcode}- Cable Movers</title>
+                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+            </Head>
+
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div >
