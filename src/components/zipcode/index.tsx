@@ -73,7 +73,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     return (
         <>
 
-<Head>
+            <Head>
                 <title>Internet Service Providers In {zipcode}- Cable Movers</title>
                 <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
             </Head>
@@ -110,10 +110,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     type: item.serviceTypes.nodes,
                                     summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                         type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
-                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-                                    price: item.providersInfo.proPrice,
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,                      
                                     mobileNo: item.providersInfo?.proPhone,
-                                    slug: item.slug
+                                    slug: item.slug,
+                                    price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
+                                    type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                        type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
                                 }
 
                                 return (
@@ -139,9 +141,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
 
-                       
+
                         <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} />
-                      
+
 
 
 

@@ -27,6 +27,7 @@ import Head from 'next/head';
 
 
 export default function OurState({ allcities, state, allProviders }: any) {
+console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders)
 
   const { query } = useRouter();
   const type = query.type || "internet";
@@ -114,8 +115,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
-                  type: item.providers_service_types[0],
-                  price: item.pro_price,
+                  type: item.providers_service_types[0],                 
                   mobileNo: item.pro_phone,
                   slug: item.slug,
                   channels: item.services_info_internet_tv_bundles_summary_channel,
@@ -125,6 +125,9 @@ export default function OurState({ allcities, state, allProviders }: any) {
                   summery: type === "internet" ? item.services_info_internet_services_features :
                     type === "tv" ? item.services_info_tv_services_features :
                       type === "internet-tv" && item.services_info_internet_tv_bundles_features,
+                  price: type === "internet" ? item.services_info_internet_tv_bundles_price :
+                  type === "tv" ? item.services_info_tv_services_price :
+                    type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                 }
 
                 return (

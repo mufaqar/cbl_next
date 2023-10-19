@@ -5,7 +5,7 @@ export const ProviderCardState = ({ item, type, offer, count }: any) => {
 
     return (
         <>
-            <div  className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
+            <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
                 <div className="md:w-full min-w-fit  bg-[#215690] flex justify-between items-center ">
                     <h2 className="text-base font-bold text-center text-white p-5"> <span> {count + 1} </span>-  {item.provider}</h2>
                     <h2 className="text-base font-bold text-center text-white p-5">{offer}</h2>
@@ -69,9 +69,7 @@ export const ProviderCardState = ({ item, type, offer, count }: any) => {
                         </div>
                     </div>
                     <div className="grid gap-3 items-center justify-center p-5">
-                        <Link href="tel:000-000-000" className="text-base text-center font-medium text-white bg-[#ef9831] hover:bg-[#215690] px-3 py-1.5 rounded-3xl">
-                            {item?.mobileNo}
-                        </Link>
+
                         <Link href={`/providers/${item.slug}`} className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>
                 </div>

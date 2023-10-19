@@ -97,6 +97,7 @@ query GET_PROVIDERS($zipcode: String = "") {
           internetServices {
             features
             speed
+            price
             summaryFeatures
             summarySpeed
           }
@@ -104,6 +105,7 @@ query GET_PROVIDERS($zipcode: String = "") {
             channels
             features
             speed
+            price
             summaryChannel
             summaryFeatures
             summarySpeed
@@ -111,6 +113,7 @@ query GET_PROVIDERS($zipcode: String = "") {
           tvServices {
             features
             speed
+            price
             summaryFeatures
             summarySpeed
           }

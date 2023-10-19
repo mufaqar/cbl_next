@@ -18,8 +18,6 @@ import OverView from '../overview';
 import Head from 'next/head';
 
 export default function Cities_com({ my_city, allProviders }: any) {
-
-
   const { query } = useRouter();
   const type = query.type || "internet";
 
@@ -87,10 +85,10 @@ export default function Cities_com({ my_city, allProviders }: any) {
   return (
     <>
 
-<Head>
-                <title>Internet Service Providers In {city}- Cable Movers</title>
-                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
-            </Head>
+      <Head>
+        <title>Internet Service Providers In {city}- Cable Movers</title>
+        <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+      </Head>
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">
@@ -125,10 +123,11 @@ export default function Cities_com({ my_city, allProviders }: any) {
                   logo: item?.featured_image,
                   provider: item?.title,
                   type: item.providers_service_types[0],
-
-                  price: item.pro_price,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
+                  price: type === "internet" ? item.services_info_internet_services_price :
+                  type === "tv" ? item.services_info_tv_services_price :
+                    type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                   channels: item.services_info_internet_tv_bundles_summary_channel,
                   speed: type === "internet" ? item.services_info_internet_services_speed :
                     type === "tv" ? item.services_info_tv_services_speed :
@@ -136,6 +135,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
                   summery: type === "internet" ? item.services_info_internet_services_features :
                     type === "tv" ? item.services_info_tv_services_features :
                       type === "internet-tv" && item.services_info_internet_tv_bundles_features,
+                 
                 }
 
                 return (
