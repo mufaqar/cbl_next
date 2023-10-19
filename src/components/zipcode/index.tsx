@@ -110,12 +110,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     type: item.serviceTypes.nodes,
                                     summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                         type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
-                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,                      
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
                                     mobileNo: item.providersInfo?.proPhone,
                                     slug: item.slug,
                                     price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
-                                    type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
-                                        type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
                                 }
 
                                 return (
@@ -280,7 +280,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
                         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
                             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                                <div className='md:w-full min-w-fit grid md:grid-cols-7 grid-cols-1 bg-[#215690] '>
+                                <div className={`md:w-full min-w-fit grid ${type === 'tv' ? 'grid-cols-7' : 'md:grid-cols-8'} grid-cols-1 bg-[#215690] `}>
+                                    
                                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white">
@@ -298,10 +299,28 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                                Download Speeds up to
+                                                {type === "tv" ? (
+                                                    "Channels"
+                                                ) : (
+                                                    "Download Speeds up to "
+                                                )}
                                             </h4>
                                         </div>
                                     </div>
+
+                                    {type === "internet-tv" &&
+                                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                                            <div>
+                                                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                                    Channels
+                                                </h4>
+                                            </div>
+                                        </div>}
+
+
+
+
+
                                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto col-span-3 h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white mb-2">
@@ -329,7 +348,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                         }
                                         return (
                                             <>
-                                                <Inter_Service data={summaryData} key={idx} />
+                                                <Inter_Service data={summaryData} key={idx} type={type} />
                                             </>
                                         )
                                     })

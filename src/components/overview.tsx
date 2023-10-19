@@ -23,7 +23,7 @@ function OverView({ uniqueServiceType, type, city, state, allProviders }: any) {
                     <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> {i < uniqueServiceType.length - 1 && ', '} </span>
 
                 ))
-            } internet service providers.  {
+            } {formatType(type)} service providers.  {
                 allProviders?.slice(0, 2).map((item: any, idx: number) => (
                     <span key={idx}>  {item?.title}, </span>
                 ))

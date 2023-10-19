@@ -1,9 +1,9 @@
 import React from 'react'
-const Inter_Service_State = ({ data}: any) => {
-       return (
+const Inter_Service_State = ({ data, type }: any) => {
+    return (
         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto ">
             <div className="w-full h-auto  flex md:flex-col flex-row items-stretch">
-                <div className='md:w-full w-full grid md:grid-cols-7 grid-cols-1 dtable' >
+                <div className='md:w-full w-full grid md:grid-cols-8 grid-cols-1 dtable' >
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                         <div>
                             <p className="text-center md:text-base text-xs">
@@ -17,10 +17,21 @@ const Inter_Service_State = ({ data}: any) => {
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                         <div>
                             <p className="text-center md:text-base text-xs">
-                                {data?.speed} Mbps
+                                {data?.speed}  {type !== 'tv' && (<>Mbps</>)}
+
                             </p>
                         </div>
                     </div>
+                    {type === "internet-tv" &&
+                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
+                            <div>
+                                <p className="text-center md:text-base text-xs">
+                                    {data?.channel}
+                                </p>
+                            </div>
+                        </div>
+                    }
+
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center col-span-3">
                         <div>
                             <p className="text-center md:text-base text-xs">
@@ -31,7 +42,7 @@ const Inter_Service_State = ({ data}: any) => {
                     <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                         <div>
                             <p className="text-center md:text-base text-xs">
-                                {data?.price}/mo
+                                ${data?.price}/mo
                             </p>
                         </div>
                     </div>

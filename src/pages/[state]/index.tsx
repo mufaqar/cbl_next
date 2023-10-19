@@ -27,7 +27,7 @@ import Head from 'next/head';
 
 
 export default function OurState({ allcities, state, allProviders }: any) {
-console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders)
+  console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders)
 
   const { query } = useRouter();
   const type = query.type || "internet";
@@ -80,10 +80,10 @@ console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders
 
   return (
     <>
-    <Head>
-                <title>Internet Service Providers In {state}- Cable Movers</title>
-                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
-            </Head>
+      <Head>
+        <title>Internet Service Providers In {state}- Cable Movers</title>
+        <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+      </Head>
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">
@@ -115,7 +115,7 @@ console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
-                  type: item.providers_service_types[0],                 
+                  type: item.providers_service_types[0],
                   mobileNo: item.pro_phone,
                   slug: item.slug,
                   channels: item.services_info_internet_tv_bundles_summary_channel,
@@ -126,8 +126,8 @@ console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders
                     type === "tv" ? item.services_info_tv_services_features :
                       type === "internet-tv" && item.services_info_internet_tv_bundles_features,
                   price: type === "internet" ? item.services_info_internet_tv_bundles_price :
-                  type === "tv" ? item.services_info_tv_services_price :
-                    type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                    type === "tv" ? item.services_info_tv_services_price :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                 }
 
                 return (
@@ -277,7 +277,7 @@ console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders
 
             <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
               <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                <div className='md:w-full min-w-fit grid md:grid-cols-7 grid-cols-1 bg-[#215690] '>
+                <div className='md:w-full min-w-fit grid md:grid-cols-8 grid-cols-1 bg-[#215690] '>
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white">
@@ -292,13 +292,31 @@ console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders
                       </h4>
                     </div>
                   </div>
+
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white mb-2">
-                        Download Speeds up to
+                        {type === "tv" ? (
+                          "Channels"
+                        ) : (
+                          "Download Speeds up to "
+                        )}
                       </h4>
                     </div>
                   </div>
+
+                  {type === "internet-tv" &&
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                      <div>
+                        <h4 className="md:text-base text-xs text-center text-white mb-2">
+                          Channels
+                        </h4>
+                      </div>
+                    </div>}
+
+
+
+
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center col-span-3">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white mb-2">
@@ -317,7 +335,7 @@ console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders
 
                 {
                   allProviders?.map((item: any, idx: number) => {
-                    var speed_channel = `${item.services_info_internet_tv_bundles_summary_speed} mbps , ${item.services_info_internet_tv_bundles_summary_channel} Channels`
+                    
                     var summaryData = {
                       provider: item?.title,
                       type: item.providers_service_types[0],
@@ -327,12 +345,13 @@ console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders
                       price: item.pro_price,
                       speed: type === "internet" ? item.services_info_internet_services_summary_speed :
                         type === "tv" ? item.services_info_tv_services_summary_speed :
-                          type === "internet-tv" && speed_channel,
+                          type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
+                       channel    : item.services_info_internet_tv_bundles_summary_channel
                     }
 
                     return (
                       <>
-                        <Inter_Service_State data={summaryData} key={idx} />
+                        <Inter_Service_State data={summaryData} key={idx} type={type} />
                       </>
                     )
                   })

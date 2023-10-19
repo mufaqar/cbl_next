@@ -292,7 +292,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
             <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
               <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                <div className='md:w-full min-w-fit grid md:grid-cols-7 grid-cols-1 bg-[#215690] '>
+                <div className='md:w-full min-w-fit grid md:grid-cols-8 grid-cols-1 bg-[#215690] '>
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white">
@@ -310,10 +310,24 @@ export default function Cities_com({ my_city, allProviders }: any) {
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white mb-2">
-                        Download Speeds up to
+                        {type === "tv" ? (
+                          "Channels"
+                        ) : (
+                          "Download Speeds up to "
+                        )}
                       </h4>
                     </div>
                   </div>
+
+                  {type === "internet-tv" &&
+                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                      <div>
+                        <h4 className="md:text-base text-xs text-center text-white mb-2">
+                          Channels
+                        </h4>
+                      </div>
+                    </div>}
+
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center col-span-3">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white mb-2">
@@ -332,8 +346,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
                 {
                   allProviders?.map((item: any, idx: number) => {
-                    var speed_channel = `${item.services_info_internet_tv_bundles_summary_speed} mbps , ${item.services_info_internet_tv_bundles_summary_channel} Channels`
-                    var summaryData = {
+                   var summaryData = {
                       provider: item?.title,
                       type: item.providers_service_types[0],
                       summery: type === "internet" ? item.services_info_internet_services_summary_features :
@@ -342,12 +355,14 @@ export default function Cities_com({ my_city, allProviders }: any) {
                       price: item.pro_price,
                       speed: type === "internet" ? item.services_info_internet_services_summary_speed :
                         type === "tv" ? item.services_info_tv_services_summary_speed :
-                          type === "internet-tv" && speed_channel,
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
+                      channel    : item.services_info_internet_tv_bundles_summary_channel
                     }
 
                     return (
                       <>
-                        <Inter_Service_State data={summaryData} key={idx} />
+                        
+                        <Inter_Service_State data={summaryData} key={idx} type={type} />
                       </>
                     )
                   })
