@@ -8,18 +8,14 @@ const CityBox
             <ul className="grid sm:grid-cols-4 grid-cols-2 gap-5">
                 {Cities?.map((item: any, idx: number) => {
                     return <li key={idx} className='bg-[#F5F5F5] rounded-2xl px-4 py-4 text-[#215690] font-[Roboto] hover:drop-shadow-xl hover:shadow-bg-[#f5f5f5] group'>
-                        <Link href="#" className="">
+                        <Link href= {item?.slug} className="">
                             <div className="flex justify-between items-center">
                                 <h3 className="text-xl group-hover:underline">
                                     {item?.name}
                                 </h3>
                                 <BsArrowRight strokeWidth="1" className="items-center text-right" />
                             </div>
-                            <div>
-                                <p className="text-[#215690] group-hover:underline">
-                                    Internet Providers
-                                </p>
-                            </div>
+                            
                         </Link>
                     </li>
                 })}
@@ -31,39 +27,51 @@ export default CityBox
 
 export const Cities = [
     {
-        name: "Los Angeles"
+        name: "Los Angeles",
+        slug: "/ca/los-angeles"
     },
     {
-        name: "New York"
+        name: "New York",
+        slug: "/ny/new-york"
     },
     {
-        name: "Boston"
+        name: "Boston",
+        slug: "in/boston"
     },
     {
-        name: "Las Vegas"
+        name: "Las Vegas",
+        slug: "/nv/las-vegas"
     },
     {
-        name: "Phoenix"
+        name: "Phoenix",
+        slug: "/az/phoenix"
     },
     {
-        name: "Atlanta"
+        name: "Atlanta",
+        slug: "/tx/atlanta"
     },
     {
-        name: "Houston"
+        name: "Houston",
+        slug: "/ak/houston"
     },
     {
-        name: "Denver"
+        name: "Denver",
+        slug: "/co/dever"
     },
     {
-        name: "Orlando"
+        name: "Orlando",
+        slug: "/ok/orlando"
     },
     {
-        name: "Chicago"
+        name: "Chicago",
+        slug: "/il/chicago"
     },
     {
-        name: "Detroit"
+        name: "Detroit",
+        slug: "/or/detroit"
     },
     {
-        name: "Philadelphia"
+        name: "Philadelphia",
+        slug: "/pa/philadelphia"
     },
 ]

@@ -184,7 +184,7 @@ export default function Home({ BlogPosts }: any) {
             <div className='container mx-auto px-4'>
                <div className="mx-auto max-w-3xl mb-10">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
-                     Compare Internet And Tv Service Providers In Major Cities.
+                     Compare Internet And TV Service Providers In Major Cities.
                   </h2>
                </div>
                <div>
