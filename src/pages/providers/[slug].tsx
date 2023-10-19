@@ -102,6 +102,9 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
+
+      {Provider?.providersInfo?.internetPlans && 
+
       <section className="my-16">
         <div className="container mx-auto px-4">
           <div className='mb-10'>
@@ -117,6 +120,9 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
+      }
+
+      {Provider?.providersInfo?.tvPlans && 
 
       <section className="my-16">
         <div className="container mx-auto px-4">
@@ -134,7 +140,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </div>
       </section>
-
+    }
       {Provider?.providersInfo?.internetTvPhoneBundles &&
         <section className="my-16">
           <div className="container mx-auto px-4">

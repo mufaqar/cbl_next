@@ -43,10 +43,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
   const city = capitalizedWords.join(' ');
 
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
-
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
-
-
   const uniqueServiceType: any = [];
   const seenNames = new Set();
   newServicesTypes.forEach((st: any) => {
@@ -70,13 +67,6 @@ export default function Cities_com({ my_city, allProviders }: any) {
     const speedB = parseInt(b.services_info_internet_services_speed.split("-")[1], 10);
     return speedB - speedA;
   });
-
-
-
-
-
-
-
 
 
 
@@ -416,7 +406,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
       <section className="my-16">
         <div className="container mx-auto px-4 grid gap-10">
-          <Faqs_Sec city={city} type={type} state={state} zipcode="" allProviders={allProviders} />
+          <Faqs_Sec city={city} type={type} state={state} zipcode="" allProviders={allProviders} totalProviderCount={totalProviderCount} />
         </div>
       </section>
 
