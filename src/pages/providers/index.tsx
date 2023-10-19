@@ -7,32 +7,37 @@ import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaArrowRightLong } from 'react-icons/fa6'
+import { FaRegHandshake, FaArrowRightLong, FaMapLocationDot } from 'react-icons/fa6'
+import { BsFillTelephoneForwardFill, BsShopWindow } from 'react-icons/bs'
 import Head from 'next/head';
+import { AiOutlinePhone } from 'react-icons/ai'
+import { FaPhoneAlt } from 'react-icons/fa'
+
+
 function Providers({ allProviders }: any) {
 
     return (
         <>
-        <Head>
+            <Head>
                 <title>All Providers - Cable Movers</title>
                 <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
             </Head>
-             <section className="min-h-[40vh]  flex items-center bg-[#215690]">
-        <div className="container mx-auto px-4">
-          <div >
-            <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10 text-white">
-             Find Internet & TV Service Providers in 
-             <br /><span className="text-[#ef9831]">your area.</span>
-            </h1>
-            <p className="text-xl text-center font-[Roboto] my-5 text-white">
-              Enter your zip so we can find the best providers in your area:
-            </p>
-            <div className='grid justify-center'>
-              <SearchForm />
-            </div>
-          </div>
-        </div>
-      </section>
+            <section className="min-h-[40vh]  flex items-center bg-[#215690]">
+                <div className="container mx-auto px-4">
+                    <div >
+                        <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10 text-white">
+                            Find Internet & TV Service Providers in
+                            <br /><span className="text-[#ef9831]">your area.</span>
+                        </h1>
+                        <p className="text-xl text-center font-[Roboto] my-5 text-white">
+                            Enter your zip so we can find the best providers in your area:
+                        </p>
+                        <div className='grid justify-center'>
+                            <SearchForm />
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section className="">
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
                     <div className="mx-auto max-w-xl text-center">
@@ -99,44 +104,64 @@ function Providers({ allProviders }: any) {
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
                     <div className="text-center">
                         <h2 className='text-3xl font-bold'>
-                            Why shop for internet & TV on Allconnect?
+                            WHY CHOOSE CABLEMOVERS.NET?
                         </h2>
-                        <p className='text-base my-5'>
-                            Explore popular internet and TV providers we partner with to shop, compare and set up services at home.
+                        <p className='text-base mt-5 mb-10'>
+                            Finding Internet & TV providers is tough, but we've made it easy.
                         </p>
                     </div>
                     <div className='flex md:flex-row flex-col gap-8 items-center justify-center'>
-                        <div className='bg-[#F3FAFF] max-w-[240px] w-full p-8 rounded-2xl'>
-                            <Image src="/images/search.svg" alt={'search'} width={60} height={54} className='mx-auto' />
-                            <h5 className='text-base font-bold text-center mt-3'>
-                                Search plans with ease
+                        <div className='bg-[#F3FAFF]  w-full p-8 rounded-2xl'>
+                            <FaMapLocationDot className="text-[#0066d4] text-6xl transform md:rotate-0 rotate-90 mx-auto" />
+                            <h5 className='text-base font-bold text-center mt-5'>
+                                NATIONWIDE COVERAGE
                             </h5>
+                            <p className='text-base  text-center mt-3'>Find all Internet and TV providers available to you in your Area.</p>
                         </div>
                         <div>
                             <FaArrowRightLong className="text-[#0066d4] text-3xl transform md:rotate-0 rotate-90" />
                         </div>
-                        <div className='bg-[#F3FAFF] max-w-[240px] w-full p-8 rounded-2xl'>
-                            <Image src="/images/product-rec.svg" alt={'product-rec'} width={60} height={54} className='mx-auto' />
-                            <h5 className='text-base font-bold text-center mt-3'>
-                                Compare all your options
+                        <div className='bg-[#F3FAFF]  w-full p-8 rounded-2xl'>
+
+                            <BsShopWindow className="text-[#0066d4] text-6xl transform md:rotate-0 rotate-90 mx-auto" />
+
+                            <h5 className='text-base font-bold text-center mt-5'>
+                                ONE STOP SHOP
                             </h5>
+                            <p className='text-base  text-center mt-3'>compare all Internet and TV plans, order service for no extra charge.</p>
                         </div>
                         <div>
                             <FaArrowRightLong className="text-[#0066d4] text-3xl transform md:rotate-0 rotate-90" />
                         </div>
-                        
-                        
-                        <div className='bg-[#F3FAFF] max-w-[240px] w-full p-8 rounded-2xl'>
-                            <Image src="/images/expert.png" alt={'expert'} width={60} height={54} className='mx-auto' />
-                            <h5 className='text-base font-bold text-center mt-3'>
-                                Speak to an expert to order by phone
+
+
+                        <div className='bg-[#F3FAFF]  w-full p-8 rounded-2xl'>
+
+                            <FaRegHandshake className="text-[#0066d4] text-6xl transform md:rotate-0 rotate-90 mx-auto" />
+                            <h5 className='text-base font-bold text-center mt-5'>
+
+                                TOP BRANDS
                             </h5>
+                            <p className='text-base  text-center mt-3'>We partnered with Top Brands to help you shop smartly.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            
+            <section className='bg-[#FD8800] py-5'>
+
+                <div className='container mx-auto grid md:grid-cols-2 items-center text-5xl font-bold uppercase'>
+                    <div className="grid items-center justify-end">
+                        Call to Setup
+                    </div>
+                    <div className=" items-center justify-start flex gap-3">  <FaPhoneAlt className="ml-5 text-5xl font-normal  " /> <Link href="tel:1-833-592-0098">1-833-592-0098</Link> </div>
+
+
+
+                </div>
+            </section>
+
+
         </>
     )
 }
