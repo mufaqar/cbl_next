@@ -1,7 +1,33 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const NotFound = () => {
+     const allBlogs = `
+     query allBlogs {
+       posts(first: 100000) {
+         nodes {
+           date
+           slug
+         }
+       }    
+     }
+   `;
+     useEffect(()=>{
+          async function fetchBlogs() {
+               const responseForBlogs = await fetch('https://cblproject.cablemovers.net/graphql', {
+                 method: 'POST',
+                 headers: {
+                   'Content-Type': 'application/json',
+                 },
+                 body: JSON.stringify({ allBlogs }),
+               });
+               const { data } = await responseForBlogs.json();
+               return data;
+             }
+             const blogslist = await fetchBlogs()
+             console.log('blogslist', blogslist)
+     },[])
+
      return (
           <section>
                <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">

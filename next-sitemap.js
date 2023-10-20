@@ -8,9 +8,16 @@ const query = `
         date
         slug
       }
-    }    
+    }
+    posts(first: 100000) {
+      nodes {
+        date
+        slug
+      }
+    }   
   }
 `;
+
 
 const SITE_URI = 'https://cablemovers.vercel.app';
 
@@ -24,10 +31,8 @@ async function fetchData() {
     },
     body: JSON.stringify({ query }),
   });
-
-  const { data } = await response.json();
+  const { data }  = await response.json();
   return data;
-
 }
 
 async function fetchStateWiseCity() {
@@ -43,6 +48,15 @@ async function fetchStateWiseCity() {
       const url = SITE_URI + '/' + key + '/' + subValue;
       resultUrls.push(url);
     }
+  }
+  return resultUrls
+}
+async function fetchStates() {
+  const resultUrls = [];
+  // Iterate through the keys and their associated arrays
+  for (const key in citiesData) {
+    const url = SITE_URI + '/' + key;
+    resultUrls.push(url);
   }
   return resultUrls
 }
@@ -62,11 +76,10 @@ function getCurrentDateInISO8601Format() {
 
 const currentDateInISO8601Format = getCurrentDateInISO8601Format();
 
-
-
 async function generateSitemap() {
-  const { allProviders, states, zones, resultUrls } = await fetchData();
+  const { allProviders, posts } = await fetchData();
   const stateWiseCity = await fetchStateWiseCity()
+  const allStates = await fetchStates()
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -106,10 +119,19 @@ async function generateSitemap() {
       <priority>1.00</priority>
     </url>
     <url>
-    <loc>${SITE_URI}/providers</loc>
-    <lastmod>${currentDateInISO8601Format}</lastmod>
-    <priority>1.00</priority>
-  </url>
+      <loc>${SITE_URI}/providers</loc>
+      <lastmod>${currentDateInISO8601Format}</lastmod>
+      <priority>1.00</priority>
+    </url>
+    ${posts?.nodes?.map(
+      (item) => `
+        <url>
+          <loc>${SITE_URI}/blog/${item.slug}</loc>
+          <lastmod>${item.date}+00:00</lastmod>
+          <priority>1.00</priority>
+        </url>
+      `
+    ).join('')}
       ${allProviders?.nodes
       .map(
         (item) => `
@@ -121,10 +143,10 @@ async function generateSitemap() {
       `
       )
       .join('')}
-      ${states?.nodes.map(
+      ${allStates.map(
         (item) => `
           <url>
-            <loc>${SITE_URI}/${item.slug}</loc>
+            <loc>${item}</loc>
             <lastmod>${currentDateInISO8601Format}</lastmod>
             <priority>1.00</priority>
           </url>
