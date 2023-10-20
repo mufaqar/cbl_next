@@ -1,4 +1,6 @@
 const fs = require('fs');
+const citiesData = require('./public/cites.json')
+
 const query = `
   query allProviders {
     allProviders(first: 100000) {
@@ -28,20 +30,21 @@ async function fetchData() {
 
 }
 
-async function fetchStateWiseCity(){
-    const responceStateWiseCity = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities')
-    const dataStateWiseCity = await responceStateWiseCity.json();
-    // Initialize an empty array to store the result URLs
-    const resultUrls = [];
-    // Iterate through the keys and their associated arrays
-    for (const key in dataStateWiseCity) {
-      const subArray = dataStateWiseCity[key];
-      for (const subValue of subArray) {
-        const url = SITE_URI + '/' + key + '/' + subValue;
-        resultUrls.push(url);
-      }
+async function fetchStateWiseCity() {
+  // const responceStateWiseCity = await fetch('./public/cites.json')
+  // https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities
+  // const dataStateWiseCity = await responceStateWiseCity.json();
+  // Initialize an empty array to store the result URLs
+  const resultUrls = [];
+  // Iterate through the keys and their associated arrays
+  for (const key in citiesData) {
+    const subArray = citiesData[key];
+    for (const subValue of subArray) {
+      const url = SITE_URI + '/' + key + '/' + subValue;
+      resultUrls.push(url);
     }
-    return resultUrls
+  }
+  return resultUrls
 }
 
 
@@ -82,7 +85,31 @@ async function generateSitemap() {
         <lastmod>${currentDateInISO8601Format}</lastmod>
         <priority>1.00</priority>
       </url>
-      
+      <url>
+        <loc>${SITE_URI}/privacy-policy</loc>
+        <lastmod>${currentDateInISO8601Format}</lastmod>
+        <priority>1.00</priority>
+      </url>
+      <url>
+        <loc>${SITE_URI}/do-not-sell-my-information</loc>
+        <lastmod>${currentDateInISO8601Format}</lastmod>
+        <priority>1.00</priority>
+      </url>
+      <url>
+        <loc>${SITE_URI}/terms-and-conditions</loc>
+        <lastmod>${currentDateInISO8601Format}</lastmod>
+        <priority>1.00</priority>
+      </url>
+      <url>
+      <loc>${SITE_URI}/blog</loc>
+      <lastmod>${currentDateInISO8601Format}</lastmod>
+      <priority>1.00</priority>
+    </url>
+    <url>
+    <loc>${SITE_URI}/providers</loc>
+    <lastmod>${currentDateInISO8601Format}</lastmod>
+    <priority>1.00</priority>
+  </url>
       ${allProviders?.nodes
       .map(
         (item) => `
