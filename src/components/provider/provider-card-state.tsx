@@ -12,7 +12,7 @@ export const ProviderCardState = ({ item, type, offer, count }: any) => {
                 </div>
                 <div className={`md:w-full w-full grid grid-cols-1 dtable ${type === 'internet-tv' ? ' md:grid-cols-6' : ' md:grid-cols-5'} flex flex-col`}>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                        <Image src={item.logo} alt="Feature Image" width={140} height={50} />
+                    <Link href={`/providers/${item.slug}`} >    <Image src={item.logo} alt="Feature Image" width={140} height={50} /></Link>
                     </div>
 
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
