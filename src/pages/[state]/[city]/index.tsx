@@ -99,7 +99,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const zones = zone.data.zones.nodes;
   return {
     props: {
-     7777777
+      allProviders:filterProvider, zones, zipcode
     },
   };
 }
