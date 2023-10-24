@@ -205,8 +205,8 @@ export default function Home({ BlogPosts }: any) {
                   <p className='md:text-xl text-lg font-medium text-black my-5'>
                      Whether you have some questions about the plan or need a little advice, Cable Movers can help you find the best Internet and TV service provider in your area. Give us a call and we’ll take care of you.
                   </p>
-                  <Link href="tel:855-512-0491" className='text-[#ef9831] hover:text-[#215690] md:text-3xl text-xl font-extrabold hover:underline flex items-center gap-4 w-fit'>
-                     <LuPhoneCall /> 855-512-0491
+                  <Link href="tel:833-592-0098" className='text-[#ef9831] hover:text-[#215690] md:text-3xl text-xl font-extrabold hover:underline flex items-center gap-4 w-fit'>
+                     <LuPhoneCall /> 833-592-0098
                   </Link>
                </div>
             </div>
