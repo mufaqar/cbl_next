@@ -76,22 +76,25 @@ export default function OurState({ allcities, state, allProviders }: any) {
   const totalProviderCount = allProviders?.length || 0;
 
   const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
+  const currentYear = currentDate.getFullYear();
+  const currentMonthIndex = currentDate.getMonth();
+  const currentMonthNumber = currentMonthIndex + 1;
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const currentMonthName = monthNames[currentMonthIndex];
 
 
   return (
     <>
      <Head>
                 <title>Best {totalProviderCount} {formatType(type)}  Service Providers in {state} {currentYear}  </title>
-                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${state} ${currentYear} `} />
-
-                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state} ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
-                    `${idx + 1}: ${item?.title}`
+                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state} ${currentMonthName}, ${currentYear}  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+                    `${idx + 1} ${item?.title}`
                 )).join(', ')
                     }`} />
-
-
-
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Home" />

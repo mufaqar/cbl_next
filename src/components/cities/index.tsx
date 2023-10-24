@@ -70,13 +70,21 @@ export default function Cities_com({ my_city, allProviders }: any) {
   const totalProviderCount = allProviders?.length || 0;
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
+  const currentMonthIndex = currentDate.getMonth();
+  const currentMonthNumber = currentMonthIndex + 1;
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const currentMonthName = monthNames[currentMonthIndex];
 
   return (
     <>
       <Head>
         <title>Best {totalProviderCount} {formatType(type)}  Service Providers in  {city} , {state} {currentYear}  </title>
 
-        <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${state} ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+        <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${state} ${currentMonthName}, ${currentYear} ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
           `${idx + 1}: ${item?.title}`
         )).join(', ')
           }`} />
