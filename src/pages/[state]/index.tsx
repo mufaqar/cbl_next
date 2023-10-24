@@ -84,6 +84,14 @@ const currentYear = currentDate.getFullYear();
      <Head>
                 <title>Best {totalProviderCount} {formatType(type)}  Service Providers in {state} {currentYear}  </title>
                 <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${state} ${currentYear} `} />
+
+                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state} ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+                    `${idx + 1}: ${item?.title}`
+                )).join(', ')
+                    }`} />
+
+
+
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Home" />

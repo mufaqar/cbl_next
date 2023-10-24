@@ -18,7 +18,7 @@ import OverView from '../overview'
 import Head from 'next/head';
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
-    // console.log("🚀 ~ file: index.tsx:16 ~ Zip_Code_Com ~ allProviders:", allProviders)
+    console.log("🚀 ---------allProviders:", allProviders)
 
     const { query } = useRouter();
     var type = query?.type;
@@ -75,11 +75,21 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
             <Head>
                 <title>Best {totalProviderCount} {formatType(type)}  Service Providers in {zipcode}, {city} , {state} </title>
-                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}, ${city} , ${state} `} />
+                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}, ${city}, ${state} ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+                    `${idx + 1}: ${item?.title}`
+                )).join(', ')
+                    }`} />
             </Head>
 
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
+                    {
+                        allProviders?.slice(0, 4).map((item: any, idx: number) => (
+                            <div key={idx}>
+                                {`${idx + 1}: ${item?.title}`}
+                            </div>
+                        ))
+                    }
                     <div >
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
                             {formatType(type)}  Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
@@ -102,6 +112,31 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </h2>
                     </div>
                     <div className='grid gap-7'>
+
+                        {
+                            allProviders?.map((item: any, idx: number) => {
+                                var summaryData = {
+
+                                    provider: item?.title,
+
+                                }
+
+                                return (
+                                    <>
+                                        <ProviderCard count={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                    </>
+                                )
+                            })
+                        }
+
+
+
+
+
+
+
+
+
                         {
                             allProviders?.map((item: any, idx: number) => {
                                 var summaryData = {
