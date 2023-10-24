@@ -67,9 +67,6 @@ export default function Cities_com({ my_city, allProviders }: any) {
     const speedB = parseInt(b.services_info_internet_services_speed.split("-")[1], 10);
     return speedB - speedA;
   });
-
-
-
   const totalProviderCount = allProviders?.length || 0;
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();

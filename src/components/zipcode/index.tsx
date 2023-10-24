@@ -124,30 +124,6 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         {
                             allProviders?.map((item: any, idx: number) => {
                                 var summaryData = {
-
-                                    provider: item?.title,
-
-                                }
-
-                                return (
-                                    <>
-                                        <ProviderCard count={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
-                                    </>
-                                )
-                            })
-                        }
-
-
-
-
-
-
-
-
-
-                        {
-                            allProviders?.map((item: any, idx: number) => {
-                                var summaryData = {
                                     logo: item?.featuredImage?.node?.mediaItemUrl,
                                     provider: item?.title,
                                     type: item.serviceTypes.nodes,
