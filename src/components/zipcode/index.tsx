@@ -209,9 +209,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                         summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                             type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                                 type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-                                        price: item.providersInfo.proPrice,
+                                        
                                         mobileNo: item.providersInfo?.proPhone,
-                                        slug: item.slug
+                                        slug: item.slug,
+                                        price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
                                     }
 
                                     return (
@@ -269,9 +272,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                         summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                             type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                                 type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-                                        price: item.providersInfo.proPrice,
+                                       
                                         mobileNo: item.providersInfo?.proPhone,
-                                        slug: item.slug
+                                        slug: item.slug,
+                                        price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
                                     }
 
                                     return (
@@ -364,7 +370,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                             summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                                 type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                                     type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-                                            price: item.providersInfo.proPrice
+                                            price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
+                                                    type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                                        type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
                                         }
                                         return (
                                             <>

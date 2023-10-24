@@ -215,8 +215,10 @@ export default function Cities_com({ my_city, allProviders }: any) {
                 cheepProviders?.map((item: any, idx: number) => {
                   var summaryData = {
                     provider: item?.title,
-                    price: item.pro_price,
-                    slug: item.slug
+                    slug: item.slug,
+                    price: type === "internet" ? item.services_info_internet_services_price :
+                    type === "tv" ? item.services_info_tv_services_price :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                   }
                   return (
                     <>
@@ -363,11 +365,14 @@ export default function Cities_com({ my_city, allProviders }: any) {
                       summery: type === "internet" ? item.services_info_internet_services_summary_features :
                         type === "tv" ? item.services_info_tv_services_summary_features :
                           type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
-                      price: item.pro_price,
+                  
                       speed: type === "internet" ? item.services_info_internet_services_summary_speed :
                         type === "tv" ? item.services_info_tv_services_summary_speed :
                           type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
-                      channel: item.services_info_internet_tv_bundles_summary_channel
+                      channel: item.services_info_internet_tv_bundles_summary_channel,
+                      price: type === "internet" ? item.services_info_internet_services_price :
+                      type === "tv" ? item.services_info_tv_services_price :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                     }
 
                     return (
