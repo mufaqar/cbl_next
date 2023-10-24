@@ -17,7 +17,7 @@ const Footer = () => {
           </p>
           <ul className='flex gap-5 mt-5'>
             <li>
-              <Link href="https://facebook.com/cablemovers" className='text-white/75 hover:text-white text-2xl'>
+              <Link href="https://www.facebook.com/cablemovers.net" className='text-white/75 hover:text-white text-2xl'>
                 <BiLogoFacebookCircle />
               </Link>
             </li>
@@ -27,7 +27,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="https://www.linkedin.com/" className='text-white/75 hover:text-white text-2xl'>
+              <Link href="https://www.linkedin.com/company/cablemovers-net" className='text-white/75 hover:text-white text-2xl'>
                 <BiLogoLinkedinSquare />
               </Link>
             </li>

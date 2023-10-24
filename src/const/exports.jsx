@@ -100,11 +100,7 @@ export const Providers_Data = [
   },
   {
     name: 'WOW!',
-    link: '/providers/',
-  },
-  {
-    name: 'wow',
-    link: '/providers/',
+    link: '/providers/wow',
   },
   {
     name: 'T-Mobile',
@@ -118,23 +114,23 @@ export const Providers_Data = [
 
 export const NavLinks = [
   {
-    name: 'ABOUT US',
+    name: 'About Us',
     link: '/about-us',
   },
   {
-    name: 'CONTACT US',
+    name: 'Contact Us',
     link: '/contact-us',
   },
   {
-    name: 'PRIVACY POLICY',
+    name: 'Privacy Policy',
     link: '/privacy-policy',
   },
   {
-    name: 'DO NOT SELL MY INFORMATION',
+    name: 'Do Not Sell My Information',
     link: '/do-not-sell-my-information',
   },
   {
-    name: 'TERMS AND CONDITIONS',
+    name: 'Terms And Conditions',
     link: '/terms-and-conditions',
   }
 ];
