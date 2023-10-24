@@ -170,7 +170,7 @@ const currentYear = currentDate.getFullYear();
               <h2 className="text-2xl font-bold  capitalize leading-10">
                 Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an  {formatType(type)} service provider in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {type} service providers in {state}.</p>
+              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an  {formatType(type)} service provider. Below are the cheap {type} service providers in {state}.</p>
             </div>
 
             <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] md:grid-cols-2`}>
