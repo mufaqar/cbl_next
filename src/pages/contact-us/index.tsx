@@ -1,7 +1,7 @@
 import PageBanner from '@/components/pageBanner'
 import React, { useState } from 'react'
 import Head from 'next/head';
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form";
 
 
 function Contact_Us() {
@@ -14,7 +14,7 @@ function Contact_Us() {
       } = useForm<any>()
       const [sending, setSending] = useState(false)
 
-      const onSubmit: SubmitHandler<any> = (data) => {
+      const onSubmit: SubmitHandler<any> = (data:any) => {
         setSending(true)
         fetch('/api/email', {
             method: 'POST',
@@ -36,8 +36,7 @@ function Contact_Us() {
     return (
         <>
             <Head>
-                <title>Contact Us - Cable Movers</title>
-                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+                <title>Contact Us | Cable Movers</title>          
             </Head>
             <div>
                 <PageBanner title="Contact Us" />

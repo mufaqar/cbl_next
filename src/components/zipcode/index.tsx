@@ -74,7 +74,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
         <>
 
             <Head>
-                <title>Internet Service Providers In {zipcode}- Cable Movers</title>
+                <title>Best {totalProviderCount} {formatType(type)}  Service Providers in {zipcode}, {city} , {state} </title>
+
+                
+
+
+
                 <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
             </Head>
 

@@ -1,9 +1,14 @@
 import PageBanner from '@/components/pageBanner'
 import React from 'react'
+import Head from 'next/head';
 
 function Privacy_Policy() {
     return (
         <>
+
+            <Head>
+                <title>  Terms and Conditions | Cable Movers</title>
+            </Head>
             <PageBanner title="TERMS AND CONDITIONS" />
             <section className="py-16">
                 <div className='container mx-auto px-4'>

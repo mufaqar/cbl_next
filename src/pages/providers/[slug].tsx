@@ -54,7 +54,7 @@ export default function SProviders({ Provider, city, state }: any) {
 
       <Head>
         <title> {provider_name} Plans and Pricing for {currentMonthName}, {currentYear} | Cable Movers</title>
-        <meta name="description" content={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear}.`} />        
+        <meta name="description" content={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear}.`} />
       </Head>
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
@@ -96,51 +96,51 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
         <div className='[&>div:nth-child(1)]:mt-0 max-w-xs slug_cta'>
           <h3 className="md:text-2xl text-lg font-extrabold text-center text-white mb-2">
-          Check availability
+            Check availability
           </h3>
           <SearchForm />
         </div>
       </section>
 
 
-      {Provider?.providersInfo?.internetPlans && 
+      {Provider?.providersInfo?.internetPlans &&
 
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              {provider_name} Internet Plans</h2>
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name} Internet Plans</h2>
+            </div>
+            <div>
+              <PlanBox Plans={Provider?.providersInfo?.internetPlans} pro_phone={pro_phone} />
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                {Provider?.providersInfo?.internetPlansShort} </p>
+            </div>
           </div>
-          <div>
-            <PlanBox Plans={Provider?.providersInfo?.internetPlans} pro_phone={pro_phone} />
-          </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              {Provider?.providersInfo?.internetPlansShort} </p>
-          </div>
-        </div>
-      </section>
+        </section>
       }
 
-      {Provider?.providersInfo?.tvPlans && 
+      {Provider?.providersInfo?.tvPlans &&
 
-      <section className="my-16">
-        <div className="container mx-auto px-4">
-          <div className='mb-10'>
-            <h2 className="text-2xl font-bold">
-              {provider_name} TV Plans
-            </h2>
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name} TV Plans
+              </h2>
+            </div>
+            <div>
+              <TV_Plan Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone} />
+            </div>
+            <div>
+              <p className="text-sm font-[Roboto] mt-10">
+                {Provider?.providersInfo?.tvPlansShort}  </p>
+            </div>
           </div>
-          <div>
-            <TV_Plan Plans={Provider?.providersInfo?.tvPlans} pro_phone={pro_phone} />
-          </div>
-          <div>
-            <p className="text-sm font-[Roboto] mt-10">
-              {Provider?.providersInfo?.tvPlansShort}  </p>
-          </div>
-        </div>
-      </section>
-    }
+        </section>
+      }
       {Provider?.providersInfo?.internetTvPhoneBundles &&
         <section className="my-16">
           <div className="container mx-auto px-4">

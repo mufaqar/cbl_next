@@ -1,10 +1,15 @@
 import PageBanner from '@/components/pageBanner'
 import Link from 'next/link'
 import React from 'react'
+import Head from 'next/head';
 
 function Sell_Information() {
     return (
         <>
+
+            <Head>
+                <title> Do Not Sell My Information | Cable Movers</title>
+            </Head>
             <PageBanner title="Do Not Sell My Information" />
             <section className="py-16">
                 <div className='container mx-auto px-4'>
