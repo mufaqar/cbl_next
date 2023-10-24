@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 const Inter_Service_State = ({ data, type }: any) => {
     return (
         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto ">
@@ -7,7 +8,8 @@ const Inter_Service_State = ({ data, type }: any) => {
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
                         <div>
                             <p className="text-center md:text-base text-xs">
-                                {data?.provider}
+                              
+                                <Link href={`/providers/${data.slug}`} >  {data?.provider} </Link>
                             </p>
                         </div>
                     </div>

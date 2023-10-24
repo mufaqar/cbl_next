@@ -195,7 +195,8 @@ const currentYear = currentDate.getFullYear();
                 cheepProviders?.map((item: any, idx: number) => {
                   var summaryData = {
                     provider: item?.title,
-                    price: item.pro_price
+                    price: item.pro_price,
+                    slug: item.slug
                   }
                   return (
                     <>
@@ -248,7 +249,8 @@ const currentYear = currentDate.getFullYear();
 
                   var summaryData = {
                     provider: item?.title,
-                    speed: item.services_info_internet_services_summary_speed
+                    speed: item.services_info_internet_services_summary_speed,
+                    slug: item.slug
                   }
 
                   return (
@@ -339,6 +341,7 @@ const currentYear = currentDate.getFullYear();
                     
                     var summaryData = {
                       provider: item?.title,
+                      slug: item.slug,
                       type: item.providers_service_types[0],
                       summery: type === "internet" ? item.services_info_internet_services_summary_features :
                         type === "tv" ? item.services_info_tv_services_summary_features :

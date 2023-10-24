@@ -340,6 +340,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     allProviders?.map((item: any, idx: number) => {
                                         var summaryData = {
                                             provider: item?.title,
+                                            slug: item?.slug,
                                             type: item.serviceTypes.nodes,
                                             summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                                 type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
