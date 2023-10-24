@@ -19,7 +19,7 @@ const query = `
 `;
 
 
-const SITE_URI = 'https://cablemovers.vercel.app';
+const SITE_URI = 'https://www.cablemovers.net';
 
 var date_time = new Date();
 
