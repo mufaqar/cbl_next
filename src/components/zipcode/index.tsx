@@ -82,15 +82,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             </Head>
 
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
-                <div className="container mx-auto px-4">
-                    {
-                        allProviders?.slice(0, 4).map((item: any, idx: number) => (
-                            <div key={idx}>
-                                {`${idx + 1}: ${item?.title}`}
-                            </div>
-                        ))
-                    }
-                    <div >
+                <div className="container mx-auto px-4">                  
+                    <div>
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
                             {formatType(type)}  Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
                         </h1>
