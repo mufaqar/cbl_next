@@ -23,15 +23,15 @@ export default function Home({ BlogPosts }: any) {
    return (
       <>
       <Head>
-        <title>Cable Movers - Find Top Internet and TV Service providers</title>
-        <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+        <title>Cable Movers | Find Internet and TV Service Providers in Your Area</title>
+        <meta name="description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
         <link rel="canonical" href="https://www.cablemovers.net" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Home" />
-        <meta property="og:description" content="Find Top Internet and TV Service providers" />
+        <meta property="og:description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
         <meta property="og:url" content="https://www.cablemovers.net" />
-        <meta property="og:site_name" content="Find Top Internet and TV Service providers" />
+        <meta property="og:site_name" content="Find Internet and TV Service Providers in Your Area" />
         <meta property="article:publisher" content="https://www.facebook.com/cablemovers" />
         <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
         <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />

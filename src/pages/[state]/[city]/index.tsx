@@ -22,7 +22,8 @@ query ProveryByZipcode($city: [String] ) {
 export default function Providers({ allProviders, zones, zipcode, my_city, providers_data }: any) {
    var city = zipcode ? zones[0].cities?.nodes[0].name : [];
   var state = zipcode ? zones[0].states.nodes[0].name : [];
-  const [city_data, set_city_data] = useState();
+  const [
+    , set_city_data] = useState();
   useEffect(() => {
     const variables = {
       city: my_city 
@@ -98,7 +99,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const zones = zone.data.zones.nodes;
   return {
     props: {
-      allProviders:filterProvider, zones, zipcode
+     7777777
     },
   };
 }
