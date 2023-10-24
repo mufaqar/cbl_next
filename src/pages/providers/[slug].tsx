@@ -53,8 +53,8 @@ export default function SProviders({ Provider, city, state }: any) {
     <>
 
       <Head>
-        <title>{provider_name} - Cable Movers</title>
-        <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+        <title> {provider_name} Plans and Pricing for {currentMonthName}, {currentYear} | Cable Movers</title>
+        <meta name="description" content={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear}.`} />        
       </Head>
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">

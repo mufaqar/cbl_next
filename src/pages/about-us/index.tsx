@@ -1,10 +1,14 @@
 import PageBanner from '@/components/pageBanner'
 import SearchForm from '@/components/searchform'
 import React from 'react'
+import Head from 'next/head';
 
 function About_Us() {
     return (
         <>
+            <Head>
+                <title> About Us | Cable Movers</title>
+            </Head>
             <PageBanner title="About Us" />
             <section className="py-16">
                 <div className='container mx-auto px-4'>
