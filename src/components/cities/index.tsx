@@ -76,8 +76,6 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
   return (
     <>
-
-
       <Head>
         <title>Best {totalProviderCount} {formatType(type)}  Service Providers in  {city} , {state} {currentYear}  </title>
         <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city} , ${state} ${currentYear} `} />
