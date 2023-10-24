@@ -71,13 +71,16 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
 
   const totalProviderCount = allProviders?.length || 0;
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
 
   return (
     <>
 
+
       <Head>
-        <title>Internet Service Providers In {city}- Cable Movers</title>
-        <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+        <title>Best {totalProviderCount} {formatType(type)}  Service Providers in  {city} , {state} {currentYear}  </title>
+        <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city} , ${state} ${currentYear} `} />
       </Head>
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
@@ -116,8 +119,8 @@ export default function Cities_com({ my_city, allProviders }: any) {
                   mobileNo: item.pro_phone,
                   slug: item.slug,
                   price: type === "internet" ? item.services_info_internet_services_price :
-                  type === "tv" ? item.services_info_tv_services_price :
-                    type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                    type === "tv" ? item.services_info_tv_services_price :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                   channels: item.services_info_internet_tv_bundles_summary_channel,
                   speed: type === "internet" ? item.services_info_internet_services_speed :
                     type === "tv" ? item.services_info_tv_services_speed :
@@ -125,7 +128,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
                   summery: type === "internet" ? item.services_info_internet_services_features :
                     type === "tv" ? item.services_info_tv_services_features :
                       type === "internet-tv" && item.services_info_internet_tv_bundles_features,
-                 
+
                 }
 
                 return (
@@ -336,7 +339,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
                 {
                   allProviders?.map((item: any, idx: number) => {
-                   var summaryData = {
+                    var summaryData = {
                       provider: item?.title,
                       type: item.providers_service_types[0],
                       summery: type === "internet" ? item.services_info_internet_services_summary_features :
@@ -345,13 +348,13 @@ export default function Cities_com({ my_city, allProviders }: any) {
                       price: item.pro_price,
                       speed: type === "internet" ? item.services_info_internet_services_summary_speed :
                         type === "tv" ? item.services_info_tv_services_summary_speed :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
-                      channel    : item.services_info_internet_tv_bundles_summary_channel
+                          type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
+                      channel: item.services_info_internet_tv_bundles_summary_channel
                     }
 
                     return (
                       <>
-                        
+
                         <Inter_Service_State data={summaryData} key={idx} type={type} />
                       </>
                     )

@@ -27,8 +27,6 @@ import Head from 'next/head';
 
 
 export default function OurState({ allcities, state, allProviders }: any) {
-  console.log("🚀 ~ file: index.tsx:30 ~ OurState ~ allProviders:", allProviders)
-
   const { query } = useRouter();
   const type = query.type || "internet";
 
@@ -77,13 +75,16 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
   const totalProviderCount = allProviders?.length || 0;
 
+  const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+
 
   return (
     <>
-      <Head>
-        <title>Internet Service Providers In {state}- Cable Movers</title>
-        <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
-      </Head>
+     <Head>
+                <title>Best {totalProviderCount} {formatType(type)}  Service Providers in {state} {currentYear}  </title>
+                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${state} ${currentYear} `} />
+            </Head>
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">

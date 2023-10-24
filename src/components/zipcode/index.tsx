@@ -75,12 +75,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
             <Head>
                 <title>Best {totalProviderCount} {formatType(type)}  Service Providers in {zipcode}, {city} , {state} </title>
-
-                
-
-
-
-                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
+                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}, ${city} , ${state} `} />
             </Head>
 
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
@@ -286,7 +281,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
                             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
                                 <div className={`md:w-full min-w-fit grid ${type === 'tv' ? 'grid-cols-7' : 'md:grid-cols-8'} grid-cols-1 bg-[#215690] `}>
-                                    
+
                                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white">
