@@ -26,13 +26,13 @@ export default function Home({ BlogPosts }: any) {
         <title>Cable Movers | Find Internet and TV Service Providers in Your Area</title>
         <meta name="description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
         <link rel="canonical" href="https://www.cablemovers.net" />
-        {/* <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Home" />
         <meta property="og:description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
         <meta property="og:url" content="https://www.cablemovers.net" />
         <meta property="og:site_name" content="Find Internet and TV Service Providers in Your Area" />
-        <meta property="article:publisher" content="https://www.facebook.com/cablemovers" />
+        <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
         <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
         <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />
         <meta property="og:image:width" content="700" />
@@ -41,7 +41,7 @@ export default function Home({ BlogPosts }: any) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@cablemovers" />
         <meta name="twitter:label1" content="Est. reading time" />
-        <meta name="twitter:data1" content="57 minutes" /> */}
+        <meta name="twitter:data1" content="26 minutes" />
       </Head>
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
