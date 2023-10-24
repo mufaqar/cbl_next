@@ -55,6 +55,24 @@ export default function SProviders({ Provider, city, state }: any) {
       <Head>
         <title> {provider_name} Plans and Pricing for {currentMonthName}, {currentYear} | Cable Movers</title>
         <meta name="description" content={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear}.`} />
+
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Home" />
+        <meta property="og:description" content={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear}.`} />
+        <meta property="og:url" content="https://www.cablemovers.net" />
+        <meta property="og:site_name" content="Cable Movers" />
+        <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
+        <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
+        <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />
+        <meta property="og:image:width" content="700" />
+        <meta property="og:image:height" content="467" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@cablemovers" />
+        <meta name="twitter:label1" content="Est. reading time" />
+        <meta name="twitter:data1" content="26 minutes" />
+        
       </Head>
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">

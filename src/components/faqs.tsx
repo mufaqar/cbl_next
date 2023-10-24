@@ -149,7 +149,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
             {type === "tv" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        FAQ’S.  <span className=" uppercase">{city} {state} </span>   TV FAQ’s               </h2>
+                        <span className=" uppercase">{city} {state} </span>   TV FAQ’s               </h2>
 
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
