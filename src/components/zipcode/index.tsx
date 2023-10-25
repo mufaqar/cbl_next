@@ -90,10 +90,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     `${idx + 1}: ${item?.title}`
                 )).join(', ')
                     }`} />
+
                 <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}, ${city} , ${state}`} />
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="website" />              
                 <meta property="og:url" content={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`} />
+                <link rel="canonical" href={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`}/>
                 <meta property="og:site_name" content="Cable Movers" />
                 <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
                 <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
@@ -101,8 +103,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <meta property="og:image:width" content="700" />
                 <meta property="og:image:height" content="467" />
                 <meta property="og:image:type" content="image/jpeg" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@cablemovers" />
+                
             
             </Head>
 
