@@ -84,7 +84,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
       <Head>
         <title>Best {totalProviderCount} {formatType(type)}  Service Providers in  {city} , {state} {currentYear}  </title>
 
-        <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${state} ${currentMonthName}, ${currentYear} ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+        <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${state} for ${currentMonthName}, ${currentYear}. ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
           `${idx + 1}: ${item?.title}`
         )).join(', ')
           }`} />
@@ -92,7 +92,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Home" />
         <meta property="og:description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
-        <meta property="og:url" content="https://www.cablemovers.net" />
+        <meta property="og:url" content={`https://www.cablemovers.net/${state}/${city}`} />
         <meta property="og:site_name" content="Cable Movers" />
         <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
         <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />

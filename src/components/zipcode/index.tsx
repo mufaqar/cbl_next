@@ -18,7 +18,7 @@ import OverView from '../overview'
 import Head from 'next/head';
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
-    console.log("🚀 ---------allProviders:", allProviders)
+    
 
     const { query } = useRouter();
     var type = query?.type;
@@ -69,20 +69,30 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
         return speedB - speedA;
     });
 
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonthIndex = currentDate.getMonth();
+    const currentMonthNumber = currentMonthIndex + 1;
+  
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const currentMonthName = monthNames[currentMonthIndex];
+
 
     return (
         <>
 
             <Head>
                 <title>Best {totalProviderCount} {formatType(type)}  Service Providers in {zipcode}, {city} , {state} </title>
-                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}, ${city}, ${state} ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}, ${city}, ${state} For ${currentMonthName},${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
                     `${idx + 1}: ${item?.title}`
                 )).join(', ')
                     }`} />
                 <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Home" />
-                <meta property="og:url" content="https://www.cablemovers.net" />
+                <meta property="og:type" content="website" />              
+                <meta property="og:url" content={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`} />
                 <meta property="og:site_name" content="Cable Movers" />
                 <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
                 <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
