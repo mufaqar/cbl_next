@@ -158,9 +158,9 @@ export default function OurState({ allcities, state, allProviders }: any) {
                   summery: type === "internet" ? item.services_info_internet_services_features :
                     type === "tv" ? item.services_info_tv_services_features :
                       type === "internet-tv" && item.services_info_internet_tv_bundles_features,
-                  price: type === "internet" ? item.services_info_internet_tv_bundles_price :
-                    type === "tv" ? item.services_info_tv_services_price :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                  price: type === "internet" ? item.services_info_internet_services_price :
+                      type === "tv" ? item.services_info_tv_services_price :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                 }
 
                 return (
@@ -228,7 +228,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
                   var summaryData = {
                     provider: item?.title,                    
                     slug: item.slug,
-                    price: type === "internet" ? item.services_info_internet_tv_bundles_price :
+                    price: type === "internet" ? item.services_info_internet_services_price :
                     type === "tv" ? item.services_info_tv_services_price :
                       type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                   }
@@ -385,9 +385,9 @@ export default function OurState({ allcities, state, allProviders }: any) {
                         type === "tv" ? item.services_info_tv_services_summary_speed :
                           type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
                        channel    : item.services_info_internet_tv_bundles_summary_channel,
-                       price: type === "internet" ? item.services_info_internet_tv_bundles_price :
-                    type === "tv" ? item.services_info_tv_services_price :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                       price: type === "internet" ? item.services_info_internet_services_price :
+                       type === "tv" ? item.services_info_tv_services_price :
+                         type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                     }
 
                     return (

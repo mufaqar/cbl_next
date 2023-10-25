@@ -18,7 +18,7 @@ import OverView from '../overview'
 import Head from 'next/head';
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
-    
+
 
     const { query } = useRouter();
     var type = query?.type;
@@ -56,9 +56,6 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
     const countServiceType = uniqueServiceType?.length || 0;
 
-
-
-
     const totalProviderCount = allProviders?.length || 0;
     const allProvidersFast = [...allProviders];
     const allProvidersCheep = [...allProviders];
@@ -73,10 +70,10 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     const currentYear = currentDate.getFullYear();
     const currentMonthIndex = currentDate.getMonth();
     const currentMonthNumber = currentMonthIndex + 1;
-  
+
     const monthNames = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
     ];
     const currentMonthName = monthNames[currentMonthIndex];
 
@@ -92,17 +89,15 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     }`} />
 
                 <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}, ${city} , ${state}`} />
-
-                <meta property="og:description"  content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}, ${city}, ${state} For ${currentMonthName},${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+                <meta property="og:description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}, ${city}, ${state} For ${currentMonthName},${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
                     `${idx + 1}: ${item?.title}`
                 )).join(', ')
                     }`} />
 
-
                 <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="article" />              
+                <meta property="og:type" content="article" />
                 <meta property="og:url" content={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`} />
-                <link rel="canonical" href={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`}/>
+                <link rel="canonical" href={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`} />
                 <meta property="og:site_name" content="Cable Movers" />
                 <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
                 <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
@@ -110,12 +105,14 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <meta property="og:image:width" content="700" />
                 <meta property="og:image:height" content="467" />
                 <meta property="og:image:type" content="image/jpeg" />
-                
-            
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@cablemovers" />
+
+
             </Head>
 
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
-                <div className="container mx-auto px-4">                  
+                <div className="container mx-auto px-4">
                     <div>
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
                             {formatType(type)}  Service Providers in {zipcode} <br /><span className="text-[#ef9831]">{city}, {state}</span>
@@ -227,12 +224,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                         summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                             type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                                 type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-                                        
+
                                         mobileNo: item.providersInfo?.proPhone,
                                         slug: item.slug,
                                         price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
-                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
-                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
+                                            type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                                type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
                                     }
 
                                     return (
@@ -290,12 +287,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                         summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                             type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                                 type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-                                       
+
                                         mobileNo: item.providersInfo?.proPhone,
                                         slug: item.slug,
                                         price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
-                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
-                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
+                                            type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                                type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
                                     }
 
                                     return (
@@ -389,8 +386,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                                 type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                                     type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
                                             price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
-                                                    type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
-                                                        type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
+                                                type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                                    type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
                                         }
                                         return (
                                             <>
