@@ -176,22 +176,3 @@ export const Galler_Data = [
     img: '/images/partner13.png',
   },
 ];
-// export const getFaqsData = (city, state) => {
-//     return [
-//         {
-//             id: 1,
-//             question: `Who is the Best Internet Service Provider in ${city}, ${state}?`,
-//             answer: `(${city} number}) internet service providers are available in ${city}. Based on the availability (${city}  name}) is the best internet service provider in ${city}, ${state}.`
-//         },
-//         {
-//             id: 2,
-//             question: `Who is the fastest Internet service provider in ${city}, ${state}?`,
-//             answer: `(${city}  name}) is the faster internet service provider in ${city}, ${state} and offers max download speeds up to (${provider}) in select areas.`
-//         },
-//         {
-//             id: 3,
-//             question: `Who is the fastest Internet service provider in ${city}, ${state}?`,
-//             answer: `(${city}) is the faster internet service provider in ${city}, ${state} and offers max download speeds up to (${provider}) in select areas.`
-//         },
-//     ];
-// };

@@ -90,6 +90,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     `${idx + 1}: ${item?.title}`
                 )).join(', ')
                     }`} />
+                <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}, ${city} , ${state}`} />
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="website" />              
                 <meta property="og:url" content={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`} />
@@ -102,8 +103,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <meta property="og:image:type" content="image/jpeg" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@cablemovers" />
-                <meta name="twitter:label1" content="Est. reading time" />
-                <meta name="twitter:data1" content="26 minutes" />
+            
             </Head>
 
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
