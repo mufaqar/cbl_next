@@ -158,6 +158,7 @@ export const SINGLE_Provider = gql`
 query SINGLE_Provider($slug: ID!) {
   singleProvider(id: $slug, idType: URI) {
     title
+    slug
     featuredImage {
       node {
         mediaItemUrl
@@ -373,7 +374,9 @@ export const GET_POST_SLUG = gql`
 query GET_POST_SLUG ($slug: String = ""){
   postBy(slug: $slug) {
     title
+    slug
     content
+    excerpt
     featuredImage {
       node {
         mediaItemUrl

@@ -1,7 +1,7 @@
 import PageBanner from '@/components/pageBanner'
 import React, { useState } from 'react'
-import Head from 'next/head';
 import { useForm, SubmitHandler } from "react-hook-form";
+import PageHead from '@/components/metas/pagesmeta';
 
 
 function Contact_Us() {
@@ -11,49 +11,33 @@ function Contact_Us() {
         watch,
         reset,
         formState: { errors },
-      } = useForm<any>()
-      const [sending, setSending] = useState(false)
+    } = useForm<any>()
+    const [sending, setSending] = useState(false)
 
-      const onSubmit: SubmitHandler<any> = (data:any) => {
+    const onSubmit: SubmitHandler<any> = (data: any) => {
         setSending(true)
         fetch('/api/email', {
             method: 'POST',
             headers: {
-              Accept: 'application/json, text/plain, */*',
-              'Content-Type': 'application/json',
+                Accept: 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-          }).then((res) => {
+        }).then((res) => {
             console.log('Response received');
             if (res.status === 200) {
-              console.log('Response succeeded!');
-              alert('Message Successfully send.!');
-              reset();
-              setSending(false)
+                console.log('Response succeeded!');
+                alert('Message Successfully send.!');
+                reset();
+                setSending(false)
             }
-          });
-      }
+        });
+    }
     return (
         <>
-            <Head>
-                <title>Contact Us | Cable Movers</title>    
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Home" />
-                <meta property="og:description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
-                <meta property="og:url" content="https://www.cablemovers.net" />
-                <meta property="og:site_name" content="Cable Movers" />
-                <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
-                <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
-                <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />
-                <meta property="og:image:width" content="700" />
-                <meta property="og:image:height" content="467" />
-                <meta property="og:image:type" content="image/jpeg" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@cablemovers" />
-                <meta name="twitter:label1" content="Est. reading time" />
-                <meta name="twitter:data1" content="26 minutes" />      
-            </Head>
+
+            <PageHead title="Contact Us | Cable Movers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net/contact-us" />
+
             <div>
                 <PageBanner title="Contact Us" />
                 <section className="pb-16 -mt-12">
@@ -105,7 +89,7 @@ function Contact_Us() {
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-center w-full">
-                                    <input type='submit' className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-[#ef9831] hover:bg-[#215690]" value={ sending ? 'SENDING...' : `SUBMIT`}/>
+                                    <input type='submit' className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-[#ef9831] hover:bg-[#215690]" value={sending ? 'SENDING...' : `SUBMIT`} />
                                 </div>
                             </form>
                         </div>

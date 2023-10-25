@@ -1,11 +1,9 @@
-
-
 import CityBox from '@/components/city-box';
 import SearchForm from '@/components/searchform';
 import ServiceBox from '@/components/service-box';
 import Why_ChooseUs from '@/components/why-choose-us';
 import Link from 'next/link';
-import React, { useEffect } from 'react'
+import React from 'react'
 import { HiOutlineSearchCircle, HiOutlineShoppingCart } from 'react-icons/hi'
 import { BiGitCompare } from 'react-icons/bi'
 import Image from 'next/image';
@@ -14,7 +12,7 @@ import { AllPosts } from '@/config/query';
 import { GetServerSideProps } from 'next';
 import apolloClient from '@/config/client';
 import Blogpost from '@/components/blogpost';
-import Head from 'next/head';
+import PageHead from '@/components/metas/pagesmeta';
 
 
 export default function Home({ BlogPosts }: any) {
@@ -22,26 +20,8 @@ export default function Home({ BlogPosts }: any) {
 
    return (
       <>
-      <Head>
-        <title>Cable Movers | Find Internet and TV Service Providers in Your Area</title>
-        <meta name="description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
-        <link rel="canonical" href="https://www.cablemovers.net" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Cable Movers | Find Internet and TV Service Providers in Your Area" />
-        <meta property="og:description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
-        <meta property="og:url" content="https://www.cablemovers.net" />
-        <meta property="og:site_name" content="Cable Movers" />
-        <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
-        <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
-        <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />
-        <meta property="og:image:width" content="700" />
-        <meta property="og:image:height" content="467" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@cablemovers" />
-     
-      </Head>
+       <PageHead title="Cable Movers | Find Internet and TV Service Providers in Your Area" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net" />
+       
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
                <div className="py-10">

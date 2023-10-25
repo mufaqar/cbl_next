@@ -1,4 +1,3 @@
-import Main from '@/components/main'
 import { ProviderBox } from '@/components/provider/provider-box'
 import SearchForm from '@/components/searchform'
 import apolloClient from '@/config/client'
@@ -8,36 +7,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaRegHandshake, FaArrowRightLong, FaMapLocationDot } from 'react-icons/fa6'
-import { BsFillTelephoneForwardFill, BsShopWindow } from 'react-icons/bs'
-import Head from 'next/head';
-import { AiOutlinePhone } from 'react-icons/ai'
+import { BsShopWindow } from 'react-icons/bs'
 import { FaPhoneAlt } from 'react-icons/fa'
+import PageHead from '@/components/metas/pagesmeta'
 
 
 function Providers({ allProviders }: any) {
 
     return (
         <>
-            <Head>
-                <title>All Providers - Cable Movers</title>
-                <meta name="description" content="Find Internet & TV Service Providers In Your Area" />
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Home" />
-                <meta property="og:description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
-                <meta property="og:url" content="https://www.cablemovers.net" />
-                <meta property="og:site_name" content="Cable Movers" />
-                <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
-                <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
-                <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />
-                <meta property="og:image:width" content="700" />
-                <meta property="og:image:height" content="467" />
-                <meta property="og:image:type" content="image/jpeg" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@cablemovers" />
-                <meta name="twitter:label1" content="Est. reading time" />
-                <meta name="twitter:data1" content="26 minutes" />
-            </Head>
+
+            <PageHead title="All Providers - Cable Movers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net/providers" />
+
             <section className="min-h-[40vh]  flex items-center bg-[#215690]">
                 <div className="container mx-auto px-4">
                     <div >
