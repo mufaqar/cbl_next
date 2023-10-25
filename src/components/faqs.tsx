@@ -4,9 +4,9 @@ import { useRouter } from 'next/router'
 import SearchZipcodeModelBox from '../components/search-zipcode-modelBox'
 
 
-export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProviderCount , countServiceType }: any) {
-   console.log("🚀 ~ file: faqs.tsx:8 ~ Faqs_Sec ~ allProviders:", allProviders)
-   
+export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProviderCount, countServiceType }: any) {
+    // console.log("🚀 ~ file: faqs.tsx:8 ~ Faqs_Sec ~ allProviders:", allProviders)
+
     city = !city ? "" : `${city},`
     const { query } = useRouter();
     let state = query.state;
@@ -30,7 +30,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
 
     return (
         <>
-            <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen}/>
+            <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
             {type === "internet" &&
                 <>
                     <h2 className="text-2xl font-bold">
@@ -225,7 +225,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                            {totalProviderCount} TV service providers are available in {city}. Based on the availability and pricing {allProviders[0]?.title}  is the best TV service provider in <span className=" uppercase">{city} {state} </span>. </p>
+                                {totalProviderCount} TV service providers are available in {city}. Based on the availability and pricing {allProviders[0]?.title}  is the best TV service provider in <span className=" uppercase">{city} {state} </span>. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
@@ -244,7 +244,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                            {allProviders[0]?.title}  is the cheapest internet service provider in  <span className=" uppercase">{city} {state} </span> with price starting from {allProviders[0].providersInfo?.proPrice || allProviders[0]?.pro_price}   </p>
+                                {allProviders[0]?.title}  is the cheapest internet service provider in  <span className=" uppercase">{city} {state} </span> with price starting from {allProviders[0].providersInfo?.proPrice || allProviders[0]?.pro_price}   </p>
                         </div>
                     </div>
                 </>
@@ -330,7 +330,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                            {countServiceType}  bundle service providers are available in {city}. Based on the availability  {
+                                {countServiceType}  bundle service providers are available in {city}. Based on the availability  {
                                     allProviders[0]?.title
                                 }  is the best bundle service provider in {city} {state}.
                             </p>
