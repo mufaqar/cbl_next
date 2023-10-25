@@ -23,6 +23,7 @@ import FastTable_CardProviderState from '@/components/provider/fasttable-cardPro
 import OverView from '@/components/overview';
 
 import Head from 'next/head';
+import PageHead from '@/components/metas/pagesmeta';
 
 
 
@@ -89,34 +90,11 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
   return (
     <>
-     <Head>
-                <title>Best {totalProviderCount} {formatType(type)}  Service Providers in {state} {currentYear}  </title>
-                <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
-                    `${idx + 1} ${item?.title}`
-                )).join(', ')
-                    }`} />
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="article" />
-                <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state}  ${currentMonthName}`} />
-                <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${state} ${currentYear} `} />                
-                <meta property="og:description"  content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
-                    `${idx + 1} ${item?.title}`
-                )).join(', ')
-                    }`} />                
-                <meta property="og:url" content={`https://www.cablemovers.net/${state}`} />
-                <link rel="canonical" href={`https://www.cablemovers.net/${state}`} />
-                <meta property="og:site_name" content="Cable Movers" />
-                <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
-                <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
-                <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />
-                <meta property="og:image:width" content="700" />
-                <meta property="og:image:height" content="467" />
-                <meta property="og:image:type" content="image/jpeg" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@cablemovers" />
-                <meta name="twitter:label1" content="Est. reading time" />
-                <meta name="twitter:data1" content="26 minutes" />
-            </Head>
+
+
+      <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${state} ${currentYear}`} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+        `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}`} />
+
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">
@@ -159,8 +137,8 @@ export default function OurState({ allcities, state, allProviders }: any) {
                     type === "tv" ? item.services_info_tv_services_features :
                       type === "internet-tv" && item.services_info_internet_tv_bundles_features,
                   price: type === "internet" ? item.services_info_internet_services_price :
-                      type === "tv" ? item.services_info_tv_services_price :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                    type === "tv" ? item.services_info_tv_services_price :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                 }
 
                 return (
@@ -226,11 +204,11 @@ export default function OurState({ allcities, state, allProviders }: any) {
               {
                 cheepProviders?.map((item: any, idx: number) => {
                   var summaryData = {
-                    provider: item?.title,                    
+                    provider: item?.title,
                     slug: item.slug,
                     price: type === "internet" ? item.services_info_internet_services_price :
-                    type === "tv" ? item.services_info_tv_services_price :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                      type === "tv" ? item.services_info_tv_services_price :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                   }
                   return (
                     <>
@@ -372,7 +350,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
                 {
                   allProviders?.map((item: any, idx: number) => {
-                    
+
                     var summaryData = {
                       provider: item?.title,
                       slug: item.slug,
@@ -380,14 +358,14 @@ export default function OurState({ allcities, state, allProviders }: any) {
                       summery: type === "internet" ? item.services_info_internet_services_summary_features :
                         type === "tv" ? item.services_info_tv_services_summary_features :
                           type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
-                 
+
                       speed: type === "internet" ? item.services_info_internet_services_summary_speed :
                         type === "tv" ? item.services_info_tv_services_summary_speed :
                           type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
-                       channel    : item.services_info_internet_tv_bundles_summary_channel,
-                       price: type === "internet" ? item.services_info_internet_services_price :
-                       type === "tv" ? item.services_info_tv_services_price :
-                         type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                      channel: item.services_info_internet_tv_bundles_summary_channel,
+                      price: type === "internet" ? item.services_info_internet_services_price :
+                        type === "tv" ? item.services_info_tv_services_price :
+                          type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                     }
 
                     return (

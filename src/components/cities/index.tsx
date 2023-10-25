@@ -16,12 +16,14 @@ import FastTable_CardProviderState from '../provider/fasttable-cardProviderState
 import CheepTable_CardProviderState from '../provider/cheeptable-cardProviderState';
 import OverView from '../overview';
 import Head from 'next/head';
+import PageHead from '../metas/pagesmeta';
 
 export default function Cities_com({ my_city, allProviders }: any) {
   const { query } = useRouter();
   const type = query.type || "internet";
 
   const state = query.state;
+  const city_code = query.city;
 
   function formatType(type: any) {
     if (type === "internet") {
@@ -81,36 +83,11 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
   return (
     <>
-      <Head>
-        <title>Best {totalProviderCount} {formatType(type)}  Service Providers in  {city} , {state} {currentYear}  </title>
+      
 
-        <meta name="description" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${state} for ${currentMonthName}, ${currentYear}. ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
-          `${idx + 1}: ${item?.title}`
-        )).join(', ')
-          }`} />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="article" />
-    
-        <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${city} , ${state} ${currentYear} `} />
-        <meta property="og:description"  content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${state} for ${currentMonthName}, ${currentYear}. ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
-          `${idx + 1}: ${item?.title}`
-        )).join(', ')
-          }`} />
-       
-       
-        <meta property="og:url" content={`https://www.cablemovers.net/${state}/${city}`} />
-        <link rel="canonical" href={`https://www.cablemovers.net/${state}/${city}`} />
-        <meta property="og:site_name" content="Cable Movers" />
-        <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
-        <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
-        <meta property="og:image" content="https://www.cablemovers.net/wp-content/uploads/2020/05/hero-index.png" />
-        <meta property="og:image:width" content="700" />
-        <meta property="og:image:height" content="467" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@cablemovers" />
-       
-      </Head>
+
+       <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${state} ${currentYear}`} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in in ${city}, ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+        `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}/${city_code}`} />
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">
