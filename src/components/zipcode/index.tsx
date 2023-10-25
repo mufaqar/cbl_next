@@ -92,8 +92,15 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     }`} />
 
                 <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}, ${city} , ${state}`} />
+
+                <meta property="og:description"  content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}, ${city}, ${state} For ${currentMonthName},${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+                    `${idx + 1}: ${item?.title}`
+                )).join(', ')
+                    }`} />
+
+
                 <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="website" />              
+                <meta property="og:type" content="article" />              
                 <meta property="og:url" content={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`} />
                 <link rel="canonical" href={`https://www.cablemovers.net/${state}/${city}?zipcode=${zipcode}`}/>
                 <meta property="og:site_name" content="Cable Movers" />

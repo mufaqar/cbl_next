@@ -96,10 +96,13 @@ export default function OurState({ allcities, state, allProviders }: any) {
                 )).join(', ')
                     }`} />
                 <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Home" />
-                <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${state} ${currentYear} `} />
-                <meta property="og:description" content="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." />
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state}  ${currentMonthName}`} />
+                <meta property="og:title" content={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${state} ${currentYear} `} />                
+                <meta property="og:description"  content={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+                    `${idx + 1} ${item?.title}`
+                )).join(', ')
+                    }`} />                
                 <meta property="og:url" content={`https://www.cablemovers.net/${state}`} />
                 <link rel="canonical" href={`https://www.cablemovers.net/${state}`} />
                 <meta property="og:site_name" content="Cable Movers" />
