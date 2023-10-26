@@ -152,15 +152,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         <h2 className="text-2xl font-bold">
                             Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
-
-
                         <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} />
-
-
-
-
-
-
                     </div>
                 </div>
             </section>
@@ -176,8 +168,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an {formatType(type)}  service provider in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {formatType(type)}  service providers in {city}, {state}.</p>
                         </div>
 
-                        <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] md:grid-cols-2 `}>
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                        <div className={`md:w-full min-w-fit grid grid-cols-2 bg-[#215690]`}>
+                            <div className="border-r grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                 <div>
                                     <h4 className="md:text-base text-xs text-center text-white">
                                         Provider
@@ -218,7 +210,6 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                 })
                             }
                         </div>
-
                     </div>
                 </section>
             )}
@@ -233,15 +224,15 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)}  service providers in  {city}, {state}.</p>
                         </div>
 
-                        <div className={`md:w-full min-w-fit grid  grid-cols-1 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-2' : ' md:grid-cols-2'} flex flex-col`}>
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                        <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-2' : ' md:grid-cols-2'} `}>
+                            <div className="border-r grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                 <div>
                                     <h4 className="md:text-base text-xs text-center text-white">
                                         Provider
                                     </h4>
                                 </div>
                             </div>
-                            <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                 <div>
                                     <h4 className="md:text-base text-xs text-center text-white">
                                         {type === "tv" ? (
