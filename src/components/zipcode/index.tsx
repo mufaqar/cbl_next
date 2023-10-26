@@ -288,9 +288,8 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     <div>
 
                         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
-                            <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-col items-stretch">
-                                <div className={`md:w-full min-w-fit grid ${type === 'tv' ? 'grid-cols-7' : 'md:grid-cols-8'} grid-cols-1 bg-[#215690] `}>
-
+                            <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
+                                <div className={`md:w-full min-w-fit grid ${type === 'tv' ? 'md:grid-cols-7' : 'md:grid-cols-8'} grid-cols-1 bg-[#215690] `}>
                                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white">
@@ -326,11 +325,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                             </div>
                                         </div>}
 
-
-
-
-
-                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto col-span-3 h-[120px] items-center">
+                                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto md:col-span-3 h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white mb-2">
                                                 Features
@@ -345,27 +340,28 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                         </div>
                                     </div>
                                 </div>
-                                {
-                                    allProviders?.map((item: any, idx: number) => {
-                                        var summaryData = {
-                                            provider: item?.title,
-                                            slug: item?.slug,
-                                            type: item.serviceTypes.nodes,
-                                            summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
-                                                type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
-                                                    type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-                                            price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
-                                                type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
-                                                    type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
-                                        }
-                                        return (
-                                            <>
-                                                <Inter_Service data={summaryData} key={idx} type={type} />
-                                            </>
-                                        )
-                                    })
-                                }
-
+                                <div className='flex md:flex-col flex-row w-full md:overflow-hidden overflow-x-scroll'>
+                                    {
+                                        allProviders?.map((item: any, idx: number) => {
+                                            var summaryData = {
+                                                provider: item?.title,
+                                                slug: item?.slug,
+                                                type: item.serviceTypes.nodes,
+                                                summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
+                                                    type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
+                                                        type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+                                                price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
+                                                    type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                                        type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
+                                            }
+                                            return (
+                                                <>
+                                                    <Inter_Service data={summaryData} key={idx} type={type} />
+                                                </>
+                                            )
+                                        })
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
