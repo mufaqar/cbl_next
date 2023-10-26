@@ -4,7 +4,7 @@ const Inter_Service = ({ data, type }: any) => {
 
     return (
         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto ">
-            <div className="w-full h-auto  flex md:flex-col flex-row items-stretch">
+            <div className="w-full h-auto  flex md:flex-col flex-col items-stretch">
 
                 <div className={`md:w-full w-full grid ${type === 'tv' ? 'grid-cols-7' : 'md:grid-cols-8'} dtable`}>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] overflow-hidden items-center">
