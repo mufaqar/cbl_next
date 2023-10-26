@@ -52,12 +52,7 @@ export default function SProviders({ Provider, city, state }: any) {
 
   return (
     <>
-
-
       <PageHead title={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear} | Cable Movers`} description={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear}.`} url={`https://www.cablemovers.net/providers/${Provider.slug}`} />
-
-
-
 
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
@@ -87,13 +82,13 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
-      <section className={`bg-[#215690] px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-5 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed bottom-0 left-0 right-0' : 'sticky'
+      <section className={`bg-[#215690] hidden px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-5 shadow-sm border-y border-zinc-400/20  ${nav ? 'md:fixed bottom-0 left-0 right-0' : 'sticky'
         }`}>
-        <div className='md:text-center text-center md:max-w-xs ml-auto md:mr-0 mx-auto flex  '>
-          <h3 className="md:text-2xl text-lg font-extrabold text-white mb-2">
+        <div className='md:text-center text-center md:max-w-xs ml-auto md:mr-0 mx-auto flex md:flex-col flex-row gap-2'>
+          <h3 className="md:text-2xl text-lg font-extrabold text-white">
             Call to order {provider_name}
           </h3>
-          <Link href={`tel:${pro_phone}`} className='ml-8 bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-1.5 rounded-3xl'>
+          <Link href={`tel:${pro_phone}`} className='md:ml-8 bg-[#ef9831] hover:bg-white hover:text-[#215690] text-white md:text-xl text-base text-center inline-block w-fit font-medium font-[Roboto] md:px-10 px-5 py-1.5 rounded-3xl'>
             {pro_phone}
           </Link>
         </div>
@@ -104,7 +99,6 @@ export default function SProviders({ Provider, city, state }: any) {
           <SearchForm />
         </div>
       </section>
-
 
       {Provider?.providersInfo?.internetPlans &&
 
