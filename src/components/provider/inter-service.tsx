@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Inter_Service = ({ data, type }: any) => {
 
     return (
-        <div className={`w-full grid  ${type === 'tv' ? 'md:grid-cols-7' : 'md:grid-cols-8'} dtable`}>
+        <div className={`min-w-[120px] md:w-full  grid  ${type === 'tv' ? 'md:grid-cols-7' : 'md:grid-cols-8'} dtable`}>
             <div className="w-full md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                     <p className="text-center md:text-base text-xs">
