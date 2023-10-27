@@ -83,10 +83,10 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
   return (
     <>
-      
 
 
-       <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${state} ${currentYear}`} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in in ${city}, ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+
+      <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${state} ${currentYear}`} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in in ${city}, ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
         `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}/${city_code}`} />
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
@@ -201,8 +201,8 @@ export default function Cities_com({ my_city, allProviders }: any) {
                     provider: item?.title,
                     slug: item.slug,
                     price: type === "internet" ? item.services_info_internet_services_price :
-                    type === "tv" ? item.services_info_tv_services_price :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                      type === "tv" ? item.services_info_tv_services_price :
+                        type === "internet-tv" && item.services_info_internet_tv_bundles_price,
                   }
                   return (
                     <>
@@ -284,7 +284,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
             <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
               <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                <div className='md:w-full min-w-fit grid md:grid-cols-8 grid-cols-1 bg-[#215690] '>
+                <div className={`md:w-full min-w-[50px] grid ${type === 'tv-internet' ? 'md:grid-cols-8' : 'md:grid-cols-7'} grid-cols-1 bg-[#215690] `}>
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white">
@@ -320,7 +320,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
                       </div>
                     </div>}
 
-                  <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center col-span-3">
+                  <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto md:col-span-3 h-[120px] items-center">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white mb-2">
                         Features
@@ -335,35 +335,36 @@ export default function Cities_com({ my_city, allProviders }: any) {
                     </div>
                   </div>
                 </div>
+                <div className='flex md:flex-col flex-row w-full md:overflow-hidden overflow-x-scroll'>
 
-                {
-                  allProviders?.map((item: any, idx: number) => {
-                    var summaryData = {
-                      provider: item?.title,
-                      slug: item.slug,
-                      type: item.providers_service_types[0],
-                      summery: type === "internet" ? item.services_info_internet_services_summary_features :
-                        type === "tv" ? item.services_info_tv_services_summary_features :
-                          type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
-                  
-                      speed: type === "internet" ? item.services_info_internet_services_summary_speed :
-                        type === "tv" ? item.services_info_tv_services_summary_speed :
-                          type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
-                      channel: item.services_info_internet_tv_bundles_summary_channel,
-                      price: type === "internet" ? item.services_info_internet_services_price :
-                      type === "tv" ? item.services_info_tv_services_price :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_price,
-                    }
+                  {
+                    allProviders?.map((item: any, idx: number) => {
+                      var summaryData = {
+                        provider: item?.title,
+                        slug: item.slug,
+                        type: item.providers_service_types[0],
+                        summery: type === "internet" ? item.services_info_internet_services_summary_features :
+                          type === "tv" ? item.services_info_tv_services_summary_features :
+                            type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
 
-                    return (
-                      <>
+                        speed: type === "internet" ? item.services_info_internet_services_summary_speed :
+                          type === "tv" ? item.services_info_tv_services_summary_speed :
+                            type === "internet-tv" && item.services_info_internet_tv_bundles_summary_speed,
+                        channel: item.services_info_internet_tv_bundles_summary_channel,
+                        price: type === "internet" ? item.services_info_internet_services_price :
+                          type === "tv" ? item.services_info_tv_services_price :
+                            type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                      }
 
-                        <Inter_Service_State data={summaryData} key={idx} type={type} />
-                      </>
-                    )
-                  })
-                }
+                      return (
+                        <>
 
+                          <Inter_Service_State data={summaryData} key={idx} type={type} />
+                        </>
+                      )
+                    })
+                  }
+                </div>
               </div>
             </div>
           </div>
