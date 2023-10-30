@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node ./src/gen-sitemaps/blogs-sitemap.js && node ./src/gen-sitemaps/pages-sitemap.js && node ./src/gen-sitemaps/providers-sitemap.js",
     "start": "next start",
     "lint": "next lint",
-    "sitemap": "node next-sitemap.js"
+    "sitemap": "node ./src/gen-sitemaps/blogs-sitemap.js && node ./src/gen-sitemaps/pages-sitemap.js && node ./src/gen-sitemaps/providers-sitemap.js ",
+    "citymap": "node ./src/gen-sitemaps/cities-sitemap.js && node ./src/gen-sitemaps/states-sitemap.js"
   },
   "dependencies": {
     "-": "^0.0.1",
