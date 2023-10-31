@@ -4,7 +4,7 @@ const fs = require('fs');
 const SITE_URI = 'https://cablemovers.net';
 
 async function fetchStateWiseCity() {
-  const responceStateWiseCity = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities')
+  const responceStateWiseCity = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities?posts_per_page=10000&offset=40000')
  
   const citiesData = await responceStateWiseCity.json();
 
@@ -53,7 +53,7 @@ async function generateSitemap() {
     </urlset>
   `;
 
-  fs.writeFileSync('public/cities_4-sitemap.xml', sitemap);
+  fs.writeFileSync('public/cities_5-sitemap.xml', sitemap);
 }
 
 generateSitemap();
