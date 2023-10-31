@@ -352,7 +352,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. Many providers in {city} offer {countServiceType} bundle options to combine internet and TV services for potential cost savings. </p>
+                                Yes. Many providers in {city} offer bundle options to combine internet and TV services for potential cost savings. </p>
                         </div>
                     </div>
                 </>
