@@ -165,7 +165,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             <h2 className="text-2xl font-bold  capitalize leading-10">
                                 Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                             </h2>
-                            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an {formatType(type)}  service provider in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {formatType(type)}  service providers in {city}, {state}.</p>
+                            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an {formatType(type)}  service provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly options that don't compromise on quality. Below are the cheap {formatType(type)}  service providers in {city}, {state}.</p>
                         </div>
 
                         <div className={`md:w-full min-w-fit grid grid-cols-2 bg-[#215690]`}>
