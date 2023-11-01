@@ -219,7 +219,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     <div className="container mx-auto px-4">
                         <div className='mb-10'>
                             <h2 className="text-2xl font-bold  capitalize leading-10">
-                                Fastest  {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
+                                Fast  {formatType(type)}  Service Providers in <span className="text-[#ef9831]">{city}, {state}</span>
                             </h2>
                             <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)}  service providers in  {city}, {state}.</p>
                         </div>
@@ -282,7 +282,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold">
-                            Summary of {formatType(type)}  service providers in  {city}, {state}
+                            Summary of {formatType(type)}  service providers in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
                     </div>
                     <div>
@@ -310,7 +310,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                                 {type === "tv" ? (
                                                     "Channels"
                                                 ) : (
-                                                    "Download Speeds up to "
+                                                    "Max Download Speed "
                                                 )}
                                             </h4>
                                         </div>
@@ -371,7 +371,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold">
-                            Types of {formatType(type)}  Technologies available in {city}, {state}
+                            Types of {formatType(type)}  Technologies available in <span className="text-[#ef9831]">{city}, {state}</span>
                         </h2>
                         <p className='text-base'>
                             As of the time this page was written, {city} likely have several types of {formatType(type)}  technologies available to its residents. These technologies include
