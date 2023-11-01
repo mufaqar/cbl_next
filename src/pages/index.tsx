@@ -57,7 +57,7 @@ export default function Home({ BlogPosts }: any) {
                   <ServiceBox
                      img={<BiGitCompare className="text-6xl text-[#215690] mx-auto" />}
                      title="Compare"
-                     content="Compare prices and plans from available providers in your area."
+                     content="Compare plans and prices from available providers in your area."
                   />
                   <ServiceBox
                      img={<HiOutlineShoppingCart className="text-6xl text-[#215690] mx-auto" />}
