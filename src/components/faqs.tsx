@@ -34,7 +34,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
             {type === "internet" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span>  Internet FAQ’s
+                        <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span>  Internet FAQ’s
 
                         {allProviders[0]?.pro_price}
                     </h2>
@@ -149,7 +149,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
             {type === "tv" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                          <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> TV FAQ’s               </h2>
+                          <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span> TV FAQ’s               </h2>
 
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
@@ -254,7 +254,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
             {type === "internet-tv" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                          <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> Internet and TV FAQ’s;              </h2>
+                          <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span> Internet and TV FAQ’s;              </h2>
 
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
