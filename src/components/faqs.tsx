@@ -54,7 +54,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {totalProviderCount} Internet service providers are available in {city} Based on the availability {allProviders[0].title} is the best internet service provider in {city}.
+                                {totalProviderCount} Internet service providers are available in {city} Based on the availability {allProviders[0].title} is the best internet service provider in {city}
                             </p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                             <p className="text-base font-medium mt-5" >
                                 {
                                     allProviders[0]?.title
-                                }  is the faster internet service provider in {city} and offers max download speeds up to {allProviders[0]?.providersInfo?.proSpeed || allProviders[0]?.pro_speed} in select areas.
+                                }  is the fastest internet service provider in {city} and offers max download speeds up to {allProviders[0]?.providersInfo?.proSpeed || allProviders[0]?.pro_speed} in select areas.
                             </p>
                         </div>
                     </div>
@@ -244,7 +244,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0]?.title}  is the cheapest internet service provider in  <span className=" uppercase">{city} {state} </span> with price starting from {allProviders[0].providersInfo?.proPrice || allProviders[0]?.pro_price}   </p>
+                                {allProviders[0]?.title}  is the cheapest internet service provider in  <span className=" uppercase">{city} {state} </span> with price starting from ${allProviders[0].providersInfo?.proPrice || allProviders[0]?.pro_price}   </p>
                         </div>
                     </div>
                 </>
@@ -272,7 +272,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                To check Internet and TV service providers bundles availability, <button className="text-blue-400" onClick={handleModelBox}>Enter your zip code</button> {zipcode} to find the best bundle options available to you. </p>
+                                To check Internet and TV service providers bundles availability, <button className="text-blue-400" onClick={handleModelBox}>Enter your zip code</button> to find the best bundle options available to you. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
@@ -352,7 +352,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. Many providers in {city} offer {countServiceType} bundle options to combine internet and TV services for potential cost savings. </p>
+                                Yes. Many providers in {city} offer bundle options to combine internet and TV services for potential cost savings. </p>
                         </div>
                     </div>
                 </>

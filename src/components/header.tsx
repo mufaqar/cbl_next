@@ -40,12 +40,12 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link href="/providers/dish" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Dish
+                                        DISH
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/directv" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Directv
+                                        DIRECTV
                                     </Link>
                                 </li>
                                 <li>
@@ -70,7 +70,7 @@ const Header = () => {
                             <ul className={`bg-white md:absolute static top-[4.6rem] md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-5 z-50 md:shadow-xl  ${subMenu1 ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu1(false)}>
                                 <li>
                                     <Link href="/providers/att" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        At&t
+                                        AT&T
                                     </Link>
                                 </li>
                                 <li>

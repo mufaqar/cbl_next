@@ -26,7 +26,7 @@ export default function (req, res) {
           <p><strong>Name: </strong> ${req.body.name}</p>
           <p><strong>Email: </strong> ${req.body.email}</p>
           <p><strong>Phone number: </strong> ${req.body.phone}</p>
-          <p><strong>Reason: </strong> ${req.body.reason}</p>
+          <p><strong>Subject: </strong> ${req.body.reason}</p>
           <p><strong>Comments: </strong> ${req.body.comment}</p> `
      }
 
