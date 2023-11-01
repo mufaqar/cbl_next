@@ -238,9 +238,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                         {type === "tv" ? (
                                             "Channels"
                                         ) : type === "internet-tv" ? (
-                                            "Speeds from "
+                                            "Max Download Speed "
                                         ) : (
-                                            "Speeds from "
+                                            "Max Download Speed "
                                         )}
                                     </h4>
                                 </div>
