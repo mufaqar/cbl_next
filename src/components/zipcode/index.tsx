@@ -156,8 +156,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     </div>
                 </div>
             </section>
-
-
+            
             {type !== 'internet-tv' && (
                 <section className="my-16">
                     <div className="container mx-auto px-4">
