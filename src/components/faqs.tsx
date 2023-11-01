@@ -35,8 +35,6 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                 <>
                     <h2 className="text-2xl font-bold">
                         <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span>  Internet FAQ’s
-
-                        {allProviders[0]?.pro_price}
                     </h2>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
