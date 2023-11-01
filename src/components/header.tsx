@@ -100,7 +100,7 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link href="/providers/hughesnet" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Hughesnet
+                                        HughesNet
                                     </Link>
                                 </li>
                                 <li>
@@ -110,7 +110,7 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link href="/providers/t-mobile" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        T-mobile
+                                        T-Mobile
                                     </Link>
                                 </li>
                             </ul>
