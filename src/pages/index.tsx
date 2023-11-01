@@ -52,17 +52,17 @@ export default function Home({ BlogPosts }: any) {
                   <ServiceBox
                      img={<HiOutlineSearchCircle className="text-6xl text-[#215690] mx-auto" />}
                      title="Search "
-                     content="(Find Internet and TV service providers in your area with a simple zip code search)"
+                     content="Find providers in your area with a simple zip code search."
                   />
                   <ServiceBox
                      img={<BiGitCompare className="text-6xl text-[#215690] mx-auto" />}
                      title="Compare"
-                     content="(Compare prices and plans from available Internet and TV service providers in your area)"
+                     content="Compare prices and plans from available providers in your area."
                   />
                   <ServiceBox
                      img={<HiOutlineShoppingCart className="text-6xl text-[#215690] mx-auto" />}
                      title="Order"
-                     content="(Give us a call, we’ll help you find the right plan and setup your service over the phone)"
+                     content="Give us a call, we’ll help you find the right plan."
                   />
                </div>
             </div>
@@ -210,7 +210,7 @@ export default function Home({ BlogPosts }: any) {
          <section className="py-16">
             <div className="container mx-auto px-4">
                <div className="mb-10">
-                  <h2 className='text-center md:text-4xl text-2xl font-bold'>
+                  <h2 className='text-left md:text-4xl text-2xl font-bold'>
                      Featured Posts
                   </h2>
                </div>
