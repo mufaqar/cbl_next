@@ -9,7 +9,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <GoogleAnalytics measurementId="G-20JM8TWZFP" />
       <Header />
-
       <Component {...pageProps} />
       <Footer />
     </>
