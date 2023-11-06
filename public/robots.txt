@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /cgi-bin/
+Disallow: /?s={search_term_string}
+Disallow: /comments/feed/
+Disallow: /feed/
 
 Sitemap: https://cablemovers.net/sitemap.xml
 Sitemap: https://www.cablemovers.net/pages-sitemap.xml
