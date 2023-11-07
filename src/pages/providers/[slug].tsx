@@ -24,6 +24,7 @@ import Head from 'next/head';
 import PageHead from '@/components/metas/pagesmeta'
 export default function SProviders({ Provider, city, state }: any) {
   const provider_name = Provider?.title;
+  const provider_slug = Provider?.slug;
   const pro_phone = Provider?.providersInfo?.proPhone;
   const [nav, setNav] = useState(false);
   const currentDate = new Date();
@@ -57,7 +58,7 @@ export default function SProviders({ Provider, city, state }: any) {
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
           <div className='md:w-1/2 w-full py-10'>
-            <Link href={`/providers/${provider_name}`} >  <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} /></Link>
+            <Link href={`/providers/${provider_slug}`} >  <Image src={Provider.featuredImage?.node.mediaItemUrl} alt="Feature Image" width={140} height={50} /></Link>
             <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-black">
               <span className='text-[#ef9831]'>{provider_name} </span>Plans and Pricing for {currentMonthName}, {currentYear}
             </h1>
