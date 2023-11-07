@@ -31,6 +31,8 @@ export default function OurState({ allcities, state, allProviders }: any) {
   const { query } = useRouter();
   const type = query.type || "internet";
 
+  const C_State = state.toUpperCase(); 
+
 
 
   function formatType(type: any) {
@@ -92,7 +94,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
     <>
 
 
-      <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${state} ${currentYear}`} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+      <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${C_State} |  ${currentMonthName}, ${currentYear}. `} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in  ${C_State}  for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 5).map((item: any, idx: number) => (
         `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}`} />
 
 
@@ -425,7 +427,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
         <div className='container mx-auto px-4 m-10'>
           <div className="mt-20 mb-7">
             <h2 className='text-center text-2xl font-bold'>
-              Compare Internet Providers in Major Cities
+              Compare {formatType(type)} Providers in Major Cities
             </h2>
           </div>
           <div>

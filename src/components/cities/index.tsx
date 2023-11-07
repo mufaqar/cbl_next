@@ -24,6 +24,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
   const state = query.state;
   const city_code = query.city;
+  const C_State = state.toUpperCase(); 
 
   function formatType(type: any) {
     if (type === "internet") {
@@ -86,8 +87,11 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
 
 
-      <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${state} ${currentYear}`} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in in ${city}, ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+      <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State} |  ${currentMonthName}, ${currentYear}. `} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
         `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}/${city_code}`} />
+
+
+
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">
