@@ -7,7 +7,7 @@ function About_Us() {
     return (
         <>
           
-            <PageHead title="About Us | Cable Movers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net/about-us" />
+            <PageHead title="About Us | Cable Movers" description="Here at Cable Movers, we make it easy to search, compare and order Internet and TV service providers. Call 833-592-0098 to learn more." url="https://www.cablemovers.net/about-us" />
       
             <PageBanner title="About Us" />
             <section className="py-16">

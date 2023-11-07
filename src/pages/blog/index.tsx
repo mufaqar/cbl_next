@@ -11,7 +11,7 @@ function Blog({ BlogPosts }: any) {
     return (
         <>
 
-            <PageHead title="Blog | Cable Movers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net/blog" />
+            <PageHead title="Latest News, Reviews and Guides on Internet and TV Service Providers" description="Cable Movers will keep you updated on latest news, reviews and guides on Internet and TV service providers." url="https://www.cablemovers.net/blog" />
 
             <PageBanner title="Blog" />
             <main className="py-16 max-w-screen-lg mx-auto">

@@ -9,7 +9,7 @@ function Sell_Information() {
         <>
 
           
-            <PageHead title="Do Not Sell My Information | Cable Movers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net/do-not-sell-my-information" />
+            <PageHead title="Do Not Sell My Information | Cable Movers" description="" url="https://www.cablemovers.net/do-not-sell-my-information" />
       
             <PageBanner title="Do Not Sell My Information" />
             <section className="py-16">

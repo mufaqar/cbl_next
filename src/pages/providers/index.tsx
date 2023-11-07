@@ -17,7 +17,7 @@ function Providers({ allProviders }: any) {
     return (
         <>
 
-            <PageHead title="All Providers - Cable Movers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net/providers" />
+            <PageHead title="Best Internet and TV Service Providers We Work With | Cable Movers" description="Cable Movers partners with top internet and TV service providers and offers one stop shop so you can Search, compare and order all at one site." url="https://www.cablemovers.net/providers" />
 
             <section className="min-h-[40vh]  flex items-center bg-[#215690]">
                 <div className="container mx-auto px-4">
@@ -97,7 +97,7 @@ function Providers({ allProviders }: any) {
                     </div>
                 </div>
             </section>
-            <section className="">
+            {/* <section className="">
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
                     <div className="text-center">
                         <h2 className='text-3xl font-bold'>
@@ -156,7 +156,7 @@ function Providers({ allProviders }: any) {
 
 
                 </div>
-            </section>
+            </section> */}
 
 
         </>

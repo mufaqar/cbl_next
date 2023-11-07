@@ -19,14 +19,14 @@ export default function (req, res) {
      // step-2
      const mailData = {
           from: EMAIL,
-          to: `contact@cablemovers.net, ${req.body.email}`,
+          to: `contact@cablemovers.net`,
           subject: `Message From ${req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1)}`,
           text: req.body.comment + " | Sent from: " + req.body.email,
           html: `
           <p><strong>Name: </strong> ${req.body.name}</p>
           <p><strong>Email: </strong> ${req.body.email}</p>
           <p><strong>Phone number: </strong> ${req.body.phone}</p>
-          <p><strong>Subject: </strong> ${req.body.reason}</p>
+          <p><strong>Subject: </strong> ${req.body.subject}</p>
           <p><strong>Comments: </strong> ${req.body.comment}</p> `
      }
 

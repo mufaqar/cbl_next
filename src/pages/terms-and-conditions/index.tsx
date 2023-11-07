@@ -7,7 +7,7 @@ function Privacy_Policy() {
         <>
 
             
-            <PageHead title="Terms and Conditions | Cable Movers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net/terms-and-conditions" />
+            <PageHead title="Terms and Conditions | Cable Movers" description="Cable Movers terms and conditions are very simple. You can read the details on this page." url="https://www.cablemovers.net/terms-and-conditions" />
       
             <PageBanner title="TERMS AND CONDITIONS" />
             <section className="py-16">
