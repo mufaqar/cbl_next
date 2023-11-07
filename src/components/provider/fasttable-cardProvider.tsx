@@ -9,7 +9,7 @@ const Fast_Table_CardProvider = ({ item, type, offer }: any) => {
                     <div className="border-l border-r border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                         <div>
                             <p className="text-center md:text-base text-xs">
-                            <Link href={`/providers/${item.slug}`} >   {item?.provider}</Link>
+                            <Link href={`/providers/${item.slug}`} target="_blank">   {item?.provider}</Link>
                             </p>
                         </div>
                     </div>

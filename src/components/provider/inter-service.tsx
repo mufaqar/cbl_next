@@ -8,7 +8,7 @@ const Inter_Service = ({ data, type }: any) => {
                 <div>
                     <p className="text-center md:text-base text-xs">
 
-                        <Link href={`/providers/${data.slug}`} >  {data?.provider} </Link>
+                        <Link href={`/providers/${data.slug}`} target="_blank" >  {data?.provider} </Link>
                     </p>
                 </div>
             </div>

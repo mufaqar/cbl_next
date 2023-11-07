@@ -6,7 +6,7 @@ const Inter_Service_State = ({ data, type }: any) => {
             <div className="w-full md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                     <p className="text-center md:text-base text-xs">
-                        <Link href={`/providers/${data.slug}`} >  {data?.provider} </Link>
+                        <Link href={`/providers/${data.slug}`}  target="_blank">  {data?.provider} </Link>
                     </p>
                 </div>
             </div>

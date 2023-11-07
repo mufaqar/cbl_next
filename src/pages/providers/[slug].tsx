@@ -94,7 +94,7 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
         <div className='[&>div:nth-child(1)]:mt-0 max-w-xs slug_cta'>
           <h3 className="md:text-2xl text-lg font-extrabold text-center text-white mb-2">
-            Check availability
+            Check Availability 
           </h3>
           <SearchForm />
         </div>
@@ -138,7 +138,7 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </section>
       }
-      {Provider?.providersInfo?.internetTvPhoneBundles &&
+      {Provider?.providersInfo?.internetAndPhoneBundles &&
         <section className="my-16">
           <div className="container mx-auto px-4">
             <div className='mb-10'>
