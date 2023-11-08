@@ -39,11 +39,13 @@ export default function OurState({ allcities, state, allProviders }: any) {
     }
   }
 
-
+  allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
 
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
+
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
   const uniqueServiceType: any = [];
+ 
   const seenNames = new Set();
   newServicesTypes.forEach((st: any) => {
     st.forEach((serviceType: any) => {
@@ -54,7 +56,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
     });
   });
 
-  allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
+ 
 
 
   const allProvidersFast = [...allProviders];
@@ -285,7 +287,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
             <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
               <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                <div className={`md:w-full min-w-[50px] grid ${type === 'tv-internet' ? 'md:grid-cols-8' : 'md:grid-cols-7'} grid-cols-1 bg-[#215690] `}>
+                <div className={`md:w-full min-w-[50px] grid  ${type === 'internet-tv' ? 'md:grid-cols-8' : 'md:grid-cols-7'} grid-cols-1 bg-[#215690] `}>
                   <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                     <div>
                       <h4 className="md:text-base text-xs text-center text-white">
