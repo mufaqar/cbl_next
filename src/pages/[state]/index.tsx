@@ -1,14 +1,10 @@
 "use client"
-import CityBox from '@/components/city-box';
-import Faqs_Sec from '@/components/faqs';
-import Inter_Service from '@/components/provider/inter-service';
-import { ProviderCard } from '@/components/provider/provider-card';
-import Provider_Nav from '@/components/provider/provider-nav';
+
 import Provider_Nav_State from '@/components/provider/provider-nav-state';
 import Technology_Box from '@/components/provider/technology-box';
 import SearchForm from '@/components/searchform';
 import apolloClient from '@/config/client';
-import { ALLZoneByZode, CITES, CITES_by_STATE, ZoneByCity } from '@/config/query';
+import { CITES_by_STATE } from '@/config/query';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import React from 'react'
@@ -17,12 +13,9 @@ import { MdCable } from 'react-icons/md';
 import { useRouter } from 'next/router'
 import { ProviderCardState } from '@/components/provider/provider-card-state';
 import Inter_Service_State from '@/components/provider/inter-service-state';
-import Table_CardProviderState from '@/components/provider/cheeptable-cardProviderState';
 import CheepTable_CardProviderState from '@/components/provider/cheeptable-cardProviderState';
 import FastTable_CardProviderState from '@/components/provider/fasttable-cardProviderState';
 import OverView from '@/components/overview';
-
-import Head from 'next/head';
 import PageHead from '@/components/metas/pagesmeta';
 
 
@@ -34,8 +27,6 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
   const C_State = state.toUpperCase();
 
-
-
   function formatType(type: any) {
     if (type === "internet") {
       return "Internet";
@@ -44,8 +35,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
     } else if (type === "internet-tv") {
       return "Internet and TV";
     } else {
-      // Handle other cases if needed
-      return type; // Return the original value if no match is found
+      return type; 
     }
   }
 
@@ -97,11 +87,6 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
       <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${C_State} | ${currentMonthName}, ${currentYear}. `} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in  ${C_State}  for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 5).map((item: any, idx: number) => (
         `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}`} />
-
-
-
-
-
 
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
