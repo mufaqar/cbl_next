@@ -28,11 +28,11 @@ import PageHead from '@/components/metas/pagesmeta';
 
 
 export default function OurState({ allcities, state, allProviders }: any) {
-  //console.log("🚀 ~ file: index.tsx:31 ~ OurState ~ allProviders:", allProviders)
+
   const { query } = useRouter();
   const type = query.type || "internet";
 
-  const C_State = state.toUpperCase(); 
+  const C_State = state.toUpperCase();
 
 
 
@@ -99,7 +99,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
         `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}`} />
 
 
-        
+
 
 
 
@@ -134,7 +134,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
-                  type: item.providers_service_types[0],
+                  type: item.providers_service_types,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
                   channels: item.services_info_internet_tv_bundles_summary_channel,
@@ -499,7 +499,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       allcities,
       state,
       allProviders: providers_data.providers
-
     },
   };
 }
