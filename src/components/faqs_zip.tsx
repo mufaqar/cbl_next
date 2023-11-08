@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useRouter } from 'next/router'
-import SearchZipcodeModelBox from '../components/search-zipcode-modelBox'
+import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
 
-export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProviderCount, countServiceType }: any) {
+export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProviderCount, countServiceType }: any) {
     // console.log("🚀 ~ file: faqs.tsx:8 ~ Faqs_Sec ~ allProviders:", allProviders)
 
-    city = !city ? "" : `${city},`
+    city = !city ? "" : `${zipcode},`
     const { query } = useRouter();
     let state = query.state;
     const [open, setOpen] = useState<any>(1);
@@ -34,13 +34,13 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
             {type === "internet" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span>  Internet FAQ’s
+                        Internet FAQ’s in   <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{zipcode} </span> </span>
                     </h2>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(1)}>
                                 <p className="text-lg font-semibold " >
-                                    1.	Who is the Best Internet Service Provider in   <span className=" uppercase"> <span className=" uppercase">{city} {state} </span> </span> ?
+                                    1.	Who is the Best Internet Service Provider in   <span className=" uppercase"> <span className=" uppercase">{zipcode} </span> </span> ?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -52,7 +52,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {totalProviderCount} Internet service providers are available in {city} Based on the availability {allProviders[0].title} is the best internet service provider in <span className=" uppercase">{city} {state} </span>
+                                {totalProviderCount} Internet service providers are available in {zipcode} Based on the availability {allProviders[0].title} is the best internet service provider in <span className=" uppercase">{zipcode} </span>
                             </p>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(2)}>
                                 <p className="text-lg font-semibold " >
 
-                                    2.	Who is the fastest Internet service provider in  <span className=" uppercase">{city} {state} </span>?
+                                    2.	Who is the fastest Internet service provider in  <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -75,7 +75,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                             <p className="text-base font-medium mt-5" >
                                 {
                                     allProviders[0]?.title
-                                }  is the fastest internet service provider in {city} and offers max download speeds up to {allProviders[0]?.providersInfo?.proSpeed || allProviders[0]?.pro_speed} in select areas.
+                                }  is the fastest internet service provider in {zipcode} and offers max download speeds up to {allProviders[0]?.providersInfo?.proSpeed || allProviders[0]?.pro_speed} in select areas.
                             </p>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(3)}>
                                 <p className="text-lg font-semibold " >
-                                    3.	Who is the cheapest Internet service provider in  <span className=" uppercase">{city} {state} </span>?
+                                    3.	Who is the cheapest Internet service provider in  <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -95,7 +95,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0].title} is the cheapest internet service provider in {city} with price starting from ${allProviders[0]?.providersInfo?.proPrice || allProviders[0]?.pro_price}.
+                                {allProviders[0].title} is the cheapest internet service provider in {zipcode} with price starting from ${allProviders[0]?.providersInfo?.proPrice || allProviders[0]?.pro_price}.
                             </p>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(4)}>
                                 <p className="text-lg font-semibold " >
-                                    4.	What is the typical internet speed options offered in  <span className=" uppercase">{city} {state} </span>?
+                                    4.	What is the typical internet speed options offered in  <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -115,7 +115,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                In {city} internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
+                                In {zipcode} internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
                             </p>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(5)}>
                                 <p className="text-lg font-semibold " >
-                                    5.	How do I check the availability of Internet service providers in   <span className=" uppercase">{city} {state} </span>?
+                                    5.	How do I check the availability of Internet service providers in   <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -147,13 +147,13 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
             {type === "tv" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span> TV FAQ’s               </h2>
+                        TV FAQ’s in  <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{zipcode} </span> </span>          </h2>
 
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(1)}>
                                 <p className="text-lg font-semibold " >
-                                    How do I check the availability of TV service providers in   <span className=" uppercase">{city} {state} </span>?
+                                    How do I check the availability of TV service providers in   <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -173,7 +173,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(2)}>
                                 <p className="text-lg font-semibold " >
 
-                                    2.	How do I setup TV service in my new home in  <span className=" uppercase">{city} {state} </span>?
+                                    2.	How do I setup TV service in my new home in  <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -192,7 +192,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(3)}>
                                 <p className="text-lg font-semibold " >
-                                    3.	Can I get TV service without any contract in   <span className=" uppercase">{city} {state} </span>?
+                                    3.	Can I get TV service without any contract in   <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -204,14 +204,14 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. A few TV service providers in  <span className=" uppercase">{city} {state} </span> offer no contract or month to month services. Call the providers to know more. </p>
+                                Yes. A few TV service providers in  <span className=" uppercase">{zipcode} </span> offer no contract or month to month services. Call the providers to know more. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(4)}>
                                 <p className="text-lg font-semibold " >
-                                    4.	Who is the Best TV Service Provider in   <span className=" uppercase">{city} {state} </span>?
+                                    4.	Who is the Best TV Service Provider in   <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -223,14 +223,14 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {totalProviderCount} TV service providers are available in {city} Based on the availability and pricing {allProviders[0]?.title}  is the best TV service provider in <span className=" uppercase">{city} {state} </span>. </p>
+                                {totalProviderCount} TV service providers are available in {zipcode} Based on the availability and pricing {allProviders[0]?.title}  is the best TV service provider in <span className=" uppercase">{zipcode} </span>. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(5)}>
                                 <p className="text-lg font-semibold " >
-                                    5.	Who is the cheapest TV service provider in   <span className=" uppercase">{city} {state} </span>?
+                                    5.	Who is the cheapest TV service provider in   <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -242,7 +242,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{city} {state} </span> with price starting from ${allProviders[0].providersInfo?.proPrice || allProviders[0]?.pro_price}   </p>
+                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{zipcode} </span> with price starting from ${allProviders[0].providersInfo?.proPrice || allProviders[0]?.pro_price}   </p>
                         </div>
                     </div>
                 </>
@@ -252,13 +252,13 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
             {type === "internet-tv" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span> Internet and TV FAQ’s;              </h2>
+                        Internet and TV FAQ’s in  <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{zipcode} </span> </span> </h2>
 
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(1)}>
                                 <p className="text-lg font-semibold " >
-                                    1.	How do I check the availability of Internet and TV service providers in    <span className=" uppercase">{city} {state} </span>?
+                                    1.	How do I check the availability of Internet and TV service providers in    <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -278,7 +278,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(2)}>
                                 <p className="text-lg font-semibold " >
 
-                                    2.	How do I setup internet and TV service in my new home in  <span className=" uppercase">{city} {state} </span>?
+                                    2.	How do I setup internet and TV service in my new home in  <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -297,7 +297,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(3)}>
                                 <p className="text-lg font-semibold " >
-                                    3.	Can I get internet and TV bundle without any contract in   <span className=" uppercase">{city} {state} </span>?
+                                    3.	Can I get internet and TV bundle without any contract in   <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -309,14 +309,14 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. A few service providers in  <span className=" uppercase">{city} {state} </span> offer no contract or month to month services. Check with the providers to know more. </p>
+                                Yes. A few service providers in  <span className=" uppercase">{zipcode} </span> offer no contract or month to month services. Check with the providers to know more. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(4)}>
                                 <p className="text-lg font-semibold " >
-                                    4.	Who is the Best bundle Service Provider in   <span className=" uppercase">{city} {state} </span>?
+                                    4.	Who is the Best bundle Service Provider in   <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -328,9 +328,9 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {countServiceType}  bundle service providers are available in {city}. Based on the availability  {
+                                {countServiceType}  bundle service providers are available in {zipcode}. Based on the availability  {
                                     allProviders[0]?.title
-                                }  is the best bundle service provider in {city} {state}.
+                                }  is the best bundle service provider in {zipcode}.
                             </p>
                         </div>
                     </div>
@@ -338,7 +338,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(5)}>
                                 <p className="text-lg font-semibold " >
-                                    5.	Can I bundle Internet and TV service in  <span className=" uppercase">{city} {state} </span>?
+                                    5.	Can I bundle Internet and TV service in  <span className=" uppercase">{zipcode} </span>?
                                 </p>
                                 <span className="text-lightBlue">
 
@@ -350,7 +350,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. Many providers in {city} offer bundle options to combine internet and TV services for potential cost savings. </p>
+                                Yes. Many providers in {zipcode} offer bundle options to combine internet and TV services for potential cost savings. </p>
                         </div>
                     </div>
                 </>
