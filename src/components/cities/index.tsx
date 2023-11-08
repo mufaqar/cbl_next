@@ -24,7 +24,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
   const state = query.state;
   const city_code = query.city;
-  const C_State = state.toUpperCase(); 
+  const C_State = query.state.toUpperCase(); 
 
   function formatType(type: any) {
     if (type === "internet") {
@@ -136,7 +136,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
                 var summaryData = {
                   logo: item?.featured_image,
                   provider: item?.title,
-                  type: item.providers_service_types[0],
+                  type: item.providers_service_types,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
                   price: type === "internet" ? item.services_info_internet_services_price :
@@ -357,7 +357,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
                       var summaryData = {
                         provider: item?.title,
                         slug: item.slug,
-                        type: item.providers_service_types[0],
+                        type: item.providers_service_types,
                         summery: type === "internet" ? item.services_info_internet_services_summary_features :
                           type === "tv" ? item.services_info_tv_services_summary_features :
                             type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,

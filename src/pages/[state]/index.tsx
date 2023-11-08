@@ -28,6 +28,7 @@ import PageHead from '@/components/metas/pagesmeta';
 
 
 export default function OurState({ allcities, state, allProviders }: any) {
+  //console.log("🚀 ~ file: index.tsx:31 ~ OurState ~ allProviders:", allProviders)
   const { query } = useRouter();
   const type = query.type || "internet";
 
@@ -358,7 +359,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
                       var summaryData = {
                         provider: item?.title,
                         slug: item.slug,
-                        type: item.providers_service_types[0],
+                        type: item.providers_service_types,
                         summery: type === "internet" ? item.services_info_internet_services_summary_features :
                           type === "tv" ? item.services_info_tv_services_summary_features :
                             type === "internet-tv" && item.services_info_internet_tv_bundles_summary_features,
