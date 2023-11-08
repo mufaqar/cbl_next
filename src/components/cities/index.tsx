@@ -22,9 +22,10 @@ export default function Cities_com({ my_city, allProviders }: any) {
   const { query } = useRouter();
   const type = query.type || "internet";
 
-  const state = query.state;
+  
   const city_code = query.city;
-  const C_State = query.state.toUpperCase(); 
+  const state = query.state;
+  let C_State = (state as string).toUpperCase();
 
   function formatType(type: any) {
     if (type === "internet") {
