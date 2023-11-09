@@ -36,7 +36,7 @@ function Contact_Us() {
     return (
         <>
 
-            <PageHead title="Contact Us | Cable Movers" description="Find contact information to get in touch with Cable Movers about customer service, ISP listings, advertising opportunities and more." url="https://www.cablemovers.net/contact-us" />
+            <PageHead title="Contact Us | Cable Movers" description="Get in touch with Cable Movers about customer service, ISP listings, advertising opportunities and more." url="https://www.cablemovers.net/contact-us" />
 
             <div>
                 <PageBanner title="Contact Us" />
@@ -48,7 +48,7 @@ function Contact_Us() {
                                     Have question?
                                 </h3>
                                 <p className='text-xl font-normal mt-3'>
-                                    We’re here to help! Send us an email to contact@cablemovers.net
+                                    We’re here to help. Send a message and we’ll get you an answer soon.
                                 </p>
                                 <div className="md:flex w-full gap-5 items-center mt-12">
                                     <div className="md:w-1/2 flex flex-col">
