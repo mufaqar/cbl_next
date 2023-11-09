@@ -19,7 +19,7 @@ const query = `
 `;
 
 
-const SITE_URI = 'https://cablemovers.net';
+const SITE_URI = 'https://www.cablemovers.net';
 
 async function fetchStates() {
   const resultUrls = [];

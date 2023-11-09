@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 
-const SITE_URI = 'https://cablemovers.net';
+const SITE_URI = 'https://www.cablemovers.net';
 
 async function fetchStateWiseCity() {
   const responceStateWiseCity = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities?posts_per_page=10000&offset=40000') 

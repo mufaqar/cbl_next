@@ -5,7 +5,7 @@ Disallow: /?s={search_term_string}
 Disallow: /comments/feed/
 Disallow: /feed/
 
-Sitemap: https://cablemovers.net/sitemap.xml
+Sitemap: https://www.cablemovers.net/sitemap.xml
 Sitemap: https://www.cablemovers.net/pages-sitemap.xml
 Sitemap: https://www.cablemovers.net/providers-sitemap.xml
 Sitemap: https://www.cablemovers.net/blog-sitemap.xml
