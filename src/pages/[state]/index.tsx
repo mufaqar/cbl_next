@@ -445,6 +445,8 @@ export default function OurState({ allcities, state, allProviders }: any) {
   )
 }
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+
+  try {
   const { state } = query;
 
   // const zoneTitles = allzone.map((zone: any) => zone.title);
@@ -479,6 +481,14 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   ]);
   const allcities = cities.data.states.nodes;
 
+   // Check if data exists
+   if (!allcities || !state || !providers_data.providers) {
+    return {
+      notFound: true,
+    };
+  }
+
+
 
 
   return {
@@ -488,7 +498,14 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       allProviders: providers_data.providers
     },
   };
+
+} catch (error) {
+  console.error('Error in getServerSideProps:', error);
+  return {
+    notFound: true,
+  };
 }
+};
 
 
 

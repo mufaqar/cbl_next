@@ -52,56 +52,68 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  try {
 
-  const { zipcode, type, city, state } = query;
+    const { zipcode, type, city, state } = query;
 
-  const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones-city?state=${city}`);
+    const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones-city?state=${city}`);
 
-  const providers_city_data = await response_city.json();
+    const providers_city_data = await response_city.json();
 
-  const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
-  const resultStringQ = zoneTitlesQ.join(',');
-  const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');
+    const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
+    const resultStringQ = zoneTitlesQ.join(',');
+    const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');
 
-  const postData = {
-    internet_services: All_zones_listQ
-  };
+    const postData = {
+      internet_services: All_zones_listQ
+    };
 
-  const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(postData),
-  });
+    const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData),
+    });
 
-  const providers_data = await response_data.json();
+    const providers_data = await response_data.json();
 
-  // Check if zipcode exists before executing the queries
-  if (!zipcode) {
+    // Check if zipcode exists before executing the queries
+    if (!zipcode) {
+      return {
+        props: {
+
+          zones: [],
+          zipcode: null,
+          my_city: query.city,
+          allProviders: providers_data.providers
+        },
+      };
+    }
+
+    const [providers, zone] = await Promise.all([
+      apolloClient.query({ query: GET_PROVIDERS, variables: { zipcode, type } }),
+      apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
+    ]);
+    const allProviders = providers.data.allProviders.nodes;
+    const filterProvider = allProviders.filter((item: any) => item.terms.edges.some((i: any) => i.node.slug === type))
+    const zones = zone.data.zones.nodes;
+
+
+
     return {
       props: {
-
-        zones: [],
-        zipcode: null,
-        my_city: query.city,
-        allProviders: providers_data.providers
+        allProviders: filterProvider, zones, zipcode
       },
     };
-  }
 
-  const [providers, zone] = await Promise.all([
-    apolloClient.query({ query: GET_PROVIDERS, variables: { zipcode, type } }),
-    apolloClient.query({ query: GET_ZONE, variables: { ztitle: zipcode } })
-  ]);
-  const allProviders = providers.data.allProviders.nodes;
-  const filterProvider = allProviders.filter((item: any) => item.terms.edges.some((i: any) => i.node.slug === type))
-  const zones = zone.data.zones.nodes;
-  return {
-    props: {
-      allProviders: filterProvider, zones, zipcode
-    },
-  };
-}
+
+  } catch (error) {
+    console.error('Error in getServerSideProps:', error);
+    return {
+      notFound: true,
+    };
+  }
+};
 
 
