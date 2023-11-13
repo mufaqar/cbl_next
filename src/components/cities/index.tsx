@@ -147,7 +147,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
-              *DISCLAIMER: Availability vary by service address and not available in all areas, pricing subject to change at any time.
+              *DISCLAIMER: Availability vary by service address. not all offers available in all areas, pricing subject to change at any time. Additional taxes, fees, and terms may apply.
             </p>
           </div>
         </div>
