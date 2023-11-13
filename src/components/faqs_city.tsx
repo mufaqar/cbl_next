@@ -50,7 +50,7 @@ export default function Faqs_City({ city, type, allProviders, totalProviderCount
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {totalProviderCount} Internet service providers are available in {city} Based on the availability {allProviders[0].title} is the best internet service provider in {city}, {C_State}.
+                                {totalProviderCount} Internet service providers are available in {city} Based on the availability {allProviders[0].title} is the best internet service provider in <span className=" uppercase">{city} {state} </span>.
                             </p>
                         </div>
                     </div>
