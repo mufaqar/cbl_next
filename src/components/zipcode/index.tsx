@@ -44,8 +44,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
     const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
 
-    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description ,})));
-
+    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
 
     const uniqueServiceType: any = [];
     const seenNames = new Set();

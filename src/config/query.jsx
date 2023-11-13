@@ -94,6 +94,11 @@ query GET_PROVIDERS($zipcode: String = "") {
         proSpeed
         proOffer
         features
+        featuresBlock {
+          title
+          icon
+          details
+        }
         servicesInfo {
           internetServices {
             features
