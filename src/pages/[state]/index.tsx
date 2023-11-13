@@ -156,7 +156,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
-              *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
+              *DISCLAIMER: Availability vary by service address and not available in all areas, pricing subject to change at any time.
             </p>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
               <h2 className="text-2xl font-bold  capitalize leading-10">
                 Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an  {formatType(type)} service provider. Below are the cheap {type} service providers in {state}.</p>
+              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)} Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)} Service Providers in {C_State}}.</p>
             </div>
 
             <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
