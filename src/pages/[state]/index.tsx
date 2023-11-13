@@ -22,6 +22,15 @@ import PageHead from '@/components/metas/pagesmeta';
 
 export default function OurState({ allcities, state, allProviders }: any) {
 
+  // Unique Cities
+  const uniqueIds = new Set();
+  const uniqueCities = allcities[0].zones.nodes.filter((item: any) => {
+    if (uniqueIds.has(item.cities.nodes[0].name)) {
+      return false;
+    }
+    uniqueIds.add(item.cities.nodes[0].name);
+    return true;
+  });
   const { query } = useRouter();
   const type = query.type || "internet";
 
@@ -414,7 +423,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
           </div>
           <div>
             <ul className="grid sm:grid-cols-4 grid-cols-2 gap-5">
-              {allcities[0].zones.nodes?.map((item: any, id: number) => {
+              {uniqueCities?.map((item: any, id: number) => {
                 return <li key={id} className='bg-[#F5F5F5] rounded-2xl px-4 py-4 text-[#215690] font-[Roboto] hover:drop-shadow-xl hover:shadow-bg-[#f5f5f5] group'>
                   <Link href={`${state}/${item.cities.nodes[0].slug}`} className="">
                     <div className="flex justify-between items-center">
