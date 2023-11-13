@@ -17,17 +17,17 @@ function OverView({ uniqueServiceType, type, city, state, allProviders }: any) {
     return (
 
         <p className='text-xl font-[Roboto] mt-5'>
-            As of the time this page was written, {city === '' ? <span className='uppercase'>{state}</span> : city}  has three or more {formatType(type)} service providers offering various types of {formatType(type)} plans to its residents. You’ll likely have options from
+            As of the time this page was written, {city === '' ? <span className='uppercase'>{state}</span> : city}  has three or more {formatType(type)} Service Providers offering various types of {formatType(type)} plans to its residents. You’ll likely have options from
             {
                 uniqueServiceType.map((t: any, i: number) => (
                     <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> {i < uniqueServiceType.length - 1 && ', '} </span>
 
                 ))
-            } {formatType(type)} service providers.  {
+            } {formatType(type)} Service Providers.  {
                 allProviders?.slice(0, 2).map((item: any, idx: number) => (
                     <span key={idx}>  {item?.title}, </span>
                 ))
-            } are the best {formatType(type)} service providers in {city} .
+            } are the best {formatType(type)} Service Providers in {city}, <span className='uppercase'>{state}</span> .
         </p>
 
 
