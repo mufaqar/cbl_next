@@ -92,10 +92,10 @@ export default function Cities_com({ my_city, allProviders }: any) {
 <PageHead
  title={
   type === "internet"
-    ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State} ${currentYear}.`
+    ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}. `
     : type === "tv"
-    ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State} for ${currentYear}.`
-    : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}`
+    ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}.`
+    : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}.`
 }
   description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
       `${idx + 1} ${item?.title}`)).join(', ')}` }
