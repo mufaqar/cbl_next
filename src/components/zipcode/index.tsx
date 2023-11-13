@@ -16,8 +16,8 @@ import Cheep_Table_CardProvider from '../provider/cheeptable-cardProvider'
 import Fast_Table_CardProvider from '../provider/fasttable-cardProvider'
 import OverView from '../overview'
 import Head from 'next/head';
-import PageHead from '../metas/pagesmeta';
-import Faqs_City from '@/components/faqs_city';
+import PageHead from '../metas/pagesmeta'
+import Faqs_City from '@/components/faqs_city'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
