@@ -259,7 +259,7 @@ html {
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: 700;
-  text-decoration: underline;
+
   margin-bottom: 15px;
 }
 .singlePost ol {
@@ -278,7 +278,7 @@ li {
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 .singlePost a {
   font-weight: 600;

@@ -25,7 +25,7 @@ const Category = ({ SinglePost }: any) => {
         <div className="p-4">
           <Image src={SinglePost?.featuredImage?.node?.mediaItemUrl} alt="technology" className="rounded-lg" width={1280} height={853} />
           <div className="p-5">
-            <div className="text-gray-700 mt-2 text-justify text-sm" dangerouslySetInnerHTML={{ __html: SinglePost?.content }} />
+            <div className="text-gray-700 mt-2 text-sm" dangerouslySetInnerHTML={{ __html: SinglePost?.content }} />
           </div>
         </div>
       </main>
