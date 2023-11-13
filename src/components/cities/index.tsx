@@ -1,28 +1,20 @@
-import Faqs_Sec from '@/components/faqs';
+
 import SearchForm from '@/components/searchform'
-import React from 'react'
-import Provider_Nav from '../provider/provider-nav'
-import { ProviderCard } from '../provider/provider-card'
-import Inter_Service from '../provider/inter-service'
 import Technology_Box from '../provider/technology-box'
-import Image from 'next/image'
 import Provider_Nav_City from '../provider/provider-nav-city';
 import { ProviderCardState } from '../provider/provider-card-state';
-import { MdCable } from 'react-icons/md';
 import Inter_Service_State from '../provider/inter-service-state';
-import Table_CardProviderState from '../provider/cheeptable-cardProviderState';
 import { useRouter } from 'next/router'
 import FastTable_CardProviderState from '../provider/fasttable-cardProviderState';
 import CheepTable_CardProviderState from '../provider/cheeptable-cardProviderState';
 import OverView from '../overview';
-import Head from 'next/head';
 import PageHead from '../metas/pagesmeta';
+import Faqs_City from '@/components/faqs_city';
 
 export default function Cities_com({ my_city, allProviders }: any) {
   const { query } = useRouter();
   const type = query.type || "internet";
 
-  
   const city_code = query.city;
   const state = query.state;
   let C_State = (state as string).toUpperCase();
@@ -35,8 +27,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
     } else if (type === "internet-tv") {
       return "Internet and TV";
     } else {
-      // Handle other cases if needed
-      return type; // Return the original value if no match is found
+      return type;
     }
   }
 
@@ -85,26 +76,18 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
   return (
     <>
-
-
-
-        
-<PageHead
- title={
-  type === "internet"
-    ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}. `
-    : type === "tv"
-    ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}.`
-    : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}.`
-}
-  description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
-      `${idx + 1} ${item?.title}`)).join(', ')}` }
-  url={`https://www.cablemovers.net/${state}/${city_code}?type=${type}`} curl={`https://www.cablemovers.net/${state}/${city_code}`} 
-/>
-
-
-
-
+      <PageHead
+        title={
+          type === "internet"
+            ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}. `
+            : type === "tv"
+              ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}.`
+              : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}.`
+        }
+        description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+          `${idx + 1} ${item?.title}`)).join(', ')}`}
+        url={`https://www.cablemovers.net/${state}/${city_code}?type=${type}`} curl={`https://www.cablemovers.net/${state}/${city_code}`}
+      />
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
         <div className="container mx-auto px-4">
           <div >
@@ -175,7 +158,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
         <div className="container mx-auto px-4">
           <div className=''>
             <h2 className="text-2xl font-bold">
-              Overview of Internet Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+              Overview of {formatType(type)} Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
 
             <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} />
@@ -293,7 +276,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              Summary of Internet service providers in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+              Summary of {formatType(type)} service providers in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
           </div>
           <div>
@@ -396,10 +379,10 @@ export default function Cities_com({ my_city, allProviders }: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold mb-2">
-              Types of internet Technologies available in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+              Types of {formatType(type)} Technologies available in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
             <p className='text-base'>
-              As of the time this page was written, likely have several types of internet technologies available to its residents. These technologies include    {
+              As of the time this page was written, likely have several types of {formatType(type)} technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
                 ))
@@ -422,14 +405,9 @@ export default function Cities_com({ my_city, allProviders }: any) {
         </div>
       </section>
 
-
-
-
-
-
       <section className="my-16">
         <div className="container mx-auto px-4 grid gap-10">
-          <Faqs_Sec city={city} type={type} state={state} zipcode="" allProviders={allProviders} totalProviderCount={totalProviderCount} />
+          <Faqs_City city={city} type={type} state={state} zipcode="" allProviders={allProviders} totalProviderCount={totalProviderCount} />
         </div>
       </section>
 

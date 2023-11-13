@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useRouter } from 'next/router'
-import SearchZipcodeModelBox from '../components/search-zipcode-modelBox'
+import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
 
-export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProviderCount, countServiceType }: any) {
-     console.log("🚀 ~ file: faqs.tsx:8 ~ Faqs_Sec ~ allProviders:", allProviders)
-
+export default function Faqs_City({ city, type, allProviders, totalProviderCount, countServiceType }: any) {
     city = !city ? "" : `${city},`
     const { query } = useRouter();
     let state = query.state;
@@ -115,7 +113,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                In {city} internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
+                                In {city} {totalProviderCount} internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
                             </p>
                         </div>
                     </div>
@@ -242,7 +240,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{city} {state} </span> with price starting from ${allProviders[0].providersInfo?.proPrice || allProviders[0]?.pro_price}   </p>
+                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{city} {state} </span> with price starting from ${allProviders[0]?.services_info_tv_services_price}   </p>
                         </div>
                     </div>
                 </>
