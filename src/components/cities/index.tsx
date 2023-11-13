@@ -79,10 +79,10 @@ export default function Cities_com({ my_city, allProviders }: any) {
       <PageHead
         title={
           type === "internet"
-            ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}. `
+            ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear} `
             : type === "tv"
-              ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}.`
-              : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}.`
+              ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
+              : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
         }
         description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
           `${idx + 1} ${item?.title}`)).join(', ')}`}
@@ -147,7 +147,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
           </div>
           <div>
             <p className="text-sm font-[Roboto] mt-10">
-              *DISCLAIMER: Availability and displayed speeds vary by service address and not available in all areas, pricing subject to change at any time.
+              *DISCLAIMER: Availability vary by service address and not available in all areas, pricing subject to change at any time.
             </p>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
               <h2 className="text-2xl font-bold  capitalize leading-10">
                 Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing an  {formatType(type)} service provider. Below are the cheap {type} service providers in {state}.</p>
+              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your  {formatType(type)} Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {type} Service Providers in {city},{state}.</p>
             </div>
 
             <div className={`md:w-full min-w-fit grid grid-cols-2 bg-[#215690]`}>
@@ -223,9 +223,9 @@ export default function Cities_com({ my_city, allProviders }: any) {
             <div className='mb-10'>
               <h2 className="text-2xl font-bold  capitalize leading-10">
 
-                Fastest {formatType(type)} Service Providers In <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                Fast {formatType(type)} Service Providers In <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in <span className='uppercase'>{state}</span></p>
+              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in {city},<span className='uppercase'>{state}.</span></p>
             </div>
 
             <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
@@ -239,7 +239,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
               <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                   <h4 className="md:text-base text-xs text-center text-white">
-                    Speeds from
+                    Max Download Speed
                   </h4>
                 </div>
               </div>
@@ -276,7 +276,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              Summary of {formatType(type)} service providers in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+              Summary of {formatType(type)} Service Providers in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
           </div>
           <div>
@@ -304,7 +304,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
                         {type === "tv" ? (
                           "Channels"
                         ) : (
-                          "Download Speeds up to "
+                          "Max Download Speed"
                         )}
                       </h4>
                     </div>
@@ -379,10 +379,10 @@ export default function Cities_com({ my_city, allProviders }: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold mb-2">
-              Types of {formatType(type)} Technologies available in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+              Types of {formatType(type)} Technologies Available in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
             <p className='text-base'>
-              As of the time this page was written, likely have several types of {formatType(type)} technologies available to its residents. These technologies include    {
+              As of the time this page was written, {city}, is well-connected with a diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
                 ))
