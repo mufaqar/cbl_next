@@ -36,7 +36,7 @@ export const Cities = [
     },
     {
         name: "Boston",
-        slug: "in/boston"
+        slug: "ma/boston"
     },
     {
         name: "Las Vegas",
@@ -48,11 +48,11 @@ export const Cities = [
     },
     {
         name: "Atlanta",
-        slug: "/tx/atlanta"
+        slug: "/ga/atlanta"
     },
     {
         name: "Houston",
-        slug: "/ak/houston"
+        slug: "/tx/houston"
     },
     {
         name: "Denver",
@@ -60,7 +60,7 @@ export const Cities = [
     },
     {
         name: "Orlando",
-        slug: "/ok/orlando"
+        slug: "/fl/orlando"
     },
     {
         name: "Chicago",
@@ -68,7 +68,7 @@ export const Cities = [
     },
     {
         name: "Detroit",
-        slug: "/or/detroit"
+        slug: "/mi/detroit"
     },
     {
         name: "Philadelphia",
