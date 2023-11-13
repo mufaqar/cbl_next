@@ -21,7 +21,7 @@ const Category = ({ SinglePost }: any) => {
       <PageHead title={SinglePost.title} description={SinglePost?.excerpt} url={SinglePost?.slug} />
 
       <PageBanner title={SinglePost.title} />
-      <main className="py-16 max-w-screen-lg mx-auto">
+      <main className="py-16 max-w-screen-lg mx-auto singlePost">
         <div className="p-4">
           <Image src={SinglePost?.featuredImage?.node?.mediaItemUrl} alt="technology" className="rounded-lg" width={1280} height={853} />
           <div className="p-5">

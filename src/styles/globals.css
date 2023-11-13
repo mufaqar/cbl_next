@@ -205,7 +205,8 @@ html {
   border-left: 1px solid #dedede;
 }
 
-.pros ul li, .cons ul li {
+.pros ul li,
+.cons ul li {
   font-size: 16px;
   list-style-type: none;
   margin-bottom: 6px;
@@ -233,17 +234,60 @@ html {
   display: inline-block;
 }
 
-.slug_cta .serch_form{
+.slug_cta .serch_form {
   padding: 0;
   justify-content: center;
 }
-.slug_cta .serch_form svg{
+.slug_cta .serch_form svg {
   left: 1.5rem;
 }
-.slug_cta .serch_form input{
+.slug_cta .serch_form input {
   max-width: 12rem;
 }
 
+.tch {
+  font-size: medium;
+  text-align: center;
+}
+.tcd {
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
+}
 
-.tch { font-size: medium; text-align: center;}
-.tcd { font-size: larger; text-align: center; font-weight: bold;}
+.singlePost h4 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+.singlePost ol {
+  list-style: decimal;
+}
+.singlePost ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+.singlePost strong {
+  font-weight: bolder;
+
+}
+.singlePost p,
+li {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 15px;
+}
+.singlePost a {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 15px;
+  color: #ef9831;
+}
+.singlePost a:hover {
+  text-decoration: underline;
+  color: #215690;
+}
