@@ -35,7 +35,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
     } else if (type === "internet-tv") {
       return "Internet and TV";
     } else {
-      return type; 
+      return type;
     }
   }
 
@@ -45,7 +45,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
   const uniqueServiceType: any = [];
- 
+
   const seenNames = new Set();
   newServicesTypes.forEach((st: any) => {
     st.forEach((serviceType: any) => {
@@ -56,7 +56,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
     });
   });
 
- 
+
 
 
   const allProvidersFast = [...allProviders];
@@ -88,7 +88,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
 
       <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${C_State} | For ${currentYear}. `} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in  ${C_State}  for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 5).map((item: any, idx: number) => (
-        `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}?type=${type}`} curl={`https://www.cablemovers.net/${state}`}  />
+        `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}?type=${type}`} curl={`https://www.cablemovers.net/${state}`} />
 
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">
@@ -392,30 +392,19 @@ export default function OurState({ allcities, state, allProviders }: any) {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
-
             {
               uniqueServiceType.map((t: any, i: number) => (
                 <Technology_Box
-                  icon={<MdCable />}
+                  icon={t.name}
                   title={t.name}
                   key={i}
                   content={t.description}
                 />
               ))
             }
-
-
-
-
-
           </div>
         </div>
       </section>
-
-
-
-
-
       <section>
         <div className='container mx-auto px-4 m-10'>
           <div className="mt-20 mb-7">
@@ -447,60 +436,60 @@ export default function OurState({ allcities, state, allProviders }: any) {
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   try {
-  const { state } = query;
+    const { state } = query;
 
-  // const zoneTitles = allzone.map((zone: any) => zone.title);
-  // const resultString = zoneTitles.join(',');
-  // const All_zones_list = resultString.replace(/["\[\]]/g, '');
-
-
-  const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones?state=${state}`);
-  const providers_city_data = await response_city.json();
-
-  const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
-  const resultStringQ = zoneTitlesQ.join(',');
-  const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');
-  //console.log("🚀 ~ file: index.tsx:516 ~ constgetServerSideProps:GetServerSideProps= ~ All_zones_listQ:", All_zones_listQ)
-  const postData = {
-    internet_services: All_zones_listQ
-  };
-  const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(postData),
-  });
+    // const zoneTitles = allzone.map((zone: any) => zone.title);
+    // const resultString = zoneTitles.join(',');
+    // const All_zones_list = resultString.replace(/["\[\]]/g, '');
 
 
-  const providers_data = await response_data.json();
+    const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones?state=${state}`);
+    const providers_city_data = await response_city.json();
 
-  const [cities] = await Promise.all([
-    apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
+    const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
+    const resultStringQ = zoneTitlesQ.join(',');
+    const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');
+    //console.log("🚀 ~ file: index.tsx:516 ~ constgetServerSideProps:GetServerSideProps= ~ All_zones_listQ:", All_zones_listQ)
+    const postData = {
+      internet_services: All_zones_listQ
+    };
+    const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData),
+    });
 
-  ]);
-  const allcities = cities.data.states.nodes;
 
-   // Check if data exists
-   if (!allcities || !state || !providers_data.providers) {
+    const providers_data = await response_data.json();
+
+    const [cities] = await Promise.all([
+      apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
+
+    ]);
+    const allcities = cities.data.states.nodes;
+
+    // Check if data exists
+    if (!allcities || !state || !providers_data.providers) {
+      return {
+        notFound: true,
+      };
+    }
+    return {
+      props: {
+        allcities,
+        state,
+        allProviders: providers_data.providers
+      },
+    };
+
+  } catch (error) {
+    console.error('Error in getServerSideProps:', error);
     return {
       notFound: true,
     };
   }
-  return {
-    props: {
-      allcities,
-      state,
-      allProviders: providers_data.providers
-    },
-  };
-
-} catch (error) {
-  console.error('Error in getServerSideProps:', error);
-  return {
-    notFound: true,
-  };
-}
 };
 
 

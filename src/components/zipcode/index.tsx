@@ -384,7 +384,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         {
                             uniqueServiceType.map((t: any, i: number) => (
                                 <Technology_Box
-                                    icon={t.icon}
+                                    icon={t.name}
                                     title={t.name}
                                     key={i}
                                     content={t.description}

@@ -411,7 +411,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
             {
               uniqueServiceType.map((t: any, i: number) => (
                 <Technology_Box
-                  icon={<MdCable />}
+                  icon={t.name}
                   title={t.name}
                   key={i}
                   content={t.description}
