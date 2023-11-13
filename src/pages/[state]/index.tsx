@@ -238,7 +238,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
                 Fast {formatType(type)} Service Providers In <span className="text-[#ef9831] uppercase">{state}</span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)}Service Providers in {C_State}.</p>
+              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)} Service Providers in {C_State}.</p>
             </div>
 
             <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
