@@ -5,7 +5,7 @@ import SearchZipcodeModelBox from '../components/search-zipcode-modelBox'
 
 
 export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProviderCount, countServiceType }: any) {
-    // console.log("🚀 ~ file: faqs.tsx:8 ~ Faqs_Sec ~ allProviders:", allProviders)
+     console.log("🚀 ~ file: faqs.tsx:8 ~ Faqs_Sec ~ allProviders:", allProviders)
 
     city = !city ? "" : `${city},`
     const { query } = useRouter();
@@ -75,7 +75,7 @@ export default function Faqs_Sec({ zipcode, city, type, allProviders, totalProvi
                             <p className="text-base font-medium mt-5" >
                                 {
                                     allProviders[0]?.title
-                                }  is the fastest internet service provider in {city} and offers max download speeds up to {allProviders[0]?.providersInfo?.proSpeed || allProviders[0]?.pro_speed} in select areas.
+                                }  is the fastest internet service provider in {city} and offers max download speeds up to { allProviders[0]?.services_info_internet_services_summary_speed}Mbps in select areas.
                             </p>
                         </div>
                     </div>
