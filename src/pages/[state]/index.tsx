@@ -393,7 +393,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
               Types of  {formatType(type)} Technologies Available in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
             <p className='text-base'>
-              As of the time this page was written, {C_State}, is well-connected with diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
+              {C_State}, is well-connected with diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}>{t.name} , </span>
                 ))
