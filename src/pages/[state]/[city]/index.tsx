@@ -98,16 +98,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const allProviders = providers.data.allProviders.nodes;
     const filterProvider = allProviders.filter((item: any) => item.terms.edges.some((i: any) => i.node.slug === type))
     const zones = zone.data.zones.nodes;
-
-
-
     return {
       props: {
         allProviders: filterProvider, zones, zipcode
       },
     };
-
-
   } catch (error) {
     console.error('Error in getServerSideProps:', error);
     return {

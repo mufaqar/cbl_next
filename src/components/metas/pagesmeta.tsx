@@ -1,12 +1,12 @@
 
 import Head from 'next/head';
 
-const PageHead = ({ title, description , url }: any) => {
+const PageHead = ({ title, description , url , curl }: any) => {
     return (
         <Head>
             <title>{title}</title>
             <meta name="description" content={description} />
-            <link rel="canonical" href={url} />
+            <link rel="canonical" href={curl?curl:url} />
             <meta property="og:locale" content="en_US" />
             <meta property="og:type" content="article" />
             <meta property="og:title" content={title} />

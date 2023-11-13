@@ -80,6 +80,7 @@ query GET_PROVIDERS($zipcode: String = "") {
         nodes {
           name
           description
+        
         }
       }
       featuredImage {

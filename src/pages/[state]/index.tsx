@@ -88,7 +88,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
 
       <PageHead title={`Best ${totalProviderCount} ${formatType(type)}  Service Providers in  ${C_State} | ${currentMonthName}, ${currentYear}. `} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in  ${C_State}  for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 5).map((item: any, idx: number) => (
-        `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}`} />
+        `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state}?type=${type}`} curl={`https://www.cablemovers.net/${state}`}  />
 
 
       <section className="min-h-[40vh]  flex items-center bg-gray-50">

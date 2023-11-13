@@ -44,7 +44,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
     const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
 
-    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
+    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description ,})));
 
 
     const uniqueServiceType: any = [];
@@ -86,7 +86,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
         <>
 
         <PageHead title={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}, ${city} , ${state} `} description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}, ${city}, ${state} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
-                `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state_code}/${city_code}?zipcode=${zipcode}&type=${type}`} />
+                `${idx + 1} ${item?.title}`)).join(', ')}`} url={`https://www.cablemovers.net/${state_code}/${city_code}?zipcode=${zipcode}&type=${type}`} curl={`https://www.cablemovers.net/${state_code}/${city_code}`} />
 
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
@@ -385,7 +385,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         {
                             uniqueServiceType.map((t: any, i: number) => (
                                 <Technology_Box
-                                    icon={<MdCable />}
+                                    icon={t.icon}
                                     title={t.name}
                                     key={i}
                                     content={t.description}
