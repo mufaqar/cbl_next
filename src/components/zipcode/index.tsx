@@ -24,7 +24,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
     const { query } = useRouter();
     const city_code = query.city;
-    const state = query.state;
+    const state_code = query.state;
     let C_State = (state as string).toUpperCase();
     var type = query?.type;
     var types = query?.type;
@@ -378,7 +378,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             Types of {formatType(type)}  Technologies Available in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
                         </h2>
                         <p className='text-base'>
-                            {city}, {C_State}. is well-connected with a diverse range of {formatType(type)}  technologies available to its residents. These technologies include
+                            {city}, {C_State} is well-connected with a diverse range of {formatType(type)}  technologies available to its residents. These technologies include
                             {
                                 uniqueServiceType.map((t: any, i: number) => (
                                     <span key={i}> {t.name} {i < uniqueServiceType.length - 1 && ', '} </span>
