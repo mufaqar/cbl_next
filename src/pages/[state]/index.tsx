@@ -236,9 +236,9 @@ export default function OurState({ allcities, state, allProviders }: any) {
             <div className='mb-10'>
               <h2 className="text-2xl font-bold  capitalize leading-10">
 
-                Fastest {formatType(type)} Service Providers In <span className="text-[#ef9831] uppercase">{state}</span>
+                Fast {formatType(type)} Service Providers In <span className="text-[#ef9831] uppercase">{state}</span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in {state}</p>
+              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in {C_state}.</p>
             </div>
 
             <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
@@ -252,7 +252,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
               <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                 <div>
                   <h4 className="md:text-base text-xs text-center text-white">
-                    Speeds from
+                    Max Download Speed
                   </h4>
                 </div>
               </div>
@@ -289,7 +289,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              Summary of  {formatType(type)} service providers in  {state}
+              Summary of  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
           </div>
           <div>
@@ -317,7 +317,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
                         {type === "tv" ? (
                           "Channels"
                         ) : (
-                          "Download Speeds up to "
+                          "Max Download Speed "
                         )}
                       </h4>
                     </div>
@@ -390,10 +390,10 @@ export default function OurState({ allcities, state, allProviders }: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold">
-              Types of  {formatType(type)} Technologies available in  {state}
+              Types of  {formatType(type)} Technologies Available in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
             <p className='text-base'>
-              As of the time this page was written, likely have several types of  {formatType(type)} technologies available to its residents. These technologies include    {
+              As of the time this page was written, {C_state}, is well-connected with diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}>{t.name} , </span>
                 ))
