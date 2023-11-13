@@ -238,7 +238,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
                 Fast {formatType(type)} Service Providers In <span className="text-[#ef9831] uppercase">{state}</span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in {C_state}.</p>
+              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {type} service providers in {C_State}.</p>
             </div>
 
             <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
@@ -393,7 +393,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
               Types of  {formatType(type)} Technologies Available in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
             <p className='text-base'>
-              As of the time this page was written, {C_state}, is well-connected with diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
+              As of the time this page was written, {C_State}, is well-connected with diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}>{t.name} , </span>
                 ))
