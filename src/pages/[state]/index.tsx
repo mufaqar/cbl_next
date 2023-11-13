@@ -184,7 +184,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
               <h2 className="text-2xl font-bold  capitalize leading-10">
                 Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)} Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)} Service Providers in {C_State}}.</p>
+              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)} Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)} Service Providers in {C_State}.</p>
             </div>
 
             <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
