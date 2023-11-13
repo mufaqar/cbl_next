@@ -84,7 +84,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
               ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
               : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
         }
-        description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 4).map((item: any, idx: number) => (
+        description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 6).map((item: any, idx: number) => (
           `${idx + 1} ${item?.title}`)).join(', ')}`}
         url={`https://www.cablemovers.net/${state}/${city_code}?type=${type}`} curl={`https://www.cablemovers.net/${state}/${city_code}`}
       />
@@ -382,7 +382,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
               Types of {formatType(type)} Technologies Available in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
             <p className='text-base'>
-              As of the time this page was written, {city}, is well-connected with a diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
+              {city}, {C_State} is well-connected with a diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
                 ))
