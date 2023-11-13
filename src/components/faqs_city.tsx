@@ -113,7 +113,7 @@ export default function Faqs_City({ city, type, allProviders, totalProviderCount
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                In {city} {totalProviderCount} internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
+                                In {city} internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
                             </p>
                         </div>
                     </div>
