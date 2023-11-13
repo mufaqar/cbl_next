@@ -25,6 +25,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     const { query } = useRouter();
     const city_code = query.city;
     const state_code = query.state;
+    let C_State = (state as string).toUpperCase();
     var type = query?.type;
     var types = query?.type;
 
