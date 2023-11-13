@@ -85,12 +85,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
           <PageHead
             title={
               type === "internet"
-                ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, <span className='uppercase'>{state}</span>  | For ${currentYear} `
+                ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear} `
                 : type === "tv"
-                  ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, <span className='uppercase'>{state}</span>  | For ${currentYear}`
-                  : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, <span className='uppercase'>{state}</span>  | For ${currentYear}`
+                  ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
+                  : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
             }
-            description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, <span className='uppercase'>{state}</span> for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 6).map((item: any, idx: number) => (
+            description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 6).map((item: any, idx: number) => (
               `${idx + 1} ${item?.title}`)).join(', ')}`}
             url={`https://www.cablemovers.net/${state}/${city_code}?type=${type}`} curl={`https://www.cablemovers.net/${state}/${city_code}`}
            />
