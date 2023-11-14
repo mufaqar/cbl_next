@@ -65,13 +65,8 @@ export default function OurState({ allcities, state, allProviders }: any) {
       }
     });
   });
-
-
-
-
   const allProvidersFast = [...allProviders];
   const allProvidersCheep = [...allProviders];
-
   const cheepProviders = allProvidersCheep.sort((a: any, b: any) => {
     if (type === "tv") {
       return a.services_info_tv_services_price - b.services_info_tv_services_price;
