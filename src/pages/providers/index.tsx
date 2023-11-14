@@ -143,20 +143,20 @@ function Providers({ allProviders }: any) {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <section className='bg-[#FD8800] py-5'>
 
-                <div className='container mx-auto grid md:grid-cols-2 items-center text-5xl font-bold uppercase'>
-                    <div className="grid items-center justify-end">
+                <div className='container mx-auto grid grid-cols-2 items-center md:text-5xl text-xl font-bold uppercase'>
+                    <div className="grid items-center md:justify-end justify-center">
                         Call to Setup
                     </div>
-                    <div className=" items-center justify-start flex gap-3">  <FaPhoneAlt className="ml-5 text-5xl font-normal  " /> <Link href="tel:1-833-592-0098">1-833-592-0098</Link> </div>
+                    <div className=" items-center justify-start  flex gap-3">  <FaPhoneAlt className="ml-5 md:text-5xl text-2xl font-normal  " /> <Link href="tel:1-833-592-0098">1-833-592-0098</Link> </div>
 
 
 
                 </div>
-            </section> */}
+            </section>
 
 
         </>

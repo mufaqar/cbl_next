@@ -20,7 +20,7 @@ export default function (req, res) {
      const mailData = {
           from: EMAIL,
           to: `contact@cablemovers.net`,
-          subject: `Message From ${req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1)}`,
+          subject: `Subject : ${req.body.subject}`,
           text: req.body.comment + " | Sent from: " + req.body.email,
           html: `
           <p><strong>Name: </strong> ${req.body.name}</p>
