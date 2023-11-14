@@ -70,20 +70,7 @@ export default function SProviders({ Provider, city, state }: any) {
               {parse(`${Provider?.providersInfo?.features}`)}
             </div>
             <h5 className='text-xl font-bold text-black'>
-              Price Starting At
-              {Provider?.providersInfo?.internetPlans.map((plan: any, idx: number) => {
-                return (
-                  <div key={idx}>
-                    <h3>{plan.package}</h3>
-                    <p>Speed: {plan.speeds}</p>
-                    <p>Price: ${plan.price}</p>
-                  </div>
-                );
-              })}
-
-
-
-
+              Price Starting At             
             </h5>
             <h2 className="md:text-4xl text-3xl font-extrabold text-black my-4 flex items-start">
               <span className='md:text-3xl text-base'>$</span>
