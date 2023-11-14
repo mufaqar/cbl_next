@@ -284,8 +284,12 @@ export default function Cities_com({ my_city, allProviders }: any) {
             <h2 className="text-2xl font-bold">
               Summary of {formatType(type)} Service Providers in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
+            <div className="w-fit hint mx-auto block md:hidden mt-5" >
+              Swipe Left to See All →
+            </div>
           </div>
           <div>
+
 
             <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
               <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">

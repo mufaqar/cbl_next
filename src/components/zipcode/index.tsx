@@ -82,18 +82,18 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
     return (
         <>
-          <PageHead
-            title={
-              type === "internet"
-                ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear} `
-                : type === "tv"
-                  ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
-                  : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
-            }
-            description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 6).map((item: any, idx: number) => (
-              `${idx + 1} ${item?.title}`)).join(', ')}`}
-            url={`https://www.cablemovers.net/${state_code}/${city_code}?zipcode=${zipcode}&type=${type}`} curl={`https://www.cablemovers.net/${state_code}/${city_code}`}
-           />
+            <PageHead
+                title={
+                    type === "internet"
+                        ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear} `
+                        : type === "tv"
+                            ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
+                            : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
+                }
+                description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State} for ${currentMonthName}, ${currentYear}.  ${allProviders?.slice(0, 6).map((item: any, idx: number) => (
+                    `${idx + 1} ${item?.title}`)).join(', ')}`}
+                url={`https://www.cablemovers.net/${state_code}/${city_code}?zipcode=${zipcode}&type=${type}`} curl={`https://www.cablemovers.net/${state_code}/${city_code}`}
+            />
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div>
@@ -162,60 +162,60 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 </div>
             </section>
 
-                <section className="my-16">
-                    <div className="container mx-auto px-4">
-                        <div className='mb-10'>
-                            <h2 className="text-2xl font-bold  capitalize leading-10">
-                                Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
-                            </h2>
-                            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)}  Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)}  Service Providers in {city}, {C_State}.</p>
-                        </div>
+            <section className="my-16">
+                <div className="container mx-auto px-4">
+                    <div className='mb-10'>
+                        <h2 className="text-2xl font-bold  capitalize leading-10">
+                            Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                        </h2>
+                        <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)}  Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)}  Service Providers in {city}, {C_State}.</p>
+                    </div>
 
-                        <div className={`md:w-full min-w-fit grid grid-cols-2 bg-[#215690]`}>
-                            <div className="border-r grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white">
-                                        Provider
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                                <div>
-                                    <h4 className="md:text-base text-xs text-center text-white mb-2">
-                                        Pricing starts from
-                                    </h4>
-                                </div>
+                    <div className={`md:w-full min-w-fit grid grid-cols-2 bg-[#215690]`}>
+                        <div className="border-r grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white">
+                                    Provider
+                                </h4>
                             </div>
                         </div>
-                        <div className='grid'>
-                            {
-                                cheepProviders?.map((item: any, idx: number) => {
-                                    var summaryData = {
-                                        logo: item?.featuredImage?.node?.mediaItemUrl,
-                                        provider: item?.title,
-                                        type: item.serviceTypes.nodes,
-                                        summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
-                                            type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
-                                                type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
-
-                                        mobileNo: item.providersInfo?.proPhone,
-                                        slug: item.slug,
-                                        price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
-                                            type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
-                                                type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
-                                    }
-
-                                    return (
-                                        <>
-                                            <Cheep_Table_CardProvider key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
-                                        </>
-                                    )
-                                })
-                            }
+                        <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+                            <div>
+                                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                                    Pricing starts from
+                                </h4>
+                            </div>
                         </div>
                     </div>
-                </section>
-         
+                    <div className='grid'>
+                        {
+                            cheepProviders?.map((item: any, idx: number) => {
+                                var summaryData = {
+                                    logo: item?.featuredImage?.node?.mediaItemUrl,
+                                    provider: item?.title,
+                                    type: item.serviceTypes.nodes,
+                                    summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+
+                                    mobileNo: item.providersInfo?.proPhone,
+                                    slug: item.slug,
+                                    price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
+                                        type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
+                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
+                                }
+
+                                return (
+                                    <>
+                                        <Cheep_Table_CardProvider key={idx} type={types} item={summaryData} zone={zones} offer={item.providersInfo?.proOffer} />
+                                    </>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </section>
+
 
             {type !== 'internet-tv' && type !== 'tv' && (
                 <section className="my-16">
@@ -287,6 +287,9 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         <h2 className="text-2xl font-bold">
                             Summary of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
                         </h2>
+                        <div className="w-fit hint mx-auto block md:hidden mt-5" >
+                            Swipe Left to See All →
+                        </div>
                     </div>
                     <div>
 
@@ -403,7 +406,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             </section>
             <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
-                     <Faqs_City city={city} type={type} state={state} zipcode="" allProviders={allProviders} totalProviderCount={totalProviderCount} />
+                    <Faqs_City city={city} type={type} state={state} zipcode="" allProviders={allProviders} totalProviderCount={totalProviderCount} />
                 </div>
             </section>
         </>

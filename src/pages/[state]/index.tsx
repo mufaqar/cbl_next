@@ -298,6 +298,9 @@ export default function OurState({ allcities, state, allProviders }: any) {
             <h2 className="text-2xl font-bold">
               Summary of  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
+            <div className="w-fit hint mx-auto block md:hidden mt-5" >
+              Swipe Left to See All →
+            </div>
           </div>
           <div>
 
