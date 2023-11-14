@@ -17,7 +17,6 @@ import InternetTVPhonePlanBox from '@/components/pricing/internetTVPhonePlanBox'
 import { BiPhone } from 'react-icons/bi'
 import PageHead from '@/components/metas/pagesmeta'
 export default function SProviders({ Provider, city, state }: any) {
-  console.log("🚀 ~ file: [slug].tsx:20 ~ SProviders ~ Provider:", Provider)
   const provider_name = Provider?.title;
   const provider_slug = Provider?.slug;
   const pro_phone = Provider?.providersInfo?.proPhone;

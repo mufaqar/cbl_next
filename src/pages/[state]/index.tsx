@@ -21,7 +21,6 @@ import PageHead from '@/components/metas/pagesmeta';
 
 
 export default function OurState({ allcities, state, allProviders }: any) {
-  console.log("🚀 ~ file: index.tsx:24 ~ OurState ~ allProviders:", allProviders)
 
   // Unique Cities
   const uniqueIds = new Set();

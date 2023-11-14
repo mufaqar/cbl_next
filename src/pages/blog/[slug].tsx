@@ -11,15 +11,9 @@ import Head from 'next/head';
 import PageHead from '@/components/metas/pagesmeta'
 
 const Category = ({ SinglePost }: any) => {
-  console.log("🚀 ~ file: [slug].tsx:10 ~ Category ~ posts:", SinglePost)
-
-
-
   return (
     <>
-
       <PageHead title={SinglePost.title} description={SinglePost?.excerpt} url={SinglePost?.slug} />
-
       <PageBanner title={SinglePost.title} />
       <main className="py-16 max-w-screen-lg mx-auto singlePost">
         <div className="p-4">
