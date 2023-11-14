@@ -21,7 +21,6 @@ import Faqs_City from '@/components/faqs_city';
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
-
     const { query } = useRouter();
     const city_code = query.city;
     const state_code = query.state;
@@ -406,7 +405,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             </section>
             <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
-                    <Faqs_City city={city} type={type} state={state} zipcode="" allProviders={allProviders} totalProviderCount={totalProviderCount} />
+                    <Faqs_City city={city} type={type} state={state} zipcode="" allProviders={allProviders} cheepProviders={cheepProviders} totalProviderCount={totalProviderCount} />
                 </div>
             </section>
         </>

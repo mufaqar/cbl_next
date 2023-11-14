@@ -5,7 +5,7 @@ import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
 
 export default function Faqs_City({ city, type, allProviders, totalProviderCount, countServiceType, cheepProviders }: any) {
-    console.log("🚀 ~ file: faqs_city.tsx:8 ~ Faqs_City ~ cheepProviders:", cheepProviders)
+  
     city = !city ? "" : `${city},`
     const { query } = useRouter();
     let state = query.state;
