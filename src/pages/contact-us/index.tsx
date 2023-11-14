@@ -27,7 +27,7 @@ function Contact_Us() {
             console.log('Response received');
             if (res.status === 200) {
                 console.log('Response succeeded!');
-                alert('Message Successfully sent. Thank You!');
+                alert('Message Successfully Sent. Thank You!');
                 reset();
                 setSending(false)
             }
