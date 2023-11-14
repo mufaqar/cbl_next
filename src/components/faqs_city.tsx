@@ -3,7 +3,6 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { useRouter } from 'next/router'
 import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
-
 export default function Faqs_City({ city, type, allProviders, totalProviderCount, countServiceType, cheepProviders }: any) {
   
     city = !city ? "" : `${city},`
