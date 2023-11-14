@@ -27,7 +27,7 @@ function Contact_Us() {
             console.log('Response received');
             if (res.status === 200) {
                 console.log('Response succeeded!');
-                alert('Message Successfully send.!');
+                alert('Message Successfully sent. Thank You!');
                 reset();
                 setSending(false)
             }
@@ -48,7 +48,7 @@ function Contact_Us() {
                                     Have question?
                                 </h3>
                                 <p className='text-xl font-normal mt-3'>
-                                    We’re here to help. Send a message and we’ll get you an answer soon.
+                                    We’re here to help. Leave a message and we’ll get you an answer soon.
                                 </p>
                                 <div className="md:flex w-full gap-5 items-center mt-12">
                                     <div className="md:w-1/2 flex flex-col">
