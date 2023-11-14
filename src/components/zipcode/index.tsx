@@ -162,7 +162,6 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 </div>
             </section>
 
-            {type !== 'internet-tv' && (
                 <section className="my-16">
                     <div className="container mx-auto px-4">
                         <div className='mb-10'>
@@ -216,7 +215,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                         </div>
                     </div>
                 </section>
-            )}
+         
 
             {type !== 'internet-tv' && type !== 'tv' && (
                 <section className="my-16">
@@ -293,7 +292,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
                         <div className=" w-full lg:max-w-[1200px] mx-auto h-auto mb-6">
                             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex md:flex-col flex-row items-stretch">
-                                <div className={`md:w-full min-w-[50px] grid ${type === 'tv' ? 'md:grid-cols-7' : 'md:grid-cols-8'} grid-cols-1 bg-[#215690] `}>
+                                <div className={`md:w-full min-w-[50px] grid ${type === 'internet-tv' ? 'md:grid-cols-8' : 'md:grid-cols-7'}  grid-cols-1 bg-[#215690] `}>
                                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
                                         <div>
                                             <h4 className="md:text-base text-xs text-center text-white">

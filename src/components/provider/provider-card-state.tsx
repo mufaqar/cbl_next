@@ -70,7 +70,7 @@ export const ProviderCardState = ({ item, type, offer, count }: any) => {
                     </div>
                     <div className="grid gap-3 items-center justify-center p-5">
 
-                        <Link href={`/providers/${item.slug}`} className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
+                        <Link href={`/providers/${item.slug}`} target="_blank" className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>
                 </div>
             </div>

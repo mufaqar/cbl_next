@@ -177,7 +177,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
       </section>
 
 
-      {type !== 'internet-tv' && (
+  
         <section className="my-16">
           <div className="container mx-auto px-4">
             <div className='mb-10'>
@@ -227,7 +227,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
           </div>
         </section>
 
-      )}
+
       {type !== 'internet-tv' && type !== 'tv' && (
 
 

@@ -167,7 +167,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
       </section>
 
 
-      {type !== 'internet-tv' && (
+    
         <section className="my-16">
           <div className="container mx-auto px-4">
             <div className='mb-10'>
@@ -215,7 +215,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
           </div>
         </section>
 
-      )}
+    
       {type !== 'internet-tv' && type !== 'tv' && (
 
         <section className="my-16">

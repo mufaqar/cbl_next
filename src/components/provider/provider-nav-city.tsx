@@ -13,7 +13,7 @@ const Provider_Nav_City = () => {
     const [nav, setNav] = useState(false);
 
     const changeBackground = () => {
-        if (window.scrollY >= -300) {
+        if (window.scrollY >= 350) {
             setNav(true);
         }
         else {
