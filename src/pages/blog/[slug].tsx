@@ -2,12 +2,9 @@
 import PageBanner from '@/components/pageBanner'
 import apolloClient from '@/config/client'
 import { GET_POST_SLUG } from '@/config/query'
-
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
-import React, { useContext } from 'react'
-import Head from 'next/head';
+import React from 'react'
 import PageHead from '@/components/metas/pagesmeta'
 
 const Category = ({ SinglePost }: any) => {
