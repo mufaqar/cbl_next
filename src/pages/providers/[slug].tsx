@@ -1,8 +1,7 @@
 'use client'
-import { useParams } from 'next/navigation'
 import apolloClient from '@/config/client'
 import { SINGLE_Provider } from '@/config/query'
-import { GetStaticProps, GetServerSideProps } from 'next'
+import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import SearchForm from '@/components/searchform'
 import Link from 'next/link'
@@ -10,19 +9,15 @@ import parse from 'html-react-parser';
 import React, { useState } from 'react'
 import Faqs_Provider from '@/components/faqs_provider'
 import PlanBox from '@/components/pricing/planBox'
-import IconBox from '@/components/provider/icon-box'
-import { GrChannel, GrInstallOption } from 'react-icons/gr'
-import { GoDeviceMobile } from 'react-icons/go'
 import FeatureBox from '@/components/pricing/featureBox'
 import TV_Plan from '@/components/pricing/tv_plan'
 import InternetPhonePlanBox from '@/components/pricing/internetPhonePlanBox'
 import InternetTVPlanBox from '@/components/pricing/internetTVPlanBox'
 import InternetTVPhonePlanBox from '@/components/pricing/internetTVPhonePlanBox'
 import { BiPhone } from 'react-icons/bi'
-
-import Head from 'next/head';
 import PageHead from '@/components/metas/pagesmeta'
 export default function SProviders({ Provider, city, state }: any) {
+  console.log("🚀 ~ file: [slug].tsx:20 ~ SProviders ~ Provider:", Provider)
   const provider_name = Provider?.title;
   const provider_slug = Provider?.slug;
   const pro_phone = Provider?.providersInfo?.proPhone;
@@ -55,7 +50,13 @@ export default function SProviders({ Provider, city, state }: any) {
 
   return (
     <>
-      <PageHead title={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear} | Cable Movers`} description={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear}.`} url={`https://www.cablemovers.net/providers/${Provider?.slug}`} />
+      <PageHead
+        title={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear} | Cable Movers`}
+        description={`Plans and Pricing for ${currentMonthName}, ${currentYear} for ${currentMonthName}, ${currentYear}. Internet Plans :  ${Provider?.providersInfo?.internetPlans?.slice(0, 3).map((item: any, idx: number) => (
+          `${idx + 1} ${item?.package} Speed :${item?.speeds} Price :${item?.price}`)).join(', ')}. TV Plans : ${Provider?.providersInfo?.internetPlans?.slice(0, 3).map((item: any, idx: number) => (
+            `${idx + 1} ${item?.package} Speed :${item?.speeds} Price :${item?.price}`)).join(', ')}`}
+        url={`https://www.cablemovers.net/providers/${Provider?.slug}`}
+      />
 
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
@@ -70,6 +71,19 @@ export default function SProviders({ Provider, city, state }: any) {
             </div>
             <h5 className='text-xl font-bold text-black'>
               Price Starting At
+              {Provider?.providersInfo?.internetPlans.map((plan: any, idx: number) => {
+                return (
+                  <div key={idx}>
+                    <h3>{plan.package}</h3>
+                    <p>Speed: {plan.speeds}</p>
+                    <p>Price: ${plan.price}</p>
+                  </div>
+                );
+              })}
+
+
+
+
             </h5>
             <h2 className="md:text-4xl text-3xl font-extrabold text-black my-4 flex items-start">
               <span className='md:text-3xl text-base'>$</span>
