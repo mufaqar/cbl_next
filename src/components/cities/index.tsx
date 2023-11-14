@@ -12,6 +12,7 @@ import PageHead from '../metas/pagesmeta';
 import Faqs_City from '@/components/faqs_city';
 
 export default function Cities_com({ my_city, allProviders }: any) {
+ 
   const { query } = useRouter();
   const type = query.type || "internet";
 
@@ -56,7 +57,16 @@ export default function Cities_com({ my_city, allProviders }: any) {
   const allProvidersFast = [...allProviders];
   const allProvidersCheep = [...allProviders];
 
-  const cheepProviders = allProvidersCheep.sort((a: any, b: any) => a.pro_price - b.pro_price);
+  const cheepProviders = allProvidersCheep.sort((a: any, b: any) => {
+    if (type === "tv") {
+      return a.services_info_tv_services_price - b.services_info_tv_services_price;
+    } else if (type === "internet-tv") {
+      return a.services_info_internet_tv_bundles_price - b.services_info_internet_tv_bundles_price;
+    } else {
+      return a.pro_price - b.pro_price;
+    }
+  });
+
   const FastProviders = allProvidersFast.sort((a: any, b: any) => {
     const speedA = parseInt(a.services_info_internet_services_speed.split("-")[1], 10);
     const speedB = parseInt(b.services_info_internet_services_speed.split("-")[1], 10);
@@ -407,7 +417,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
       <section className="my-16">
         <div className="container mx-auto px-4 grid gap-10">
-          <Faqs_City city={city} type={type} state={state} zipcode="" allProviders={allProviders} totalProviderCount={totalProviderCount} />
+          <Faqs_City city={city} type={type} state={state} zipcode="" cheepProviders={cheepProviders} allProviders={allProviders} totalProviderCount={totalProviderCount} />
         </div>
       </section>
 

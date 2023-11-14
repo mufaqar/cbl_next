@@ -4,7 +4,8 @@ import { useRouter } from 'next/router'
 import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
 
-export default function Faqs_City({ city, type, allProviders, totalProviderCount, countServiceType }: any) {
+export default function Faqs_City({ city, type, allProviders, totalProviderCount, countServiceType, cheepProviders }: any) {
+    console.log("🚀 ~ file: faqs_city.tsx:8 ~ Faqs_City ~ cheepProviders:", cheepProviders)
     city = !city ? "" : `${city},`
     const { query } = useRouter();
     let state = query.state;
@@ -73,7 +74,7 @@ export default function Faqs_City({ city, type, allProviders, totalProviderCount
                             <p className="text-base font-medium mt-5" >
                                 {
                                     allProviders[0]?.title
-                                }  is the fastest internet service provider in {city} and offers max download speeds up to { allProviders[0]?.services_info_internet_services_summary_speed}Mbps in select areas.
+                                }  is the fastest internet service provider in {city} and offers max download speeds up to {allProviders[0]?.services_info_internet_services_summary_speed}Mbps in select areas.
                             </p>
                         </div>
                     </div>
@@ -93,7 +94,7 @@ export default function Faqs_City({ city, type, allProviders, totalProviderCount
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0].title} is the cheapest internet service provider in {city} with price starting from ${allProviders[0]?.providersInfo?.proPrice || allProviders[0]?.pro_price}.
+                                {cheepProviders[0].title} is the cheapest internet service provider in {city} with price starting from ${cheepProviders[0]?.providersInfo?.proPrice || cheepProviders[0]?.pro_price}.
                             </p>
                         </div>
                     </div>
@@ -240,7 +241,7 @@ export default function Faqs_City({ city, type, allProviders, totalProviderCount
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{city} {state} </span> with price starting from ${allProviders[0]?.services_info_tv_services_price}   </p>
+                                {cheepProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{city} {state} </span> with price starting from ${cheepProviders[0]?.services_info_tv_services_price}   </p>
                         </div>
                     </div>
                 </>
@@ -326,7 +327,7 @@ export default function Faqs_City({ city, type, allProviders, totalProviderCount
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {countServiceType}  bundle service providers are available in {city}. Based on the availability  {
+                                {totalProviderCount}  Bundle service providers are available in {city}. Based on the availability  {
                                     allProviders[0]?.title
                                 }  is the best bundle service provider in <span className=" uppercase">{city} {state} </span>.
                             </p>

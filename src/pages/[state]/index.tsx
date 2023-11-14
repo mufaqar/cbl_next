@@ -21,6 +21,7 @@ import PageHead from '@/components/metas/pagesmeta';
 
 
 export default function OurState({ allcities, state, allProviders }: any) {
+  console.log("🚀 ~ file: index.tsx:24 ~ OurState ~ allProviders:", allProviders)
 
   // Unique Cities
   const uniqueIds = new Set();
@@ -71,7 +72,18 @@ export default function OurState({ allcities, state, allProviders }: any) {
   const allProvidersFast = [...allProviders];
   const allProvidersCheep = [...allProviders];
 
-  const cheepProviders = allProvidersCheep.sort((a: any, b: any) => a.pro_price - b.pro_price);
+  const cheepProviders = allProvidersCheep.sort((a: any, b: any) => {
+    if (type === "tv") {
+      return a.services_info_tv_services_price - b.services_info_tv_services_price;
+    } else if (type === "internet-tv") {
+      return a.services_info_internet_tv_bundles_price - b.services_info_internet_tv_bundles_price;
+    } else {
+      return a.pro_price - b.pro_price;
+    }
+  });
+
+
+
   const FastProviders = allProvidersFast.sort((a: any, b: any) => {
     const speedA = parseInt(a.services_info_internet_services_speed.split("-")[1], 10);
     const speedB = parseInt(b.services_info_internet_services_speed.split("-")[1], 10);
@@ -177,55 +189,55 @@ export default function OurState({ allcities, state, allProviders }: any) {
       </section>
 
 
-  
-        <section className="my-16">
-          <div className="container mx-auto px-4">
-            <div className='mb-10'>
-              <h2 className="text-2xl font-bold  capitalize leading-10">
-                Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
-              </h2>
-              <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)} Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)} Service Providers in {C_State}.</p>
-            </div>
 
-            <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
-              <div className="border-r grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                <div>
-                  <h4 className="md:text-base text-xs text-center text-white">
-                    Provider
-                  </h4>
-                </div>
-              </div>
-
-              <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
-                <div>
-                  <h4 className="md:text-base text-xs text-center text-white mb-2">
-                    Pricing starts from
-                  </h4>
-                </div>
-              </div>
-            </div>
-            <div className='grid'>
-              {
-                cheepProviders?.map((item: any, idx: number) => {
-                  var summaryData = {
-                    provider: item?.title,
-                    slug: item.slug,
-                    price: type === "internet" ? item.services_info_internet_services_price :
-                      type === "tv" ? item.services_info_tv_services_price :
-                        type === "internet-tv" && item.services_info_internet_tv_bundles_price,
-                  }
-                  return (
-                    <>
-                      <CheepTable_CardProviderState key={idx} count={idx} item={summaryData} />
-
-                    </>
-                  )
-                })
-              }
-            </div>
-
+      <section className="my-16">
+        <div className="container mx-auto px-4">
+          <div className='mb-10'>
+            <h2 className="text-2xl font-bold  capitalize leading-10">
+              Cheap  {formatType(type)} Service Providers in <span className="text-[#ef9831] uppercase">{state}</span>
+            </h2>
+            <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)} Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)} Service Providers in {C_State}.</p>
           </div>
-        </section>
+
+          <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
+            <div className="border-r grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white">
+                  Provider
+                </h4>
+              </div>
+            </div>
+
+            <div className="grid justify-center md:p-5 p-2 md:h-auto h-[120px] items-center">
+              <div>
+                <h4 className="md:text-base text-xs text-center text-white mb-2">
+                  Pricing starts from
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div className='grid'>
+            {
+              cheepProviders?.map((item: any, idx: number) => {
+                var summaryData = {
+                  provider: item?.title,
+                  slug: item.slug,
+                  price: type === "internet" ? item.services_info_internet_services_price :
+                    type === "tv" ? item.services_info_tv_services_price :
+                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                }
+                return (
+                  <>
+                    <CheepTable_CardProviderState key={idx} count={idx} item={summaryData} />
+
+                  </>
+                )
+              })
+            }
+          </div>
+
+        </div>
+      </section>
 
 
       {type !== 'internet-tv' && type !== 'tv' && (
