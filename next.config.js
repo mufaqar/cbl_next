@@ -7,6 +7,7 @@ module.exports = {
    
       { source: '/order-internet-and-tv-service', destination: '/', permanent: true },
       { source: '/order-internet-and-tv-service/', destination: '/', permanent: true },
+      { source: '/feed', destination: '/', permanent: true } ,
       { source: '/feed/', destination: '/', permanent: true } 
 
     ];
