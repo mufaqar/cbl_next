@@ -204,7 +204,7 @@ export default function Home({ BlogPosts }: any) {
             </div>
          </section>
 
-         <Why_ChooseUs bg-[#215690]/>
+         <Why_ChooseUs/>
 
          {/* <section className="py-16">
             <div className="container mx-auto px-4">
