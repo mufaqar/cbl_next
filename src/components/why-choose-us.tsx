@@ -3,7 +3,7 @@ import { FaHandshake, FaMoneyBill, FaRegClock, FaUserTie } from 'react-icons/fa6
 
 const Why_ChooseUs = () => {
     return (
-        <section className="py-16 bg-[#215690]">
+        <section className="py-16">
             <div className="container mx-auto px-4">
                 <div className="mx-auto max-w-3xl text-center">
                     <h2 className='text-center md:text-4xl text-2xl font-bold'>
