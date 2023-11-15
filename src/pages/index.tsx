@@ -26,7 +26,7 @@ export default function Home({ BlogPosts }: any) {
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
                <div className="py-10">
                   <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
-                     Find <span className="text-[#ef9831]">Internet and TV Service Providers</span> in your area by Cable Movers
+                     Cable Movers: Find <span className="text-[#ef9831]">Internet and TV Service Providers</span> in your Area.
                   </h1>
                   <p className='text-[22px] font-normal text-white my-5'>
                      Moving or looking to change your service provider, Cable Movers can help. Compare Internet and TV service providers, plans and prices by ZIP code.
@@ -172,6 +172,19 @@ export default function Home({ BlogPosts }: any) {
             </div>
          </section>
 
+         <section className="py-16 bg-[#F3FAFF]">
+            <div className='container mx-auto px-4 my-10 grid md:grid-cols-2 grid-cols-1 gap-5 items-center'>
+               <div className="">
+                  <h3 className='md:text-3xl text-2xl font-extrabold leading-normal'>
+                     Enter your zip code to find providers and plans in your area.
+                  </h3>
+               </div>
+               <div className='flex md:justify-end justify-center [&>div:nth-child(1)]:mr-0 [&>div:nth-child(1)]:w-fit'>
+                  <SearchForm />
+               </div>
+            </div>
+         </section>
+
          <section className="py-24">
             <div className='container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-7 items-center'>
                <div className="">
@@ -191,23 +204,9 @@ export default function Home({ BlogPosts }: any) {
             </div>
          </section>
 
-         <section className="py-16 bg-[#F3FAFF]">
-            <div className='container mx-auto px-4 my-10 grid md:grid-cols-2 grid-cols-1 gap-5 items-center'>
-               <div className="">
-                  <h3 className='md:text-3xl text-2xl font-extrabold leading-normal'>
-                     Enter your zip code to find providers and plans in your area.
-                  </h3>
-               </div>
-               <div className='flex md:justify-end justify-center [&>div:nth-child(1)]:mr-0 [&>div:nth-child(1)]:w-fit'>
-                  <SearchForm />
-               </div>
-            </div>
-         </section>
-
-
          <Why_ChooseUs />
 
-         <section className="py-16">
+         {/* <section className="py-16">
             <div className="container mx-auto px-4">
                <div className="mb-10">
                   <h2 className='text-left md:text-4xl text-2xl font-bold'>
@@ -224,7 +223,7 @@ export default function Home({ BlogPosts }: any) {
 
                </div>
             </div>
-         </section>
+         </section> */}
       </>
    );
 }
