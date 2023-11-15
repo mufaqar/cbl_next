@@ -185,7 +185,7 @@ export default function Home({ BlogPosts }: any) {
             </div>
          </section>
 
-         <section className="py-24">
+         <section className="py-24 bg-[#215690]">
             <div className='container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-7 items-center'>
                <div className="">
                   <Image src="/images/callus.jpg" alt="Call Us" width={750} height={750} className='rounded-lg' />
