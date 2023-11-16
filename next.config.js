@@ -16,8 +16,8 @@ module.exports = {
       { source: '/feed', destination: '/', permanent: true },
       { source: '/feed/', destination: '/', permanent: true },
       {
-        source: 'http://www.cablemovers.net/:path*',
-        destination: 'https://www.cablemovers.net/:path*',
+        source: '/',
+        destination: '/',
         permanent: true,
       },
     ];
