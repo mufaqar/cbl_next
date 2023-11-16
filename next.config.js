@@ -14,12 +14,7 @@ module.exports = {
         permanent: true,
       },
       { source: '/feed', destination: '/', permanent: true },
-      { source: '/feed/', destination: '/', permanent: true },
-      {
-        source: '/',
-        destination: '/',
-        permanent: true,
-      },
+      { source: '/feed/', destination: '/', permanent: true }
     ];
   },
   reactStrictMode: true,
