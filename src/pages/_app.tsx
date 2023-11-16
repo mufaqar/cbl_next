@@ -7,7 +7,7 @@ import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GoogleAnalytics measurementId="G-20JM8TWZFP" />
+      <GoogleAnalytics measurementId="G-Q1VGHRVGLX" />
       <Header />
       <Component {...pageProps} />
       <Footer />
