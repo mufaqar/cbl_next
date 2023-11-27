@@ -20,7 +20,7 @@ export default function Home({ BlogPosts }: any) {
 
    return (
       <>
-       <PageHead title="Cable Movers | Find The Best Internet and TV Service Providers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net" />
+       <PageHead title="Cable Movers | Find The Best Internet and TV Service Providers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net" curl="https://www.cablemovers.net" />
        
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
@@ -36,7 +36,7 @@ export default function Home({ BlogPosts }: any) {
                   </div>
                </div>
                <div className=''>
-                  {/* <Image src="/images/slug-bg.png" alt="Feature Image" width={1200} height={1626} className='object-cover w-full h-full' /> */}
+                  {/* <Image src="/images/slug-bg.png" alt="Cable Movers: Find Internet and TV Service Providers" width={1200} height={1626} className='object-cover w-full h-full' /> */}
                </div>
             </div>
          </section>
@@ -70,7 +70,7 @@ export default function Home({ BlogPosts }: any) {
             <div className='container mx-auto px-4'>
                <div className="mx-auto max-w-3xl">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
-                     Find The Best Internet And Tv Service Providers!
+                     Find The Best Internet And TV Service Providers!
                   </h2>
                   <p className='text-xl font-normal text-center mt-4'>
                      Here at Cable Movers, we research and review leading providers and have found the most popular plans and deals on every major Internet and TV service provider to help you shop smartly.
