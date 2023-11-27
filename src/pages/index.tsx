@@ -88,7 +88,7 @@ export default function Home({ BlogPosts }: any) {
                   <div className='grid md:grid-cols-6 grid-cols-1 gap-7'>
                      <div className="">
                         <Link href="/providers/directv">
-                           <Image src='/images/logo/directv-preferred-dealer-black-768x286-1.png' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/DIRECTV.jpg' alt="DIRECTV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
