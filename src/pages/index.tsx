@@ -88,32 +88,32 @@ export default function Home({ BlogPosts }: any) {
                   <div className='grid md:grid-cols-6 grid-cols-1 gap-7'>
                      <div className="">
                         <Link href="/providers/directv">
-                           <Image src='/images/logo/DIRECTV.jpg' alt="DIRECTV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/DIRECTV.jpg' alt="DIRECTV TV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/spectrum">
-                           <Image src='/images/logo/Spectrum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/Spectrum.jpg' alt="Spectrum TV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/dish">
-                           <Image src='/images/logo/dish.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/dish.jpg' alt="Dish TV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/xfinity">
-                           <Image src='/images/logo/xfinity.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/xfinity.jpg' alt="Xfinity TV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/optimum">
-                           <Image src='/images/logo/Optimum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/Optimum.jpg' alt="Optimum TV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/cox">
-                           <Image src='/images/logo/Cox.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/Cox.jpg' alt="Cox TV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                   </div>
@@ -126,32 +126,32 @@ export default function Home({ BlogPosts }: any) {
                   <div className='grid md:grid-cols-6 grid-cols-1 gap-7'>
                      <div className="">
                         <Link href="/providers/att">
-                           <Image src='/images/logo/att.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/att.jpg' alt="AT&T Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/spectrum">
-                           <Image src='/images/logo/Spectrum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/Spectrum.jpg' alt="Spectrum Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/earthlink">
-                           <Image src='/images/logo/EarthLink.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/EarthLink.jpg' alt="Earthlink Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/hughesnet">
-                           <Image src='/images/logo/HughesNet.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/HughesNet.jpg' alt="HughesNet Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/frontier">
-                           <Image src='/images/logo/froniter.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/froniter.jpg' alt="Frontier Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
                         <Link href="/providers/optimum">
-                           <Image src='/images/logo/Optimum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/Optimum.jpg' alt="Optimum Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                   </div>
