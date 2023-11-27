@@ -1,6 +1,6 @@
 import React from 'react'
 
-function OverView({ uniqueServiceType, type, city, state, allProviders }: any) {
+function OverView({ uniqueServiceType, type, city, state, totalProviderCount, allProviders }: any) {
 
     function formatType(type: any) {
         if (type === "internet") {
