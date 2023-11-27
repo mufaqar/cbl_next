@@ -56,7 +56,7 @@ export const Cities = [
     },
     {
         name: "Denver",
-        slug: "/co/dever"
+        slug: "/co/denver"
     },
     {
         name: "Orlando",
