@@ -24,10 +24,10 @@ function OverView({ uniqueServiceType, type, city, state, totalProviderCount, al
 
                 ))
             } {formatType(type)} Service Providers.  {
-                allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                allProviders?.slice(0, 1).map((item: any, idx: number) => (
                     <span key={idx}>  {item?.title} </span>
                 ))
-            } are the best {formatType(type)} Service Providers in {city}, <span className='uppercase'>{state}</span> .
+            } is the best {formatType(type)} Service Provider in {city}, <span className='uppercase'>{state}</span> .
         </p>
 
 
