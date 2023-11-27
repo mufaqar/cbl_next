@@ -17,7 +17,7 @@ function OverView({ uniqueServiceType, type, city, state, totalProviderCount, al
     return (
 
         <p className='text-xl font-[Roboto] mt-5'>
-            As of the time this page was written, {city === '' ? <span className='uppercase'>{state}</span> : city}  has two or more {formatType(type)} Service Providers offering various types of {formatType(type)} plans to its residents. You’ll likely have options from
+            As of the time this page was written, {city === '' ? <span className='uppercase'>{state}</span> : city}  has Two or more {formatType(type)} Service Providers offering various types of {formatType(type)} plans to its residents. You’ll likely have options from
             {
                 uniqueServiceType.map((t: any, i: number) => (
                     <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> {i < uniqueServiceType.length - 1 && ', '} </span>
