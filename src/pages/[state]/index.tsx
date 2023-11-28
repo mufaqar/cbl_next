@@ -402,11 +402,11 @@ export default function OurState({ allcities, state, allProviders }: any) {
               Types of  {formatType(type)} Technologies Available in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
             <p className='text-base'>
-              {C_State} is well-connected with diverse range of {formatType(type)} technologies available to its residents. These technologies include    {
+               {city}, {C_State} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These technologies include    {
                 uniqueServiceType.map((t: any, i: number) => (
-                  <span key={i}>{t.name} , </span>
+                  <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
                 ))
-              }
+              }. Understanding these options can help you make an informed decision based on your needs and location.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
