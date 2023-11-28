@@ -389,6 +389,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold mb-2">
+              
               Types of {formatType(type)} Technologies Available in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
             <p className='text-base'>
