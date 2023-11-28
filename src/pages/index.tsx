@@ -125,13 +125,13 @@ export default function Home({ BlogPosts }: any) {
                   </h3>
                   <div className='grid md:grid-cols-6 grid-cols-1 gap-7'>
                      <div className="">
-                        <Link href="/providers/att">
-                           <Image src='/images/logo/att.jpg' alt="AT&T Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
+                        <Link href="/providers/spectrum">
+                           <Image src='/images/logo/spectrum.jpg' alt="Spectrum Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
-                        <Link href="/providers/spectrum">
-                           <Image src='/images/logo/Spectrum.jpg' alt="Spectrum Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
+                        <Link href="/providers/att">
+                           <Image src='/images/logo/att.jpg' alt="AT&T Internet plans and pricing from Cable Movers" width={140} height={60} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
