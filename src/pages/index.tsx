@@ -188,7 +188,7 @@ export default function Home({ BlogPosts }: any) {
          <section className="py-24">
             <div className='container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-7 items-center'>
                <div className="">
-                  <Image src="/images/callus.jpg" alt="Call Us" width={750} height={750} className='rounded-lg' />
+                  <Image src="/images/callus.jpg" alt="Call Cable Movers" width={750} height={750} className='rounded-lg' />
                </div>
                <div className="">
                   <h2 className='md:text-5xl text-3xl leading- font-extrabold text-black'>
