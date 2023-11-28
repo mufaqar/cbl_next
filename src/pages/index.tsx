@@ -20,7 +20,7 @@ export default function Home({ BlogPosts }: any) {
 
    return (
       <>
-       <PageHead title="Cable Movers | Find The Best Internet and TV Service Providers" description="Planning a Move? Cable Movers can help you find the best Internet and TV Service Provider. Find best deals on Cable and High Speed Internet." url="https://www.cablemovers.net" curl="https://www.cablemovers.net" />
+       <PageHead title="Cable Movers | Find The Best Internet and TV Service Providers" description="Moving or looking to change your service provider, Cable Movers can help. Compare Internet and TV service providers, plans and prices by ZIP code." url="https://www.cablemovers.net" curl="https://www.cablemovers.net" />
        
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
