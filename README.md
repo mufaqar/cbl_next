@@ -19,3 +19,6 @@ https://www.cablemovers.net/cities_2-sitemap.xml
 https://www.cablemovers.net/cities_3-sitemap.xml
 https://www.cablemovers.net/cities_4-sitemap.xml
 
+
+
+//   "build": "next build && node ./src/gen-sitemaps/blogs-sitemap.js && node ./src/gen-sitemaps/pages-sitemap.js && node ./src/gen-sitemaps/providers-sitemap.js",
