@@ -114,6 +114,10 @@ export const Providers_Data = [
 
 export const NavLinks = [
   {
+    name: 'Blog',
+    link: '/blog',
+  },
+  {
     name: 'About Us',
     link: '/about-us',
   },

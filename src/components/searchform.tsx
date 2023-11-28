@@ -86,7 +86,7 @@ const SearchForm = () => {
           <input type="text" onKeyDown={handleKeyDown} placeholder="Enter Zip Code" maxLength={5} name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-3 pl-10 pr-8 border outline-none md:w-80 border-zinc-400 rounded-l-md" />
           <button className="px-4 py-[13px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-r-md" onClick={handleState}>Search</button>
         </div>
-        {resultNotFound && <div className='w-full py-2 text-red-500'>Result not found! please enter correct zipcode </div>}
+        {resultNotFound && <div className='w-full py-2 text-red-500'>No Result found! please enter correct zipcode </div>}
         </form>
       }
     </>

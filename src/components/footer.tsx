@@ -10,7 +10,7 @@ const Footer = () => {
       <div className='container mx-auto px-4 grid md:grid-cols-5 grid-cols-1 gap-5'>
       <div className='col-span-2'>
           <Link href="/">
-            <Image src="/logo.png" alt="logo.svg" height={56} width={254} />
+            <Image src="/logo.png" alt="Cable Movers footer logo" height={56} width={254} />
           </Link>
           <p className='text-sm font-normal text-white/75 mt-5'>
             All names, logos, trademarks displayed are the sole property of their respective owners; cablemovers.net employs these trademarks solely for the purpose of describing the products and services provided by each respective trademark holder. We offer information for comparative purposes and do not directly provide internet and TV services, nor do we endorse one service provider over another. We are financially supported by compensation from our internet and TV partners.

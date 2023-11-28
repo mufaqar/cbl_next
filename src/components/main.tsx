@@ -15,7 +15,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="sm:block hidden">
-                    <img src="/images/hso.webp" alt="Main Banner" className="ml-auto h-[485px] " />
+                    <img src="/images/hso.webp" alt="Main Banner Cable Movers" className="ml-auto h-[485px] " />
                 </div>
             </div>
         </section>
