@@ -18,7 +18,7 @@ import OverView from '../overview'
 import Head from 'next/head';
 import PageHead from '../metas/pagesmeta'
 import Faqs_City from '@/components/faqs_city';
-import Faqs_Zip from '../faqs_zip'
+import Faqs_City from '../faqs_city'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
@@ -380,16 +380,14 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             Types of {formatType(type)}  Technologies Available in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
                         </h2>
                         <p className='text-base'>
-                            {city}, {C_State} is well-connected with a diverse range of {formatType(type)}  technologies available to its residents. These technologies include
-                            {
-                                uniqueServiceType.map((t: any, i: number) => (
-                                    <span key={i}> {t.name} {i < uniqueServiceType.length - 1 && ', '} </span>
-
-                                ))
-                            }
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
+                             {city}, {C_State} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These connection types include    {
+                uniqueServiceType.map((t: any, i: number) => (
+                  <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
+                ))
+              }. Understanding these options can help you make an informed decision based on your needs and location.
+            </p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
                         {
                             uniqueServiceType.map((t: any, i: number) => (
                                 <Technology_Box
