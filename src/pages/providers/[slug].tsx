@@ -51,11 +51,12 @@ export default function SProviders({ Provider, city, state }: any) {
     <>
       <PageHead
         title={`${provider_name} Plans and Pricing for ${currentMonthName}, ${currentYear} | Cable Movers`}
-        description={`Plans and Pricing for ${currentMonthName}, ${currentYear} for ${currentMonthName}, ${currentYear}. Internet Plans :  ${Provider?.providersInfo?.internetPlans?.slice(0, 3).map((item: any, idx: number) => (
-          `${idx + 1} ${item?.package} Speed :${item?.speeds} Price :${item?.price}`)).join(', ')}. TV Plans : ${Provider?.providersInfo?.internetPlans?.slice(0, 3).map((item: any, idx: number) => (
-            `${idx + 1} ${item?.package} Speed :${item?.speeds} Price :${item?.price}`)).join(', ')}`}
+        description={`Plans and Pricing for ${currentMonthName}, ${currentYear} for ${currentMonthName}, ${currentYear}. Internet Plans :  ${Provider?.providersInfo?.internetPlans?.slice(0, 1).map((item: any, idx: number) => (
+          `${idx + 1} ${item?.package} Speed :${item?.speeds} Price :${item?.price}`)).join(', ')}.`}
         url={`https://www.cablemovers.net/providers/${Provider?.slug}`}
       />
+      
+
 
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
