@@ -85,7 +85,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             <PageHead
                 title={
                     type === "internet"
-                        ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
+                        ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear} `
                         : type === "tv"
                             ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
                             : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
@@ -224,7 +224,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                             <h2 className="text-2xl font-bold  capitalize leading-10">
                                 Fast  {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
                             </h2>
-                            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)}  Service Providers in {city}, {C_State}. These providers offer impressive download speeds that cater to the needs of heavy internet users, streamers, and online gamers.</p></p>
+                            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)}  Service Providers in {city}, {C_State}. These providers offer impressive download speeds that cater to the needs of heavy internet users, streamers, and online gamers. </p></p>
                         </div>
 
                         <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-2' : ' md:grid-cols-2'} `}>
