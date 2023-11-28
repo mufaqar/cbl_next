@@ -17,7 +17,7 @@ import Fast_Table_CardProvider from '../provider/fasttable-cardProvider'
 import OverView from '../overview'
 import Head from 'next/head';
 import PageHead from '../metas/pagesmeta'
-import Faqs_City from '@/components/faqs_city';
+import Faqs_Zip from '@/components/faqs_zip';
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
@@ -403,7 +403,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
             </section>
             <section className="my-16">
                 <div className="container mx-auto px-4 grid gap-10">
-                    <Faqs_City city={city} type={type} state={state} zipcode="" cheepProviders={cheepProviders} allProviders={allProviders} totalProviderCount={totalProviderCount} />
+                    <Faqs_Zip city={city} type={type} state={state} zipcode="{zipcode}" cheepProviders={cheepProviders} allProviders={allProviders} totalProviderCount={totalProviderCount} />
                 </div>
             </section>
         </>
