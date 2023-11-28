@@ -19,7 +19,7 @@ import Head from 'next/head';
 import PageHead from '../metas/pagesmeta'
 import Faqs_City from '@/components/faqs_city';
 
-function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
+export default function Cities_com({ my_city, allProviders }: any) {
 
     const { query } = useRouter();
     const city_code = query.city;
