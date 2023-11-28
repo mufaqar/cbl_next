@@ -18,7 +18,6 @@ import OverView from '../overview'
 import Head from 'next/head';
 import PageHead from '../metas/pagesmeta'
 import Faqs_City from '@/components/faqs_city';
-import Faqs_City from '../faqs_city'
 
 function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
