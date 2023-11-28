@@ -244,7 +244,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
                 Fast {formatType(type)} Service Providers In <span className="text-[#ef9831] uppercase">{state}</span>
               </h2>
-              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)} Service Providers in {C_State}. These providers offer impressive download speeds that cater to the needs of heavy internet users, streamers, and online gamers.</p>
+              <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)} Service Providers in {C_State}. These providers offer impressive download speeds that cater to the needs of heavy Internet users, streamers, and online gamers.</p>
             </div>
 
             <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690]`}>
