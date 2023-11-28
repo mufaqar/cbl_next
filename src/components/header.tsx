@@ -90,12 +90,12 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link href="/providers/centurylink" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Centurylink
+                                        CenturyLink
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/providers/earthlink" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
-                                        Earthlink
+                                        EarthLink
                                     </Link>
                                 </li>
                                 <li>
