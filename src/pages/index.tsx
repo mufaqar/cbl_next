@@ -126,7 +126,7 @@ export default function Home({ BlogPosts }: any) {
                   <div className='grid md:grid-cols-6 grid-cols-1 gap-7'>
                      <div className="">
                         <Link href="/providers/spectrum">
-                           <Image src='/images/logo/spectrum.jpg' alt="Spectrum Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
+                           <Image src='/images/logo/Spectrum.jpg' alt="Spectrum Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
                         </Link>
                      </div>
                      <div className="">
