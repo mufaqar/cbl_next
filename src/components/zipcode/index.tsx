@@ -21,12 +21,12 @@ import Faqs_City from '@/components/faqs_city';
 
 export default function Cities_com({ my_city, allProviders }: any) {
 
-    const { query } = useRouter();
-    const city_code = query.city;
-    const state_code = query.state;
-    let C_State = (state as string).toUpperCase();
-    var type = query?.type;
-    var types = query?.type;
+  const { query } = useRouter();
+  const type = query.type || "internet";
+
+  const city_code = query.city;
+  const state = query.state;
+  let C_State = (state as string).toUpperCase();
 
     function formatType(type: any) {
         if (type === "internet") {
