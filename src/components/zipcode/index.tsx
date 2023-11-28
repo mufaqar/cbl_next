@@ -19,14 +19,14 @@ import Head from 'next/head';
 import PageHead from '../metas/pagesmeta'
 import Faqs_City from '@/components/faqs_city';
 
-export default function Cities_com({ my_city, allProviders }: any) {
+function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
 
-  const { query } = useRouter();
-  const type = query.type || "internet";
-
-  const city_code = query.city;
-  const state = query.state;
-  let C_State = (state as string).toUpperCase();
+    const { query } = useRouter();
+    const city_code = query.city;
+    const state_code = query.state;
+    let C_State = (state as string).toUpperCase();
+    var type = query?.type;
+    var types = query?.type;
 
     function formatType(type: any) {
         if (type === "internet") {
