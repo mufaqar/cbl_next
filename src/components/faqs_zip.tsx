@@ -5,8 +5,7 @@ import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
 
 export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProviderCount, countServiceType }: any) {
-    // console.log("🚀 ~ file: faqs.tsx:8 ~ Faqs_Sec ~ allProviders:", allProviders)
-
+   
     city = !city ? "" : `${zipcode},`
     const { query } = useRouter();
     let state = query.state;
@@ -75,7 +74,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                             <p className="text-base font-medium mt-5" >
                                 {
                                     allProviders[0]?.title
-                                }  is the fastest internet service provider in {zipcode} and offers max download speeds up to {allProviders[0]?.providersInfo?.servicesInfo?.internetServices.summarySpeed}Mbps in select areas.
+                                }  is the fastest internet service provider in {zipcode} and offers max download speeds up to {allProviders[0]?.providersInfo?.servicesInfo?.internetServices?.summarySpeed || allProviders[0]?.services_info_internet_services_summary_speed}Mbps in select areas.
                             </p>
                         </div>
                     </div>
