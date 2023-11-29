@@ -241,7 +241,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{city} </span> with price starting from ${allProviders[0].providersInfo?.proPrice || allProviders[0]?.pro_price}   </p>
+                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{city} </span> with price starting from ${cheepProviders[0]?.services_info_tv_services_price}   </p>
                         </div>
                     </div>
                 </>
