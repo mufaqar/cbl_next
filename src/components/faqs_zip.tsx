@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
 
-export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProviderCount, countServiceType }: any) {
+export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProviderCount, countServiceType, cheepProviders }: any) {
    
     city = !city ? "" : `${city},`
     const { query } = useRouter();
