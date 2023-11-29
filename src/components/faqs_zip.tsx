@@ -342,7 +342,6 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
 
                                     <AiOutlinePlus size={24}
                                         className={`${open === 5 ? "rotate-45 transform transition duration-200" : "rotate-0 transform transition duration-200"}`} />
-
                                 </span>
                             </div>
                         </div>
