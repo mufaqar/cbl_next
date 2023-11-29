@@ -6,7 +6,7 @@ import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
 export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProviderCount, countServiceType }: any) {
    
-    city = !city ? "" : `${zipcode},`
+    city = !city ? "" : `${city},`
     const { query } = useRouter();
     let state = query.state;
     const [open, setOpen] = useState<any>(1);
@@ -39,7 +39,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         <div className="">
                             <div className="flex justify-between cursor-pointer" onClick={() => handleFaq(1)}>
                                 <p className="text-lg font-semibold " >
-                                    1.	Who is the Best Internet Service Provider in   <span className=" uppercase"> <span className=" uppercase">{zipcode} </span> </span> ?
+                                    1.	Who is the Best Internet Service Provider in   <span className=" uppercase"> <span className=" uppercase">{city} </span> </span> ?
                                 </p>
                                 <span className="text-lightBlue">
 
