@@ -74,7 +74,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                             <p className="text-base font-medium mt-5" >
                                 {
                                     allProviders[0]?.title
-                                }  is the fastest internet service provider in {city} and offers max download speeds up to {allProviders[0]?.providersInfo?.servicesInfo?.internetServices?.summarySpeed || allProviders[0]?.services_info_internet_services_summary_speed}Mbps in select areas.
+                                }  is the fastest internet service provider in {city} and offers max download speeds up to {allProviders[0]?.services_info_internet_services_summary_speed }Mbps in select areas.
                             </p>
                         </div>
                     </div>
