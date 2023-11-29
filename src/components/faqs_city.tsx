@@ -326,7 +326,7 @@ export default function Faqs_City({ city, type, allProviders, totalProviderCount
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {totalProviderCount}  Bundle service providers are available in {city}. Based on the availability  {
+                                {totalProviderCount}  Bundle service providers are available in {city} Based on the availability  {
                                     allProviders[0]?.title
                                 }  is the best bundle service provider in <span className=" uppercase">{city} {state} </span>.
                             </p>
