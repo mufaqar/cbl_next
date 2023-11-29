@@ -328,7 +328,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                             <p className="text-base font-medium mt-5" >
                                 {countServiceType}  bundle service providers are available in {city}. Based on the availability  {
                                     allProviders[0]?.title
-                                }  is the best bundle service provider in {city} <span className=" uppercase">{state}.
+                                }  is the best bundle service provider in {city} <span className=" uppercase">{state}.</span>
                             </p>
                         </div>
                     </div>
