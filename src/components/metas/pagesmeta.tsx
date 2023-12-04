@@ -3,10 +3,10 @@ import Head from 'next/head';
 
 const PageHead = ({ title, description , url , curl }: any) => {
     return (
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="robots" content="index,follow">
-            <meta name="googlebot" content="index,follow">
+        <Head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="robots" content="index,follow" />
+            <meta name="googlebot" content="index,follow" />
             <title>{title}</title>
             <meta name="description" content={description} />
             <link rel="canonical" href={curl?curl:url} />
@@ -27,8 +27,7 @@ const PageHead = ({ title, description , url , curl }: any) => {
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="google-site-verification" content="iLYoHtcwVcA3ianb_XmVaO8h2F_TRMpZuC1SCbrCuXo" />
-            
-        </head>
+        </Head>
     );
 };
 
