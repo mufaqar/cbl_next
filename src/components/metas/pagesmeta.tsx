@@ -26,7 +26,6 @@ const PageHead = ({ title, description , url , curl }: any) => {
             <meta name="twitter:site" content="@cablemovers" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
-            <meta name="google-site-verification" content="iLYoHtcwVcA3ianb_XmVaO8h2F_TRMpZuC1SCbrCuXo" />
         </Head>
     );
 };
