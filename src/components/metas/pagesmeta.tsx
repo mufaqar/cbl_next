@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 const PageHead = ({ title, description , url , curl }: any) => {
     return (
-        <Head>
+        <head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="robots" content="index,follow">
             <meta name="googlebot" content="index,follow">
@@ -26,7 +26,9 @@ const PageHead = ({ title, description , url , curl }: any) => {
             <meta name="twitter:site" content="@cablemovers" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
-        </Head>
+            <meta name="google-site-verification" content="iLYoHtcwVcA3ianb_XmVaO8h2F_TRMpZuC1SCbrCuXo" />
+            
+        </head>
     );
 };
 
