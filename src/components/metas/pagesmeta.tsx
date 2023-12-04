@@ -12,7 +12,7 @@ const PageHead = ({ title, description , url , curl }: any) => {
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:url" content={url} />
-            <meta property="og:site_name" content="cablemovers.net" />
+            <meta property="og:site_name" content="CableMovers.net" />
             <meta property="article:publisher" content="https://www.facebook.com/cablemovers.net" />
             <meta property="article:modified_time" content="2023-07-06T22:58:46+00:00" />
             <meta property="og:image" content="https://www.cablemovers.net/logo.png" />
