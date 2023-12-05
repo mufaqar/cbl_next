@@ -5,8 +5,8 @@ const PageHead = ({ title, description , url , curl }: any) => {
     return (
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta name="robots" content="{robots}" />
-            <meta name="googlebot" content="{googlebot}" />
+            <meta name="robots" content={robots} />
+            <meta name="googlebot" content={googlebot} />
             <title>{title}</title>
             <meta name="description" content={description} />
             <link rel="canonical" href={curl?curl:url} />
