@@ -9,7 +9,7 @@ function Sell_Information() {
         <>
 
           
-            <PageHead title="Do Not Sell My Information | Cable Movers" description="" url="https://www.cablemovers.net/do-not-sell-my-information" />
+            <PageHead title="Do Not Sell My Information | Cable Movers" description="" url="https://www.cablemovers.net/do-not-sell-my-information" curl="https://www.cablemovers.net/do-not-sell-my-information" />
       
             <PageBanner title="Do Not Sell My Information" />
             <section className="py-16">
