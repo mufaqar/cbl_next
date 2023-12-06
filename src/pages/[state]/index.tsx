@@ -427,7 +427,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
         <div className='container mx-auto px-4 m-10'>
           <div className="mt-20 mb-7">
             <h2 className='text-center text-2xl font-bold'>
-              Compare {formatType(type)} Providers in Major Cities
+              Compare {formatType(type)} Providers by Cities
             </h2>
           </div>
           <div>
