@@ -62,7 +62,7 @@ export default function Home({ BlogPosts }: any) {
                   <ServiceBox
                      img={<HiOutlineShoppingCart className="text-6xl text-[#215690] mx-auto" />}
                      title="Order"
-                     content="Give us a call, we’ll help you find the right plan."
+                     content="Give us a call, we’ll help you setup your service."
                   />
                </div>
             </div>
@@ -163,7 +163,7 @@ export default function Home({ BlogPosts }: any) {
             <div className='container mx-auto px-4'>
                <div className="mx-auto max-w-3xl mb-10">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
-                     Compare Internet & TV Service Providers by Cities.
+                     Compare Internet and TV Service Providers by Cities.
                   </h2>
                </div>
                <div>
@@ -176,7 +176,7 @@ export default function Home({ BlogPosts }: any) {
             <div className='container mx-auto px-4 my-10 grid md:grid-cols-2 grid-cols-1 gap-5 items-center'>
                <div className="">
                   <h3 className='md:text-3xl text-2xl font-extrabold leading-normal'>
-                     Enter your zip code to find providers and plans in your area.
+                     Enter your zip code to find providers and plans in your area:
                   </h3>
                </div>
                <div className='flex md:justify-end justify-center [&>div:nth-child(1)]:mr-0 [&>div:nth-child(1)]:w-fit'>
