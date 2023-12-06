@@ -44,7 +44,7 @@ function Providers({ allProviders }: any) {
                     </div>
                     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-4 text-center">
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10  ">
-                            <Link href="/providers/att">  <Image src='/images/logo/att.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                            <Link href="/providers/att">  <Image src='/images/logo/att.jpg' alt="AT&T logo by Cable Movers" width={140} height={50} className='mx-auto' />
                                 <h2 className="mt-4 text-lg  text-center">
                                     AT&T
 
@@ -52,21 +52,21 @@ function Providers({ allProviders }: any) {
                             </Link>
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
-                            <Link href="/providers/spectrum">  <Image src='/images/logo/Spectrum.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                            <Link href="/providers/spectrum">  <Image src='/images/logo/Spectrum.jpg' alt="Spectrum logo by Cable Movers" width={140} height={50} className='mx-auto' />
                                 <h2 className="mt-4 text-lg  text-center">
                                     SPECTRUM
                                 </h2>
                             </Link>
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
-                            <Link href="/providers/earthlink">  <Image src='/images/logo/EarthLink.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                            <Link href="/providers/earthlink">  <Image src='/images/logo/EarthLink.jpg' alt="EarthLink logo by Cable Movers" width={140} height={50} className='mx-auto' />
                                 <h2 className="mt-4 text-lg  text-center">
                                     EARTHLINK
                                 </h2>
                             </Link>
                         </div>
                         <div className="block rounded-xl border border-gray-100 p-3 shadow-xl transition hover:border-[#215690]/10 hover:shadow-[#215690]/10">
-                            <Link href="/providers/hughesnet">  <Image src='/images/logo/HughesNet.jpg' alt="Feature" width={140} height={50} className='mx-auto' />
+                            <Link href="/providers/hughesnet">  <Image src='/images/logo/HughesNet.jpg' alt="HughesNet logo by Cable Movers" width={140} height={50} className='mx-auto' />
                                 <h2 className="mt-4 text-lg  text-center">
                                     HUGHESNET
                                 </h2>
