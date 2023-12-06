@@ -7,7 +7,7 @@ function Privacy_Policy() {
         <>
 
             
-            <PageHead title="Terms and Conditions | Cable Movers" description="Cable Movers terms and conditions are very simple. You can read the details on this page." url="https://www.cablemovers.net/terms-and-conditions" />
+            <PageHead title="Terms and Conditions | Cable Movers" description="Cable Movers terms and conditions are very simple. You can read the details on this page." url="https://www.cablemovers.net/terms-and-conditions" curl="https://www.cablemovers.net/terms-and-conditions" />
       
             <PageBanner title="TERMS AND CONDITIONS" />
             <section className="py-16">
