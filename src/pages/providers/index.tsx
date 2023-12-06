@@ -17,7 +17,7 @@ function Providers({ allProviders }: any) {
     return (
         <>
 
-            <PageHead title="Best Internet and TV Service Providers We Work With | Cable Movers" description="Cable Movers partners with top internet and TV service providers and offers one stop shop so you can Search, compare and order all at one site." url="https://www.cablemovers.net/providers" />
+            <PageHead title="Best Internet and TV Service Providers We Work With | Cable Movers" description="Cable Movers partners with top internet and TV service providers and offers one stop shop so you can Search, compare and order all on one site." url="https://www.cablemovers.net/providers" />
 
             <section className="min-h-[40vh]  flex items-center bg-[#215690]">
                 <div className="container mx-auto px-4">
