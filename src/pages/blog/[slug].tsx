@@ -10,7 +10,7 @@ import PageHead from '@/components/metas/pagesmeta'
 const Category = ({ SinglePost }: any) => {
   return (
     <>
-      <PageHead title={SinglePost.title} description={SinglePost?.excerpt} url={`https://www.cablemovers.net/blog/${SinglePost?.slug}`} />
+      <PageHead title={SinglePost.title} description={SinglePost?.blogSeo?.seoDescription} url={`https://www.cablemovers.net/blog/${SinglePost?.slug}`} />
       <PageBanner title={SinglePost.title} />
       <main className="py-16 max-w-screen-lg mx-auto singlePost">
         <div className="p-4">

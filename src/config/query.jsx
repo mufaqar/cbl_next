@@ -393,6 +393,9 @@ export const GET_POST_SLUG = gql`
       slug
       content
       excerpt
+      blogSeo {
+        seoDescription
+      }
       featuredImage {
         node {
           mediaItemUrl
