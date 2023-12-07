@@ -56,8 +56,6 @@ export default function SProviders({ Provider, city, state }: any) {
         url={`https://www.cablemovers.net/providers/${Provider?.slug}`}
       />
       
-
-
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
           <div className='md:w-1/2 w-full py-10'>
