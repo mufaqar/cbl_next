@@ -20,23 +20,23 @@ export default function Home({ BlogPosts }: any) {
 
    return (
       <>
-       <PageHead title="Cable Movers | Find The Best Internet and TV Service Providers" description="Moving or looking to change your service provider, Cable Movers can help. Compare Internet and TV service providers, plans and prices by ZIP code." url="https://www.cablemovers.net/" curl="https://www.cablemovers.net/" />
+       <PageHead title="Cable Movers | Find The Best TV and Internet Service Providers" description="Moving or looking to change your service provider, Cable Movers can help. Compare TV and Internet Service Providers, plans and prices by ZIP code." url="https://www.cablemovers.net/" curl="https://www.cablemovers.net/" />
        
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
                <div className="py-10">
                   <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
-                     Cable Movers: Find <span className="text-[#ef9831]">Internet and TV Service Providers</span> in your Area.
+                     Cable Movers: Find <span className="text-[#ef9831]">TV and Internet Providers</span> in your Area.
                   </h1>
                   <p className='text-[22px] font-normal text-white my-5'>
-                     Moving or looking to change your service provider, Cable Movers can help. Compare Internet and TV service providers, plans and prices by ZIP code.
+                     Moving or looking to change your service provider, Cable Movers can help. Compare TV and Internet Service Providers, plans and prices by ZIP code.
                   </p>
                   <div className="">
                      <SearchForm />
                   </div>
                </div>
                <div className=''>
-                  {/* <Image src="/images/slug-bg.png" alt="Cable Movers: Find Internet and TV Service Providers" width={1200} height={1626} className='object-cover w-full h-full' /> */}
+                  {/* <Image src="/images/slug-bg.png" alt="Cable Movers: Find TV and Internet Service Providers" width={1200} height={1626} className='object-cover w-full h-full' /> */}
                </div>
             </div>
          </section>
@@ -70,10 +70,10 @@ export default function Home({ BlogPosts }: any) {
             <div className='container mx-auto px-4'>
                <div className="mx-auto max-w-3xl">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
-                     Find The Best Internet And TV Service Providers!
+                     Find The Best TV and Internet Providers
                   </h2>
                   <p className='text-xl font-normal text-center mt-4'>
-                     Here at Cable Movers, we research and review leading providers and have found the most popular plans and deals on every major Internet and TV service provider to help you shop smartly.
+                     Here at Cable Movers, we research and review leading providers and have found the most popular plans and deals on every major TV and Internet Service Providers to help you shop smartly.
                   </p>
                </div>
             </div>
@@ -163,7 +163,7 @@ export default function Home({ BlogPosts }: any) {
             <div className='container mx-auto px-4'>
                <div className="mx-auto max-w-3xl mb-10">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
-                     Compare Internet and TV Service Providers by Cities.
+                     Compare TV and Internet Providers by Cities.
                   </h2>
                </div>
                <div>
@@ -195,7 +195,7 @@ export default function Home({ BlogPosts }: any) {
                      Need Help Finding The Best Provider For You?
                   </h2>
                   <p className='md:text-xl text-lg font-medium text-black my-5'>
-                     Whether you have some questions about the plan or need a little advice, Cable Movers can help you find the best Internet and TV service provider in your area. Give us a call and we’ll take care of you.
+                     Whether you have some questions about the plan or need a little advice, Cable Movers can help you find the best TV and Internet Service Providers in your area. Give us a call and we’ll take care of you.
                   </p>
                   <Link href="tel:833-592-0098" className='text-[#ef9831] hover:text-[#215690] md:text-3xl text-xl font-extrabold hover:underline flex items-center gap-4 w-fit'>
                      <LuPhoneCall /> 833-592-0098
