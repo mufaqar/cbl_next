@@ -10,7 +10,7 @@ const Why_ChooseUs = () => {
                         Why Choose Cable Movers?
                     </h2>
                     <p className='text-xl font-normal my-4'>
-                        Finding Internet and TV service providers is complex and time consuming but cable movers make the search process so easy and simple that saves you time and money. Here’s why you should shop with us.
+                        Finding TV and Internet Service Providers is complex and time consuming but cable movers make the search process so easy and simple that saves you time and money. Here’s why you should shop with us.
                     </p>
                 </div>
                 <div className="mt-8 grid md:grid-cols-2 grid-cols-1 gap-7">
