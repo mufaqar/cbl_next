@@ -1,6 +1,7 @@
 
 import PageBanner from '@/components/pageBanner'
 import apolloClient from '@/config/client'
+import SearchForm from '@/components/searchform'
 import { GET_POST_SLUG } from '@/config/query'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
@@ -20,6 +21,18 @@ const Category = ({ SinglePost }: any) => {
           </div>
         </div>
       </main>
+      <section className="py-16 bg-[#F3FAFF]">
+            <div className='container mx-auto px-4 my-10 grid md:grid-cols-2 grid-cols-1 gap-5 items-center'>
+                <div className="">
+                    <h2 className='md:text-4xl text-2xl font-extrabold leading-normal md:text-start text-center'>
+                            Find TV Service and Internet Providers in Your Area:
+                        </h2>
+                    </div>
+                    <div className='flex items-center md:justify-end justify-center [&>div:nth-child(1)]:md:mr-0 [&>div:nth-child(1)]:w-fit'>
+                        <SearchForm />
+                    </div>
+                </div>
+        </section>
     </>
   )
 }
