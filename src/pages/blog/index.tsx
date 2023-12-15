@@ -1,5 +1,6 @@
 import Blogpost from '@/components/blogpost'
 import PageBanner from '@/components/pageBanner'
+import SearchForm from '@/components/searchform'
 import apolloClient from '@/config/client'
 import { AllPosts } from '@/config/query'
 import { GetServerSideProps, GetStaticProps } from 'next'
