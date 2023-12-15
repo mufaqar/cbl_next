@@ -26,7 +26,7 @@ export default function Home({ BlogPosts }: any) {
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
                <div className="py-10">
                   <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
-                     Cable Movers: Find <span className="text-[#ef9831]">TV and Internet Providers</span> in your Area.
+                     Cable Movers: Find <span className="text-[#ef9831]">TV and Internet Service Providers</span> in your Area.
                   </h1>
                   <p className='text-[22px] font-normal text-white my-5'>
                      Moving or looking to change your service provider, Cable Movers can help. Compare TV and Internet Service Providers, plans and prices by ZIP code.
@@ -70,10 +70,10 @@ export default function Home({ BlogPosts }: any) {
             <div className='container mx-auto px-4'>
                <div className="mx-auto max-w-3xl">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
-                     Find The Best TV and Internet Providers
+                     Find The Best TV and Internet Service Providers
                   </h2>
                   <p className='text-xl font-normal text-center mt-4'>
-                     Here at Cable Movers, we research and review leading providers and have found the most popular plans and deals on every major TV and Internet Service Providers to help you shop smartly.
+                     Here at Cable Movers, we research and review leading providers and have found the most popular plans and deals on every TV and Internet Service Providers to help you shop smartly.
                   </p>
                </div>
             </div>
@@ -163,7 +163,7 @@ export default function Home({ BlogPosts }: any) {
             <div className='container mx-auto px-4'>
                <div className="mx-auto max-w-3xl mb-10">
                   <h2 className='text-center md:text-4xl text-2xl font-bold'>
-                     Compare TV and Internet Providers by Cities.
+                     Compare TV and Internet Service Providers by Cities.
                   </h2>
                </div>
                <div>
