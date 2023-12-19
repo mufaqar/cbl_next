@@ -17,13 +17,13 @@ function Providers({ allProviders }: any) {
     return (
         <>
 
-            <PageHead title="Best Internet and TV Service Providers We Work With | Cable Movers" description="Cable Movers partners with top internet and TV service providers and offers one stop shop so you can Search, compare and order all on one site." url="https://www.cablemovers.net/providers" />
+            <PageHead title="Best TV and Internet Service Providers We Work With | Cable Movers" description="Cable Movers partners with top TV and Internet service providers and offers one stop shop so you can Search, compare and order all on one site." url="https://www.cablemovers.net/providers" />
 
             <section className="min-h-[40vh]  flex items-center bg-[#215690]">
                 <div className="container mx-auto px-4">
                     <div >
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10 text-white">
-                            Find Internet & TV Service Providers in
+                            Find TV & Internet Service Providers in
                             <br /><span className="text-[#ef9831]">your area.</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5 text-white">
@@ -80,7 +80,7 @@ function Providers({ allProviders }: any) {
                 <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
                     <div className="mx-auto max-w-xl text-center">
                         <h2 className='text-3xl font-bold'>
-                            Top Internet and TV Service providers
+                            Top TV and Internet Service providers
                         </h2>
                     </div>
                     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-4 text-center">
