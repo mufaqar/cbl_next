@@ -8,7 +8,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <GoogleAnalytics measurementId="G-Q1VGHRVGLX" />
-      <script src=//b-js.ringba.com/CA7b594600650445d183a4f303631553d4 async></script>
       <Header />
       <Component {...pageProps} />
       <Footer />
