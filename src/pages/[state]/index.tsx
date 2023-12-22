@@ -21,6 +21,7 @@ import PageHead from '@/components/metas/pagesmeta';
 
 
 export default function OurState({ allcities, state, allProviders }: any) {
+console.log("🚀 ~ file: index.tsx:24 ~ OurState ~ allProviders:", allProviders)
 
   // Unique Cities
   const uniqueIds = new Set();
@@ -139,6 +140,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
                   type: item.providers_service_types,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
+                  pro_offer: item.pro_offer,
                   channels: item.services_info_internet_tv_bundles_summary_channel,
                   speed: type === "internet" ? item.services_info_internet_services_speed :
                     type === "tv" ? item.services_info_tv_services_speed :
@@ -153,7 +155,7 @@ export default function OurState({ allcities, state, allProviders }: any) {
 
                 return (
                   <>
-                    <ProviderCardState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                    <ProviderCardState key={idx} count={idx} type={type} item={summaryData} offer={item?.pro_offer} />
 
                   </>
                 )

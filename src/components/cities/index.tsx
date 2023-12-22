@@ -129,6 +129,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
                   type: item.providers_service_types,
                   mobileNo: item.pro_phone,
                   slug: item.slug,
+                  pro_offer: item.pro_offer,
                   price: type === "internet" ? item.services_info_internet_services_price :
                     type === "tv" ? item.services_info_tv_services_price :
                       type === "internet-tv" && item.services_info_internet_tv_bundles_price,
@@ -144,7 +145,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
 
                 return (
                   <>
-                    <ProviderCardState key={idx} count={idx} type={type} item={summaryData} offer={item.providersInfo?.proOffer} />
+                    <ProviderCardState key={idx} count={idx} type={type} item={summaryData} offer={item?.pro_offer} />
 
                   </>
                 )
