@@ -4,7 +4,7 @@ import Provider_Nav_State from '@/components/provider/provider-nav-state';
 import Technology_Box from '@/components/provider/technology-box';
 import SearchForm from '@/components/searchform';
 import apolloClient from '@/config/client';
-import { CITES_by_STATE } from '@/config/query';
+import { CITES_by_STATE, GET_ZONE_BY_CITY } from '@/config/query';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import React from 'react'
@@ -17,11 +17,12 @@ import CheepTable_CardProviderState from '@/components/provider/cheeptable-cardP
 import FastTable_CardProviderState from '@/components/provider/fasttable-cardProviderState';
 import OverView from '@/components/overview';
 import PageHead from '@/components/metas/pagesmeta';
+import { useQuery } from '@apollo/client';
 
 
 
-export default function OurState({ allcities, state, allProviders }: any) {
-console.log("🚀 ~ file: index.tsx:24 ~ OurState ~ allProviders:", allProviders)
+export default function OurState({ allcities, state, allProviders, d }: any) {
+  console.log("🚀 ~ file: index.tsx:24 ~ OurState ~ allcities:", allcities)
 
   // Unique Cities
   const uniqueIds = new Set();
@@ -404,7 +405,7 @@ console.log("🚀 ~ file: index.tsx:24 ~ OurState ~ allProviders:", allProviders
               Types of  {formatType(type)} Technologies Available in <span className="text-[#ef9831] uppercase">{state}</span>
             </h2>
             <p className='text-base'>
-               {C_State} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These connection types include    {
+              {C_State} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These connection types include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
                 ))
@@ -441,11 +442,13 @@ console.log("🚀 ~ file: index.tsx:24 ~ OurState ~ allProviders:", allProviders
                       <h3 className="text-xl group-hover:underline">{item.cities.nodes[0].name}</h3>
                       <BsArrowRight strokeWidth="1" className="items-center text-right" />
                     </div>
-
                   </Link>
                 </li>
               })}
             </ul>
+          </div>
+          <div className='flex justify-center my-10'>
+            <button className='border px-10 py-3 text-[#215790] border-[#215790] hover:bg-[#215790] hover:text-white rounded-xl hover:shadow-xl'>Load More</button>
           </div>
         </div>
       </section>
@@ -463,7 +466,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     // const All_zones_list = resultString.replace(/["\[\]]/g, '');
 
 
-    const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones?state=${state}`);
+    const response_city = await fetch(`https://topproviders.mufaqar.com/wp-json/custom/v1/area-zones?state=${state}`);
     const providers_city_data = await response_city.json();
 
     const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
@@ -473,7 +476,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const postData = {
       internet_services: All_zones_listQ
     };
-    const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
+    const response_data = await fetch('https://topproviders.mufaqar.com/wp-json/custom/v1/providers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -481,15 +484,21 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       body: JSON.stringify(postData),
     });
 
+    var allcities
 
     const providers_data = await response_data.json();
 
-    const [cities] = await Promise.all([
-      apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
 
-    ]);
-    const allcities = cities.data.states.nodes;
+    for (let i = 0; i <= 2; i++) {
+      var e = allcities[0].zones.pageInfo.hasNextPage
+      const [cities]:any = await Promise.all([
+        apolloClient.query({ query: CITES_by_STATE, variables: { state, after: e.endCursor } }),
+      ]);
+      var allcities = cities.data.states.nodes;
+      // after = allcities[0].zones.pageInfo.hasNextPage
+    }
 
+    console.log('qqqq', allcities[0].zones)
     // Check if data exists
     if (!allcities || !state || !providers_data.providers) {
       return {
@@ -500,7 +509,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       props: {
         allcities,
         state,
-        allProviders: providers_data.providers
+        allProviders: providers_data.providers,
       },
     };
 

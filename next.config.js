@@ -20,6 +20,6 @@ module.exports = {
   },
   reactStrictMode: true,
   images: {
-    domains: ['cblproject.cablemovers.net', 'localhost'],
+    domains: ['cblproject.cablemovers.net', 'localhost', "topproviders.mufaqar.com"],
   },
 };

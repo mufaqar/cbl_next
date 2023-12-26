@@ -30,7 +30,7 @@ export default function Providers({ allProviders, zones, zipcode, my_city, provi
     };
 
     async function fetchData() {
-      const response = await fetch('https://cblproject.cablemovers.net/graphql', {
+      const response = await fetch('https://topproviders.mufaqar.com/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
     const { zipcode, type, city, state } = query;
 
-    const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones-city?state=${city}`);
+    const response_city = await fetch(`https://topproviders.mufaqar.com/wp-json/custom/v1/area-zones-city?state=${city}`);
 
     const providers_city_data = await response_city.json();
 
@@ -68,7 +68,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       internet_services: All_zones_listQ
     };
 
-    const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
+    const response_data = await fetch('https://topproviders.mufaqar.com/wp-json/custom/v1/providers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
