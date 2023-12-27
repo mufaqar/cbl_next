@@ -473,11 +473,9 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
             </ul>
           </div>
           <div className='flex justify-center flex-col items-center my-10'>
+            
             {
-              loading && <span className='mb-5'>Loading...</span>
-            }
-            {
-              citiesPageInfo.hasNextPage &&  <button onClick={()=>handleLoadMoreCities(citiesPageInfo.endCursor, allCitiesbyState)} className='border px-10 py-3 text-[#215790] border-[#215790] hover:bg-[#215790] hover:text-white rounded-xl hover:shadow-xl'>Load More</button>
+              citiesPageInfo.hasNextPage &&  <button onClick={()=>handleLoadMoreCities(citiesPageInfo.endCursor, allCitiesbyState)} className='border px-10 py-3 text-[#215790] border-[#215790] hover:bg-[#215790] hover:text-white rounded-xl hover:shadow-xl'>{loading ? 'Loading...' : 'Load More'}</button>
             }
           </div>
         </div>
