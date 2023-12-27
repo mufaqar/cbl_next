@@ -32,7 +32,7 @@ const Header = () => {
                     <ul className="flex sm:flex-row flex-col sm:items-center md:gap-[3vw] gap-5">
                         <li className='mb-0' onMouseEnter={() => { setSubMenu(true), setSubMenu1(false) }} onClick={() => { setSubMenu(!subMenu) }}>
                             <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>TV</Link>
-                            <ul className={`bg-transparent pl-5 sm:pl-0 border-l mt-1 md:mt-0 md:absolute static top-[3.7rem] md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-3 z-50 md:shadow-xl  ${subMenu ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu(false)}>
+                            <ul className={`bg-transparent sm:bg-white pl-5 sm:pl-0 border-l sm:border-none mt-1 md:mt-0 md:absolute static top-[3.7rem] md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-3 z-50 md:shadow-xl  ${subMenu ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu(false)}>
                                 <li onClick={() => { setOpen(!open) }}>
                                     <Link href="/providers/spectrum" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
                                         Spectrum
@@ -67,7 +67,7 @@ const Header = () => {
                         </li>
                         <li className='mb-0' onMouseEnter={() => { setSubMenu1(true), setSubMenu(false) }} onClick={() => { setSubMenu1(!subMenu1) }}>
                             <Link href="#" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Internet</Link>
-                            <ul className={`bg-transparent pl-5 sm:pl-0 border-l mt-1 md:mt-0 md:absolute static top-[3.7rem] md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-3 z-50 md:shadow-xl  ${subMenu1 ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu1(false)}>
+                            <ul className={`bg-transparent sm:bg-white pl-5 sm:pl-0 border-l sm:border-none mt-1 md:mt-0 md:absolute static top-[3.7rem] md:w-40 w-full md:py-4 pt-5 pb-0 md:px-4 px-0 grid gap-3 z-50 md:shadow-xl  ${subMenu1 ? 'block' : 'hidden'}`} onMouseLeave={() => setSubMenu1(false)}>
                                 <li onClick={() => { setOpen(!open) }}>
                                     <Link href="/providers/att" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>
                                         AT&T
