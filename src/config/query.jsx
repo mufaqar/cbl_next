@@ -348,9 +348,9 @@ export const ALLZoneByZode = gql`
 
 export const CITES_by_STATE = gql`
 query CITES_by_STATE($state: [String] = "", $after: String = "", $before: String = "") {
-  states(where: {slug: $state}, first: 100) {
+  states(where: {slug: $state}, first: 50) {
     nodes {
-      zones(first: 100, after: $after, before: $before) {
+      zones(first: 50, after: $after, before: $before) {
         nodes {
           id
           title
@@ -410,3 +410,29 @@ export const GET_POST_SLUG = gql`
     }
   }
 `;
+
+export const CityByStateQuery = `
+      query CITES_by_STATE($state: [String] = "", $after: String = "", $before: String = "") {
+        states(where: {slug: $state}, first: 50) {
+          nodes {
+            zones(first: 50, after: $after, before: $before) {
+              nodes {
+                id
+                title
+                cities {
+                  nodes {
+                    name
+                    slug
+                  }
+                }
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+              }
+            }
+          }
+        }
+      }`

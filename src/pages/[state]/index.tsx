@@ -4,10 +4,10 @@ import Provider_Nav_State from '@/components/provider/provider-nav-state';
 import Technology_Box from '@/components/provider/technology-box';
 import SearchForm from '@/components/searchform';
 import apolloClient from '@/config/client';
-import { CITES_by_STATE, GET_ZONE_BY_CITY } from '@/config/query';
+import { CITES_by_STATE, CityByStateQuery, GET_ZONE_BY_CITY } from '@/config/query';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsArrowRight } from 'react-icons/bs';
 import { MdCable } from 'react-icons/md';
 import { useRouter } from 'next/router'
@@ -17,22 +17,21 @@ import CheepTable_CardProviderState from '@/components/provider/cheeptable-cardP
 import FastTable_CardProviderState from '@/components/provider/fasttable-cardProviderState';
 import OverView from '@/components/overview';
 import PageHead from '@/components/metas/pagesmeta';
-import { useQuery } from '@apollo/client';
-
+import { getUniqueCities } from '@/utils'
 
 
 export default function OurState({ allcities, state, allProviders, d }: any) {
-  console.log("🚀 ~ file: index.tsx:24 ~ OurState ~ allcities:", allcities)
 
-  // Unique Cities
-  const uniqueIds = new Set();
-  const uniqueCities = allcities[0].zones.nodes.filter((item: any) => {
-    if (uniqueIds.has(item.cities.nodes[0].name)) {
-      return false;
-    }
-    uniqueIds.add(item.cities.nodes[0].name);
-    return true;
-  });
+  const [citiesPageInfo, setCitiesPageInfo] = useState(allcities[0].zones.pageInfo)
+  const [allCitiesbyState, setAllCitiesByState] = useState<any>()
+
+  useEffect(()=>{
+    const unique = getUniqueCities(allcities[0].zones.nodes)
+    setAllCitiesByState(unique)
+  },[allcities])
+
+  const [loading, setloading] = useState(false)
+
   const { query } = useRouter();
   const type = query.type || "internet";
 
@@ -78,8 +77,6 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
     }
   });
 
-
-
   const FastProviders = allProvidersFast.sort((a: any, b: any) => {
     const speedA = parseInt(a.services_info_internet_services_speed.split("-")[1], 10);
     const speedB = parseInt(b.services_info_internet_services_speed.split("-")[1], 10);
@@ -99,6 +96,34 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
   ];
   const currentMonthName = monthNames[currentMonthIndex];
 
+  const handleLoadMoreCities = (endCursor:string, allCitiesbyState:any) => {
+    setloading(true)
+    const variables = {
+      state,
+      after: endCursor
+    };
+
+    fetch("https://topproviders.mufaqar.com/graphql", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query: CityByStateQuery, variables }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        const uniqueData = getUniqueCities(data?.data?.states?.nodes[0].zones.nodes)
+        // merged cities 
+        let mergedCities = [...allCitiesbyState, ...uniqueData];
+        setCitiesPageInfo(data?.data?.states?.nodes[0].zones.pageInfo)
+        setAllCitiesByState(mergedCities)
+        setloading(false)        
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setloading(false)
+      });
+  }
 
   return (
     <>
@@ -435,7 +460,7 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
           </div>
           <div>
             <ul className="grid sm:grid-cols-4 grid-cols-2 gap-5">
-              {uniqueCities?.map((item: any, id: number) => {
+              {allCitiesbyState?.map((item: any, id: number) => {
                 return <li key={id} className='bg-[#F5F5F5] rounded-2xl px-4 py-4 text-[#215690] font-[Roboto] hover:drop-shadow-xl hover:shadow-bg-[#f5f5f5] group'>
                   <Link href={`${state}/${item.cities.nodes[0].slug}`} className="">
                     <div className="flex justify-between items-center">
@@ -447,8 +472,13 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
               })}
             </ul>
           </div>
-          <div className='flex justify-center my-10'>
-            <button className='border px-10 py-3 text-[#215790] border-[#215790] hover:bg-[#215790] hover:text-white rounded-xl hover:shadow-xl'>Load More</button>
+          <div className='flex justify-center flex-col items-center my-10'>
+            {
+              loading && <span className='mb-5'>Loading...</span>
+            }
+            {
+              citiesPageInfo.hasNextPage &&  <button onClick={()=>handleLoadMoreCities(citiesPageInfo.endCursor, allCitiesbyState)} className='border px-10 py-3 text-[#215790] border-[#215790] hover:bg-[#215790] hover:text-white rounded-xl hover:shadow-xl'>Load More</button>
+            }
           </div>
         </div>
       </section>
@@ -484,21 +514,13 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       body: JSON.stringify(postData),
     });
 
-    var allcities
-
     const providers_data = await response_data.json();
 
+    const [cities]: any = await Promise.all([
+      apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
+    ]);
+    var allcities = cities.data.states.nodes;
 
-    for (let i = 0; i <= 2; i++) {
-      var e = allcities[0].zones.pageInfo.hasNextPage
-      const [cities]:any = await Promise.all([
-        apolloClient.query({ query: CITES_by_STATE, variables: { state, after: e.endCursor } }),
-      ]);
-      var allcities = cities.data.states.nodes;
-      // after = allcities[0].zones.pageInfo.hasNextPage
-    }
-
-    console.log('qqqq', allcities[0].zones)
     // Check if data exists
     if (!allcities || !state || !providers_data.providers) {
       return {
