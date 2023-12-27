@@ -55,7 +55,7 @@ export default function SProviders({ Provider, city, state }: any) {
           `${idx + 1} ${item?.package} Speed :${item?.speeds} Price :${item?.price}`)).join(', ')}.`}
         url={`https://www.cablemovers.net/providers/${Provider?.slug}`}
       />
-      
+
       <section className='relative'>
         <div className="container mx-auto px-4 flex md:flex-row flex-col gap-7 items-center">
           <div className='md:w-1/2 w-full py-10'>
@@ -123,6 +123,37 @@ export default function SProviders({ Provider, city, state }: any) {
         </section>
       }
 
+      {Provider?.providersInfo?.internetPlansWirelessHomes &&
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name} 	Wireless Home Internet Plans </h2>
+              <div className="w-fit hint mx-auto block md:hidden mt-5" >
+                Swipe Left to See All →
+              </div> </div>
+            <div>
+              <PlanBox Plans={Provider?.providersInfo?.internetPlansWirelessHomes} pro_phone={pro_phone} />
+            </div>
+          </div>
+        </section>
+      }
+      {Provider?.providersInfo?.internetPlansFusion &&
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name} Fusion Internet Plans </h2>
+              <div className="w-fit hint mx-auto block md:hidden mt-5" >
+                Swipe Left to See All →
+              </div> </div>
+            <div>
+              <PlanBox Plans={Provider?.providersInfo?.internetPlansFusion} pro_phone={pro_phone} />
+            </div>
+          </div>
+        </section>
+      }
+
       {Provider?.providersInfo?.tvPlans &&
 
         <section className="my-16">
@@ -133,7 +164,7 @@ export default function SProviders({ Provider, city, state }: any) {
               </h2>
               <div className="w-fit hint mx-auto block md:hidden mt-5" >
                 Swipe Left to See All →
-              </div> 
+              </div>
 
             </div>
             <div>
@@ -146,6 +177,31 @@ export default function SProviders({ Provider, city, state }: any) {
           </div>
         </section>
       }
+
+      {Provider?.providersInfo?.tvPlansLatino &&
+
+        <section className="my-16">
+          <div className="container mx-auto px-4">
+            <div className='mb-10'>
+              <h2 className="text-2xl font-bold">
+                {provider_name} Latino TV Plans
+              </h2>
+              <div className="w-fit hint mx-auto block md:hidden mt-5" >
+                Swipe Left to See All →
+              </div>
+
+            </div>
+            <div>
+              <TV_Plan Plans={Provider?.providersInfo?.tvPlansLatino} pro_phone={pro_phone} />
+            </div>
+            <div>
+
+            </div>
+          </div>
+        </section>
+      }
+
+
       {Provider?.providersInfo?.internetAndPhoneBundles &&
         <section className="my-16">
           <div className="container mx-auto px-4">
@@ -155,7 +211,7 @@ export default function SProviders({ Provider, city, state }: any) {
               </h2>
               <div className="w-fit hint mx-auto block md:hidden mt-5" >
                 Swipe Left to See All →
-              </div> 
+              </div>
             </div>
             <div>
               <InternetPhonePlanBox Plans={Provider?.providersInfo?.internetAndPhoneBundles} pro_phone={pro_phone} />
@@ -177,7 +233,7 @@ export default function SProviders({ Provider, city, state }: any) {
               </h2>
               <div className="w-fit hint mx-auto block md:hidden mt-5" >
                 Swipe Left to See All →
-              </div> 
+              </div>
             </div>
             <div>
               <InternetPhonePlanBox Plans={Provider?.providersInfo?.internetAndMobileBundles} pro_phone={pro_phone} />
@@ -202,7 +258,7 @@ export default function SProviders({ Provider, city, state }: any) {
               </h2>
               <div className="w-fit hint mx-auto block md:hidden mt-5" >
                 Swipe Left to See All →
-              </div> 
+              </div>
             </div>
             <div>
               <InternetTVPlanBox Plans={Provider?.providersInfo?.internetAndTvBundles} pro_phone={pro_phone} />
@@ -224,7 +280,7 @@ export default function SProviders({ Provider, city, state }: any) {
               </h2>
               <div className="w-fit hint mx-auto block md:hidden mt-5" >
                 Swipe Left to See All →
-              </div> 
+              </div>
             </div>
             <div>
               <InternetTVPhonePlanBox Plans={Provider?.providersInfo?.internetTvPhoneBundles} pro_phone={pro_phone} />

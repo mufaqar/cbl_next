@@ -210,6 +210,20 @@ export const SINGLE_Provider = gql`
           speedInfo
           speeds
         }
+        internetPlansWirelessHomes {
+          package
+          price
+          priceInfo
+          speedInfo
+          speeds
+        }
+        internetPlansFusion {
+          package
+          price
+          priceInfo
+          speedInfo
+          speeds
+        }
         internetTvPhoneBundles {
           channels
           channelsInfo
@@ -249,6 +263,13 @@ export const SINGLE_Provider = gql`
           package
         }
         tvPlans {
+          speeds
+          speedInfo
+          priceInfo
+          price
+          package
+        }
+        tvPlansLatino {
           speeds
           speedInfo
           priceInfo
