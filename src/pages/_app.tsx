@@ -10,7 +10,6 @@ import { useRouter } from 'next/router'
 
 export default function App({ Component, pageProps }: AppProps) {
   const {pathname} = useRouter()
-  console.log("🚀 ~ file: _app.tsx:13 ~ App ~ router:", pathname)
   const notInclude = ['/']
 
   return (
