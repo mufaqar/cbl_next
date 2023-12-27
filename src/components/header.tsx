@@ -11,7 +11,7 @@ const Header = () => {
     const [subMenu, setSubMenu] = useState(false)
     const [subMenu1, setSubMenu1] = useState(false)
     return (
-        <header className="h-auto shadow-md py-5 font-[Roboto]">
+        <header className="h-auto shadow py-5 font-[Roboto]">
             <nav className="container mx-auto px-4 flex items-center justify-between ">
                 <div className="sm:hidden flex items-center">
                     <button onClick={() => { setOpen(!open) }}>

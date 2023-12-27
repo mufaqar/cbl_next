@@ -1,8 +1,8 @@
-import {icons} from  '@/const/icons'
+import { icons } from "@/const/icons";
 export const getIcon = (iconname) => {
-    const filter_icon = icons.find(i => i.name === iconname  )
-    return filter_icon
-}
+  const filter_icon = icons.find((i) => i.name === iconname);
+  return filter_icon;
+};
 
 export const getUniqueCities = (cities) => {
   const uniqueIds = new Set();
@@ -13,5 +13,16 @@ export const getUniqueCities = (cities) => {
     uniqueIds.add(item.cities.nodes[0].name);
     return true;
   });
-  return uniqueCities
-}
+  return uniqueCities;
+};
+
+export const generateArrayForBreadcrum = (data) => {
+  const parts = data.replace(/^\/|\/$/g, "").split("/");
+  const result = parts.reduce((acc, part, index) => {
+    const slug = index > 0 ? `${acc[index - 1].slug}/${part}` : part;
+    acc.push({ name: part.charAt(0).toUpperCase() + part.slice(1), slug });
+    return acc;
+  }, []);
+
+  return result;
+};
