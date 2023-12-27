@@ -9,7 +9,7 @@ const Breadcrum = () => {
 
      return (
           <section className=''>
-               <ol className="flex items-center whitespace-nowrap container mx-auto px-3 pt-6 pb-3" aria-label="Breadcrumb">
+               <ol className="flex items-center whitespace-nowrap container mx-auto px-3 md:pt-5 md:pb-2 pt-3" aria-label="Breadcrumb">
                     <li className="inline-flex items-center">
                          <Link className="flex items-center cursor-pointer text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:focus:text-blue-500" href="/">
                               <svg className="flex-shrink-0 me-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
