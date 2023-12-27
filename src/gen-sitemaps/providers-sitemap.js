@@ -21,7 +21,7 @@ const query = `
 const SITE_URI = 'https://www.cablemovers.net';
 
 async function fetchData() {
-  const response = await fetch('https://topproviders.mufaqar.com/graphql', {
+  const response = await fetch('https://cblproject.cablemovers.net/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ const fs = require('fs');
 const SITE_URI = 'https://www.cablemovers.net';
 
 async function fetchStateWiseCity() {
-  const responceStateWiseCity = await fetch('https://topproviders.mufaqar.com/wp-json/custom/v1/states-cities?posts_per_page=10000&offset=40000') 
+  const responceStateWiseCity = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities?posts_per_page=10000&offset=40000') 
   const citiesData = await responceStateWiseCity.json();
   const resultUrls = [];
   // Iterate through the keys and their associated arrays

@@ -45,7 +45,7 @@ const SearchForm = () => {
   };
   async function fetchData() {
     setloader(true);
-    const response = await fetch('https://topproviders.mufaqar.com/graphql', {
+    const response = await fetch('https://cblproject.cablemovers.net/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

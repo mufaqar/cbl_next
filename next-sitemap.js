@@ -24,7 +24,7 @@ const SITE_URI = 'https://www.cablemovers.net';
 var date_time = new Date();
 
 async function fetchData() {
-  const response = await fetch('https://topproviders.mufaqar.com/graphql', {
+  const response = await fetch('https://cblproject.cablemovers.net/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ async function fetchData() {
 
 async function fetchStateWiseCity() {
   // const responceStateWiseCity = await fetch('./public/cites.json')
-  // https://topproviders.mufaqar.com/wp-json/custom/v1/states-cities
+  // https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities
   // const dataStateWiseCity = await responceStateWiseCity.json();
   // Initialize an empty array to store the result URLs
   const resultUrls = [];
