@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <GoogleAnalytics measurementId="G-Q1VGHRVGLX" />
+      <GoogleAnalytics measurementId="AW-396439267" />
       <Header />
       {
         !(notInclude.includes(pathname)) && <Breadcrum/>
