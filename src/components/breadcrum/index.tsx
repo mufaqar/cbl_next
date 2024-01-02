@@ -8,7 +8,7 @@ const Breadcrum = () => {
      const bredcrumList = generateArrayForBreadcrum(router.asPath)
 
      return (
-          <section className=''>
+           {/* <section className=''>
                <ol className="flex items-center whitespace-nowrap container mx-auto px-3 md:pt-5 md:pb-2 pt-3" aria-label="Breadcrumb">
                     <li className="inline-flex items-center">
                          <Link className="flex items-center cursor-pointer text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:focus:text-blue-500" href="/">
@@ -30,7 +30,7 @@ const Breadcrum = () => {
                          ))
                     }
                </ol>
-          </section>
+          </section> */}>
      )
 }
 
