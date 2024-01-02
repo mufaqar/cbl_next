@@ -30,7 +30,7 @@ const Breadcrum = () => {
                          ))
                     }
                </ol>
-          </section> */}>
+          </section> */}
      )
 }
 
