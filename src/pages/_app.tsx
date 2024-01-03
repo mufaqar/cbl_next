@@ -5,7 +5,6 @@ import type { AppProps } from 'next/app'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import { ApolloProvider } from '@apollo/client'
 import apolloClient from '@/config/client'
-import Breadcrum from '@/components/breadcrum'
 import { useRouter } from 'next/router'
 
 export default function App({ Component, pageProps }: AppProps) {
