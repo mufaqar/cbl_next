@@ -19,7 +19,7 @@ export const getUniqueCities = (cities) => {
 export const generateArrayForBreadcrum = (data) => {
   const parts = data.replace(/^\/|\/$/g, "").split("/");
   const result = parts.reduce((acc, part, index) => {
-    const slug = index > 0 ? `${acc[index - 1].slug} : part;
+    const slug = index > 0 ? `${acc[index - 1].slug}/${part}` : part;
     acc.push({ name: part.charAt(0).toUpperCase() + part.slice(1), slug });
     return acc;
   }, []);
