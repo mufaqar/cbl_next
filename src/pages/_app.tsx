@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <GoogleAnalytics measurementId="AW-396439267" />
+      <GoogleAnalytics measurementId="G-Q1VGHRVGLX" />
       <Header />
       <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />
