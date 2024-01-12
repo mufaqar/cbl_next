@@ -250,7 +250,7 @@ export default function Faqs_City({ city, type, allProviders, totalProviderCount
             {type === "internet-tv" &&
                 <>
                     <h2 className="text-2xl font-bold">
-                        <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span> Internet and TV FAQ’s;              </h2>
+                        <span className=" uppercase"> <span className="  text-[#ef9831] uppercase">{city} {state} </span> </span> TV and Internet FAQ’s;              </h2>
 
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
                         <div className="">
