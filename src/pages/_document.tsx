@@ -9,6 +9,11 @@ export default function Document() {
         <script async src="/script.js" />
       </Head>
       <body>
+      <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNZF6NMR" height="0" width="0" style="display: none; visibility: hidden;" />`,
+          }}
+        />
         <Main />
         <NextScript />
         <script async src="/footer-script.js" />
