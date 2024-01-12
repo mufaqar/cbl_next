@@ -26,7 +26,7 @@ export default function Cities_com({ my_city, allProviders }: any) {
     } else if (type === "tv") {
       return "TV";
     } else if (type === "internet-tv") {
-      return "Internet and TV";
+      return "TV and Internet";
     } else {
       return type;
     }
