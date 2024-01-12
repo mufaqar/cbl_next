@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TNZF6NMR"></script>
+        {/* <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TNZF6NMR"></script> */}
         <script async src="/script.js" />
       </Head>
       <body>
