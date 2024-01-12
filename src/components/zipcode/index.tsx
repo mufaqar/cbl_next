@@ -34,7 +34,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
         } else if (type === "tv") {
             return "TV";
         } else if (type === "internet-tv") {
-            return "Internet and TV";
+            return "TV and Internet";
         } else {
             // Handle other cases if needed
             return type; // Return the original value if no match is found
