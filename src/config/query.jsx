@@ -68,16 +68,16 @@ export const GET_ALL_PROVIDERS = gql`
 `;
 
 export const GET_PROVIDERS = gql`
-  query GET_PROVIDERS($zipcode: String = "") {
+  query GET_PROVIDERS($terms: [String] = "", $value: String = "") {
     allProviders(
       where: {
         orderby: { field: MENU_ORDER, order: ASC }
         metaQuery: {
-          metaArray: {
-            key: "internet_services"
-            value: $zipcode
-            compare: LIKE
-          }
+          metaArray: { key: "internet_services", value: $value, compare: LIKE }
+        }
+        taxQuery: {
+          relation: AND
+          taxArray: { taxonomy: PROVIDERTYPE, terms: $terms, field: SLUG }
         }
       }
       first: 100
@@ -308,28 +308,6 @@ export const CITES = gql`
   }
 `;
 
-export const ProviderByCITES = gql`
-  query ProveryByZipcode {
-    allProviders(
-      where: {
-        metaQuery: {
-          relation: OR
-          metaArray: [
-            { key: "internet_serices", value: "01005", compare: LIKE }
-            { key: "internet_serices", value: "20001", compare: LIKE }
-          ]
-        }
-      }
-    ) {
-      edges {
-        node {
-          title
-        }
-      }
-    }
-  }
-`;
-
 export const ZoneByCity = gql`
   query ZoneByCity {
     zones {
@@ -368,30 +346,34 @@ export const ALLZoneByZode = gql`
 `;
 
 export const CITES_by_STATE = gql`
-query CITES_by_STATE($state: [String] = "", $after: String = "", $before: String = "") {
-  states(where: {slug: $state}, first: 50) {
-    nodes {
-      zones(first: 50, after: $after, before: $before) {
-        nodes {
-          id
-          title
-          cities {
-            nodes {
-              name
-              slug
+  query CITES_by_STATE(
+    $state: [String] = ""
+    $after: String = ""
+    $before: String = ""
+  ) {
+    states(where: { slug: $state }, first: 50) {
+      nodes {
+        zones(first: 50, after: $after, before: $before) {
+          nodes {
+            id
+            title
+            cities {
+              nodes {
+                name
+                slug
+              }
             }
           }
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-          hasPreviousPage
-          startCursor
+          pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+          }
         }
       }
     }
   }
-}
 `;
 
 export const GET_ZONE_BY_CITY = gql`
@@ -432,28 +414,48 @@ export const GET_POST_SLUG = gql`
   }
 `;
 
-export const CityByStateQuery = `
-      query CITES_by_STATE($state: [String] = "", $after: String = "", $before: String = "") {
-        states(where: {slug: $state}, first: 50) {
+export const CityByStateQuery = gql`
+  query CITES_by_STATE(
+    $state: [String] = ""
+    $after: String = ""
+    $before: String = ""
+  ) {
+    states(where: { slug: $state }, first: 50) {
+      nodes {
+        zones(first: 50, after: $after, before: $before) {
           nodes {
-            zones(first: 50, after: $after, before: $before) {
+            id
+            title
+            cities {
               nodes {
-                id
-                title
-                cities {
-                  nodes {
-                    name
-                    slug
-                  }
-                }
-              }
-              pageInfo {
-                endCursor
-                hasNextPage
-                hasPreviousPage
-                startCursor
+                name
+                slug
               }
             }
           }
+          pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+          }
         }
-      }`
+      }
+    }
+  }
+`;
+
+export const GET_PROVIDERS_CITY = gql`
+  query GET_PROVIDERS_CITY($city: [String] = "") {
+    zones(
+      where: {
+        taxQuery: { taxArray: { taxonomy: CITY, field: SLUG, terms: $city } }
+      }
+      first: 1000
+    ) {
+      nodes {
+        title
+      }
+    }
+  }
+`;

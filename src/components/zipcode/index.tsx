@@ -19,13 +19,14 @@ import Head from 'next/head';
 import PageHead from '../metas/pagesmeta'
 import Faqs_Zip from '@/components/faqs_zip';
 
-function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
+function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) {
+
 
     const { query } = useRouter();
     const city_code = query.city;
     const state_code = query.state;
     let C_State = (state as string).toUpperCase();
-    var type = query?.type;
+    
     var types = query?.type;
 
     function formatType(type: any) {
@@ -42,14 +43,13 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     }
 
 
-    const servicesTypes = allProviders.map((item: any) => { return (item.serviceTypes.nodes) })
-
-    const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
+    const servicesTypes = allProviders?.map((item: any) => { return (item?.serviceTypes?.nodes) })
+    const newServicesTypes = servicesTypes?.map((st: any) => st?.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
 
     const uniqueServiceType: any = [];
     const seenNames = new Set();
-    newServicesTypes.forEach((st: any) => {
-        st.forEach((serviceType: any) => {
+    newServicesTypes?.forEach((st: any) => {
+        st?.forEach((serviceType: any) => {
             if (!seenNames.has(serviceType.name)) {
                 uniqueServiceType.push(serviceType);
                 seenNames.add(serviceType.name);
@@ -60,7 +60,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     const totalProviderCount = allProviders?.length || 0;
     const allProvidersFast = [...allProviders];
     const allProvidersCheep = [...allProviders];
-    const cheepProviders = allProvidersCheep.sort((a: any, b: any) => a.providersInfo.proPrice - b.providersInfo.proPrice);
+    const cheepProviders = allProvidersCheep.sort((a: any, b: any) => a.providersInfo?.proPrice - b.providersInfo?.proPrice);
     const FastProviders = allProvidersFast.sort((fa: any, fb: any) => {
         const speedA = parseInt(fa.providersInfo?.servicesInfo?.internetServices?.speed?.split("-")[1], 10);
         const speedB = parseInt(fb.providersInfo?.servicesInfo?.internetServices?.speed?.split("-")[1], 10);
@@ -97,7 +97,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div>
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-                            {formatType(type)}  Service Providers in {zipcode} <br /><span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                            {formatType(type)}  Service Providers in <br /><span className="text-[#ef9831] ">{zipcode} </span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
@@ -108,12 +108,12 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     </div>
                 </div>
             </section>
-            <Provider_Nav />
+            <Provider_Nav zipcode={zipcode}  />
             <section className="my-16">
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold  capitalize leading-10">
-                            {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                            {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                     </div>
                     <div className='grid gap-7'>
@@ -123,7 +123,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                 var summaryData = {
                                     logo: item?.featuredImage?.node?.mediaItemUrl,
                                     provider: item?.title,
-                                    type: item.serviceTypes.nodes,
+                                    type: item.serviceTypes?.nodes,
                                     summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                         type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                             type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
@@ -154,7 +154,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className=''>
                         <h2 className="text-2xl font-bold">
-                            Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                            Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                         <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} />
                     </div>
@@ -165,7 +165,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold  capitalize leading-10">
-                            Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                            Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                         <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)}  Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)}  Service Providers in {city}, {C_State}.</p>
                     </div>
@@ -192,7 +192,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                 var summaryData = {
                                     logo: item?.featuredImage?.node?.mediaItemUrl,
                                     provider: item?.title,
-                                    type: item.serviceTypes.nodes,
+                                    type: item.serviceTypes?.nodes,
                                     summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                         type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                             type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
@@ -221,7 +221,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                     <div className="container mx-auto px-4">
                         <div className='mb-10'>
                             <h2 className="text-2xl font-bold  capitalize leading-10">
-                                Fast  {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                                Fast  {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                             </h2>
                             <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)} Service Providers in {city}, {C_State}. These providers offer impressive download speeds that cater to the needs of heavy internet users, streamers, and online gamers.</p>
                         </div>
@@ -254,7 +254,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                     var summaryData = {
                                         logo: item?.featuredImage?.node?.mediaItemUrl,
                                         provider: item?.title,
-                                        type: item.serviceTypes.nodes,
+                                        type: item.serviceTypes?.nodes,
                                         summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                             type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                                 type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
@@ -284,7 +284,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold">
-                            Summary of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                            Summary of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                         <div className="w-fit hint mx-auto block md:hidden mt-5" >
                             Swipe Left to See All →
@@ -351,7 +351,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                             var summaryData = {
                                                 provider: item?.title,
                                                 slug: item?.slug,
-                                                type: item.serviceTypes.nodes,
+                                                type: item.serviceTypes?.nodes,
                                                 summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                                     type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
                                                         type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
@@ -361,7 +361,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                                             }
                                             return (
                                                 <>
-                                                    <Inter_Service data={summaryData} key={idx} type={type} />
+                                                    {/* <Inter_Service data={summaryData} key={idx} type={type} /> */}
                                                 </>
                                             )
                                         })
@@ -376,7 +376,7 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold">
-                            Types of {formatType(type)}  Technologies Available in <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
+                            Types of {formatType(type)}  Technologies Available in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                         <p className='text-base'>
                              {city}, {C_State} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These connection types include    {
@@ -410,4 +410,4 @@ function Zip_Code_Com({ zipcode, city, state, allProviders, zones }: any) {
     )
 }
 
-export default Zip_Code_Com
+export default ZipCodeModule

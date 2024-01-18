@@ -55,7 +55,13 @@ const SearchForm = () => {
     const respons = await response.json();
 
     if (respons?.data?.zones?.nodes.length > 0) {
-      router.push(`/${respons.data?.zones?.nodes[0]?.states?.nodes[0]?.slug}/${respons.data.zones?.nodes[0]?.cities.nodes[0].slug}?zipcode=${zipcode}&type=internet`);
+
+      let type = "internet";
+     // router.push(`/${respons.data?.zones?.nodes[0]?.states?.nodes[0]?.slug}/${respons.data.zones?.nodes[0]?.cities.nodes[0].slug}?zipcode=${zipcode}&type=internet`);
+
+     router.push(`/local-${type}-by-zip/zip-${zipcode}`);
+
+
       setTimeout(()=>{
         setloader(false);
       }, router2.pathname === "/" ? 2000 : 1000)

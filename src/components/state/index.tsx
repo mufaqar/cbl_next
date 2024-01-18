@@ -1,4 +1,3 @@
-"use client"
 
 import Provider_Nav_State from '@/components/provider/provider-nav-state';
 import Technology_Box from '@/components/provider/technology-box';
@@ -20,15 +19,15 @@ import PageHead from '@/components/metas/pagesmeta';
 import { getUniqueCities } from '@/utils'
 
 
-export default function OurState({ allcities, state, allProviders, d }: any) {
+export default function StateModule({ allcities, state, allProviders }: any) {
 
   const [citiesPageInfo, setCitiesPageInfo] = useState(allcities[0].zones.pageInfo)
   const [allCitiesbyState, setAllCitiesByState] = useState<any>()
 
-  useEffect(()=>{
+  useEffect(() => {
     const unique = getUniqueCities(allcities[0].zones.nodes)
     setAllCitiesByState(unique)
-  },[allcities])
+  }, [allcities])
 
   const [loading, setloading] = useState(false)
 
@@ -96,7 +95,7 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
   ];
   const currentMonthName = monthNames[currentMonthIndex];
 
-  const handleLoadMoreCities = (endCursor:string, allCitiesbyState:any) => {
+  const handleLoadMoreCities = (endCursor: string, allCitiesbyState: any) => {
     setloading(true)
     const variables = {
       state,
@@ -117,7 +116,7 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
         let mergedCities = [...allCitiesbyState, ...uniqueData];
         setCitiesPageInfo(data?.data?.states?.nodes[0].zones.pageInfo)
         setAllCitiesByState(mergedCities)
-        setloading(false)        
+        setloading(false)
       })
       .catch(error => {
         console.error('Error:', error);
@@ -126,6 +125,8 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
   }
 
   return (
+
+
     <>
 
 
@@ -473,9 +474,9 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
             </ul>
           </div>
           <div className='flex justify-center flex-col items-center my-10'>
-            
+
             {
-              citiesPageInfo.hasNextPage &&  <button onClick={()=>handleLoadMoreCities(citiesPageInfo.endCursor, allCitiesbyState)} className='border px-10 py-3 text-[#215790] border-[#215790] hover:bg-[#215790] hover:text-white rounded-xl hover:shadow-xl'>{loading ? 'Loading...' : 'Load More'}</button>
+              citiesPageInfo.hasNextPage && <button onClick={() => handleLoadMoreCities(citiesPageInfo.endCursor, allCitiesbyState)} className='border px-10 py-3 text-[#215790] border-[#215790] hover:bg-[#215790] hover:text-white rounded-xl hover:shadow-xl'>{loading ? 'Loading...' : 'Load More'}</button>
             }
           </div>
         </div>
@@ -484,62 +485,62 @@ export default function OurState({ allcities, state, allProviders, d }: any) {
     </>
   )
 }
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+// export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
-  try {
-    const { state } = query;
+//   try {
+//     const { state } = query;
 
-    // const zoneTitles = allzone.map((zone: any) => zone.title);
-    // const resultString = zoneTitles.join(',');
-    // const All_zones_list = resultString.replace(/["\[\]]/g, '');
+//     // const zoneTitles = allzone.map((zone: any) => zone.title);
+//     // const resultString = zoneTitles.join(',');
+//     // const All_zones_list = resultString.replace(/["\[\]]/g, '');
 
 
-    const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones?state=${state}`);
-    const providers_city_data = await response_city.json();
+//     const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones?state=${state}`);
+//     const providers_city_data = await response_city.json();
 
-    const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
-    const resultStringQ = zoneTitlesQ.join(',');
-    const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');
-    //console.log("🚀 ~ file: index.tsx:516 ~ constgetServerSideProps:GetServerSideProps= ~ All_zones_listQ:", All_zones_listQ)
-    const postData = {
-      internet_services: All_zones_listQ
-    };
-    const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(postData),
-    });
+//     const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
+//     const resultStringQ = zoneTitlesQ.join(',');
+//     const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');
+//     //console.log("🚀 ~ file: index.tsx:516 ~ constgetServerSideProps:GetServerSideProps= ~ All_zones_listQ:", All_zones_listQ)
+//     const postData = {
+//       internet_services: All_zones_listQ
+//     };
+//     const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(postData),
+//     });
 
-    const providers_data = await response_data.json();
+//     const providers_data = await response_data.json();
 
-    const [cities]: any = await Promise.all([
-      apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
-    ]);
-    var allcities = cities.data.states.nodes;
+//     const [cities]: any = await Promise.all([
+//       apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
+//     ]);
+//     var allcities = cities.data.states.nodes;
 
-    // Check if data exists
-    if (!allcities || !state || !providers_data.providers) {
-      return {
-        notFound: true,
-      };
-    }
-    return {
-      props: {
-        allcities,
-        state,
-        allProviders: providers_data.providers,
-      },
-    };
+//     // Check if data exists
+//     if (!allcities || !state || !providers_data.providers) {
+//       return {
+//         notFound: true,
+//       };
+//     }
+//     return {
+//       props: {
+//         allcities,
+//         state,
+//         allProviders: providers_data.providers,
+//       },
+//     };
 
-  } catch (error) {
-    console.error('Error in getServerSideProps:', error);
-    return {
-      notFound: true,
-    };
-  }
-};
+//   } catch (error) {
+//     console.error('Error in getServerSideProps:', error);
+//     return {
+//       notFound: true,
+//     };
+//   }
+// };
 
 
 

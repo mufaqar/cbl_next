@@ -11,14 +11,15 @@ import OverView from '../overview';
 import PageHead from '../metas/pagesmeta';
 import Faqs_City from '@/components/faqs_city';
 
-export default function Cities_com({ my_city, allProviders }: any) {
+export default function CitiesModule({ my_city, allProviders }: any) {
+
 
   const { query } = useRouter();
   const type = query.type || "internet";
 
-  const city_code = query.city;
-  const state = query.state;
-  let C_State = (state as string).toUpperCase();
+  const city_code = query.zipcode[1];
+  const state = query.zipcode[0];
+  let C_State = (state as string)?.toUpperCase();
 
   function formatType(type: any) {
     if (type === "internet") {
@@ -37,12 +38,12 @@ export default function Cities_com({ my_city, allProviders }: any) {
   const parts = inputString.split('-');
   const capitalizedWords: string[] = parts.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));
   const city = capitalizedWords.join(' ');
-  allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
-  const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
-  const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
+  allProviders = allProviders?.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
+  const servicesTypes = allProviders?.map((item: any) => { return (item.providers_service_types) })
+  const newServicesTypes = servicesTypes?.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
   const uniqueServiceType: any = [];
   const seenNames = new Set();
-  newServicesTypes.forEach((st: any) => {
+  newServicesTypes?.forEach((st: any) => {
     st.forEach((serviceType: any) => {
       if (!seenNames.has(serviceType.name)) {
         uniqueServiceType.push(serviceType);
