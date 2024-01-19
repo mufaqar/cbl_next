@@ -29,10 +29,13 @@ git remote set-url origin https://github.com/rmlk1/cablemovers.git
 
 
 
+https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities?posts_per_page=9000&offset=0
+
 https://www.cablemovers.net/zipcode_internet_1-sitemap.xml
 https://www.cablemovers.net/zipcode_internet_2-sitemap.xml
 https://www.cablemovers.net/zipcode_internet_3-sitemap.xml
 https://www.cablemovers.net/zipcode_internet_4-sitemap.xml
+https://www.cablemovers.net/zipcode_internet_5-sitemap.xml
 
 
 
