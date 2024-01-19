@@ -27,10 +27,10 @@ export default function Providers({ ZipData, StateData, CityData, zipcode, allci
 
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  var query_state = query?.zipcode[0]?.replace("local-", '')?.replace("-by-zip", '');
-  var query_zipcode = query?.zipcode[1]?.replace("zip-", '');
+  var query_state = query?.zipcode?.[0]?.replace("local-", '')?.replace("-by-zip", '') || ''
+  var query_zipcode = query?.zipcode?.[1]?.replace("zip-", '')
   // For Stats Module
-  if (query_state.length <= 3 && query_state !== "tv") {
+  if (query_state?.length <= 3 && query_state !== "tv") {
     if (query_zipcode) {
       const [cityproviders] = await Promise.all([
         apolloClient.query({ query: GET_PROVIDERS_CITY, variables: { city: query_zipcode } })

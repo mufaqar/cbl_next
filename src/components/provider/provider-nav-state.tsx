@@ -7,7 +7,7 @@ const Provider_Nav_State = () => {
     const {query} = useRouter();
  
 
-    var new_url = `/${query?.zipcode[0]}`;
+    var new_url = `/${query?.zipcode?.[0]}`;
 
 
     const [nav, setNav] = useState(false);
