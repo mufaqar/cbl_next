@@ -84,14 +84,14 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
             <PageHead
                 title={
                     type === "internet"
-                        ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear} `
+                        ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}  | For ${currentYear} `
                         : type === "tv"
-                            ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
-                            : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${city}, ${C_State}  | For ${currentYear}`
+                            ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}  | For ${currentYear}`
+                            : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}  | For ${currentYear}`
                 }
-                description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${city}, ${C_State}.  ${allProviders?.slice(0, 8).map((item: any, idx: number) => (
+                description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}.  ${allProviders?.slice(0, 8).map((item: any, idx: number) => (
                     `${idx + 1} ${item?.title}`)).join(', ')}`}
-                url={`https://www.cablemovers.net/${state_code}/${city_code}?zipcode=${zipcode}&type=${type}`} curl={`https://www.cablemovers.net/${state_code}/${city_code}`}
+                url={`https://www.cablemovers.net/local-${type}-by-zip/zip-${zipcode}`} curl={`https://www.cablemovers.net/local-${type}-by-zip/zip-${zipcode}`}
             />
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">

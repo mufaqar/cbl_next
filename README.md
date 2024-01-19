@@ -43,11 +43,14 @@ https://www.cablemovers.net/zipcode_tv_1-sitemap.xml
 https://www.cablemovers.net/zipcode_tv_2-sitemap.xml
 https://www.cablemovers.net/zipcode_tv_3-sitemap.xml
 https://www.cablemovers.net/zipcode_tv_4-sitemap.xml
+https://www.cablemovers.net/zipcode_tv_5-sitemap.xml
 
 
 https://www.cablemovers.net/zipcode_internet-tv_1-sitemap.xml
 https://www.cablemovers.net/zipcode_internet-tv_2-sitemap.xml
 https://www.cablemovers.net/zipcode_internet-tv_3-sitemap.xml
 https://www.cablemovers.net/zipcode_internet-tv_4-sitemap.xml
+https://www.cablemovers.net/zipcode_internet-tv_5-sitemap.xml
+
 
 
