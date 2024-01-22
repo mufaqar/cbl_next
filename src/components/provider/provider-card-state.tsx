@@ -12,7 +12,7 @@ export const ProviderCardState = ({ item, type, offer, count }: any) => {
                 </div>
                 <div className={`md:w-full w-full grid grid-cols-1 dtable ${type === 'internet-tv' ? ' md:grid-cols-6' : ' md:grid-cols-5'} flex flex-col`}>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                    <Link href={`/providers/${item.slug}`} target="_blank" >    <Image src={item.logo} alt="Feature Image" width={140} height={50} /></Link>
+                        <Link href={`/providers/${item.slug}`} target="_blank" >    <Image src={item.logo} alt="Feature Image" width={140} height={50} /></Link>
                     </div>
 
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
@@ -69,6 +69,7 @@ export const ProviderCardState = ({ item, type, offer, count }: any) => {
                         </div>
                     </div>
                     <div className="grid gap-3 items-center justify-center p-5">
+                        <Link href={`/tel:${item.mobileNo}`} target="_blank" className="text-base text-black font-[Roboto] uppercase px-5 py-2.5">{item?.mobileNo} </Link>
 
                         <Link href={`/providers/${item.slug}`} target="_blank" className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>

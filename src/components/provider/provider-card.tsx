@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-export const ProviderCard = ({ item, type, offer , count }: any) => {
-    var features = item?.summery?.features?.split(', ') ; 
+export const ProviderCard = ({ item, type, offer, count }: any) => {
+    console.log("🚀 ~ ProviderCard ~ item:", item)
+    var features = item?.summery?.features?.split(', ');
 
     return (
         <>
             <div className="w-full h-auto shadow-xl border rounded-t-md rounded-b-md flex flex-col">
                 <div className="md:w-full min-w-fit  bg-[#215690] flex justify-between items-center ">
-                    <h2 className="text-base font-bold text-center text-white p-5"> <span> {count+1} </span>-  {item.provider}</h2>
+                    <h2 className="text-base font-bold text-center text-white p-5"> <span> {count + 1} </span>-  {item.provider}</h2>
                     <h2 className="text-base font-bold text-center text-white p-5">{offer}</h2>
                 </div>
-              
+
                 <div className={`md:w-full w-full grid grid-cols-1 dtable ${type === 'internet-tv' ? ' md:grid-cols-6' : ' md:grid-cols-5'} flex flex-col`}>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                    <Link href={`/providers/${item.slug}`} target="_blank" >  <Image src={item.logo} alt="Feature Image" width={140} height={50} /></Link>
+                        <Link href={`/providers/${item.slug}`} target="_blank" >  <Image src={item.logo} alt="Feature Image" width={140} height={50} /></Link>
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <div className="text-center">
@@ -29,23 +30,23 @@ export const ProviderCard = ({ item, type, offer , count }: any) => {
                             {type === "tv" ? (
                                 <>  <p className="tcd">{item?.summery?.speed} </p> </>
                             ) : type === "internet-tv" ? (
-                              <> <p className="tcd">{item?.summery?.speed} Mbps </p>
-                                    </>
+                                <> <p className="tcd">{item?.summery?.speed} Mbps </p>
+                                </>
                             ) : (
                                 <>   <p className="tcd">{item?.summery?.speed} Mbps</p></>
                             )}
                         </div>
                     </div>
 
-                    {type === "internet-tv"  &&
-                    <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
-                        <div className="text-center">
-                        <p className="tch"> Channels</p>
-                        <p className="tcd"> {item?.summery?.summaryChannel}  </p>
+                    {type === "internet-tv" &&
+                        <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
+                            <div className="text-center">
+                                <p className="tch"> Channels</p>
+                                <p className="tcd"> {item?.summery?.summaryChannel}  </p>
+                            </div>
                         </div>
-                    </div>
 
-                            }
+                    }
 
 
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5 px-3">
@@ -62,20 +63,21 @@ export const ProviderCard = ({ item, type, offer , count }: any) => {
                                     </li>
                                 ))
                             }
-                        
+
 
 
                         </ul>
                     </div>
                     <div className="md:border-r border-r-0 md:border-b-0 border-b grid items-center justify-center p-5">
                         <div>
-                        <p className="tch">Pricing starts from</p>
-                        <p className="tcd">
+                            <p className="tch">Pricing starts from</p>
+                            <p className="tcd">
                                 <span className="font-extrabold text-[#215690] font-[Roboto] text-xl"> ${item?.price} </span> /mo.
                             </p>
                         </div>
                     </div>
-                    <div className="grid gap-3 items-center justify-center p-5">                        
+                    <div className="grid gap-3 items-center justify-center p-5">
+                        <Link href={`/tel:${item.mobileNo}`} target="_blank" className="text-base text-black font-[Roboto] uppercase px-5 py-2.5">{item?.mobileNo} </Link>
                         <Link href={`/providers/${item.slug}`} target="_blank" className="text-base text-white font-[Roboto] uppercase px-5 py-2.5 bg-[#ef9831] hover:bg-[#215690]">View Plans</Link>
                     </div>
                 </div>
