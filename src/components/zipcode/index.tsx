@@ -97,7 +97,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                 <div className="container mx-auto px-4">
                     <div>
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-                            {formatType(type)}  Service Providers in <br /><span className="text-[#ef9831] ">{zipcode} </span>
+                            {formatType(type)}  Service Providers in <br /><span className="text-[#ef9831] ">{zipcode}, (${city}, ${C_State})  </span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
