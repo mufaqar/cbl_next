@@ -2,10 +2,6 @@ import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
 import { useRouter as Router } from 'next/router'
 import React, { useState } from 'react'
-//import { useQuery } from '@apollo/client';
-//import { ProviderByCITES } from '@/config/query';
-
-
 
 const query = `
 query zones($zipcode: String = "") {
