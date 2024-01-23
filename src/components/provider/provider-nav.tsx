@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import { LuPhoneCall } from 'react-icons/lu';
 
-const Provider_Nav = ({zipcode}:any) => {
+const Provider_Nav = () => {
 
 
     const [nav, setNav] = useState(false);
@@ -16,35 +17,16 @@ const Provider_Nav = ({zipcode}:any) => {
         }
     }
     if (typeof window !== "undefined") {
-
         window.addEventListener('scroll', changeBackground);
-
     }
 
     return (
         <section className={`bg-[#215690] py-5 shadow-sm border-y border-zinc-400/20  ${nav ? 'fixed top-0 left-0 right-0' : 'sticky'
             }`}>
-            <div className="container mx-auto px-4">
-                <div>
-                    <ul className='flex md:gap-3 gap-1.5 items-center'>
-                        <li>
-                            <Link href={`/local-internet-by-zip/zip-${zipcode}`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
-                                Internet Providers
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={`/local-tv-by-zip/zip-${zipcode}`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
-                                TV Providers
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={`/local-internet-tv-by-zip/zip-${zipcode}`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
-                                Internet and TV Providers
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <Link href="tel:833-592-0098" className="items-center container mx-auto gap-2 text-[#ef9831] font-[Roboto] flex justify-start">
+                            <LuPhoneCall size={28} />
+                            <span className="text-2xl font-bold">833-592-0098</span>
+                        </Link>
         </section>
     )
 }
