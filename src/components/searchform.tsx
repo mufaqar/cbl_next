@@ -60,7 +60,7 @@ const SearchForm = ({types, closeModal}:any) => {
         setloader(false);
       }, router2.pathname === "/" ? 2000 : 1000)
       setResultNotFound(false)
-      closeModal()
+      types && closeModal()
     }
     else {
       setloader(false);
