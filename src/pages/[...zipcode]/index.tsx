@@ -8,17 +8,19 @@ import StateModule from '@/components/state'
 
 export default function Providers({ ZipData, StateData, CityData, zipcode, allcities, state, type }: any) {
 
-
+  // state pages
   if (CityData?.providers?.length > 0) {
     return (
       <CitiesModule city={allcities} my_city="" allProviders={CityData.providers} type="internet" />
     )
   }
+  // city pages 
   if (StateData?.providers?.length > 0) {
     return (
       <StateModule state={state} allcities={allcities} allProviders={StateData.providers} type="internet" />
     )
   }
+  // zipcode pages 
   return (
     <ZipCodeModule zipcode={zipcode} city="" state="" allProviders={ZipData} zones="" type={type} />
   );

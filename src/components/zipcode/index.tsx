@@ -18,9 +18,11 @@ import OverView from '../overview'
 import Head from 'next/head';
 import PageHead from '../metas/pagesmeta'
 import Faqs_Zip from '@/components/faqs_zip';
+import SearchZipcodeModelBox from '../search-zipcode-modelBox'
 
 function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) {
 
+    const [modalIsOpen, setIsOpen] = React.useState(false);
 
     const { query } = useRouter();
     const city_code = query.city;
@@ -78,9 +80,14 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
     ];
     const currentMonthName = monthNames[currentMonthIndex];
 
+    const handleModelBox = () => {
+        setIsOpen(true)
+    }
 
     return (
         <>
+            <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
+
             <PageHead
                 title={
                     type === "internet"
@@ -95,20 +102,18 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
             />
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <div>
+                    <div className='flex justify-center flex-col items-center'>
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
                             {formatType(type)}  Service Providers in <br /><span className="text-[#ef9831] ">{zipcode}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
                         </p>
-                        <div className='grid justify-center'>
-                            <SearchForm />
-                        </div>
+                        <button className="text-[#ef9831] border hover:bg-[#ef9831] hover:text-white border-[#ef9831] p-3 px-8 rounded-lg" onClick={handleModelBox}>Enter your zip code</button>
                     </div>
                 </div>
             </section>
-            <Provider_Nav zipcode={zipcode}  />
+            <Provider_Nav  />
             <section className="my-16">
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>

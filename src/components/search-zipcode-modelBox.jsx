@@ -28,7 +28,7 @@ const SearchZipcodeModelBox = ({modalIsOpen, setIsOpen}) => {
      contentLabel="Example Modal"
    >
      <button onClick={closeModal} className='text-2xl absolute right-4'><AiOutlineClose/></button>
-     <section className="min-h-[40vh]  flex items-center bg-gray-50">
+     <section className="min-h-[55vh]  flex items-center">
         <div className="container mx-auto px-10">
           <div >
             <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
@@ -38,7 +38,7 @@ const SearchZipcodeModelBox = ({modalIsOpen, setIsOpen}) => {
               Enter your zipcode so we can find the best providers in your area:
             </p>
             <div className='grid justify-center'>
-              <SearchForm />
+              <SearchForm types closeModal={closeModal}/>
             </div>
           </div>
         </div>

@@ -32,9 +32,9 @@ query zones($zipcode: String = "") {
 
 
 
-const SearchForm = () => {
+const SearchForm = ({types, closeModal}:any) => {
   const [zipcode, setzipcode] = useState<string>();
-  const [pro_type, setpro_type] = useState<string>();
+  const [proType, setProType] = useState<string>('internet');
   const router = useRouter();
   const router2 = Router();
   const [loader, setloader] = useState<boolean>(false);
@@ -55,17 +55,12 @@ const SearchForm = () => {
     const respons = await response.json();
 
     if (respons?.data?.zones?.nodes.length > 0) {
-
-      let type = "internet";
-     // router.push(`/${respons.data?.zones?.nodes[0]?.states?.nodes[0]?.slug}/${respons.data.zones?.nodes[0]?.cities.nodes[0].slug}?zipcode=${zipcode}&type=internet`);
-
-     router.push(`/local-${type}-by-zip/zip-${zipcode}`);
-
-
-      setTimeout(()=>{
+      router.push(`/local-${proType}-by-zip/zip-${zipcode}`);
+      setTimeout(() => {
         setloader(false);
       }, router2.pathname === "/" ? 2000 : 1000)
       setResultNotFound(false)
+      closeModal()
     }
     else {
       setloader(false);
@@ -77,7 +72,7 @@ const SearchForm = () => {
     fetchData();
   }
 
-  const handleKeyDown = (event:any) => {
+  const handleKeyDown = (event: any) => {
     if (event.key === 'Enter') {
       fetchData()
     }
@@ -86,13 +81,20 @@ const SearchForm = () => {
   return (
     <>
       {loader ? <div className='fixed z-50 inset-0 !w-full bg-black/60 flex items-center flex-col justify-center'><div className="custom-loader"></div></div> :
-      <form>
-        <div className="relative flex items-center w-full m-auto serch_form">
-          <FaMagnifyingGlass className="absolute ml-3" />
-          <input type="text" onKeyDown={handleKeyDown} placeholder="Enter Zip Code" maxLength={5} name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-3 pl-10 pr-8 border outline-none md:w-80 border-zinc-400 rounded-l-md" />
-          <button className="px-4 py-[13px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-r-md" onClick={handleState}>Search</button>
-        </div>
-        {resultNotFound && <div className='w-full py-2 text-red-500'>No Result found! please enter correct zipcode </div>}
+        <form>
+          <div className="relative flex items-center w-full m-auto serch_form">
+            <FaMagnifyingGlass className="absolute ml-3" />
+            <input type="text" onKeyDown={handleKeyDown} placeholder="Enter Zip Code" maxLength={5} name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-3 pl-10 pr-8 border outline-none md:w-80 border-zinc-400 rounded-l-md" />
+            <button className="px-4 py-[13px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-r-md" onClick={handleState}>Search</button>
+          </div>
+          {
+            types && <div className="flex  mt-6 md:gap-3 md:mt-5 font-[Roboto]">
+            <label onClick={()=>setProType('internet')} className='flex cursor-pointer items-center gap-1'> <input type="radio" name="" id="Internet" className="w-10 h-7" checked={proType === 'internet'}/> Internet</label>
+            <label onClick={()=>setProType('tv')} className='flex cursor-pointer items-center gap-1'><input type="radio" name="TV" id="" className="w-10 h-7" checked={proType === 'tv'}/> TV</label>
+            <label onClick={()=>setProType('internet-tv')} className='flex cursor-pointer items-center gap-1'><input type="radio" name="" id="Bundle" className="w-10 h-7" checked={proType === 'internet-tv'}/> Bundle</label>
+          </div>
+          }
+          {resultNotFound && <div className='w-full py-2 text-red-500'>No Result found! please enter correct zipcode </div>}
         </form>
       }
     </>
