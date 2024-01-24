@@ -73,7 +73,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                         <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
                         </p>
-                        <button className="text-[#ef9831] border hover:bg-[#ef9831] hover:text-white border-[#ef9831] p-3 px-8 rounded-lg" onClick={handleModelBox}>Enter your zip code</button>
+                        <button className="text-[#ef9831] border hover:bg-[#ef9831] hover:text-white border-[#ef9831] p-3 px-8 rounded-lg" onClick={handleModelBox}>Change Location</button>
                     </div>
                 </div>
             </section>
