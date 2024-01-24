@@ -11,7 +11,7 @@ export default function Providers({ ZipData, StateData, CityData, zipcode, allci
   // state pages
   if (CityData?.providers?.length > 0) {
     return (
-      <CitiesModule city={allcities} my_city="" allProviders={CityData.providers} type="internet" />
+      <CitiesModule city={allcities} my_city="" allProviders={CityData.providers} CityData={CityData} type="internet" />
     )
   }
   // city pages 

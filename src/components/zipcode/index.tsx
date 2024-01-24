@@ -160,7 +160,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                         <h2 className="text-2xl font-bold">
                             Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
-                        <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} />
+                        <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} zipcode={zipcode}  />
                     </div>
                 </div>
             </section>
@@ -171,7 +171,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                         <h2 className="text-2xl font-bold  capitalize leading-10">
                             Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
-                        <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)}  Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)}  Service Providers in {city}, {C_State}.</p>
+                        <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)}  Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)}  Service Providers in {zipcode}.</p>
                     </div>
 
                     <div className={`md:w-full min-w-fit grid grid-cols-2 bg-[#215690]`}>
@@ -227,7 +227,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                             <h2 className="text-2xl font-bold  capitalize leading-10">
                                 Fast  {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                             </h2>
-                            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)} Service Providers in {city}, {C_State}. These providers offer impressive download speeds that cater to the needs of heavy internet users, streamers, and online gamers.</p>
+                            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)} Service Providers in {zipcode}. These providers offer impressive download speeds that cater to the needs of heavy internet users, streamers, and online gamers.</p>
                         </div>
 
                         <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-2' : ' md:grid-cols-2'} `}>
@@ -383,7 +383,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                             Types of {formatType(type)}  Technologies Available in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                         <p className='text-base'>
-                             {city}, {C_State} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These connection types include    {
+                             {zipcode} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These connection types include    {
                 uniqueServiceType.map((t: any, i: number) => (
                   <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
                 ))

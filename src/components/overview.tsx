@@ -1,6 +1,6 @@
 import React from 'react'
 
-function OverView({ uniqueServiceType, type, city, state, totalProviderCount, allProviders }: any) {
+function OverView({ uniqueServiceType, type, city, state, totalProviderCount, allProviders,zipcode }: any) {
 
     function formatType(type: any) {
         if (type === "internet") {
@@ -27,7 +27,7 @@ function OverView({ uniqueServiceType, type, city, state, totalProviderCount, al
                 allProviders?.slice(0, 1).map((item: any, idx: number) => (
                     <span key={idx}>  {item?.title} </span>
                 ))
-            } is the best {formatType(type)} Service Provider in {city}, <span className='uppercase'>{state}</span> .
+            } is the best {formatType(type)} Service Provider in {city && `${city} ,` } <span className='uppercase'>{state || zipcode}</span> .
         </p>
 
 

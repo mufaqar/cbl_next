@@ -12,6 +12,8 @@ import PageHead from '../metas/pagesmeta';
 import Faqs_City from '@/components/faqs_city';
 
 export default function CitiesModule({ my_city, allProviders }: any) {
+console.log("🚀 ~ CitiesModule ~ my_city:", my_city)
+
 
 
   const { query } = useRouter();
@@ -34,9 +36,9 @@ export default function CitiesModule({ my_city, allProviders }: any) {
   }
 
 
-  const inputString = my_city;
-  const parts = inputString.split('-');
-  const capitalizedWords: string[] = parts.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));
+  const inputString = city_code || "";
+  const parts = inputString?.split('-');
+  const capitalizedWords: string[] = parts?.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));
   const city = capitalizedWords.join(' ');
   allProviders = allProviders?.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
   const servicesTypes = allProviders?.map((item: any) => { return (item.providers_service_types) })
