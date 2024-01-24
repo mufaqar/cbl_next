@@ -10,31 +10,14 @@ import CheepTable_CardProviderState from '../provider/cheeptable-cardProviderSta
 import OverView from '../overview';
 import PageHead from '../metas/pagesmeta';
 import Faqs_City from '@/components/faqs_city';
+import {formatType} from '@/utils'
 
-export default function CitiesModule({ my_city, allProviders }: any) {
-console.log("🚀 ~ CitiesModule ~ my_city:", my_city)
-
-
-
+export default function CitiesModule({  allProviders }: any) {
   const { query } = useRouter();
   const type = query.type || "internet";
-
   const city_code = query?.zipcode?.[1];
   const state = query?.zipcode?.[0];
   let C_State = (state as string)?.toUpperCase();
-
-  function formatType(type: any) {
-    if (type === "internet") {
-      return "Internet";
-    } else if (type === "tv") {
-      return "TV";
-    } else if (type === "internet-tv") {
-      return "Internet and TV";
-    } else {
-      return type;
-    }
-  }
-
 
   const inputString = city_code || "";
   const parts = inputString?.split('-');
@@ -393,7 +376,7 @@ console.log("🚀 ~ CitiesModule ~ my_city:", my_city)
         <div className="container mx-auto px-4">
           <div className='mb-10'>
             <h2 className="text-2xl font-bold mb-2">
-              
+
               Types of {formatType(type)} Technologies Available in  <span className="text-[#ef9831] ">{city}, <span className='uppercase'>{state}</span></span>
             </h2>
             <p className='text-base'>

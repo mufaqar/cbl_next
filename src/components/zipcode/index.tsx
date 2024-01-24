@@ -1,53 +1,25 @@
 import React from 'react'
-import SearchForm from '../searchform'
 import Provider_Nav from '../provider/provider-nav'
 import { ProviderCard } from '../provider/provider-card'
 import Inter_Service from '../provider/inter-service'
 import Technology_Box from '../provider/technology-box'
-import Nearby_City from '../provider/nearby-city'
-import Faqs_Sec from '../faqs_city'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { CiStreamOn } from 'react-icons/ci'
-import { MdCable, MdSatelliteAlt } from 'react-icons/md'
-import Table_CardProvider from '../provider/cheeptable-cardProvider'
-import { typeFromAST } from 'graphql'
 import Cheep_Table_CardProvider from '../provider/cheeptable-cardProvider'
 import Fast_Table_CardProvider from '../provider/fasttable-cardProvider'
 import OverView from '../overview'
-import Head from 'next/head';
 import PageHead from '../metas/pagesmeta'
 import Faqs_Zip from '@/components/faqs_zip';
 import SearchZipcodeModelBox from '../search-zipcode-modelBox'
+import { formatType } from '@/utils'
 
-function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) {
+function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any) {
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
-
     const { query } = useRouter();
-    const city_code = query.city;
-    const state_code = query.state;
-    let C_State = (state as string).toUpperCase();
-    
     var types = query?.type;
-
-    function formatType(type: any) {
-        if (type === "internet") {
-            return "Internet";
-        } else if (type === "tv") {
-            return "TV";
-        } else if (type === "internet-tv") {
-            return "TV and Internet";
-        } else {
-            // Handle other cases if needed
-            return type; // Return the original value if no match is found
-        }
-    }
-
 
     const servicesTypes = allProviders?.map((item: any) => { return (item?.serviceTypes?.nodes) })
     const newServicesTypes = servicesTypes?.map((st: any) => st?.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
-
     const uniqueServiceType: any = [];
     const seenNames = new Set();
     newServicesTypes?.forEach((st: any) => {
@@ -71,14 +43,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
 
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    const currentMonthIndex = currentDate.getMonth();
-    const currentMonthNumber = currentMonthIndex + 1;
 
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-    const currentMonthName = monthNames[currentMonthIndex];
 
     const handleModelBox = () => {
         setIsOpen(true)
@@ -112,7 +77,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                     </div>
                 </div>
             </section>
-            <Provider_Nav  />
+            <Provider_Nav />
             <section className="my-16">
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
@@ -160,7 +125,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                         <h2 className="text-2xl font-bold">
                             Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
-                        <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} zipcode={zipcode}  />
+                        <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} zipcode={zipcode} />
                     </div>
                 </div>
             </section>
@@ -383,14 +348,14 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                             Types of {formatType(type)}  Technologies Available in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                         <p className='text-base'>
-                             {zipcode} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These connection types include    {
-                uniqueServiceType.map((t: any, i: number) => (
-                  <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
-                ))
-              }. Understanding these options can help you make an informed decision based on your needs and location.
-            </p>
-            </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
+                            {zipcode} is well-connected with a diverse range of {formatType(type)} connection types to its residents, each with with its own advantages and considerations. These connection types include    {
+                                uniqueServiceType.map((t: any, i: number) => (
+                                    <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> , </span>
+                                ))
+                            }. Understanding these options can help you make an informed decision based on your needs and location.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
                         {
                             uniqueServiceType.map((t: any, i: number) => (
                                 <Technology_Box

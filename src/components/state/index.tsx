@@ -2,13 +2,10 @@
 import Provider_Nav_State from '@/components/provider/provider-nav-state';
 import Technology_Box from '@/components/provider/technology-box';
 import SearchForm from '@/components/searchform';
-import apolloClient from '@/config/client';
-import { CITES_by_STATE, CityByStateQuery, GET_ZONE_BY_CITY } from '@/config/query';
-import { GetServerSideProps } from 'next';
+import { CityByStateQuery } from '@/config/query';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { BsArrowRight } from 'react-icons/bs';
-import { MdCable } from 'react-icons/md';
 import { useRouter } from 'next/router'
 import { ProviderCardState } from '@/components/provider/provider-card-state';
 import Inter_Service_State from '@/components/provider/inter-service-state';
@@ -16,11 +13,10 @@ import CheepTable_CardProviderState from '@/components/provider/cheeptable-cardP
 import FastTable_CardProviderState from '@/components/provider/fasttable-cardProviderState';
 import OverView from '@/components/overview';
 import PageHead from '@/components/metas/pagesmeta';
-import { getUniqueCities } from '@/utils'
+import { getUniqueCities, formatType } from '@/utils'
 
 
 export default function StateModule({ allcities, state, allProviders }: any) {
-
   const [citiesPageInfo, setCitiesPageInfo] = useState(allcities[0].zones.pageInfo)
   const [allCitiesbyState, setAllCitiesByState] = useState<any>()
 
@@ -29,29 +25,13 @@ export default function StateModule({ allcities, state, allProviders }: any) {
     setAllCitiesByState(unique)
   }, [allcities])
 
-  const [loading, setloading] = useState(false)
-
+  const [loading, setloading] = useState(false);
   const { query } = useRouter();
   const type = query.type || "internet";
-
   const C_State = state.toUpperCase();
 
-  function formatType(type: any) {
-    if (type === "internet") {
-      return "Internet";
-    } else if (type === "tv") {
-      return "TV";
-    } else if (type === "internet-tv") {
-      return "Internet and TV";
-    } else {
-      return type;
-    }
-  }
-
   allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
-
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
-
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
   const uniqueServiceType: any = [];
 

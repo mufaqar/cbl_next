@@ -26,3 +26,17 @@ export const generateArrayForBreadcrum = (data) => {
 
   return result;
 };
+
+
+
+export function formatType(type) {
+  if (type === "internet") {
+    return "Internet";
+  } else if (type === "tv") {
+    return "TV";
+  } else if (type === "internet-tv") {
+    return "Internet and TV";
+  } else {
+    return type;
+  }
+}
