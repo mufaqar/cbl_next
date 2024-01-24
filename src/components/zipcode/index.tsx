@@ -87,7 +87,6 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
     return (
         <>
             <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
-
             <PageHead
                 title={
                     type === "internet"
@@ -366,7 +365,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones,type }: any) 
                                             }
                                             return (
                                                 <>
-                                                    {/* <Inter_Service data={summaryData} key={idx} type={type} /> */}
+                                                    <Inter_Service data={summaryData} key={idx} type={type} />
                                                 </>
                                             )
                                         })
