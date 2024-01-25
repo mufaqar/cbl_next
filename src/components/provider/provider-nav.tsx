@@ -24,7 +24,7 @@ const Provider_Nav = ({zipcode}:any) => {
             }`}>
             <Link href="tel:833-592-0098" className="items-center lg:hidden container mx-auto gap-2 text-[#ef9831] font-[Roboto] flex justify-center text-center">
                 <LuPhoneCall size={28} />
-                <span className="text-2xl font-bold">Call for Setup 833-592-0098</span>
+                <span className="text-2xl font-bold">Call to Setup 833-592-0098</span>
             </Link>
             <div className="container mx-auto hidden lg:block px-4">
                 <div>

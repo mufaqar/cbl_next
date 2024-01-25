@@ -15,7 +15,7 @@ function InternetIndex() {
       <PageHead
         title="Local TV And Internet Service Providers | Cable Movers"
         description=""
-        url="https://www.cablemovers.net/local-internet-tv-by-zip"
+        url="https://www.cablemovers.net/internet-tv"
       />
       <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
       <section className="min-h-[40vh]  flex items-center bg-gray-50">

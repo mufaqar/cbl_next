@@ -54,30 +54,50 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
             <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
             <PageHead
                 title={
-                    type === "internet"
-                        ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}  | For ${currentYear} `
-                        : type === "tv"
-                            ? `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}  | For ${currentYear}`
-                            : `Best ${totalProviderCount} ${formatType(type)}  Service Providers in ${zipcode}  | For ${currentYear}`
+                    `Top ${totalProviderCount} ${formatType(type)}   Providers in ${zipcode} ${city} and ${state}`
                 }
-                description={`Best ${totalProviderCount} ${formatType(type)} Service Providers in ${zipcode}.  ${allProviders?.slice(0, 8).map((item: any, idx: number) => (
-                    `${idx + 1} ${item?.title}`)).join(', ')}`}
-                url={`https://www.cablemovers.net/local-${type}-by-zip/zip-${zipcode}`} curl={`https://www.cablemovers.net/local-${type}-by-zip/zip-${zipcode}`}
+
+
+
+                description={
+                    type === "internet"
+                        ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are;  ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                            `${idx + 1} ${item?.title}`)).join(', ')} Speed: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                `${idx + 1} ${item?.providersInfo.proSpeed}`)).join(', ')} Price: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                    `${idx + 1} ${item?.providersInfo.proPrice}`)).join(', ')} `
+                        : type === "tv"
+                            ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are;  ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                `${idx + 1} ${item?.title}`)).join(', ')} Channels: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                    `${idx + 1} ${item?.providersInfo.servicesInfo.internetTvBundles.channels}`)).join(', ')} Price: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                        `${idx + 1} ${item?.providersInfo.proPrice}`)).join(', ')}`
+                            : `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are;  ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                `${idx + 1} ${item?.title}`)).join(', ')} Channels: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                    `${idx + 1} ${item?.providersInfo.servicesInfo.internetTvBundles.channels}`)).join(', ')} Speed: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                    `${idx + 1} ${item?.providersInfo.proSpeed}`)).join(', ')} Price: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                        `${idx + 1} ${item?.providersInfo.proPrice}`)).join(', ')}`
+                }
+
+
+
+
+
+                url={`https://www.cablemovers.net/${type}/zip-${zipcode}`} curl={`https://www.cablemovers.net/${type}/zip-${zipcode}`}
             />
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
                 <div className="container mx-auto px-4">
                     <div className='flex justify-center flex-col items-center'>
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-                            {formatType(type)}  Service Providers in <br /><span className="text-[#ef9831] ">{zipcode}</span>
+                            {formatType(type)}  Service Providers in <br />{zipcode} <span className="text-[#ef9831] ">{city} , {state}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
+
                         </p>
                         <button className="text-[#ef9831] border hover:bg-[#ef9831] hover:text-white border-[#ef9831] p-3 px-8 rounded-lg" onClick={handleModelBox}>Change Location</button>
                     </div>
                 </div>
             </section>
-            <Provider_Nav zipcode={zipcode}/>
+            <Provider_Nav zipcode={zipcode} />
             <section className="my-16">
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>

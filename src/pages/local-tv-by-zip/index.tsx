@@ -14,7 +14,7 @@ function TvIndex() {
             <PageHead
                 title="Local TV Service Providers | Cable Movers"
                 description=""
-                url="https://www.cablemovers.net/local-tv-by-zip"
+                url="https://www.cablemovers.net/tv"
             />
             <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
             <section className="min-h-[40vh]  flex items-center bg-gray-50">

@@ -1,12 +1,13 @@
-import apolloClient from '@/config/client'
-import { CITES_by_STATE, GET_PROVIDERS, GET_PROVIDERS_CITY, SingleZone } from '@/config/query'
+import apolloClient from '@/const/config/client'
+import { CITES_by_STATE, GET_PROVIDERS, GET_PROVIDERS_CITY, GET_ZIPCODE, SingleZone } from '@/config/query'
 import { GetServerSideProps } from 'next'
 import { Get_State_by_Multi_Zipcode } from '../../utils/get_states_by_multizipcode'
 import ZipCodeModule from '@/components/zipcode'
 import CitiesModule from '@/components/cities'
 import StateModule from '@/components/state'
 
-export default function Providers({ ZipData, StateData, CityData, zipcode, allcities, state, type }: any) {
+export default function Providers({ ZipData, StateData, CityData, zipcode, allcities, state, type , zoneData }: any) {
+console.log("🚀 ~ Providers ~ zoneData:", zoneData[0].cities.nodes[0].name)
 
   // state pages
   if (CityData?.providers?.length > 0) {
@@ -22,7 +23,7 @@ export default function Providers({ ZipData, StateData, CityData, zipcode, allci
   }
   // zipcode pages 
   return (
-    <ZipCodeModule zipcode={zipcode} city="" state="" allProviders={ZipData} zones="" type={type} />
+    <ZipCodeModule zipcode={zipcode} city={zoneData[0]?.cities?.nodes[0]?.name} state={zoneData[0]?.states?.nodes[0]?.name} allProviders={ZipData} zones="" type={type} />
   );
 }
 
@@ -100,11 +101,16 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     };
   }
 
-  const [providers] = await Promise.all([
-    apolloClient.query({ query: GET_PROVIDERS, variables: { terms: query_state, value: query_zipcode } })
+  const [providers, zone_data] = await Promise.all([
+    apolloClient.query({ query: GET_PROVIDERS, variables: { terms: query_state, value: query_zipcode } }),
+    apolloClient.query({ query: GET_ZIPCODE, variables: { title: query_zipcode } })
+
+
   ]);
   const allProviders = providers.data.allProviders.nodes;
-  console.log('Zip Module', allProviders)
+  const zoneData = zone_data.data.zones.nodes;
+
+
   // Redirect To Page Not Found 
   if (allProviders?.length <= 0) {
     return {
@@ -115,7 +121,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     props: {
       ZipData: allProviders,
       zipcode: query_zipcode,
-      type: query_state
+      type: query_state,
+      zoneData
     },
   };
 

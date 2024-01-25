@@ -21,25 +21,25 @@ export const AllPosts = gql`
 `;
 
 export const GET_ZIPCODE = gql`
-  query GET_ZIPCODE {
-    zones(where: { title: "99929" }) {
-      nodes {
-        title
-        cities {
-          nodes {
-            name
-            slug
-          }
+query GET_ZIPCODE($title: String = "") {
+  zones(where: {title: $title}) {
+    nodes {
+      title
+      cities {
+        nodes {
+          name
+          slug
         }
-        states {
-          nodes {
-            name
-            slug
-          }
+      }
+      states {
+        nodes {
+          name
+          slug
         }
       }
     }
   }
+}
 `;
 
 export const GET_ALL_PROVIDERS = gql`
