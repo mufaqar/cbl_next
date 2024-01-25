@@ -8,7 +8,7 @@ function OverView({ uniqueServiceType, type, city, state, totalProviderCount, al
         } else if (type === "tv") {
             return "TV";
         } else if (type === "internet-tv") {
-            return "Internet and TV";
+            return "TV and Internet";
         } else {
 
             return type;
