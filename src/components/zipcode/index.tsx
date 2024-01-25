@@ -88,10 +88,10 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                 <div className="container mx-auto px-4">
                     <div className='flex justify-center flex-col items-center'>
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-                            {formatType(type)}  Service Providers in <br /> ZIP Code <span className="text-[#ef9831] ">{zipcode}</span>
+                            {formatType(type)} Providers in <br /> ZIP Code <span className="text-[#ef9831] ">{zipcode}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
-                            Enter your zip so we can find the best providers in your area:
+                            Enter your zip so we can find the best {formatType(type)} Providers in your area:
 
                         </p>
                         <button className="text-[#ef9831] border hover:bg-[#ef9831] hover:text-white border-[#ef9831] p-3 px-8 rounded-lg" onClick={handleModelBox}>Change Location</button>
@@ -103,7 +103,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold  capitalize leading-10">
-                            {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
+                            {formatType(type)} Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                     </div>
                     <div className='grid gap-7'>
@@ -144,9 +144,19 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                 <div className="container mx-auto px-4">
                     <div className=''>
                         <h2 className="text-2xl font-bold">
-                            Overview of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
+                            Overview of {formatType(type)} Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
-                        <OverView uniqueServiceType={uniqueServiceType} type={type} city={city} state={state} allProviders={allProviders} zipcode={zipcode} />
+                        <p className='text-xl font-[Roboto] mt-5'>As of the time this page was written, {zipcode} has {totalProviderCount} {formatType(type)} Providers offering Various types of {formatType(type)} plans and deals to its residents. You'll likely have Options from
+                            {
+                                uniqueServiceType.map((t: any, i: number) => (
+                                    <span key={i}> <span dangerouslySetInnerHTML={{ __html: t.name }} /> {i < uniqueServiceType.length - 1 && ', '} </span>
+
+                                ))
+                            } {formatType(type)} Providers.  {
+                                allProviders?.slice(0, 1).map((item: any, idx: number) => (
+                                    <span key={idx}>  {item?.title} </span>
+                                ))
+                            } is the best {formatType(type)} Service Provider in {zipcode}</p>
                     </div>
                 </div>
             </section>
@@ -155,9 +165,9 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold  capitalize leading-10">
-                            Cheap {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
+                            Cheap {formatType(type)} Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
-                        <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)}  Service Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)}  Service Providers in {zipcode}.</p>
+                        <p className='text-xl font-[Roboto] mt-5'>Affordability is essential when choosing your {formatType(type)} Provider; in an age where staying connected is more crucial than ever, we bring you budget-friendly {formatType(type)} options that don't compromise on quality. Below are the cheap {formatType(type)} Providers in {zipcode}.</p>
                     </div>
 
                     <div className={`md:w-full min-w-fit grid grid-cols-2 bg-[#215690]`}>
@@ -211,9 +221,9 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                     <div className="container mx-auto px-4">
                         <div className='mb-10'>
                             <h2 className="text-2xl font-bold  capitalize leading-10">
-                                Fast  {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
+                                Fastest  {formatType(type)} Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                             </h2>
-                            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)} Service Providers in {zipcode}. These providers offer impressive download speeds that cater to the needs of heavy internet users, streamers, and online gamers.</p>
+                            <p className='text-xl font-[Roboto] mt-5'>If speed is your top priority consider the following {formatType(type)} Providers in {zipcode}. These providers offer impressive download speeds that cater to the needs of heavy internet users, streamers, and online gamers.</p>
                         </div>
 
                         <div className={`md:w-full min-w-fit grid  grid-cols-2 bg-[#215690] ${type === 'internet-tv' ? ' md:grid-cols-2' : ' md:grid-cols-2'} `}>
@@ -274,7 +284,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>
                         <h2 className="text-2xl font-bold">
-                            Summary of {formatType(type)}  Service Providers in <span className="text-[#ef9831] ">{zipcode} </span>
+                            Summary of {formatType(type)} Providers in <span className="text-[#ef9831] ">{zipcode} </span>
                         </h2>
                         <div className="w-fit hint mx-auto block md:hidden mt-5" >
                             Swipe Left to See All →
