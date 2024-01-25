@@ -66,15 +66,10 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                         )).join(', ')
                         }`
                         : type === "tv"
-                            ? `
-
-
-                                        Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                            ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
                                 `${idx + 1} ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels || 'N/A'}  Price: ${item?.providersInfo?.proPrice || 'N/A'}`
                             )).join(', ')
                             }
-                                        
-                                        
                                         
                                         `
                             : `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
@@ -93,7 +88,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                 <div className="container mx-auto px-4">
                     <div className='flex justify-center flex-col items-center'>
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10">
-                            {formatType(type)}  Service Providers in <br />{zipcode} <span className="text-[#ef9831] ">{city} , {state}</span>
+                            {formatType(type)}  Service Providers in <br /> ZIP Code <span className="text-[#ef9831] ">{zipcode}</span>
                         </h1>
                         <p className="text-xl text-center font-[Roboto] my-5">
                             Enter your zip so we can find the best providers in your area:
