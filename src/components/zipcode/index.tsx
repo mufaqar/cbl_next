@@ -67,7 +67,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                         }`
                         : type === "tv"
                             ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels  || 'N/A'}  Price: $${item?.providersInfo?.proPrice || 'N/A'}`
+                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.tvServices?.channels  || 'N/A'}  Price: $${item?.providersInfo?.proPrice || 'N/A'}`
                             )).join(', ')
                             }`
                             : `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
