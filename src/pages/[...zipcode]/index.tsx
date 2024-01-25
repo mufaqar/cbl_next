@@ -7,8 +7,8 @@ import CitiesModule from '@/components/cities'
 import StateModule from '@/components/state'
 import apolloClient from '@/config/client'
 
-export default function Providers({ ZipData, StateData, CityData, zipcode, allcities, state, type , zoneData }: any) {
-console.log("🚀 ~ Providers ~ zoneData:", zoneData[0].cities.nodes[0].name)
+export default function Providers({ ZipData, StateData, CityData, zipcode, allcities, state, type  }: any) {
+
 
   // state pages
   if (CityData?.providers?.length > 0) {
@@ -24,7 +24,7 @@ console.log("🚀 ~ Providers ~ zoneData:", zoneData[0].cities.nodes[0].name)
   }
   // zipcode pages 
   return (
-    <ZipCodeModule zipcode={zipcode} city={zoneData[0]?.cities?.nodes[0]?.name} state={zoneData[0]?.states?.nodes[0]?.name} allProviders={ZipData} zones="" type={type} />
+    <ZipCodeModule zipcode={zipcode} city="{zoneData[0]?.cities?.nodes[0]?.name}" state="{zoneData[0]?.states?.nodes[0]?.name} " allProviders={ZipData} zones="" type={type} />
   );
 }
 
@@ -83,11 +83,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
 
   // Provider By Zipcode
-  if (query_zipcode === '') {
-    return {
-      notFound: true,
-    };
-  }
+  // if (query_zipcode === '') {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
   // check zone exist 
   const zoneResponse = await apolloClient.query({
     query: SingleZone,
@@ -102,14 +102,14 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     };
   }
 
-  const [providers, zone_data] = await Promise.all([
+  const [providers] = await Promise.all([
     apolloClient.query({ query: GET_PROVIDERS, variables: { terms: query_state, value: query_zipcode } }),
-    apolloClient.query({ query: GET_ZIPCODE, variables: { title: query_zipcode } })
+   // apolloClient.query({ query: GET_ZIPCODE, variables: { title: query_zipcode } })
 
 
   ]);
   const allProviders = providers.data.allProviders.nodes;
-  const zoneData = zone_data.data.zones.nodes;
+  //const zoneData = zone_data.data.zones.nodes;
 
 
   // Redirect To Page Not Found 
@@ -123,7 +123,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       ZipData: allProviders,
       zipcode: query_zipcode,
       type: query_state,
-      zoneData
+    //  zoneData
     },
   };
 
