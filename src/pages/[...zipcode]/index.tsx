@@ -1,10 +1,11 @@
-import apolloClient from '@/const/config/client'
+
 import { CITES_by_STATE, GET_PROVIDERS, GET_PROVIDERS_CITY, GET_ZIPCODE, SingleZone } from '@/config/query'
 import { GetServerSideProps } from 'next'
 import { Get_State_by_Multi_Zipcode } from '../../utils/get_states_by_multizipcode'
 import ZipCodeModule from '@/components/zipcode'
 import CitiesModule from '@/components/cities'
 import StateModule from '@/components/state'
+import apolloClient from '@/config/client'
 
 export default function Providers({ ZipData, StateData, CityData, zipcode, allcities, state, type , zoneData }: any) {
 console.log("🚀 ~ Providers ~ zoneData:", zoneData[0].cities.nodes[0].name)
