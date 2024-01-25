@@ -62,16 +62,16 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                 description={
                     type === "internet"
                         ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 3).map((item: any, idx: number) => (
-                            `${idx + 1}- ${item?.title}  Speed: ${item?.providersInfo?.servicesInfo.internetServices.speed  || 'N/A'}Mbps Price: $${item?.providersInfo?.proPrice || 'N/A'}`
+                            `${idx + 1}- ${item?.title}  Speed: ${item?.providersInfo?.servicesInfo.internetServices.speed  || 'N/A'}Mbps Price: $${item?.providersInfo?.internetServices.price || 'N/A'}`
                         )).join(', ')
                         }`
                         : type === "tv"
                             ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels  || 'N/A'}Mbps  Price: $${item?.providersInfo?.proPrice || 'N/A'}`
+                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.tvServices?.channels  || 'N/A'}  Price: $${item?.providersInfo?.tvServices.price || 'N/A'}`
                             )).join(', ')
                             }`
                             : `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels || 'N/A'} Speed: ${item?.providersInfo?.proSpeed || 'N/A'}Mbps Price: $${item?.providersInfo?.proPrice || 'N/A'}`
+                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels || 'N/A'} Speed: ${item?.providersInfo?.servicesInfo.internetServices.speed || 'N/A'}Mbps Price: $${item?.providersInfo?.internetTvBundles.price || 'N/A'}`
                             )).join(', ')
                             }`
                 }
