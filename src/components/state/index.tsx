@@ -432,7 +432,7 @@ export default function StateModule({ allcities, state, allProviders }: any) {
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
         <div className='container mx-auto px-4 m-10'>
           <div className="mt-20 mb-7">
             <h2 className='text-center text-2xl font-bold'>
@@ -460,67 +460,11 @@ export default function StateModule({ allcities, state, allProviders }: any) {
             }
           </div>
         </div>
-      </section>
+      </section> */}
 
     </>
   )
 }
-// export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-
-//   try {
-//     const { state } = query;
-
-//     // const zoneTitles = allzone.map((zone: any) => zone.title);
-//     // const resultString = zoneTitles.join(',');
-//     // const All_zones_list = resultString.replace(/["\[\]]/g, '');
-
-
-//     const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones?state=${state}`);
-//     const providers_city_data = await response_city.json();
-
-//     const zoneTitlesQ = providers_city_data?.map((zone: any) => zone.title);
-//     const resultStringQ = zoneTitlesQ.join(',');
-//     const All_zones_listQ = resultStringQ.replace(/["\[\]]/g, '');
-//     //console.log("🚀 ~ file: index.tsx:516 ~ constgetServerSideProps:GetServerSideProps= ~ All_zones_listQ:", All_zones_listQ)
-//     const postData = {
-//       internet_services: All_zones_listQ
-//     };
-//     const response_data = await fetch('https://cblproject.cablemovers.net/wp-json/custom/v1/providers', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(postData),
-//     });
-
-//     const providers_data = await response_data.json();
-
-//     const [cities]: any = await Promise.all([
-//       apolloClient.query({ query: CITES_by_STATE, variables: { state } }),
-//     ]);
-//     var allcities = cities.data.states.nodes;
-
-//     // Check if data exists
-//     if (!allcities || !state || !providers_data.providers) {
-//       return {
-//         notFound: true,
-//       };
-//     }
-//     return {
-//       props: {
-//         allcities,
-//         state,
-//         allProviders: providers_data.providers,
-//       },
-//     };
-
-//   } catch (error) {
-//     console.error('Error in getServerSideProps:', error);
-//     return {
-//       notFound: true,
-//     };
-//   }
-// };
 
 
 
