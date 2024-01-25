@@ -156,7 +156,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                                 allProviders?.slice(0, 1).map((item: any, idx: number) => (
                                     <span key={idx}>  {item?.title} </span>
                                 ))
-                            } is the best {formatType(type)} Service Provider in {zipcode}</p>
+                            } is the best {formatType(type)} Provider in {zipcode}</p>
                     </div>
                 </div>
             </section>
