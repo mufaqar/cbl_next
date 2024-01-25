@@ -54,14 +54,14 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
             <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
             <PageHead
                 title={
-                    `Top ${totalProviderCount} ${formatType(type)}   Providers in ${zipcode} ${city} and ${state}`
+                    `${formatType(type)} Providers in ZIP Code ${zipcode} | Top ${totalProviderCount} Options `
                 }
 
 
 
                 description={
                     type === "internet"
-                        ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                        ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 3).map((item: any, idx: number) => (
                             `${idx + 1} ${item?.title}  Speed: ${item?.providersInfo?.servicesInfo.internetServices.speed || 'N/A'} Price: ${item?.providersInfo?.proPrice || 'N/A'}`
                         )).join(', ')
                         }`
