@@ -26,8 +26,6 @@ query zones($zipcode: String = "") {
 `;
 
 
-
-
 const SearchForm = ({types, closeModal}:any) => {
   const [zipcode, setzipcode] = useState<string>();
   const [proType, setProType] = useState<string>('internet');
@@ -51,7 +49,7 @@ const SearchForm = ({types, closeModal}:any) => {
     const respons = await response.json();
 
     if (respons?.data?.zones?.nodes.length > 0) {
-      router.push(`/local-${proType}-by-zip/zip-${zipcode}`);
+      router.push(`/${proType}/zip-${zipcode}`);
       setTimeout(() => {
         setloader(false);
       }, router2.pathname === "/" ? 2000 : 1000)

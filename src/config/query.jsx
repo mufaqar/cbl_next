@@ -459,3 +459,13 @@ export const GET_PROVIDERS_CITY = gql`
     }
   }
 `;
+
+
+
+export const SingleZone = gql`
+query GET_PROVIDERS($id: ID = "") {
+  zone(id: $id, idType: SLUG) {
+    id
+  }
+}
+`

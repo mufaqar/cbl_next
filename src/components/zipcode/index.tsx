@@ -77,7 +77,7 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                     </div>
                 </div>
             </section>
-            <Provider_Nav />
+            <Provider_Nav zipcode={zipcode}/>
             <section className="my-16">
                 <div className="container mx-auto px-4">
                     <div className='mb-10'>

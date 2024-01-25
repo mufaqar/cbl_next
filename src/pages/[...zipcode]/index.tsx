@@ -1,5 +1,5 @@
 import apolloClient from '@/config/client'
-import { CITES_by_STATE, GET_PROVIDERS, GET_PROVIDERS_CITY } from '@/config/query'
+import { CITES_by_STATE, GET_PROVIDERS, GET_PROVIDERS_CITY, SingleZone } from '@/config/query'
 import { GetServerSideProps } from 'next'
 import { Get_State_by_Multi_Zipcode } from '../../utils/get_states_by_multizipcode'
 import ZipCodeModule from '@/components/zipcode'
@@ -29,7 +29,7 @@ export default function Providers({ ZipData, StateData, CityData, zipcode, allci
 
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  var query_state = query?.zipcode?.[0]?.replace("local-", '')?.replace("-by-zip", '') || ''
+  var query_state = query?.zipcode?.[0] || ''
   var query_zipcode = query?.zipcode?.[1]?.replace("zip-", '')
 
   if (query_state?.length <= 3 && query_state !== "tv") {
@@ -81,6 +81,25 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
 
   // Provider By Zipcode
+  if (query_zipcode === '') {
+    return {
+      notFound: true,
+    };
+  }
+  // check zone exist 
+  const zoneResponse = await apolloClient.query({
+    query: SingleZone,
+    variables: {
+      id: query_zipcode
+    },
+  });
+  const isZone = zoneResponse.data.zone
+  if (!isZone) {
+    return {
+      notFound: true,
+    };
+  }
+
   const [providers] = await Promise.all([
     apolloClient.query({ query: GET_PROVIDERS, variables: { terms: query_state, value: query_zipcode } })
   ]);
@@ -101,5 +120,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   };
 
 }
+
 
 
