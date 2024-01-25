@@ -61,20 +61,26 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
 
                 description={
                     type === "internet"
-                        ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are;  ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                            `${idx + 1} ${item?.title}`)).join(', ')} Speed: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                `${idx + 1} ${item?.providersInfo.proSpeed}`)).join(', ')} Price: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    `${idx + 1} ${item?.providersInfo.proPrice}`)).join(', ')} `
+                        ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                            `${idx + 1} ${item?.title}  Speed: ${item?.providersInfo?.servicesInfo.internetServices.speed || 'N/A'} Price: ${item?.providersInfo?.proPrice || 'N/A'}`
+                        )).join(', ')
+                        }`
                         : type === "tv"
-                            ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are;  ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                `${idx + 1} ${item?.title}`)).join(', ')} Channels: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    `${idx + 1} ${item?.providersInfo.servicesInfo.internetTvBundles.channels}`)).join(', ')} Price: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                        `${idx + 1} ${item?.providersInfo.proPrice}`)).join(', ')}`
-                            : `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are;  ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                `${idx + 1} ${item?.title}`)).join(', ')} Channels: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    `${idx + 1} ${item?.providersInfo.servicesInfo.internetTvBundles.channels}`)).join(', ')} Speed: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                    `${idx + 1} ${item?.providersInfo.proSpeed}`)).join(', ')} Price: ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                        `${idx + 1} ${item?.providersInfo.proPrice}`)).join(', ')}`
+                            ? `
+
+
+                                        Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                `${idx + 1} ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels || 'N/A'}  Price: ${item?.providersInfo?.proPrice || 'N/A'}`
+                            )).join(', ')
+                            }
+                                        
+                                        
+                                        
+                                        `
+                            : `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
+                                `${idx + 1} ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels || 'N/A'} Speed: ${item?.providersInfo?.proSpeed || 'N/A'} Price: ${item?.providersInfo?.proPrice || 'N/A'}`
+                            )).join(', ')
+                            }`
                 }
 
 
