@@ -13,6 +13,7 @@ import SearchZipcodeModelBox from '../search-zipcode-modelBox'
 import { formatType } from '@/utils'
 
 function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any) {
+console.log("🚀 ~ ZipCodeModule ~ allProviders:", allProviders)
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const { query } = useRouter();
@@ -67,13 +68,11 @@ function ZipCodeModule({ zipcode, city, state, allProviders, zones, type }: any)
                         }`
                         : type === "tv"
                             ? `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.tvServices.speed  || 'N/A'}Mbps  Price: $${item?.providersInfo?.proPrice || 'N/A'}`
+                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo.tvServices?.speed  || 'N/A'}  Price: $${item?.providersInfo?.proPrice || 'N/A'}`
                             )).join(', ')
-                            }
-                                        
-                                        `
+                            }`
                             : `Top ${totalProviderCount} Cheap ${formatType(type)} Providers in Zip Code ${zipcode} are; ${allProviders?.slice(0, 2).map((item: any, idx: number) => (
-                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels || 'N/A'} Speed: ${item?.providersInfo?.servicesInfo.internetTvBundles.speed || 'N/A'}Mbps Price: $${item?.providersInfo?.proPrice || 'N/A'}`
+                                `${idx + 1}- ${item?.title} Channels: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.channels || 'N/A'} Speed: ${item?.providersInfo?.servicesInfo?.internetTvBundles?.summarySpeed || 'N/A'}Mbps Price: $${item?.providersInfo?.servicesInfo?.internetTvBundles?.price || 'N/A'}`
                             )).join(', ')
                             }`
                 }

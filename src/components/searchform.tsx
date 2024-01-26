@@ -85,7 +85,7 @@ const SearchForm = ({types, closeModal}:any) => {
             types && <div className="flex  mt-6 md:gap-3 md:mt-5 font-[Roboto]">
             <label onClick={()=>setProType('internet')} className='flex cursor-pointer items-center gap-1'> <input type="radio" name="" id="Internet" className="w-10 h-7" checked={proType === 'internet'}/> Internet</label>
             <label onClick={()=>setProType('tv')} className='flex cursor-pointer items-center gap-1'><input type="radio" name="TV" id="" className="w-10 h-7" checked={proType === 'tv'}/> TV</label>
-            <label onClick={()=>setProType('internet-tv')} className='flex cursor-pointer items-center gap-1'><input type="radio" name="" id="Bundle" className="w-10 h-7" checked={proType === 'internet-tv'}/> Bundle</label>
+            <label onClick={()=>setProType('internet-tv')} className='flex cursor-pointer items-center gap-1'><input type="radio" name="" id="Bundle" className="w-10 h-7" checked={proType === 'internet-tv'}/> Internet+TV</label>
           </div>
           }
           {resultNotFound && <div className='w-full py-2 text-red-500'>No Result found! please enter correct zipcode </div>}
