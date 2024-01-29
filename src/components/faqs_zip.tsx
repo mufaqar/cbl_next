@@ -6,7 +6,7 @@ import SearchZipcodeModelBox from './search-zipcode-modelBox'
 
 export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProviderCount, countServiceType, cheepProviders }: any) {
    
-    city = !city ? "" : `${city},`
+    city = !city ? "" : `${zipcode},`
     const { query } = useRouter();
     let state = query.state;
     const [open, setOpen] = useState<any>(1);
@@ -51,7 +51,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 1 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {totalProviderCount} Internet service providers are available in {city} Based on the availability {allProviders[0].title} is the best internet service provider in  <span className=" uppercase">{zipcode}.</span>
+                                {totalProviderCount} Internet service providers are available in {zipcode} Based on the availability {allProviders[0].title} is the best internet service provider in  <span className=" uppercase">{zipcode}.</span>
                             </p>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                             <p className="text-base font-medium mt-5" >
                                 {
                                     allProviders[0]?.title
-                                }  is the fastest internet service provider in {city} and offers max download speeds up to {allProviders[0]?.services_info_internet_services_summary_speed }Mbps in select areas.
+                                }  is the fastest internet service provider in {zipcode} and offers max download speeds up to {allProviders[0]?.services_info_internet_services_summary_speed }Mbps in select areas.
                             </p>
                         </div>
                     </div>
@@ -94,7 +94,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0].title} is the cheapest internet service provider in {city} with price starting from ${allProviders[0]?.providersInfo?.proPrice || allProviders[0]?.pro_price}.
+                                {allProviders[0].title} is the cheapest internet service provider in {zipcode} with price starting from ${allProviders[0]?.providersInfo?.proPrice || allProviders[0]?.pro_price}.
                             </p>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                In {city} internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
+                                In {zipcode} internet speed options can vary among internet service providers but most plans include speeds from 25 mbps to 5000 mbps.
                             </p>
                         </div>
                     </div>
@@ -203,7 +203,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. A few TV service providers in  <span className=" uppercase">{city} </span> offer no contract or month to month services. Call the providers to know more. </p>
+                                Yes. A few TV service providers in  <span className=" uppercase">{zipcode} </span> offer no contract or month to month services. Call the providers to know more. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
@@ -222,7 +222,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {totalProviderCount} TV service providers are available in {city} Based on the availability and pricing {allProviders[0]?.title}  is the best TV service provider in <span className=" uppercase">{zipcode}</span>. </p>
+                                {totalProviderCount} TV service providers are available in {zipcode} Based on the availability and pricing {allProviders[0]?.title}  is the best TV service provider in <span className=" uppercase">{zipcode}</span>. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
@@ -241,7 +241,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 5 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{city} </span> with price starting from ${cheepProviders[0]?.services_info_tv_services_price}   </p>
+                                {allProviders[0]?.title}  is the cheapest TV service provider in  <span className=" uppercase">{zipcode} </span> with price starting from ${cheepProviders[0]?.services_info_tv_services_price}   </p>
                         </div>
                     </div>
                 </>
@@ -308,7 +308,7 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 3 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                Yes. A few service providers in  <span className=" uppercase">{city} </span> offer no contract or month to month services. Check with the providers to know more. </p>
+                                Yes. A few service providers in  <span className=" uppercase">{zipcode} </span> offer no contract or month to month services. Check with the providers to know more. </p>
                         </div>
                     </div>
                     <div className="w-full h-fit border border-[#F0F0F0] rounded-[10px] p-[30px] shadow-[0_15px_15px_rgba(0,0,0,0.05)]">
@@ -326,9 +326,9 @@ export default function Faqs_Zip({ zipcode, city, type, allProviders, totalProvi
                         </div>
                         <div className={`${open === 4 ? 'flex' : 'hidden'} `}>
                             <p className="text-base font-medium mt-5" >
-                                {totalProviderCount}  bundle service providers are available in {city} Based on the availability  {
+                                {totalProviderCount}  bundle service providers are available in {zipcode} Based on the availability  {
                                     allProviders[0]?.title
-                                }  is the best bundle service provider in {city} <span className=" uppercase">{state}.</span>
+                                }  is the best bundle service provider in {zipcode} <span className=" uppercase">{state}.</span>
                             </p>
                         </div>
                     </div>
