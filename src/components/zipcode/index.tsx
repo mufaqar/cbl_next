@@ -55,7 +55,7 @@ console.log("🚀 ~ ZipCodeModule ~ allProviders:", allProviders)
             <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
             <PageHead
                 title={
-                    `${formatType(type)} Providers in ZIP Code ${zipcode} | Top ${totalProviderCount} Options `
+                    `${formatType(type)} Providers in ZIP Code ${zipcode} | Top ${totalProviderCount} Options`
                 }
 
                 description={
@@ -74,11 +74,6 @@ console.log("🚀 ~ ZipCodeModule ~ allProviders:", allProviders)
                             )).join(', ')
                             }`
                 }
-
-
-
-
-
                 url={`https://www.cablemovers.net/${type}/zip-${zipcode}`} curl={`https://www.cablemovers.net/${type}/zip-${zipcode}`}
             />
             <section className="min-h-[40vh]  flex items-center bg-gray-50">
