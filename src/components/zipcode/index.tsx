@@ -55,10 +55,8 @@ console.log("🚀 ~ ZipCodeModule ~ allProviders:", allProviders)
             <SearchZipcodeModelBox setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
             <PageHead
                 title={
-                    `Top ${totalProviderCount} ${formatType(type)} Providers in ZIP Code ${zipcode}  `
+                    `${formatType(type)} Providers in ZIP Code ${zipcode} | Top ${totalProviderCount} Options `
                 }
-
-
 
                 description={
                     type === "internet"
