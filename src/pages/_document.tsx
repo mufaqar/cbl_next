@@ -6,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TNZF6NMR"></script> */}
-        <script async src="/script.js" />
+        <script async src="/script.js" />        
       </Head>
       <body>
       <noscript
@@ -16,7 +16,7 @@ export default function Document() {
         />
         <Main />
         <NextScript />
-        {/* <script async src="/footer-script.js" /> */}
+        <script src="//b-js.ringba.com/CA16708bc067a6445c9f8eb7c27832ba60" async></script>
       </body>
     </Html>
   )
