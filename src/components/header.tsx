@@ -123,8 +123,8 @@ const Header = () => {
                         </li>
                         {/* <Link href="tel:833-592-0098" className="items-center gap-2 text-[#ef9831] font-[Roboto] flex justify-end">
                             <LuPhoneCall size={18} />
-                            <span className="text-base font-normal">833-592-0098</span> */}
-                        </Link>
+                            <span className="text-base font-normal">833-592-0098</span>
+                        </Link> */}
                     </ul>
                 </div>
             </nav>
