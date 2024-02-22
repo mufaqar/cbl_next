@@ -8,16 +8,6 @@ module.exports = {
         destination: '/',
         permanent: true,
       },
-      {
-        source: '/internet',
-        destination: '/internet-tv',
-        permanent: true,
-      },
-      {
-        source: '/ca/glendale',
-        destination: '/az/glendale',
-        permanent: true,
-      },
       { source: '/feed', destination: '/', permanent: true },
       { source: '/feed/', destination: '/', permanent: true },
      
