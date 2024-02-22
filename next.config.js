@@ -9,8 +9,13 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/order-internet-and-tv-service/',
-        destination: '/',
+        source: '/internet',
+        destination: '/internet-tv',
+        permanent: true,
+      },
+      {
+        source: '/ca/glendale',
+        destination: '/az/glendale',
         permanent: true,
       },
       { source: '/feed', destination: '/', permanent: true },
