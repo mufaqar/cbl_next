@@ -121,10 +121,10 @@ const Header = () => {
                         <li className='mb-0' onClick={() => { setOpen(!open) }}>
                             <Link href="/blog" className='text-base font-normal text-[#215690] hover:text-[#ef9831] font-[Roboto]'>Blog</Link>
                         </li>
-                        {/* <Link href="tel:833-592-0098" className="items-center gap-2 text-[#ef9831] font-[Roboto] flex justify-end">
+                        <Link href="tel:833-592-0098" className="items-center gap-2 text-[#ef9831] font-[Roboto] flex justify-end">
                             <LuPhoneCall size={18} />
                             <span className="text-base font-normal">833-592-0098</span>
-                        </Link> */}
+                        </Link>
                     </ul>
                 </div>
             </nav>
