@@ -84,8 +84,7 @@ export default function SProviders({ Provider, city, state }: any) {
         </div>
       </section>
 
-      <section className={`bg-[#215690] px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-5 shadow-sm border-y border-zinc-400/20 z-50  ${nav ? 'fixed bottom-0 left-0 right-0' : 'sticky'
-        }`}>
+      <section className={`bg-[#215690] px-4 grid md:grid-cols-2 gap-7 items-center md:divide-x-2 divide-gray-300 py-5 shadow-sm border-y border-zinc-400/20 z-50`}>
         <div className='md:text-center text-center md:max-w-xs ml-auto md:mr-0 mx-auto flex md:flex-col flex-row gap-2  md:block'>
           <h3 className="md:text-2xl text-lg font-extrabold text-white ">
             Call to order {provider_name}
