@@ -7,7 +7,7 @@ export default function Document() {
       <Head>
         {/* <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TNZF6NMR"></script> */}
         <script async src="/script.js" />
-        <script src="//scripts.iconnode.com/121949.js" async></script>
+        {/* <script src="//scripts.iconnode.com/121949.js" async></script> */}
       </Head>
       <body>
       <noscript
