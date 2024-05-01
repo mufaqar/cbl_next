@@ -26,9 +26,6 @@ https://www.cablemovers.net/cities_4-sitemap.xml
 git remote set-url origin https://github.com/mufaqar/cbl_next.git
 git remote set-url origin https://github.com/rmlk1/cablemovers.git
 
-
-
-
 https://cblproject.cablemovers.net/wp-json/custom/v1/states-cities?posts_per_page=9000&offset=0
 
 https://www.cablemovers.net/zipcode_internet_1-sitemap.xml
