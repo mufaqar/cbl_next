@@ -27,13 +27,16 @@ export default function StateModule({ allcities, state, allProviders }: any) {
 
   const [loading, setloading] = useState(false);
   const { query } = useRouter();
-  const type = query.type || "internet";
+
+  const type = query?.zipcode?.length === 2 ? query?.zipcode?.[0] : "internet";
+  
   const C_State = state.toUpperCase();
 
   allProviders = allProviders.filter((item: any) => item?.providers_types?.some((i: any) => i.toLowerCase() === type));
   const servicesTypes = allProviders.map((item: any) => { return (item.providers_service_types) })
   const newServicesTypes = servicesTypes.map((st: any) => st.map((serviceType: any) => ({ name: serviceType.name, description: serviceType.description })));
   const uniqueServiceType: any = [];
+  console.log("🚀 ~ StateModule ~ allProviders:", allProviders)
 
   const seenNames = new Set();
   newServicesTypes.forEach((st: any) => {

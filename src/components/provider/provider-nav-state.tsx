@@ -5,9 +5,10 @@ import React, { useState } from 'react'
 const Provider_Nav_State = () => {
 
     const {query} = useRouter();
+    console.log("🚀 ~ query:", query)
  
 
-    var new_url = `/${query?.zipcode?.[0]}`;
+    var new_url = query.zipcode.length > 1 ? `/${query?.zipcode?.[1]}` : `/${query?.zipcode?.[0]}`;
 
 
     const [nav, setNav] = useState(false);
@@ -33,17 +34,17 @@ const Provider_Nav_State = () => {
                 <div>
                     <ul className='flex md:gap-3 gap-1.5 items-center'>
                         <li>
-                            <Link href={`${new_url}?type=internet`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
+                            <Link href={`/internet${new_url}`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
                                 Internet Providers
                             </Link>
                         </li>
                         <li>
-                            <Link href={`${new_url}?type=tv`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
+                            <Link href={`/tv${new_url}`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
                                 TV Providers
                             </Link>
                         </li>
                         <li>
-                            <Link href={`${new_url}?type=internet-tv`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
+                            <Link href={`/internet-tv${new_url}`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
                                 Internet and TV Providers
                             </Link>
                         </li>
