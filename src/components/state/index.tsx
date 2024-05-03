@@ -1,5 +1,5 @@
 
-import Provider_Nav_State from '@/components/provider/provider-nav-state';
+
 import Technology_Box from '@/components/provider/technology-box';
 import SearchForm from '@/components/searchform';
 import { CityByStateQuery } from '@/config/query';
@@ -14,6 +14,7 @@ import FastTable_CardProviderState from '@/components/provider/fasttable-cardPro
 import OverView from '@/components/overview';
 import PageHead from '@/components/metas/pagesmeta';
 import { getUniqueCities, formatType } from '@/utils'
+import Provider_Nav_State from '../provider/provider-nav-state';
 
 
 export default function StateModule({ allcities, state, allProviders }: any) {

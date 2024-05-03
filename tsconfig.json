@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/zip-sitemap.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/zip-sitemap.js", "src/components/provider/provider-nav-state.jsx"],
   "exclude": ["node_modules"]
 }
