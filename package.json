@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "sitemap-other": "node ./src/gen-sitemaps/blogs-sitemap.js && node ./src/gen-sitemaps/pages-sitemap.js && node ./src/gen-sitemaps/providers-sitemap.js ",
-    "sitemap-city": "node ./src/gen-sitemaps/cities-sitemap.js && node ./src/gen-sitemaps/states-sitemap.js",
+    "sitemap-city": "node ./src/gen-sitemaps/cities-sitemap.js",
     "sitemap-zipcode": "node ./src/gen-sitemaps/zipcode-sitemap.js",
+    "sitemap-state": "node ./src/gen-sitemaps/states-sitemap.js",
     "sitemap": "npm run sitemap-other && npm run sitemap-city && npm run sitemap-zipcode"
   },
   "dependencies": {
