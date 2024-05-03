@@ -58,10 +58,6 @@ export default function Providers({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  console.log(
-    "🚀 ~ constgetServerSideProps:GetServerSideProps= ~ query:",
-    query
-  );
   var query_state = query?.zipcode?.[0] || "";
   var query_zipcode = query?.zipcode?.[1]?.replace("zip-", "");
 
@@ -75,9 +71,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     if (
       query?.zipcode?.length === 1 ||
       (query?.zipcode?.length === 2 &&
-        (query_state === "internet" ||
-          query_state === "tv" ||
-          query_state === "internet-tv"))
+        ["internet", "tv", "internet-tv"].includes(query_state) &&
+        !query?.zipcode?.[1].includes("zip-"))
     ) {
       var state =
         query?.zipcode?.length === 1
@@ -119,14 +114,15 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
     // if city has bcz (query?.zipcode) has length 3  *** For City Module ***
     if (
-      query?.zipcode?.length === 3 || (
-        query?.zipcode?.length === 2 && (
-          query_state.length === 2
-        )
-      )
+      query?.zipcode?.length === 3 ||
+      (query?.zipcode?.length === 2 &&
+        query_state.length === 2 &&
+        !query?.zipcode?.[1].includes("zip-"))
     ) {
-      var cityParmas = query?.zipcode?.length === 2 ? query?.zipcode?.[1] : query?.zipcode?.[2]
-      console.log("🚀 ~ constgetServerSideProps:GetServerSideProps= ~ cityParmas:", cityParmas)
+      var cityParmas =
+        query?.zipcode?.length === 2
+          ? query?.zipcode?.[1]
+          : query?.zipcode?.[2];
 
       const [cityproviders] = await Promise.all([
         apolloClient.query({
@@ -149,62 +145,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         },
       };
     }
-  } else {
   }
-
-  // if (query_state?.length <= 3 && query_state !== "tv") {
-  //   // For City Module
-  //   if (query_zipcode && !query?.zipcode?.[1]?.includes('zip-')) {
-  //     const [cityproviders] = await Promise.all([
-  //       apolloClient.query({ query: GET_PROVIDERS_CITY, variables: { city: query_zipcode } })
-  //     ]);
-  //     const providers_city_data = cityproviders.data.zones.nodes;
-  //     if (providers_city_data?.length <= 0) {
-  //       return {
-  //         notFound: true,
-  //       };
-  //     }
-  //     const providers_data = await Get_State_by_Multi_Zipcode(providers_city_data);
-  //     return {
-  //       props: {
-  //         CityData: providers_data
-  //       },
-  //     };
-  //   }
-  //   // For State Module
-  //   try {
-  //     const response_city = await fetch(`https://cblproject.cablemovers.net/wp-json/custom/v1/area-zones?state=${query_state}`);
-  //     const providers_state_data = await response_city.json();
-  //     if (providers_state_data?.data?.status === 404) {
-  //       return {
-  //         notFound: true,
-  //       };
-  //     }
-  //     const providers_data = await Get_State_by_Multi_Zipcode(providers_state_data);
-  //     const [cities]: any = await Promise.all([
-  //       apolloClient.query({ query: CITES_by_STATE, variables: { state: query_state } }),
-  //     ]);
-  //     var allcities = cities.data.states.nodes;
-  //     if (providers_data?.providers?.length > 0) {
-  //       return {
-  //         props: {
-  //           StateData: providers_data,
-  //           allcities,
-  //           state: query_state,
-  //         },
-  //       };
-  //     }
-  //   } catch (error) {
-  //     throw new Error('Failed!');
-  //   }
-  // }
-
-  // Provider By Zipcode
-  // if (query_zipcode === '') {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
 
   // check zone exist
   const zoneResponse = await apolloClient.query({
@@ -215,9 +156,9 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   });
   const isZone = zoneResponse.data.zone;
   if (!isZone) {
-    // return {
-    //   notFound: true,
-    // };
+    return {
+      notFound: true,
+    };
   }
 
   const [providers] = await Promise.all([
