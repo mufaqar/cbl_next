@@ -28,50 +28,50 @@ export default CityBox
 export const Cities = [
     {
         name: "Los Angeles",
-        slug: "/ca/los-angeles"
+        slug: "/internet/ca/los-angeles"
     },
     {
         name: "New York",
-        slug: "/ny/new-york"
+        slug: "/internet/ny/new-york"
     },
     {
         name: "Boston",
-        slug: "ma/boston"
+        slug: "/internetma/boston"
     },
     {
         name: "Las Vegas",
-        slug: "/nv/las-vegas"
+        slug: "/internet/nv/las-vegas"
     },
     {
         name: "Phoenix",
-        slug: "/az/phoenix"
+        slug: "/internet/az/phoenix"
     },
     {
         name: "Atlanta",
-        slug: "/ga/atlanta"
+        slug: "/internet/ga/atlanta"
     },
     {
         name: "Houston",
-        slug: "/tx/houston"
+        slug: "/internet/tx/houston"
     },
     {
         name: "Denver",
-        slug: "/co/denver"
+        slug: "/internet/co/denver"
     },
     {
         name: "Orlando",
-        slug: "/fl/orlando"
+        slug: "/internet/fl/orlando"
     },
     {
         name: "Chicago",
-        slug: "/il/chicago"
+        slug: "/internet/il/chicago"
     },
     {
         name: "Detroit",
-        slug: "/mi/detroit"
+        slug: "/internet/mi/detroit"
     },
     {
         name: "Philadelphia",
-        slug: "/pa/philadelphia"
+        slug: "/internet/pa/philadelphia"
     },
 ]
