@@ -8,7 +8,7 @@ const Provider_Nav_State = () => {
     console.log("🚀 ~ query:", query)
  
 
-    var new_url = query.zipcode.length > 1 ? `/${query?.zipcode?.[1]}` : `/${query?.zipcode?.[0]}`;
+    var new_url = query?.zipcode?.length > 1 ? `/${query?.zipcode?.[1]}` : `/${query?.zipcode?.[0]}`;
 
 
     const [nav, setNav] = useState(false);
