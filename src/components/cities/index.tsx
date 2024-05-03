@@ -14,9 +14,11 @@ import {formatType} from '@/utils'
 
 export default function CitiesModule({  allProviders }: any) {
   const { query } = useRouter();
-  const type = query.type || "internet";
+  
+  const type = query?.zipcode?.length === 2 ? "internet" : query?.zipcode?.[0]
+
   const city_code = query?.zipcode?.[1];
-  const state = query?.zipcode?.[0];
+  const state = query?.zipcode?.[2];
   let C_State = (state as string)?.toUpperCase();
 
   const inputString = city_code || "";
