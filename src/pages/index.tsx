@@ -23,15 +23,15 @@ export default function Home({ BlogPosts }: any) {
        <PageHead title="Cable Movers | Find The Best TV and Internet Service Providers" description="Moving or looking to change your service provider, Cable Movers can help. Compare TV and Internet Service Providers, plans and prices by ZIP code." url="https://www.cablemovers.net/" curl="https://www.cablemovers.net/" />
        
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
-            <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
+            <div className="container mx-auto px-4 gap-7 items-center">
                <div className="py-10">
-                  <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
+                  <h1 className="text-3xl md:text-5xl text-center md:leading-tight font-bold text-white">
                      Cable Movers: Find <span className="text-[#ef9831]">TV and Internet Service Providers</span> in your Area.
                   </h1>
-                  <p className='text-[22px] font-normal text-white my-5'>
+                  <p className='text-[22px] text-center md:px-24 font-normal text-white my-5'>
                      Moving or looking to change your service provider, Cable Movers can help. Compare TV and Internet Service Providers, plans and prices by ZIP code.
                   </p>
-                  <div className="">
+                  <div className="flex justify-center">
                      <SearchForm />
                   </div>
                </div>

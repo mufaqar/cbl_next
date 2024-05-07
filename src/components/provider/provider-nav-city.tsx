@@ -47,6 +47,11 @@ const Provider_Nav_City = () => {
                                 Internet and TV Providers
                             </Link>
                         </li>
+                        <li>
+                            <Link href={`/landline/${new_url}`} className='bg-[#ef9831] hover:bg-[#215690] text-white md:text-base text-xs text-center inline-block w-full font-medium font-[Roboto] md:px-3 px-1.5 py-1.5 rounded-3xl'>
+                                Landline Providers
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

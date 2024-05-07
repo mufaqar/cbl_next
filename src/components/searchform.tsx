@@ -2,6 +2,9 @@ import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
 import { useRouter as Router } from 'next/router'
 import React, { useState } from 'react'
+import { FiMapPin } from "react-icons/fi";
+import InputSelect from './inputSelect';
+
 
 const query = `
 query zones($zipcode: String = "") {
@@ -75,19 +78,17 @@ const SearchForm = ({types, closeModal}:any) => {
   return (
     <>
       {loader ? <div className='fixed z-50 inset-0 !w-full bg-black/60 flex items-center flex-col justify-center'><div className="custom-loader"></div></div> :
-        <form>
-          <div className="relative flex items-center w-full m-auto serch_form">
-            <FaMagnifyingGlass className="absolute ml-3" />
-            <input type="text" onKeyDown={handleKeyDown} placeholder="Enter Zip Code" maxLength={5} name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-3 pl-10 pr-8 border outline-none md:w-80 border-zinc-400 rounded-l-md" />
-            <button className="px-4 py-[13px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-r-md" onClick={handleState}>Search</button>
+        <form className='bg-gray-100 rounded-2xl shadow-xl'>
+          <div className="relative sm:flex sm:pl-3 items-center w-full m-auto serch_form">
+            <div className='flex items-center'>
+            <FiMapPin className="absolute text-3xl ml-1 text-[#ef9831]" />
+            <input type="text" onKeyDown={handleKeyDown} placeholder="Enter Zip Code" maxLength={5} name="zip_code" value={zipcode} onChange={(e) => setzipcode(e.target.value)} className="w-full py-5 pl-10 pr-8 outline-none md:w-80 bg-transparent rounded-l-md" />
+            </div>
+           <div className='flex'>
+           <InputSelect setProType={setProType} proType={proType}/>
+            <button className="px-3 md:px-8 py-[20px] font-semibold text-white bg-[#ef9831] border-[#ef9831] rounded-br-2xl sm:rounded-r-2xl" onClick={handleState}>Search</button>
+            </div> 
           </div>
-          {
-            types && <div className="flex  mt-6 md:gap-3 md:mt-5 font-[Roboto]">
-            <label onClick={()=>setProType('internet')} className='flex cursor-pointer items-center gap-1'> <input type="radio" name="" id="Internet" className="w-10 h-7" checked={proType === 'internet'}/> Internet</label>
-            <label onClick={()=>setProType('tv')} className='flex cursor-pointer items-center gap-1'><input type="radio" name="TV" id="" className="w-10 h-7" checked={proType === 'tv'}/> TV</label>
-            <label onClick={()=>setProType('internet-tv')} className='flex cursor-pointer items-center gap-1'><input type="radio" name="" id="Bundle" className="w-10 h-7" checked={proType === 'internet-tv'}/> Internet+TV</label>
-          </div>
-          }
           {resultNotFound && <div className='w-full py-2 text-red-500'>No Result found! please enter correct zipcode </div>}
         </form>
       }
