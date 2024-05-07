@@ -154,19 +154,21 @@ export default function StateModule({ allcities, state, allProviders }: any) {
                   channels: item.services_info_internet_tv_bundles_summary_channel,
                   speed: type === "internet" ? item.services_info_internet_services_speed :
                     type === "tv" ? item.services_info_tv_services_speed :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_speed,
+                      type === "internet-tv" ? item.services_info_internet_tv_bundles_speed :
+                      type === "landline" && item.services_info_internet_services_speed,
                   summery: type === "internet" ? item.services_info_internet_services_features :
                     type === "tv" ? item.services_info_tv_services_features :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_features,
+                      type === "internet-tv" ? item.services_info_internet_tv_bundles_features :
+                      type === "landline" && item.services_info_internet_services_features,
                   price: type === "internet" ? item.services_info_internet_services_price :
                     type === "tv" ? item.services_info_tv_services_price :
-                      type === "internet-tv" && item.services_info_internet_tv_bundles_price,
+                      type === "internet-tv" ? item.services_info_internet_tv_bundles_price :
+                      type === "landline" && item.services_info_internet_services_price 
                 }
 
                 return (
                   <>
                     <ProviderCardState key={idx} count={idx} type={type} item={summaryData} offer={item?.pro_offer} />
-
                   </>
                 )
               })
