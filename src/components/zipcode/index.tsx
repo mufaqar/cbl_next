@@ -102,18 +102,21 @@ console.log("🚀 ~ ZipCodeModule ~ allProviders:", allProviders)
 
                         {
                             allProviders?.map((item: any, idx: number) => {
+                                console.log("🚀 ~ allProviders?.map ~ item:", item)
                                 var summaryData = {
                                     logo: item?.featuredImage?.node?.mediaItemUrl,
                                     provider: item?.title,
                                     type: item.serviceTypes?.nodes,
                                     summery: type === "internet" ? item.providersInfo?.servicesInfo.internetServices :
                                         type === "tv" ? item.providersInfo?.servicesInfo?.tvServices :
-                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles,
+                                            type === "internet-tv" ? item.providersInfo?.servicesInfo?.internetTvBundles :
+                                            type === "landline" && item.providersInfo?.servicesInfo?.internetServices,
                                     mobileNo: item.providersInfo?.proPhone,
                                     slug: item.slug,
                                     price: type === "internet" ? item.providersInfo?.servicesInfo.internetServices.price :
                                         type === "tv" ? item.providersInfo?.servicesInfo?.tvServices.price :
-                                            type === "internet-tv" && item.providersInfo?.servicesInfo?.internetTvBundles.price,
+                                            type === "internet-tv" ? item.providersInfo?.servicesInfo?.internetTvBundles.price :
+                                            type === "landline" && item.providersInfo?.servicesInfo?.internetServices.price,
                                 }
 
                                 return (

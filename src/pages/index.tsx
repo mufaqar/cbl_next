@@ -23,15 +23,15 @@ export default function Home({ BlogPosts }: any) {
        <PageHead title="Cable Movers | Find The Best TV and Internet Service Providers" description="Moving or looking to change your service provider, Cable Movers can help. Compare TV and Internet Service Providers, plans and prices by ZIP code." url="https://www.cablemovers.net/" curl="https://www.cablemovers.net/" />
        
          <section className={`min-h-screen h-full flex items-center bg-[url("/images/slide3.jpg")] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50`}>
-            <div className="container mx-auto px-4 grid md:grid-cols-2 gap-7 items-center">
+            <div className="container mx-auto px-4 gap-7 items-center">
                <div className="py-10">
-                  <h1 className="text-3xl md:text-5xl md:leading-tight font-bold text-white">
+                  <h1 className="text-3xl md:text-5xl text-center md:leading-tight font-bold text-white">
                      Cable Movers: Find <span className="text-[#ef9831]">TV and Internet Service Providers</span> in your Area.
                   </h1>
-                  <p className='text-[22px] font-normal text-white my-5'>
+                  <p className='text-[22px] text-center md:px-24 font-normal text-white my-5'>
                      Moving or looking to change your service provider, Cable Movers can help. Compare TV and Internet Service Providers, plans and prices by ZIP code.
                   </p>
-                  <div className="">
+                  <div className="flex justify-center">
                      <SearchForm />
                   </div>
                </div>
@@ -85,7 +85,7 @@ export default function Home({ BlogPosts }: any) {
                   <h3 className='text-3xl font-bold mb-10'>
                      TV Providers
                   </h3>
-                  <div className='grid md:grid-cols-6 grid-cols-1 gap-7'>
+                  <div className='grid md:grid-cols-6 grid-cols-3 gap-7'>
                      <div className="">
                         <Link href="/providers/directv">
                            <Image src='/images/logo/DIRECTV.jpg' alt="DIRECTV TV plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
@@ -123,7 +123,7 @@ export default function Home({ BlogPosts }: any) {
                   <h3 className='text-3xl font-bold mb-10'>
                      Internet Providers
                   </h3>
-                  <div className='grid md:grid-cols-6 grid-cols-1 gap-7'>
+                  <div className='grid md:grid-cols-6 grid-cols-3 gap-7'>
                      <div className="">
                         <Link href="/providers/spectrum">
                            <Image src='/images/logo/Spectrum.jpg' alt="Spectrum Internet plans and pricing from Cable Movers" width={140} height={50} className='mx-auto' />
@@ -173,9 +173,9 @@ export default function Home({ BlogPosts }: any) {
          </section>
 
          <section className="py-16 bg-[#F3FAFF]">
-            <div className='container mx-auto px-4 my-10 grid md:grid-cols-2 grid-cols-1 gap-5 items-center'>
+            <div className='container mx-auto px-4 my-10 flex lg:flex-row flex-col justify-center gap-5 items-center'>
                <div className="">
-                  <h3 className='md:text-3xl text-2xl font-extrabold leading-normal'>
+                  <h3 className='md:text-3xl text-2xl text-center lg:text-left font-extrabold leading-normal'>
                      Enter your zip code to find providers and plans in your area:
                   </h3>
                </div>
