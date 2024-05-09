@@ -93,8 +93,8 @@ const Select = ({
         type="button"
         className={
           state.showOptions
-            ? "transition transition-all relative w-full bg-transparent rounded-md pl-3 pr-10 py-3 text-left cursor-default outline-none sm:text-sm"
-            : "transition transition-all relative w-full bg-transparent rounded-md pl-3 pr-10 py-3 text-left cursor-default outline-none sm:text-sm"
+            ? "transition transition-all relative w-full bg-transparent rounded-md pl-3 pr-10 pb-[10px] py-1.5 sm:py-3 text-left cursor-default outline-none sm:text-sm"
+            : "transition transition-all relative w-full bg-transparent rounded-md pl-3 pr-10 pb-[10px] py-1.5 sm:py-3 text-left cursor-default outline-none sm:text-sm"
         }
         onClick={handleClick}
       >
@@ -106,7 +106,7 @@ const Select = ({
         </span>
       </button>
       {state.showOptions && (
-        <div className="absolute mt-2 sm:mt-1 w-full z-10 bg-gray-100 rounded-2xl sm:rounded-b-2xl sm:rounded-t-none">
+        <div className="absolute mt-2 sm:mt-1 w-full z-10 bg-gray-100 sm:rounded-b-2xl border border-gray-300 sm:border-none">
           <ul className="max-h-56 rounded-md py-1 text-base overflow-auto focus:outline-none sm:text-sm">
             {options.map((option, idx) => (
               <SelectOption
@@ -125,8 +125,8 @@ const Select = ({
 
 function InputSelect({setProType, proType}) {
   return (
-    <div class="flex flex-col justify-center w-full">
-      <div class="relative sm:max-w-xl sm:mx-auto">
+    <div class="flex flex-col justify-center w-full bg-gray-100">
+      <div class="relative sm:max-w-xl sm:mx-auto border border-gray-300 sm:border-none">
         <div className="w-full sm:w-64">
           <Select options={["Internet", "TV", "Internet Tv", "Landline"]} setProType={setProType} proType={proType}/>
         </div>
