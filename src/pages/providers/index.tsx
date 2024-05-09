@@ -20,7 +20,7 @@ function Providers({ allProviders }: any) {
             <PageHead title="Best TV and Internet Service Providers We Work With | Cable Movers" description="Cable Movers partners with top TV and Internet service providers and offers one stop shop so you can Search, compare and order all on one site." url="https://www.cablemovers.net/providers" />
 
             <section className="min-h-[40vh]  flex items-center bg-[#215690]">
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto px-4 py-5">
                     <div >
                         <h1 className="sm:text-5xl text-2xl font-bold text-center max-w-[850px] mx-auto capitalize leading-10 text-white">
                             Find TV & Internet Service Providers in
@@ -29,7 +29,7 @@ function Providers({ allProviders }: any) {
                         <p className="text-xl text-center font-[Roboto] my-5 text-white">
                             Enter your zip so we can find the best providers in your area:
                         </p>
-                        <div className='grid justify-center'>
+                        <div className='sm:grid justify-center'>
                             <SearchForm />
                         </div>
                     </div>

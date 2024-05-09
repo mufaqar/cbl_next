@@ -179,7 +179,7 @@ export default function Home({ BlogPosts }: any) {
                      Enter your zip code to find providers and plans in your area:
                   </h3>
                </div>
-               <div className='flex md:justify-end justify-center [&>div:nth-child(1)]:mr-0 [&>div:nth-child(1)]:w-fit'>
+               <div className='flex md:justify-end justify-center [&>div:nth-child(1)]:mr-0 [&>div:nth-child(1)]:w-fit w-full'>
                   <SearchForm />
                </div>
             </div>
