@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/zip-sitemap.js", "src/components/inputSelect.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/zip-sitemap.js", "src/components/inputSelect.jsx", "src/components/provider/provider-nav-state.jsx"],
   "exclude": ["node_modules"]
 }

@@ -4,9 +4,8 @@ import React, { useState } from 'react'
 
 const Provider_Nav_State = () => {
 
-    const {query} = useRouter();
-    console.log("🚀 ~ query:", query)
- 
+    const { query } = useRouter();
+
 
     var new_url = query?.zipcode.length > 1 ? `/${query?.zipcode?.[1]}` : `/${query?.zipcode?.[0]}`;
 
