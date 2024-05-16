@@ -97,7 +97,7 @@ export default function SProviders({ Provider, city, state }: any) {
           <h3 className="md:text-2xl text-lg font-extrabold text-center text-white mb-2">
             Check Availability
           </h3>
-          <SearchForm />
+          {/* <SearchForm /> */}
         </div>
       </section>
 

@@ -62,11 +62,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   var query_zipcode = query?.zipcode?.[1]?.replace("zip-", "");
 
   if (
-    query_state === "internet" ||
+    (query_state === "internet" ||
     query_state === "tv" ||
     query_state === "internet-tv" ||
     query_state === "landline" ||
-    query_state.length === 2
+    query_state.length === 2)
   ) {
     // check if only state has
     if (
